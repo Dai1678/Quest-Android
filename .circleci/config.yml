@@ -72,7 +72,7 @@ jobs:
       - attach_workspace: *attach_workspace_quest
       - restore_cache:
           key: gems-{{ checksum "Gemfile.lock" }}
-      - run: bundle install --path vendor/bundle
+      - run: bundle install
       - run:
           name: Run danger
           command: |
