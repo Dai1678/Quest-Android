@@ -65,15 +65,10 @@ jobs:
           path: ~/quest/app/build/reports/tests
 
   danger_test:
-    working_directory: ~/quest
-    docker:
-      - image: circleci/ruby:2.6
-        environment:
-          BUNDLER_VERSION: 2.0.1
+    <<: *defaults
     steps:
       - attach_workspace: *attach_workspace_quest
-      - restore_cache:
-          key: gems-{{ checksum "Gemfile.lock" }}
+      - restore_cache: *restore_gradle_cache
       - run:
           name: setup bundler
           command: |
