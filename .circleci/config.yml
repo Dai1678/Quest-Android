@@ -1,0 +1,86 @@
+version: 2
+cache_keys:
+  gradle_cache:
+    primary: &primary_key_of_gradle_cache gradle-cache-{{ checksum "build.gradle" }}}-{{ checksum "app/build.gradle" }}
+    keys: &all_keys_of_gradle_cache
+      - *primary_key_of_gradle_cache
+
+defaults: &defaults
+  working_directory: ~/quest
+  docker:
+    - image: circleci/android:api-28
+  environment:
+    JVM_OPTS: -Xmx3200m
+    TZ: Asia/Tokyo
+
+jobs:
+  fetch:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache: &restore_gradle_cache
+          keys: *all_keys_of_gradle_cache
+      - run:
+          name: update android sdk
+          command: |
+            echo y | /opt/android/sdk/tools/bin/sdkmanager --include_obsolete "tools"
+            echo y | /opt/android/sdk/tools/bin/sdkmanager --include_obsolete "extras;android;m2repository"
+            echo y | /opt/android/sdk/tools/bin/sdkmanager --include_obsolete "extras;google;google_play_services"
+            echo y | /opt/android/sdk/tools/bin/sdkmanager --include_obsolete "extras;google;m2repository"
+            echo y | /opt/android/sdk/tools/bin/sdkmanager --include_obsolete "platforms;android-28"
+            echo y | /opt/android/sdk/tools/bin/sdkmanager --include_obsolete "build-tools;28.0.0"
+      - run:
+          name: Download Dependencies
+          command: ./gradlew androidDependencies
+      - save_cache:
+          paths:
+            - ~/.android
+            - ~/.gradle
+            - .gradle
+          key: *primary_key_of_gradle_cache
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+
+  test:
+    <<: *defaults
+    steps:
+      - attach_workspace: &attach_workspace_quest
+          at: .
+      - restore_cache: *restore_gradle_cache
+      - run:
+          name: Run Tests
+          command: |
+            ./gradlew test
+            ./gradlew lint test
+      - run: &store_test_result_files
+          name: Store Test Results
+          command: |
+            mkdir -p ~/quest/junit/
+            find . -type f -regex ".*/test-results/*/.*xml" -exec cp {} ~/quest/junit/ \;
+      - store_test_results:
+          path: ~/quest/junit
+      - store_artifacts:
+          path: ~/quest/app/build/reports/tests
+
+  build_debug:
+    <<: *defaults
+    steps:
+      - attach_workspace: *attach_workspace_quest
+      - restore_cache: *restore_gradle_cache
+      - run:
+          name: assembleDebug
+          command: ./gradlew assembleDebug
+
+workflows:
+  version: 2
+  run_ci:
+    jobs:
+      - fetch
+      - test:
+          requires:
+            - fetch
+      - build_debug:
+          requires:
+            - fetch
