@@ -68,7 +68,6 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace: *attach_workspace_quest
-          at: .
       - restore_cache: *restore_gradle_cache
       - run:
           name: danger
