@@ -64,6 +64,18 @@ jobs:
       - store_artifacts:
           path: ~/quest/app/build/reports/tests
 
+  danger_test:
+    <<: *defaults
+    steps:
+      - attach_workspace: *attach_workspace_quest
+        at: .
+      - restore_cache: *restore_gradle_cache
+      - run:
+          name: danger
+          command: |
+            ./ gradlew assembleDebug ktlintCheck
+            bundle exec danger
+
   build_debug:
     <<: *defaults
     steps:
@@ -81,6 +93,12 @@ workflows:
       - test:
           requires:
             - fetch
+      - danger_test:
+          requires:
+            - fetch
+            - test
       - build_debug:
           requires:
             - fetch
+            - test
+            - danger_test
