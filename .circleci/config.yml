@@ -72,7 +72,7 @@ jobs:
       - run:
           name: danger
           command: |
-            ./ gradlew assembleDebug ktlintCheck
+            ./gradlew assembleDebug ktlintCheck
             bundle exec danger
 
   build_debug:
