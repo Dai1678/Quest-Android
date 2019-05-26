@@ -65,15 +65,35 @@ jobs:
           path: ~/quest/app/build/reports/tests
 
   danger_test:
-    <<: *defaults
+    working_directory: ~/quest
+    docker:
+      - image: circleci/ruby:2.4.1
     steps:
       - attach_workspace: *attach_workspace_quest
-      - restore_cache: *restore_gradle_cache
+      - restore_cache:
+          key: gems-{{ checksum "Gemfile.lock" }}
+      - run: bundle install --path vendor/bundle
       - run:
-          name: danger
+          name: Run danger
           command: |
             ./gradlew assembleDebug ktlintCheck
             bundle exec danger
+      - run:
+          name: Move artifacts
+          command: |
+            ARTIFACTS="/tmp/circle_artifacts"
+            mkdir -p "$ARTIFACTS"
+            cp -v "app/build/reports/checkstyle/checkstyle.xml" "$ARTIFACTS/"
+            cp -v "app/build/reports/findbugs/findbugs.xml" "$ARTIFACTS/"
+            cp -v "app/build/reports/pmd/pmd.xml" "$ARTIFACTS/"
+            cp -v "app/build/reports/pmd/cpd.xml" "$ARTIFACTS/"
+            cp -v "app/build/reports/lint-results.xml" "$ARTIFACTS/"
+      - save_cache:
+          paths:
+            - vendor/bundle
+          key: gems-{{ checksum "Gemfile.lock" }}
+      - store_artifacts:
+          path: "/tmp/circle_artifacts"
 
   build_debug:
     <<: *defaults
