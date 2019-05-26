@@ -68,20 +68,11 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace: *attach_workspace_quest
-      - restore_cache: *restore_gradle_cache
-      - run:
-          name: setup bundler
-          command: |
-            sudo gem update --system
-            sudo gem uninstall bundler
-            sudo rm /usr/local/bin/bundle
-            sudo rm /usr/local/bin/bundler
-            sudo gem install bundler
-            bundle install --path vendor/bundle
+      - restore_cache:
+          key: bundle-{{ checksum "Gemfile.lock" }}
       - run:
           name: install dependencies
-          command: |
-            bundle install --path vendor/bundle
+          command: bundle install --path vendor/bundle
       - run:
           name: Run danger
           command: |
