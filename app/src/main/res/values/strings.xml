@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">Quest</string>
+    <!-- common strings -->
+    <string name="app_name" translatable="false">Quest</string>
+    <string name="hospital_number">病院番号</string>
+    <string name="password">パスワード</string>
+    <string name="require_label">必須入力</string>
+    <string name="login">ログイン</string>
+    <string name="patient_add">追加</string>
+    
+    <!-- Login -->
+    
+    <!-- CreatePatient -->
+    <string name="create_patient_fist_name_label">名前</string>
+    <string name="create_patient_last_name_label">名字</string>
+    <string name="create_patient_blank_patient_number_label">空欄の場合は自動で設定されます</string>
+
 </resources>

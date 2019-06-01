@@ -1,0 +1,17 @@
+<resources>
+    <!-- common strings -->
+    <string name="app_name" translatable="false">Quest</string>
+    <string name="hospital_number">Hospital Number</string>
+    <string name="password">Password</string>
+    <string name="require_label">Require</string>
+    <string name="login">Login</string>
+    <string name="patient_add">Add Patient</string>
+
+    <!-- Login -->
+
+    <!-- CreatePatient -->
+    <string name="create_patient_fist_name_label">First Name</string>
+    <string name="create_patient_last_name_label">Last Name</string>
+    <string name="create_patient_blank_patient_number_label">If blank, it will be set automatically</string>
+
+</resources>
