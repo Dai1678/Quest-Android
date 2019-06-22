@@ -1,3 +1,24 @@
 <resources>
-    <string name="app_name">Quest</string>
+    <!-- common strings -->
+    <string name="app_name" translatable="false">Quest</string>
+    <string name="username">ユーザー名</string>
+    <string name="hospital_number">病院番号</string>
+    <string name="password">パスワード</string>
+    <string name="require_label">必須入力です</string>
+    <string name="login">ログイン</string>
+    <string name="add">追加</string>
+    <string name="next">次へ</string>
+
+    <!-- common error strings -->
+    <string name="error_login" translatable="false">Login Error!</string>
+    
+    <!-- Login -->
+    <string name="login_success_message">ログインしました</string>
+    <string name="login_failed_message">ログインに失敗しました</string>
+    
+    <!-- CreatePatient -->
+    <string name="create_patient_fist_name_label">名前</string>
+    <string name="create_patient_last_name_label">名字</string>
+    <string name="create_patient_blank_patient_number_label">空欄の場合は自動で設定されます</string>
+
 </resources>

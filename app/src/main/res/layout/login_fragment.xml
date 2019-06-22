@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="viewModel" type="com.dai1678.quest.ui.login.LoginViewModel"/>
+    </data>
+
+    <ScrollView
+            android:id="@+id/login_fragment_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:layout_gravity="center_horizontal"
+            android:maxWidth="480dp"
+            tools:context=".ui.login.LoginFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <ProgressBar
+                    android:id="@+id/login_progress_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@android:style/Widget.ProgressBar.Large"
+                    tools:visibility="visible"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/login_hospital_number_input_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/component_interval_size"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/login_password_input_layout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:boxCornerRadiusTopStart="@dimen/input_layout_corner_radius"
+                    app:boxCornerRadiusTopEnd="@dimen/input_layout_corner_radius"
+                    app:boxBackgroundColor="@color/colorBoxBackground"
+                    app:errorEnabled="true"
+                    app:hintEnabled="true"
+                    app:hintAnimationEnabled="true"
+                    app:hintTextAppearance="@style/InputLayout.Activate"
+                    app:helperTextEnabled="true"
+                    app:helperText="@string/require_label"
+                    app:helperTextTextAppearance="@style/InputLayout.Activate"
+                    android:layout_marginBottom="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/login_hospital_number_input_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/username"
+                        android:inputType="text"
+                        android:text="@={viewModel.username}"
+                        android:textSize="@dimen/text_size_large"
+                        android:theme="@style/EditText.Style"
+                        android:maxLines="1"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/login_password_input_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/component_interval_size"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    app:layout_constraintTop_toBottomOf="@+id/login_hospital_number_input_layout"
+                    app:layout_constraintBottom_toTopOf="@id/login_button"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:boxCornerRadiusTopStart="@dimen/input_layout_corner_radius"
+                    app:boxCornerRadiusTopEnd="@dimen/input_layout_corner_radius"
+                    app:boxBackgroundColor="@color/colorBoxBackground"
+                    app:errorEnabled="true"
+                    app:hintEnabled="true"
+                    app:hintAnimationEnabled="true"
+                    app:hintTextAppearance="@style/InputLayout.Activate"
+                    app:helperTextEnabled="true"
+                    app:helperText="@string/require_label"
+                    app:helperTextTextAppearance="@style/InputLayout.Activate">
+
+                <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/login_password_input_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/password"
+                        android:inputType="textPassword"
+                        android:text="@={viewModel.password}"
+                        android:textSize="@dimen/text_size_large"
+                        android:theme="@style/EditText.Style"
+                        android:drawableEnd="@drawable/ic_remove_red_eye_black_24dp"
+                        android:maxLines="1"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:id="@+id/login_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/component_interval_size"
+                    android:padding="@dimen/component_interval_size"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:text="@string/login"
+                    android:textSize="@dimen/text_size_medium"
+                    android:textAppearance="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:enabled="@{safeUnbox(viewModel.canSubmit)}"
+                    app:layout_constraintTop_toBottomOf="@+id/login_password_input_layout"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:cornerRadius="@dimen/button_corner_radius"
+                    android:layout_marginTop="8dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+</layout>
