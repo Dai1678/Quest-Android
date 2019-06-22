@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.dai1678.quest.R
 
-class CreatePatientFragment : Fragment() {
+class CreateUserFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -15,6 +15,6 @@ class CreatePatientFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_patient, container, false)
+        return inflater.inflate(R.layout.fragment_create_user, container, false)
     }
 }

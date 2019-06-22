@@ -18,4 +18,7 @@
     <string name="create_patient_last_name_label">Last Name</string>
     <string name="create_patient_blank_patient_number_label">If blank, it will be set automatically</string>
 
+    <!-- Menu -->
+    <string name="menu_create_user">Create new user</string>
+
 </resources>
