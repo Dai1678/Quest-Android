@@ -7,7 +7,9 @@ import java.io.IOException
 
 open class BaseRepository {
 
-    suspend fun <T : Any> safeApiCall(call: suspend () -> Response<T>, error: String): T? {
+    suspend fun <T : Any> safeApiCall(
+        call: suspend () -> Response<T>, error: String
+    ): T? {
         val result = apiOutput(call, error)
         var data: T? = null
         when (result) {
@@ -19,13 +21,19 @@ open class BaseRepository {
         return data
     }
 
-    private suspend fun <T : Any> apiOutput(call: suspend () -> Response<T>, error: String): Result<T> {
+    private suspend fun <T : Any> apiOutput(
+        call: suspend () -> Response<T>, error: String
+    ): Result<T> {
         val response = call.invoke()
         return if (response.isSuccessful) {
             Result.Success(response.body()!!)
         } else {
-            Result.Error(IOException("Error Occurred during getting api result. Here is the ErrorMessage\n$error"))
+            Result.Error(
+                IOException(
+                    "Error Occurred during getting api result.\n" +
+                            "Error message is $error"
+                )
+            )
         }
-
     }
 }

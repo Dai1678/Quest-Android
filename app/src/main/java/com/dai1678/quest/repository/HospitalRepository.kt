@@ -14,14 +14,13 @@ class HospitalRepository : BaseRepository() {
     }
 
     suspend fun login(hospitalNumber: Long, password: String): SuccessResponse? {
-         return safeApiCall(
-             call = {hospitalApi.loginAsync(hospitalNumber, password).await()},
-             error = "Login Error!"
-         )
+        return safeApiCall(
+            call = { hospitalApi.loginAsync(hospitalNumber, password).await() },
+            error = "Login Error!"
+        )
     }
 
     fun fetch() {
         hospitalApi.fetchPatients()
     }
-
 }

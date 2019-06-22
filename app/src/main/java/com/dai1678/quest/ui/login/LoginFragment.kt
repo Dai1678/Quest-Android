@@ -1,7 +1,6 @@
 package com.dai1678.quest.ui.login
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,10 +19,13 @@ class LoginFragment : Fragment() {
     private lateinit var binding: LoginFragmentBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.login_fragment, container, false) as LoginFragmentBinding
+        binding = DataBindingUtil.inflate(
+            inflater, R.layout.login_fragment, container, false
+        ) as LoginFragmentBinding
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
         return binding.root
@@ -32,5 +34,4 @@ class LoginFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
     }
-
 }

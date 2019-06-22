@@ -18,7 +18,5 @@ interface HospitalApi {
 
     // 病院の患者データのフェッチ
     @GET("patients/fetch")
-    fun fetchPatients(
-
-    )
+    fun fetchPatients()
 }

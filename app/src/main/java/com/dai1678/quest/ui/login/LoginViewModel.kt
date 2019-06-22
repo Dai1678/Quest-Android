@@ -31,7 +31,9 @@ class LoginViewModel : ViewModel() {
     // ログインボタンの処理
     fun onClickLogin(view: View) {
         coroutineScope.launch {
-            val response = hospitalRepository.login(hospitalNumber.value!!.toLong(), password.value!!)
+            val response = hospitalRepository.login(
+                hospitalNumber.value!!.toLong(), password.value!!
+            )
             response?.let {
                 startNavigation(it.result, view)
             }
@@ -54,5 +56,4 @@ class LoginViewModel : ViewModel() {
     fun onClickTest() {
         Log.d("test", "test")
     }
-
 }
