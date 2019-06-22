@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.LoginFragmentBinding
+import com.dai1678.quest.ui.patientList.PatientListActivity
 
 class LoginFragment : Fragment() {
 
@@ -52,10 +53,12 @@ class LoginFragment : Fragment() {
     // 画面遷移
     private fun startNavigation(result: Boolean) {
         if (result) {
-            // TODO Navigationで画面遷移
             Toast.makeText(
                 context, resources.getString(R.string.login_success_message), Toast.LENGTH_SHORT
             ).show()
+            val intent = PatientListActivity.createIntent(requireActivity())
+            startActivity(intent)
+            requireActivity().finish()
         } else {
             // TODO ログイン失敗
             Toast.makeText(

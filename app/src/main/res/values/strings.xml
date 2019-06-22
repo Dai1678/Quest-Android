@@ -16,10 +16,13 @@
     <string name="login_success_message">ログインしました</string>
     <string name="login_failed_message">ログインに失敗しました</string>
 
-    <!-- CreatePatient -->
+    <!-- CreateUser -->
     <string name="create_patient_fist_name_label">名前</string>
     <string name="create_patient_last_name_label">名字</string>
     <string name="create_patient_blank_patient_number_label">空欄の場合は自動で設定されます</string>
+
+    <!-- PatientList -->
+    <string name="patient_list_toolbar_title">患者一覧</string>
 
     <!-- Menu -->
     <string name="menu_create_user">新規ユーザー作成</string>
