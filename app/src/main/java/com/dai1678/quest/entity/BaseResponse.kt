@@ -1,17 +1,11 @@
 package com.dai1678.quest.entity
 
-data class BaseResponse<T>(
-    val body: T?,
-    val hasError: Boolean = false,
-    val error: ErrorResponse? = null
-)
-
-data class ErrorResponse(
-    val code: Int,
-    val name: String,
+data class BaseResponse(
     val message: String
 )
 
-data class SuccessResponse(
-    val result: Boolean
+data class LoginResponse(
+    val auth: Boolean,
+    val token: String?,
+    val message: String
 )

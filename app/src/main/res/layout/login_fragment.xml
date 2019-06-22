@@ -20,6 +20,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+            <ProgressBar
+                    android:id="@+id/login_progress_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@android:style/Widget.ProgressBar.Large"
+                    tools:visibility="visible"/>
+
             <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/login_hospital_number_input_layout"
                     android:layout_width="0dp"
@@ -47,9 +59,9 @@
                         android:id="@+id/login_hospital_number_input_edit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/hospital_number"
-                        android:inputType="number"
-                        android:text="@={viewModel.hospitalNumber}"
+                        android:hint="@string/username"
+                        android:inputType="text"
+                        android:text="@={viewModel.username}"
                         android:textSize="@dimen/text_size_large"
                         android:theme="@style/EditText.Style"
                         android:maxLines="1"/>
@@ -83,7 +95,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/password"
-                        android:inputType="number"
+                        android:inputType="textPassword"
                         android:text="@={viewModel.password}"
                         android:textSize="@dimen/text_size_large"
                         android:theme="@style/EditText.Style"
@@ -103,8 +115,7 @@
                     android:text="@string/login"
                     android:textSize="@dimen/text_size_medium"
                     android:textAppearance="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:enabled="@{viewModel.canSubmit}"
-                    android:onClick="@{(view) -> viewModel.onClickLogin(view)}"
+                    android:enabled="@{safeUnbox(viewModel.canSubmit)}"
                     app:layout_constraintTop_toBottomOf="@+id/login_password_input_layout"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
