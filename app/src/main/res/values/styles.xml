@@ -7,7 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/colorPrimaryText</item>
-        <item name="android:textColorSecondary">@color/colorAccent</item>
+        <item name="android:textColorSecondary">@color/colorSecondaryText</item>
     </style>
 
     <style name="InputLayout.Activate" parent="TextAppearance.AppCompat.Caption">
@@ -18,6 +18,11 @@
     <style name="EditText.Style" parent="Base.Widget.AppCompat.EditText">
         <item name="colorControlNormal">@color/colorEditTextBottomBarNormal</item>
         <item name="colorControlActivated">@color/colorEditTextBottomBarActivated</item>
+    </style>
+
+    <style name="ProgressBar.Style" parent="@style/Widget.AppCompat.ProgressBar">
+        <item name="android:progressBackgroundTint">#69f0ae</item>
+        <item name="android:progressTint">#b71c1c</item>
     </style>
 
 </resources>

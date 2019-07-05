@@ -5,16 +5,16 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.login.LoginActivity">
+        tools:context=".ui.create.CreatePatientActivity">
 
     <androidx.appcompat.widget.Toolbar
-            android:id="@+id/login_toolbar"
+            android:id="@+id/create_patient_toolbar"
             android:layout_width="0dp"
             android:layout_height="?attr/actionBarSize"
             android:theme="@style/AppTheme"
-            android:background="?attr/colorPrimary"
-            app:title="@string/login"
-            app:titleTextColor="@android:color/white"
+            android:background="@color/colorPrimary"
+            app:title="@string/patient_create_label"
+            app:titleTextColor="@color/colorAccent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
@@ -22,16 +22,16 @@
     </androidx.appcompat.widget.Toolbar>
 
     <fragment
-            android:id="@+id/nav_host_fragment"
+            android:id="@+id/nav_patient_create_host_fragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_toolbar"
+            app:layout_constraintTop_toBottomOf="@+id/create_patient_toolbar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/navigation"
-            tools:layout="@layout/login_fragment"/>
+            app:navGraph="@navigation/navigation_create_patient"
+            tools:layout="@layout/fragment_create_patient">
+    </fragment>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
