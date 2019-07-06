@@ -2,7 +2,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
-
     <data>
         <variable name="viewModel" type="com.dai1678.quest.ui.login.LoginViewModel"/>
     </data>
@@ -13,12 +12,26 @@
             android:layout_height="match_parent"
             android:fillViewport="true"
             android:layout_gravity="center_horizontal"
-            android:maxWidth="480dp"
+            android:maxWidth="@dimen/layout_max_width"
             tools:context=".ui.login.LoginFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/login_toolbar"
+                    android:layout_width="0dp"
+                    android:layout_height="?attr/actionBarSize"
+                    android:theme="@style/AppTheme"
+                    android:background="@color/colorPrimary"
+                    app:title="@string/login"
+                    app:titleTextColor="@color/colorAccent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+            </androidx.appcompat.widget.Toolbar>
 
             <ProgressBar
                     android:id="@+id/login_progress_bar"
@@ -37,10 +50,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/component_interval_size"
+                    android:layout_marginBottom="@dimen/component_interval_size"
                     android:textColorHint="@color/colorPrimaryDark"
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/login_toolbar"
                     app:layout_constraintBottom_toTopOf="@+id/login_password_input_layout"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:boxCornerRadiusTopStart="@dimen/input_layout_corner_radius"
@@ -52,8 +66,7 @@
                     app:hintTextAppearance="@style/InputLayout.Activate"
                     app:helperTextEnabled="true"
                     app:helperText="@string/require_label"
-                    app:helperTextTextAppearance="@style/InputLayout.Activate"
-                    android:layout_marginBottom="8dp">
+                    app:helperTextTextAppearance="@style/InputLayout.Activate">
 
                 <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/login_hospital_number_input_edit"
@@ -110,6 +123,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/component_interval_size"
+                    android:layout_marginTop="@dimen/component_interval_size"
                     android:padding="@dimen/component_interval_size"
                     android:backgroundTint="@color/colorPrimary"
                     android:text="@string/login"
@@ -120,8 +134,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:cornerRadius="@dimen/button_corner_radius"
-                    android:layout_marginTop="8dp"/>
+                    app:cornerRadius="@dimen/button_corner_radius"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

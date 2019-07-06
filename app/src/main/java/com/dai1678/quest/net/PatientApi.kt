@@ -10,8 +10,8 @@ import retrofit2.http.POST
 interface PatientApi {
 
     @POST("auth/register/patient")
-    suspend fun registerDoctorAsync(
-        @Header("Authorization") Authorization: String,
+    suspend fun registerPatientAsync(
+        @Header("Authorization") authToken: String,
         @Body user: Patient
     ): Response<BaseResponse>
 }

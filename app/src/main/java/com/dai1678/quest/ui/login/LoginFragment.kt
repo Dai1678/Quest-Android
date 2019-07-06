@@ -1,22 +1,25 @@
 package com.dai1678.quest.ui.login
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.LoginFragmentBinding
+import com.dai1678.quest.ui.login.LoginViewModel.AuthenticationState.AUTHENTICATED
+import com.dai1678.quest.ui.login.LoginViewModel.AuthenticationState.INVALID_AUTHENTICATION
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.login_fragment.*
 
 class LoginFragment : Fragment() {
 
-    private val viewModel: LoginViewModel by lazy {
-        ViewModelProviders.of(this.requireActivity()).get(LoginViewModel::class.java)
-    }
+    private val viewModel: LoginViewModel by viewModels()
 
     private lateinit var binding: LoginFragmentBinding
 
@@ -27,40 +30,60 @@ class LoginFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(
             inflater, R.layout.login_fragment, container, false
-        ) as LoginFragmentBinding
+        )
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        binding.loginButton.setOnClickListener {
+        login_button.setOnClickListener {
             binding.loginProgressBar.visibility = View.VISIBLE
             binding.loginButton.isEnabled = false
             viewModel.onClickLogin()
         }
 
-        viewModel.loginStatus.observe(this, Observer {
+        viewModel.authenticationState.observe(viewLifecycleOwner, Observer {
             binding.loginProgressBar.visibility = View.INVISIBLE
             binding.loginButton.isEnabled = true
-            startNavigation(it)
+
+            if (it == AUTHENTICATED) {
+                startNavigation(view)
+            } else if (it == INVALID_AUTHENTICATION) {
+                showLoginError(view)
+            }
         })
     }
 
     // 画面遷移
-    private fun startNavigation(result: Boolean) {
-        if (result) {
-            // TODO Navigationで画面遷移
-            Toast.makeText(
-                context, resources.getString(R.string.login_success_message), Toast.LENGTH_SHORT
-            ).show()
-        } else {
-            // TODO ログイン失敗
-            Toast.makeText(
-                context, resources.getString(R.string.login_failed_message), Toast.LENGTH_SHORT
-            ).show()
-        }
+    private fun startNavigation(view: View) {
+        val navController = findNavController()
+        val snackBar = Snackbar.make(
+            view,
+            R.string.login_success_message,
+            Snackbar.LENGTH_LONG
+        )
+
+        snackBar.view.setBackgroundColor(Color.WHITE)
+
+        snackBar.show()
+
+        navController.navigate(R.id.action_loginFragment_to_patientListFragment)
+    }
+
+    private fun showLoginError(view: View) {
+        val message = requireActivity().applicationContext.getString(R.string.login_failed_message)
+
+        val snackBar = Snackbar.make(
+            view,
+            message,
+            Snackbar.LENGTH_LONG
+        )
+
+        snackBar.view.setBackgroundColor(Color.WHITE)
+
+        snackBar.show()
     }
 }

@@ -6,16 +6,20 @@
     <string name="password">Password</string>
     <string name="require_label">Require</string>
     <string name="login">Login</string>
-    <string name="add">Add</string>
+    <string name="add">Create</string>
     <string name="next">Next</string>
+    <string name="patient_create_label">Create new patient</string>
+    <string name="doctor_create_label">Create new doctor</string>
 
     <!-- Login -->
     <string name="login_success_message">Logged in successfully</string>
     <string name="login_failed_message">Login failed</string>
 
     <!-- CreatePatient -->
-    <string name="create_patient_fist_name_label">First Name</string>
-    <string name="create_patient_last_name_label">Last Name</string>
-    <string name="create_patient_blank_patient_number_label">If blank, it will be set automatically</string>
+    <string name="create_user_fist_name_label">First Name</string>
+    <string name="create_user_last_name_label">Last Name</string>
+
+    <!-- PatientList -->
+    <string name="patient_list_toolbar_title">Patient list</string>
 
 </resources>

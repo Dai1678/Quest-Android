@@ -4,5 +4,5 @@ data class Patient(
     val username: String,
     val firstName: String,
     val lastName: String,
-    val hospitalId: Int
+    val hospitalId: String
 )

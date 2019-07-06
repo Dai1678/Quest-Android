@@ -1,5 +1,6 @@
 package com.dai1678.quest.repository
 
+import android.util.Log
 import com.dai1678.quest.entity.LoginResponse
 import com.dai1678.quest.net.QuestApiClient
 
@@ -14,9 +15,18 @@ class LoginRepository : BaseRepository() {
     }
 
     suspend fun login(username: String, password: String): LoginResponse? {
-        return safeApiCall(
-            call = QuestApiClient.loginApi.loginAsync(username, password),
-            error = "Login Error!"
-        )
+        return try {
+            safeApiCall(
+                call = QuestApiClient.loginApi.loginAsync(username, password),
+                error = "Login Error!"
+            )
+        } catch (e: Exception) {
+            Log.e("Error", e.toString())
+            LoginResponse(
+                auth = false,
+                token = null,
+                user = null
+            )
+        }
     }
 }
