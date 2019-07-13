@@ -6,3 +6,8 @@ data class Patient(
     val lastName: String,
     val hospitalId: String
 )
+
+data class PatientListResponse(
+    val total: Int,
+    val list: List<Patient>
+)
