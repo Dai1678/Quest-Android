@@ -24,5 +24,9 @@
 
     <!-- PatientList -->
     <string name="patient_list_toolbar_title">患者一覧</string>
+    <string name="patient_list_patient_name_ascending_order_label">名前順 (昇順)</string>
+    <string name="patient_list_patient_name_descending_order_label">名前順 (降順)</string>
+    <string name="patient_list_last_questionnaire_label">最終受検日:</string>
+    <string name="patient_list_none_last_questionnaire_label">なし</string>
 
 </resources>

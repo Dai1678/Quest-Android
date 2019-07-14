@@ -52,6 +52,8 @@ class CreatePatientViewModel : ViewModel() {
                     userName,
                     firstName.value!!,
                     lastName.value!!,
+                    null,
+                    Date().toString(),
                     hospitalId
                 )
 

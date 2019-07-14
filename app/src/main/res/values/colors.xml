@@ -5,6 +5,7 @@
     <color name="colorPrimaryDark">#C77800</color>
     <color name="colorAccent">@android:color/white</color>
     <color name="colorPrimaryText">#000000</color>
+    <color name="colorPrimaryPaleText">#87000000</color>
     <color name="colorSecondaryText">#FFFFFF</color>
     <color name="colorBackgroundShadow">#10000000</color>
 

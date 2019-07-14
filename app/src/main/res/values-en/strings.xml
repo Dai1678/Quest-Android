@@ -21,5 +21,9 @@
 
     <!-- PatientList -->
     <string name="patient_list_toolbar_title">Patient list</string>
+    <string name="patient_list_patient_name_ascending_order_label">Patient name order (ASC)</string>
+    <string name="patient_list_patient_name_descending_order_label">Patient name order (DESC)</string>
+    <string name="patient_list_last_questionnaire_label">Final examination date:</string>
+    <string name="patient_list_none_last_questionnaire_label">None</string>
 
 </resources>
