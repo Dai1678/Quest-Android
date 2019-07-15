@@ -43,6 +43,9 @@
                 app:destination="@id/createUserActivity"
                 app:popUpTo="@id/patientListFragment"/>
 
+        <action android:id="@+id/action_patientListFragment_to_diagnosticCheckDialogFragment"
+                app:destination="@id/diagnosticCheckDialogFragment"/>
+
     </fragment>
 
     <fragment android:id="@+id/loginFragment"
@@ -65,5 +68,14 @@
               android:name="com.dai1678.quest.ui.create.CreatePatientActivity"
               android:label="activity_create_patient"
               tools:layout="@layout/activity_create_patient"/>
+
+    <dialog android:id="@+id/diagnosticCheckDialogFragment"
+            android:name="com.dai1678.quest.ui.dialog.DiagnosticCheckDialogFragment">
+
+        <argument android:name="patientFirstName"
+                  android:defaultValue="@null"
+                  app:argType="string"
+                  app:nullable="true"/>
+    </dialog>
 
 </navigation>

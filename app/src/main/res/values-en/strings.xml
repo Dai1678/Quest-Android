@@ -10,6 +10,8 @@
     <string name="next">Next</string>
     <string name="patient_create_label">Create new patient</string>
     <string name="doctor_create_label">Create new doctor</string>
+    <string name="start_diagnosis">Start diagnosis</string>
+    <string name="cancel_diagnosis">Back</string>
 
     <!-- Login -->
     <string name="login_success_message">Logged in successfully</string>
@@ -25,5 +27,11 @@
     <string name="patient_list_patient_name_descending_order_label">Patient name order (DESC)</string>
     <string name="patient_list_last_questionnaire_label">Final examination date:</string>
     <string name="patient_list_none_last_questionnaire_label">None</string>
+
+    <!-- DiagnosticCheckDialog -->
+    <string name="diagnostic_check_dialog_title">\'s diagnosis</string>
+    <string name="diagnostic_check_dialog_message">Press <b>Start diagnosis</b> to go to the questionnaire response
+        screen. \nPlease pass the tablet to the patient to be tested.
+    </string>
 
 </resources>

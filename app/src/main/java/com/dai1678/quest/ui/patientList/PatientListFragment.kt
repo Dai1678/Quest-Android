@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -98,17 +97,20 @@ class PatientListFragment : Fragment() {
         override fun bind(viewBinding: ListItemPatientBinding, position: Int) {
             viewBinding.patientName = "${patient.lastName} ${patient.firstName}"
             viewBinding.lastQuestionnaireTime = "$lastQuestionnaireLabel ${getLastQuestionnaireTime(patient)}"
+
             viewBinding.listItemPatientView.setOnClickListener {
-                // TODO 診断開始確認ダイアログ表示
-                Toast.makeText(context, "test", Toast.LENGTH_SHORT).show()
+                val navController = findNavController()
+                val action = PatientListFragmentDirections.actionPatientListFragmentToDiagnosticCheckDialogFragment()
+                action.patientFirstName = patient.lastName
+                navController.navigate(action)
             }
         }
 
         private fun getLastQuestionnaireTime(patient: Patient): String {
             return if (patient.questionnaireId == null) {
-                formatLastQuestionnaireTime(patient.updatedAt)
-            } else {
                 resources.getString(R.string.patient_list_none_last_questionnaire_label)
+            } else {
+                formatLastQuestionnaireTime(patient.updatedAt)
             }
         }
 

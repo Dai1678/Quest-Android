@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/colorPrimaryText</item>
         <item name="android:textColorSecondary">@color/colorSecondaryText</item>
+        <item name="android:alertDialogTheme">@style/AlertDialog.Style</item>
     </style>
 
     <style name="InputLayout.Activate" parent="TextAppearance.AppCompat.Caption">
@@ -23,6 +24,19 @@
     <style name="ProgressBar.Style" parent="@style/Widget.AppCompat.ProgressBar">
         <item name="android:progressBackgroundTint">#69f0ae</item>
         <item name="android:progressTint">#b71c1c</item>
+    </style>
+
+    <style name="AlertDialog.Style" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+    </style>
+
+    <style name="NegativeButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/colorPrimaryText</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/colorPrimary</item>
     </style>
 
 </resources>

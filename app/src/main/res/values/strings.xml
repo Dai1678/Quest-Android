@@ -10,6 +10,8 @@
     <string name="next">次へ</string>
     <string name="patient_create_label">新規患者作成</string>
     <string name="doctor_create_label">新規医者作成</string>
+    <string name="start_diagnosis">診断を開始</string>
+    <string name="cancel_diagnosis">もどる</string>
 
     <!-- common error strings -->
     <string name="error_login" translatable="false">Login Error!</string>
@@ -28,5 +30,9 @@
     <string name="patient_list_patient_name_descending_order_label">名前順 (降順)</string>
     <string name="patient_list_last_questionnaire_label">最終受検日:</string>
     <string name="patient_list_none_last_questionnaire_label">なし</string>
+
+    <!-- DiagnosticCheckDialog -->
+    <string name="diagnostic_check_dialog_title">さんの診断です</string>
+    <string name="diagnostic_check_dialog_message"><b>診断を開始</b> を押すとアンケートの回答画面に進みます。\n受検する患者に端末を渡してください。</string>
 
 </resources>
