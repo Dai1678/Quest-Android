@@ -1,7 +1,6 @@
 package com.dai1678.quest.ui.patientList
 
 import androidx.lifecycle.*
-import com.dai1678.quest.Quest
 import com.dai1678.quest.entity.Patient
 import com.dai1678.quest.repository.PatientRepository
 import com.dai1678.quest.util.PreferenceService
@@ -67,5 +66,4 @@ class PatientListViewModel : ViewModel() {
         _isLoading.value = true
         getPatientsList()
     }
-
 }

@@ -22,7 +22,12 @@ class PatientRepository : BaseRepository() {
         )
     }
 
-    suspend fun getPatientList(token: String, hospitalId: String, page: Int, limit: Int): PatientListResponse? {
+    suspend fun getPatientList(
+        token: String,
+        hospitalId: String,
+        page: Int,
+        limit: Int
+    ): PatientListResponse? {
         return safeApiCall(
             call = QuestApiClient.patientApi.getPatientListAsync(token, hospitalId, page, limit),
             error = "Get Patient Error!"

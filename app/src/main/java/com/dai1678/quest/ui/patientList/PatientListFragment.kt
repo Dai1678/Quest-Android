@@ -87,27 +87,34 @@ class PatientListFragment : Fragment() {
         }
     }
 
-    inner class HeaderItem(private val sortCategoryName: String) : BindableItem<ListHeaderPatientBinding>() {
+    inner class HeaderItem(private val sortCategoryName: String) :
+        BindableItem<ListHeaderPatientBinding>() {
+
         override fun getLayout() = R.layout.list_header_patient
 
         override fun bind(viewBinding: ListHeaderPatientBinding, position: Int) {
             viewBinding.sortCategoryName = sortCategoryName
-            //TODO bottomLayoutを表示して並び替えメニュー起動 -> 反映
+            // TODO bottomLayoutを表示して並び替えメニュー起動 -> 反映
         }
     }
 
-    inner class BodyItem(private val patient: Patient) : BindableItem<ListItemPatientBinding>() {
-        private val lastQuestionnaireLabel: String = resources.getString(R.string.patient_list_last_questionnaire_label)
+    inner class BodyItem(private val patient: Patient) :
+        BindableItem<ListItemPatientBinding>() {
+
+        private val lastQuestionnaireLabel: String =
+            resources.getString(R.string.patient_list_last_questionnaire_label)
 
         override fun getLayout() = R.layout.list_item_patient
 
         override fun bind(viewBinding: ListItemPatientBinding, position: Int) {
             viewBinding.patientName = "${patient.lastName} ${patient.firstName}"
-            viewBinding.lastQuestionnaireTime = "$lastQuestionnaireLabel ${getLastQuestionnaireTime(patient)}"
+            viewBinding.lastQuestionnaireTime =
+                "$lastQuestionnaireLabel ${getLastQuestionnaireTime(patient)}"
 
             viewBinding.listItemPatientView.setOnClickListener {
                 val navController = findNavController()
-                val action = PatientListFragmentDirections.actionPatientListFragmentToDiagnosticCheckDialogFragment()
+                val action = PatientListFragmentDirections
+                    .actionPatientListFragmentToDiagnosticCheckDialogFragment()
                 action.patientFirstName = patient.lastName
                 navController.navigate(action)
             }

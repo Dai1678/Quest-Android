@@ -1,6 +1,5 @@
 package com.dai1678.quest.ui.dialog
 
-
 import android.app.Dialog
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
@@ -22,8 +21,5 @@ class SuspendCheckDialogFragment : DialogFragment() {
                 dialog.cancel()
             }
         }.create()
-
     }
-
-
 }
