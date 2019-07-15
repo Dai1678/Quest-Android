@@ -114,3 +114,11 @@ task ktlintFormat(type: JavaExec, group: "formatting") {
     args "-F", "--android", "--color", "--reporter=plain", "--reporter=checkstyle,output=${buildDir}/reports/ktlint-results.xml", "src/**/*.kt"
     ignoreExitValue true
 }
+
+dependencies {
+    implementation 'androidx.legacy:legacy-support-v4:+'
+}
+
+dependencies {
+    implementation 'androidx.legacy:legacy-support-v4:+'
+}

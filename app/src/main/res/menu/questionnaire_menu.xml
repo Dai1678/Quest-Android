@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_global_suspend_check_dialog"
+          android:title="@string/suspension_diagnosis"
+          app:showAsAction="never">
+
+    </item>
+</menu>

@@ -76,7 +76,13 @@ class PatientListFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        requireActivity().onBackPressedDispatcher.addCallback {
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            val fragmentManager = requireActivity().supportFragmentManager
+            val backStackCnt = fragmentManager.backStackEntryCount
+            if (backStackCnt > 1) {
+                handleOnBackPressed()
+            }
+
             requireActivity().finish()
         }
     }
@@ -86,6 +92,7 @@ class PatientListFragment : Fragment() {
 
         override fun bind(viewBinding: ListHeaderPatientBinding, position: Int) {
             viewBinding.sortCategoryName = sortCategoryName
+            //TODO bottomLayoutを表示して並び替えメニュー起動 -> 反映
         }
     }
 

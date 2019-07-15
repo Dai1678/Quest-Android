@@ -12,6 +12,7 @@
     <string name="doctor_create_label">Create new doctor</string>
     <string name="start_diagnosis">Start diagnosis</string>
     <string name="cancel_diagnosis">Back</string>
+    <string name="suspension_diagnosis">Suspend answer</string>
 
     <!-- Login -->
     <string name="login_success_message">Logged in successfully</string>
@@ -33,5 +34,11 @@
     <string name="diagnostic_check_dialog_message">Press <b>Start diagnosis</b> to go to the questionnaire response
         screen. \nPlease pass the tablet to the patient to be tested.
     </string>
+
+    <!-- SuspendCheckDialog -->
+    <string name="suspend_check_message">If you press <b>Suspend answer</b>, the previous answer will be deleted\nIs it OK？</string>
+
+    <!--QuestionnaireTop -->
+    <string name="questionnaire_top_toolbar_title">About your health</string>
 
 </resources>
