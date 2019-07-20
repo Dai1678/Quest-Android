@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- common strings -->
     <string name="app_name" translatable="false">Quest</string>
     <string name="username">User Name</string>
@@ -8,6 +8,7 @@
     <string name="login">Login</string>
     <string name="add">Create</string>
     <string name="next">Next</string>
+    <string name="back">Back</string>
     <string name="patient_create_label">Create new patient</string>
     <string name="doctor_create_label">Create new doctor</string>
     <string name="start_diagnosis">Start diagnosis</string>
@@ -36,9 +37,206 @@
     </string>
 
     <!-- SuspendCheckDialog -->
-    <string name="suspend_check_message">If you press <b>Suspend answer</b>, the previous answer will be deleted\nIs it OK？</string>
+    <string name="suspend_check_message">If you press <b>Suspend answer</b>, the previous answer will be deleted\nIs it
+        OK？
+    </string>
 
-    <!--QuestionnaireTop -->
-    <string name="questionnaire_top_toolbar_title">About your health</string>
+    <!--QuestionnaireStart -->
+    <string name="questionnaire_toolbar_title">About your health</string>
+    <string name="questionnaire_start_message1">
+        This survey asks for your views about your health. This information will help keep track of how you feel and how
+        well you are able to do your usual activities. Thank you for completing this survey!
+    </string>
+    <string name="questionnaire_start_message2">For each of the following
+        questions, please check the button that best describes your answer.
+    </string>
+
+    <!-- Questionnaire1 -->
+    <string name="questionnaire_1_number">Q1</string>
+    <string name="questionnaire_1_message">
+        <b>In general, would you say your health is:</b>
+    </string>
+    <string name="questionnaire_1_answer_1">Excellent</string>
+    <string name="questionnaire_1_answer_2">Very Good</string>
+    <string name="questionnaire_1_answer_3">Good</string>
+    <string name="questionnaire_1_answer_4">Fair</string>
+    <string name="questionnaire_1_answer_5">Poor</string>
+
+    <!-- Questionnaire2 -->
+    <string name="questionnaire_2_number">Q2</string>
+    <string name="questionnaire_2_message">
+        <b>Compared to one year ago,</b>
+    </string>
+    <string name="questionnaire_2_answer_1">Much better now than one year ago</string>
+    <string name="questionnaire_2_answer_2">Somewhat better now than one year ago</string>
+    <string name="questionnaire_2_answer_3">About the same</string>
+    <string name="questionnaire_2_answer_4">Somewhat worse now than one year ago</string>
+    <string name="questionnaire_2_answer_5">Much worse than one year ago</string>
+
+    <!-- Questionnaire3 -->
+    <string name="questionnaire_3_number">Q3</string>
+    <string name="questionnaire_3_message">The following items are about activities
+        you might do during a typical day.Does your health now limit you in these activities? If so, how much?
+    </string>
+    <string name="questionnaire_3_a_message">
+        a.
+        <u>Vigorous activities,</u>
+        such as running, lifting heavy objects,
+        participating in strenuous sports
+    </string>
+    <string name="questionnaire_3_b_message">
+        b.
+        <u>Moderate activities,</u>
+        such as moving a table, pushing a vacuum cleaner, bowling, or playing golf
+    </string>
+    <string name="questionnaire_3_c_message">c. Lifting or carrying groceries</string>
+    <string name="questionnaire_3_d_message">d. Climbing <b>several</b> flights of stairs
+    </string>
+    <string name="questionnaire_3_e_message">e. Climbing <b>one</b> flight of stairs
+    </string>
+    <string name="questionnaire_3_f_message">f. Bending, kneeling, or stooping</string>
+    <string name="questionnaire_3_g_message">g. Walking
+        <b>more than a mile</b>
+    </string>
+    <string name="questionnaire_3_h_message">h. Walking
+        <b>several blocks</b>
+    </string>
+    <string name="questionnaire_3_i_message">i. Walking
+        <b>one block</b>
+    </string>
+    <string name="questionnaire_3_j_message">j. Bathing or dressing yourself</string>
+    <string name="questionnaire_3_answer_1">Yes, Limited a Lot</string>
+    <string name="questionnaire_3_answer_2">Yes, Limited a Little</string>
+    <string name="questionnaire_3_answer_3">No, Not limited at All</string>
+
+    <!-- Questionnaire4 -->
+    <string name="questionnaire_4_number">Q4</string>
+    <string name="questionnaire_4_message">During the <b>past 4 weeks,</b> have you had any of the following problems
+        with your work or other regular daily activities <b>as a result of your physical health</b>?
+    </string>
+    <string name="questionnaire_4_a_message">a. Cut down the amount of time you spent on work or other activities
+    </string>
+    <string name="questionnaire_4_b_message">
+        b.
+        <b>Accomplished less</b>
+        than you would like
+    </string>
+    <string name="questionnaire_4_c_message">c. Were limited in the <b>kind</b> of work or other activities
+    </string>
+    <string name="questionnaire_4_d_message">d. Had <b>difficulty</b> performing the work or other activities (for
+        example,
+        it took extra effort)
+    </string>
+    <string name="questionnaire_4_answer_1">Yes</string>
+    <string name="questionnaire_4_answer_2">No</string>
+
+    <!-- Questionnaire5 -->
+    <string name="questionnaire_5_number">Q5</string>
+    <string name="questionnaire_5_message">During the <b>past 4 weeks,</b> have you had any of the following problems
+        with your work or other regular daily activities <b>as a result of any emotional problems</b> (such as feeling
+        depressed or anxious)?
+    </string>
+    <string name="questionnaire_5_a_message">a. Cut down the amount of time you spent on work or other activities
+    </string>
+    <string name="questionnaire_5_b_message">b. <b>Accomplished less</b> than you would like
+    </string>
+    <string name="questionnaire_5_c_message">c. Did not do work or other activities as <b>carefully</b> asu usual
+    </string>
+    <string name="questionnaire_5_answer_1">Yes</string>
+    <string name="questionnaire_5_answer_2">No</string>
+
+    <!-- Questionnaire6 -->
+    <string name="questionnaire_6_number">Q6</string>
+    <string name="questionnaire_6_message">
+        <b>During the past 4 weeks, to what extent has your physical health or emotional problems interfered with your
+            normal social activities with family, friend, neighbors, or groups?
+        </b>
+    </string>
+    <string name="questionnaire_6_answer_1">Not at all</string>
+    <string name="questionnaire_6_answer_2">Slightly</string>
+    <string name="questionnaire_6_answer_3">Moderately</string>
+    <string name="questionnaire_6_answer_4">Quite a bit</string>
+    <string name="questionnaire_6_answer_5">Extremely</string>
+
+    <!-- Questionnaire7 -->
+    <string name="questionnaire_7_number">Q7</string>
+    <string name="questionnaire_7_message">
+        <b>How much bodily pain have you had during the past 4 weeks?</b>
+    </string>
+    <string name="questionnaire_7_answer_1">None</string>
+    <string name="questionnaire_7_answer_2">Very mild</string>
+    <string name="questionnaire_7_answer_3">Mild</string>
+    <string name="questionnaire_7_answer_4">Moderate</string>
+    <string name="questionnaire_7_answer_5">Severe</string>
+    <string name="questionnaire_7_answer_6">Very serve</string>
+
+    <!-- Questionnaire8 -->
+    <string name="questionnaire_8_number">Q8</string>
+    <string name="questionnaire_8_message">
+        <b>During the past 4 weeks, how much did pain interfere with your normal work (including both work outside the
+            home and housework)?
+        </b>
+    </string>
+    <string name="questionnaire_8_answer_1">Not at all</string>
+    <string name="questionnaire_8_answer_2">A little bit</string>
+    <string name="questionnaire_8_answer_3">Moderately</string>
+    <string name="questionnaire_8_answer_4">Quite a bit</string>
+    <string name="questionnaire_8_answer_5">Extremely</string>
+
+    <!-- Questionnaire9 -->
+    <string name="questionnaire_9_number">Q9</string>
+    <string name="questionnaire_9_message">These questions are about how you feel and how things have been with you <b>
+        during the past 4 weeks.
+    </b> For each question, please give the one answer that comes closest to the way you have been feeling.
+    </string>
+    <string name="questionnaire_9_a_message">a. Did you feel full of pep?</string>
+    <string name="questionnaire_9_b_message">b. Have you been a very nervous person?</string>
+    <string name="questionnaire_9_c_message">c. Have you felt so down in the dumps that nothing could cheer you up?
+    </string>
+    <string name="questionnaire_9_d_message">d. Have you felt calm and peaceful?</string>
+    <string name="questionnaire_9_e_message">e. Did you have a lot of energy?</string>
+    <string name="questionnaire_9_f_message">f. Have you felt downhearted and blue?</string>
+    <string name="questionnaire_9_g_message">g. Did you feel worm out?</string>
+    <string name="questionnaire_9_h_message">h. Have you been a happy person?</string>
+    <string name="questionnaire_9_i_message">i. Did you feel tired?</string>
+    <string name="questionnaire_9_answer_1">All of the Time</string>
+    <string name="questionnaire_9_answer_2">Most of the Time</string>
+    <string name="questionnaire_9_answer_3">A Good Bit of the Time</string>
+    <string name="questionnaire_9_answer_4">Some of the Time</string>
+    <string name="questionnaire_9_answer_5">A Little of the Time</string>
+    <string name="questionnaire_9_answer_6" tools:ignore="ExtraTranslation">None of the Time</string>
+
+    <!-- Questionnaire10 -->
+    <string name="questionnaire_10_number">Q10</string>
+    <string name="questionnaire_10_message">
+        <b>During the past 4 weeks, how much of the time has your physical health or emotional problems interfered with
+            your social activities (like visiting with friends, relatives, etc.)?
+        </b>
+    </string>
+    <string name="questionnaire_10_answer_1">All of the time</string>
+    <string name="questionnaire_10_answer_2">Most of the time</string>
+    <string name="questionnaire_10_answer_3">Some of the time</string>
+    <string name="questionnaire_10_answer_4">A little of the time</string>
+    <string name="questionnaire_10_answer_5">None of the time</string>
+
+    <!-- Questionnaire11 -->
+    <string name="questionnaire_11_number">Q11</string>
+    <string name="questionnaire_11_message">
+        <b>How TRUE or FALSE is each of the following statements for you.</b>
+    </string>
+    <string name="questionnaire_11_a_message">a. I seem to get sick a little easier than other people</string>
+    <string name="questionnaire_11_b_message">b. I am as healthy as anybody I know</string>
+    <string name="questionnaire_11_c_message">c. I expect my health to get worse</string>
+    <string name="questionnaire_11_d_message">d. My health is excellent</string>
+    <string name="questionnaire_11_answer_1">Definitely True</string>
+    <string name="questionnaire_11_answer_2">Mostly True</string>
+    <string name="questionnaire_11_answer_3">Do not know</string>
+    <string name="questionnaire_11_answer_4">Mostly False</string>
+    <string name="questionnaire_11_answer_5">Definitely False</string>
+
+    <!-- QuestionnaireEnd -->
+    <string name="questionnaire_end_message1">これでこのアンケートはおわりです。\nご協力ありがとうございました。</string>
+    <string name="questionnaire_end_message2">担当の看護師に端末を渡して下さい。</string>
+    <string name="questionnaire_end_button_text">結果を送信する</string>
 
 </resources>

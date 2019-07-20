@@ -12,14 +12,17 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.dai1678.quest.R
 
 class DiagnosticCheckDialogFragment : DialogFragment() {
 
+    private val args: DiagnosticCheckDialogFragmentArgs by navArgs()
+
     @SuppressLint("SetTextI18n")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
-        val patientName = DiagnosticCheckDialogFragmentArgs.fromBundle(arguments!!).patientFirstName
+        val patientName = args.patientFirstName
 
         val paddingLeftRight =
             TypedValue.applyDimension(
@@ -49,7 +52,7 @@ class DiagnosticCheckDialogFragment : DialogFragment() {
             setPositiveButton(R.string.start_diagnosis) { _, _ ->
                 val navController = findNavController()
                 navController.navigate(
-                    R.id.action_diagnosticCheckDialogFragment_to_questionnaireTopFragment
+                    R.id.action_diagnosticCheckDialogFragment_to_questionnaireActivity
                 )
             }
             setNegativeButton(R.string.cancel_diagnosis) { dialog, _ ->
