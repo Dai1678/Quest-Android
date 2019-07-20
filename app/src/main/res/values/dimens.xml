@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="component_interval_size">8dp</dimen>
-    <dimen name="component_small_icon_size">16dp</dimen>
+    <dimen name="component_interval_size_large">16dp</dimen>
     <dimen name="component_icon_size">24dp</dimen> <!-- + layout_margin interval_size -->
     <dimen name="component_touchable_size">48dp</dimen>
     <dimen name="component_notification_height">64dp</dimen>
@@ -15,6 +15,7 @@
     <dimen name="input_layout_corner_radius">16dp</dimen>
     <dimen name="button_corner_radius">8dp</dimen>
 
+    <dimen name="radio_button_vertical_margin">16dp</dimen>
     <dimen name="layout_margin">24dp</dimen>
     <dimen name="layout_max_width">480dp</dimen>
 </resources>

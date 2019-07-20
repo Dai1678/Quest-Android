@@ -15,6 +15,8 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
+        <activity android:name=".ui.questionnaire.QuestionnaireActivity">
+        </activity>
         <activity android:name=".ui.create.CreatePatientActivity">
         </activity>
         <activity android:name=".ui.MainActivity">

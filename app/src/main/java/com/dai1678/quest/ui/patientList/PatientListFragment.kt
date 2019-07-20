@@ -50,8 +50,7 @@ class PatientListFragment : Fragment() {
         binding.patientListToolbar.apply {
             inflateMenu(R.menu.patient_list_menu)
             setOnMenuItemClickListener {
-                val navController = findNavController()
-                it.onNavDestinationSelected(navController)
+                it.onNavDestinationSelected(findNavController())
             }
         }
 

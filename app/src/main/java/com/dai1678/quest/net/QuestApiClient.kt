@@ -9,7 +9,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
 object QuestApiClient {
-    private const val API_URL = "http://192.168.0.10:3000/api/v1/" // FIXME APIの接続先URLの定義
+    private const val API_URL = "http://192.168.0.13:3000/api/v1/" // FIXME APIの接続先URLの定義
 
     val loginApi: LoginApi = create(LoginApi::class.java)
     val patientApi: PatientApi = create(PatientApi::class.java)

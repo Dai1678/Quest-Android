@@ -15,11 +15,6 @@
             app:popUpTo="@id/navigation_main"
             app:popUpToInclusive="true"/>
 
-    <action android:id="@+id/action_global_suspend_check_dialog"
-            app:destination="@+id/suspendCheckDialogFragment"
-            app:popUpTo="@id/navigation_main"
-            app:popUpToInclusive="true"/>
-
     <fragment android:id="@+id/splashFragment"
               android:name="com.dai1678.quest.ui.splash.SplashFragment"
               tools:layout="@layout/fragment_splash">
@@ -87,30 +82,14 @@
                   app:argType="string"
                   app:nullable="true"/>
 
-        <action android:id="@+id/action_diagnosticCheckDialogFragment_to_questionnaireTopFragment"
-                app:destination="@id/questionnaireTopFragment"
-                app:enterAnim="@anim/nav_default_enter_anim"
-                app:exitAnim="@anim/nav_default_exit_anim"
-                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-                app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <action android:id="@+id/action_diagnosticCheckDialogFragment_to_questionnaireActivity"
+                app:destination="@id/questionnaireActivity"/>
     </dialog>
 
-    <fragment android:id="@+id/questionnaireTopFragment"
-              android:name="com.dai1678.quest.ui.questionnaire.QuestionnaireTopFragment"
-              android:label="QuestionnaireTopFragment"
-              tools:layout="@layout/fragment_questionnaire_top">
 
-        <action android:id="@+id/action_questionnaireTopFragment_to_suspendCheckDialogFragment"
-                app:destination="@id/suspendCheckDialogFragment"
-                app:enterAnim="@anim/nav_default_enter_anim"
-                app:exitAnim="@anim/nav_default_exit_anim"
-                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-                app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
-    </fragment>
-
-    <dialog android:id="@+id/suspendCheckDialogFragment"
-            android:name="com.dai1678.quest.ui.dialog.SuspendCheckDialogFragment"
-            android:label="SuspendCheckDialogFragment">
-    </dialog>
+    <activity android:id="@+id/questionnaireActivity"
+              android:name="com.dai1678.quest.ui.questionnaire.QuestionnaireActivity"
+              android:label="activity_questionnaire"
+              tools:layout="@layout/activity_questionnaire"/>
 
 </navigation>

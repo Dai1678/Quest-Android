@@ -8,6 +8,7 @@
     <string name="login">ログイン</string>
     <string name="add">作成</string>
     <string name="next">次へ進む</string>
+    <string name="back">前に戻る</string>
     <string name="patient_create_label">新規患者作成</string>
     <string name="doctor_create_label">新規医者作成</string>
     <string name="start_diagnosis">診断を開始</string>
@@ -38,15 +39,183 @@
         <b>診断を開始</b>
         を押すとアンケートの回答画面に進みます。\n受検する患者に端末を渡してください。
     </string>
-    
+
     <!-- SuspendCheckDialog -->
     <string name="suspend_check_message">回答を中断を押すと、それまでの回答内容が削除されます。\nよろしいですか？</string>
 
-    <!--QuestionnaireTop -->
-    <string name="questionnaire_top_toolbar_title">あなたの健康について</string>
-    <string name="questionnaire_top_message1" translatable="false">
+    <!--QuestionnaireStart -->
+    <string name="questionnaire_toolbar_title">あなたの健康について</string>
+    <string name="questionnaire_start_message1">
         このアンケートはあなたがご自分の健康をどのように考えているかをおうかがいするものです。あなたが毎日をどのように感じ、日常の活動をどのくらい自由にできるかを知るうえで参考になります。お手数をおかけしますが、何卒ご協力のほど宜しくお願い申し上げます。
     </string>
-    <string name="questionnaire_top_message2" translatable="false">以下のそれぞれの質問について、一番よくあてはまるものに印（☑）をつけてください。</string>
+    <string name="questionnaire_start_message2">以下のそれぞれの質問について、一番よくあてはまるものに印（☑）をつけてください。</string>
+
+    <!-- Questionnaire1 -->
+    <string name="questionnaire_1_number">問1</string>
+    <string name="questionnaire_1_message">あなたの健康状態は?\n（一番よく当てはまるものに☑印をつけて下さい）</string>
+    <string name="questionnaire_1_answer_1">最高に良い</string>
+    <string name="questionnaire_1_answer_2">とても良い</string>
+    <string name="questionnaire_1_answer_3">良い</string>
+    <string name="questionnaire_1_answer_4">あまり良くない</string>
+    <string name="questionnaire_1_answer_5">良くない</string>
+
+    <string-array name="questionnaire_1_answers">
+        <item>@string/questionnaire_1_answer_1</item>
+        <item>@string/questionnaire_1_answer_2</item>
+        <item>@string/questionnaire_1_answer_3</item>
+        <item>@string/questionnaire_1_answer_4</item>
+        <item>@string/questionnaire_1_answer_5</item>
+    </string-array>
+
+    <!-- Questionnaire2 -->
+    <string name="questionnaire_2_number">問2</string>
+    <string name="questionnaire_2_message">1年前と比べて、現在の健康状態はいかがですか。\n（一番よく当てはまるものに☑印をつけて下さい）</string>
+    <string name="questionnaire_2_answer_1">1年前より、はるかに良い</string>
+    <string name="questionnaire_2_answer_2">1年前よりは、やや良い</string>
+    <string name="questionnaire_2_answer_3">1年前と、ほぼ同じ</string>
+    <string name="questionnaire_2_answer_4">1年前ほど、良くない</string>
+    <string name="questionnaire_2_answer_5">1年前より、はるかに悪い</string>
+
+    <!-- Questionnaire3 -->
+    <string name="questionnaire_3_number">問3</string>
+    <string name="questionnaire_3_message">以下の質問は、日常よく行われている活動です。あなたは<u>健康上の理由で</u>、こうした活動をすることがむずかしいと感じますか。むずかしいとすればどのくらいですか。\n（ア〜コまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
+    </string>
+    <string name="questionnaire_3_a_message"><u>激しい活動</u>、例えば、一生けんめい走る、\n重い物を持ち上げる、激しいスポーツをするなど
+    </string>
+    <string name="questionnaire_3_b_message"><u>適度の活動</u>、例えば、家や庭のそうじをする、\n1〜2時間散歩するなど
+    </string>
+    <string name="questionnaire_3_c_message">少し重い物を持ち上げたり、運んだりする\n（例えば買い物袋など）</string>
+    <string name="questionnaire_3_d_message">階段を<u>数階上</u>までのぼる
+    </string>
+    <string name="questionnaire_3_e_message">階段を<u>1階上</u>までのぼる
+    </string>
+    <string name="questionnaire_3_f_message">体を前に曲げる、ひざまずく、かがむ</string>
+    <string name="questionnaire_3_g_message"><u>1キロメートル以上</u>歩く
+    </string>
+    <string name="questionnaire_3_h_message"><u>数百メートルくらい</u>歩く
+    </string>
+    <string name="questionnaire_3_i_message"><u>百メートルくらい</u>歩く
+    </string>
+    <string name="questionnaire_3_j_message">自分でお風呂に入ったり、着がえたりする</string>
+    <string name="questionnaire_3_answer_1">とてもむずかしい</string>
+    <string name="questionnaire_3_answer_2">少しむずかしい</string>
+    <string name="questionnaire_3_answer_3">ぜんぜんむずかしくない</string>
+
+    <!-- Questionnaire4 -->
+    <string name="questionnaire_4_number">問4</string>
+    <string name="questionnaire_4_message"><u>過去1ヶ月間に</u>、仕事やふだんの活動（家事など）をするにあたって、<u>身体的な理由で</u>次のような問題がありましたか。\n（ア〜エまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
+    </string>
+    <string name="questionnaire_4_a_message">仕事やふだんの活動をする<u>時間</u>をへらした
+    </string>
+    <string name="questionnaire_4_b_message">仕事やふだんの活動が\n思ったほど、
+        <u>できなかった</u>
+    </string>
+    <string name="questionnaire_4_c_message">仕事やふだんの活動の<u>内容</u>に\nよっては、できないものがあった
+    </string>
+    <string name="questionnaire_4_d_message">仕事やふだんの活動をする\nことが<u>むずかしかった</u>\n（例えばいつもより努力を\n必要としたなど）
+    </string>
+    <string name="questionnaire_4_answer_1">いつも</string>
+    <string name="questionnaire_4_answer_2">ほとんどいつも</string>
+    <string name="questionnaire_4_answer_3" translatable="false">ときどき</string>
+    <string name="questionnaire_4_answer_4" translatable="false">まれに</string>
+    <string name="questionnaire_4_answer_5" translatable="false">ぜんぜんない</string>
+
+    <!-- Questionnaire5 -->
+    <string name="questionnaire_5_number">問5</string>
+    <string name="questionnaire_5_message"><u>過去1ヵ月間に</u>
+        、仕事やふだんの活動(家事など)をするにあたって、心理的な理由で（例えば、気分がおちこんだり不安を感じたりしたために)、次のような問題がありましたか。（ア〜ウまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
+    </string>
+    <string name="questionnaire_5_a_message">ア）仕事やふだんの活動を\nする<u>時間</u>をへらした
+    </string>
+    <string name="questionnaire_5_b_message">イ）仕事やふだんの活動が\n思ったほど、
+        <u>できなかった</u>
+    </string>
+    <string name="questionnaire_5_c_message">ウ）仕事やふだんの活動が\nいつもほど、<u>集中して</u>\nできなかった
+    </string>
+    <string name="questionnaire_5_answer_1">いつも</string>
+    <string name="questionnaire_5_answer_2">ほとんどいつも</string>
+    <string name="questionnaire_5_answer_3" translatable="false">ときどき</string>
+    <string name="questionnaire_5_answer_4" translatable="false">まれに</string>
+    <string name="questionnaire_5_answer_5" translatable="false">ぜんぜんない</string>
+
+    <!-- Questionnaire6 -->
+    <string name="questionnaire_6_number">問6</string>
+    <string name="questionnaire_6_message"><u>過去１ヶ月間に</u>
+        、家族、友人、近所の人、その他の仲間とのふだんのつきあいが、身体的あるいは心理的な理由で、どのくらい妨げられましたか。\n（一番よくあてはまるものに☑印をつけて下さい）
+    </string>
+    <string name="questionnaire_6_answer_1">ぜんぜん、妨げられなかった</string>
+    <string name="questionnaire_6_answer_2">わずかに、妨げられた</string>
+    <string name="questionnaire_6_answer_3">少し、妨げられた</string>
+    <string name="questionnaire_6_answer_4">かなり、妨げられた</string>
+    <string name="questionnaire_6_answer_5">非常に、妨げられた</string>
+
+    <!-- Questionnaire7 -->
+    <string name="questionnaire_7_number">問7</string>
+    <string name="questionnaire_7_message"><u>過去１ヶ月間に</u>、<u>体の痛み</u>をどのくらい感じましたか。\n（一番よくあてはまるものに☑印をつけて下さい）
+    </string>
+    <string name="questionnaire_7_answer_1">ぜんぜんなかった</string>
+    <string name="questionnaire_7_answer_2">かすかな痛み</string>
+    <string name="questionnaire_7_answer_3">軽い痛み</string>
+    <string name="questionnaire_7_answer_4">中くらいの痛み</string>
+    <string name="questionnaire_7_answer_5">強い痛み</string>
+    <string name="questionnaire_7_answer_6">非常に激しい痛み</string>
+
+    <!-- Questionnaire8 -->
+    <string name="questionnaire_8_number">問8</string>
+    <string name="questionnaire_8_message"><u>過去１ヶ月間に</u>、いつもの仕事（家事も含みます）が<u>痛みのために</u>、どのくらい妨げられましたか。\n（一番よくあてはまるものに☑印をつけて下さい）
+    </string>
+    <string name="questionnaire_8_answer_1">ぜんぜん妨げられなかった</string>
+    <string name="questionnaire_8_answer_2">わずかに、妨げられた</string>
+    <string name="questionnaire_8_answer_3">少し、妨げられた</string>
+    <string name="questionnaire_8_answer_4">かなり、妨げられた</string>
+    <string name="questionnaire_8_answer_5">非常に、妨げられた</string>
+
+    <!-- Questionnaire9 -->
+    <string name="questionnaire_9_number">問9</string>
+    <string name="questionnaire_9_message">次にあげるのは、<u>過去１ヶ月間に</u>、あなたがどのように感じたかについての質問です。\n（ア〜ケまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
+    </string>
+    <string name="questionnaire_9_a_message">ア）元気いっぱいでしたか</string>
+    <string name="questionnaire_9_b_message">イ）かなり神経質でしたか</string>
+    <string name="questionnaire_9_c_message">ウ）どうにもならないくらい、\nきぶんがおちこんでいましたか</string>
+    <string name="questionnaire_9_d_message">エ）おちついていて、おだやかな気分でしたか</string>
+    <string name="questionnaire_9_e_message">オ）活力(エネルギー)に\nあふれていましたか</string>
+    <string name="questionnaire_9_f_message">カ）おちこんで、ゆううつな\n気分でしたか</string>
+    <string name="questionnaire_9_g_message">キ）疲れはてていましたか</string>
+    <string name="questionnaire_9_h_message">ク）楽しい気分でしたか</string>
+    <string name="questionnaire_9_i_message">ケ）疲れを感じましたか</string>
+    <string name="questionnaire_9_answer_1">いつも</string>
+    <string name="questionnaire_9_answer_2">ほとんどいつも</string>
+    <string name="questionnaire_9_answer_3">ときどき</string>
+    <string name="questionnaire_9_answer_4">まれに</string>
+    <string name="questionnaire_9_answer_5">ぜんぜんない</string>
+
+    <!-- Questionnaire10 -->
+    <string name="questionnaire_10_number">問10</string>
+    <string name="questionnaire_10_message"><u>過去１ヶ月間に</u>、友人や親せきを訪ねるなど、人とのつきあいが、<u>身体的あるいは心理的な理由で</u>、時間的にどのくらい妨げられましたか。\n（一番よくあてはまるものに☑印をつけて下さい）
+    </string>
+    <string name="questionnaire_10_answer_1">いつも</string>
+    <string name="questionnaire_10_answer_2">ほとんどいつも</string>
+    <string name="questionnaire_10_answer_3">ときどき</string>
+    <string name="questionnaire_10_answer_4">まれに</string>
+    <string name="questionnaire_10_answer_5">ぜんぜんない</string>
+
+    <!-- Questionnaire11 -->
+    <string name="questionnaire_11_number">問11</string>
+    <string name="questionnaire_11_message">次にあげた各項目はどのくらいあなたにあてはまりますか。\n（ア〜エまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
+    </string>
+    <string name="questionnaire_11_a_message">ア）私は他の人に比べて病気に\nなりやすいと思う</string>
+    <string name="questionnaire_11_b_message">イ）私は、人並みに健康である</string>
+    <string name="questionnaire_11_c_message">ウ）私の健康は悪くなるような\n気がする</string>
+    <string name="questionnaire_11_d_message">エ）私の健康状態は非常に良い</string>
+    <string name="questionnaire_11_answer_1">まったくそのとおり</string>
+    <string name="questionnaire_11_answer_2">ほぼあてはまる</string>
+    <string name="questionnaire_11_answer_3">何とも言えない</string>
+    <string name="questionnaire_11_answer_4">ほとんどあてはまらない</string>
+    <string name="questionnaire_11_answer_5">ぜんぜんあてはまらない</string>
+
+    <!-- QuestionnaireEnd -->
+    <string name="questionnaire_end_message1">これでこのアンケートはおわりです。\nご協力ありがとうございました。</string>
+    <string name="questionnaire_end_message2">担当の看護師に端末を渡して下さい。</string>
+    <string name="questionnaire_end_button_text">結果を送信する</string>
 
 </resources>

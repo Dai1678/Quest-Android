@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -59,31 +61,34 @@ class LoginFragment : Fragment() {
 
     // 画面遷移
     private fun startNavigation(view: View) {
-        val navController = findNavController()
-        val snackBar = Snackbar.make(
+        Snackbar.make(
             view,
             R.string.login_success_message,
             Snackbar.LENGTH_LONG
-        )
+        ).apply {
+            this.view.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary))
+            val snackBarText = this.view.findViewById<TextView>(
+                com.google.android.material.R.id.snackbar_text
+            )
+            snackBarText.setTextColor(Color.WHITE)
+            this.show()
+        }
 
-        snackBar.view.setBackgroundColor(Color.WHITE)
-
-        snackBar.show()
-
-        navController.navigate(R.id.action_loginFragment_to_patientListFragment)
+        findNavController().navigate(R.id.action_loginFragment_to_patientListFragment)
     }
 
     private fun showLoginError(view: View) {
-        val message = requireActivity().applicationContext.getString(R.string.login_failed_message)
-
-        val snackBar = Snackbar.make(
+        Snackbar.make(
             view,
-            message,
+            R.string.login_failed_message,
             Snackbar.LENGTH_LONG
-        )
-
-        snackBar.view.setBackgroundColor(Color.WHITE)
-
-        snackBar.show()
+        ).apply {
+            this.view.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary))
+            val snackBarText = this.view.findViewById<TextView>(
+                com.google.android.material.R.id.snackbar_text
+            )
+            snackBarText.setTextColor(Color.WHITE)
+            this.show()
+        }
     }
 }

@@ -4,7 +4,6 @@ import android.app.Dialog
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
-import androidx.navigation.fragment.findNavController
 import com.dai1678.quest.R
 
 class SuspendCheckDialogFragment : DialogFragment() {
@@ -14,8 +13,7 @@ class SuspendCheckDialogFragment : DialogFragment() {
         return AlertDialog.Builder(requireContext(), R.style.AlertDialog_Style).apply {
             setMessage(R.string.suspend_check_message)
             setPositiveButton(R.string.suspension_diagnosis) { _, _ ->
-                val navController = findNavController()
-                navController.navigate(R.id.action_global_patient_list_fragment)
+                requireActivity().finish()
             }
             setNegativeButton(R.string.cancel_diagnosis) { dialog, _ ->
                 dialog.cancel()

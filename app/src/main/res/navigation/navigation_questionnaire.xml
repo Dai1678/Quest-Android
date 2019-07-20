@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/navigation_questionnaire"
+            app:startDestination="@id/questionnaireStartFragment">
+
+    <action android:id="@+id/action_global_suspend_check_dialog"
+            app:destination="@+id/suspendCheckDialogFragment"
+            app:popUpTo="@id/navigation_questionnaire"
+            app:popUpToInclusive="true"/>
+
+    <fragment android:id="@+id/questionnaireStartFragment"
+              android:name="com.dai1678.quest.ui.questionnaire.QuestionnaireStartFragment"
+              android:label="QuestionnaireStartFragment"
+              tools:layout="@layout/fragment_questionnaire_start">
+
+        <action android:id="@+id/action_questionnaireStartFragment_to_questionnaire1Fragment"
+                app:destination="@id/questionnaire1Fragment"
+                app:popUpTo="@id/questionnaireStartFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+
+    <fragment android:id="@+id/questionnaire1Fragment"
+              android:name="com.dai1678.quest.ui.questionnaire.Questionnaire1Fragment"
+              android:label="Questionnaire1Fragment"
+              tools:layout="@layout/questionnaire_1_fragment"/>
+
+    <dialog android:id="@+id/suspendCheckDialogFragment"
+            android:name="com.dai1678.quest.ui.dialog.SuspendCheckDialogFragment"
+            android:label="SuspendCheckDialogFragment"/>
+
+
+</navigation>
