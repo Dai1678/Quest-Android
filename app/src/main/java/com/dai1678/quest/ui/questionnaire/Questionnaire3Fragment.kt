@@ -1,6 +1,5 @@
 package com.dai1678.quest.ui.questionnaire
 
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -26,7 +25,8 @@ class Questionnaire3Fragment : Fragment() {
     private lateinit var binding: FragmentQuestionnaire3Binding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(
@@ -63,8 +63,10 @@ class Questionnaire3Fragment : Fragment() {
         }
     }
 
-    inner class CardViewItem(private val questionnaireNumber: String, private val questionnaireMessage: String) :
-        BindableItem<CardViewQuestionnaire3Binding>() {
+    inner class CardViewItem(
+        private val questionnaireNumber: String,
+        private val questionnaireMessage: String
+    ) : BindableItem<CardViewQuestionnaire3Binding>() {
 
         override fun getLayout(): Int = R.layout.card_view_questionnaire_3
 
