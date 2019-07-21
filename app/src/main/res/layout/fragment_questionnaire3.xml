@@ -5,12 +5,13 @@
     <data>
         <variable name="viewModel" type="com.dai1678.quest.ui.questionnaire.QuestionnaireViewModel"/>
     </data>
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fillViewport="true"
             android:layout_gravity="center_horizontal"
             android:maxWidth="@dimen/layout_max_width"
+            android:overScrollMode="never"
             tools:context=".ui.questionnaire.Questionnaire3Fragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,116 +37,61 @@
                     android:layout_marginStart="@dimen/component_interval_size_large"
                     android:layout_marginEnd="@dimen/component_interval_size_large"
                     android:text="@string/questionnaire_3_message"
-                    android:textSize="@dimen/text_size_large"
+                    android:textSize="@dimen/text_size_medium"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/questionnaire_3_number_text"
                     app:layout_constraintEnd_toEndOf="parent"/>
 
-            <com.google.android.material.card.MaterialCardView
-                    style="@style/Widget.MaterialComponents.CardView"
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/questionnaire_3_recycler_view"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/layout_margin"
                     app:layout_constraintTop_toBottomOf="@+id/questionnaire_3_message_text"
                     app:layout_constraintStart_toStartOf="@id/questionnaire_3_number_text"
-                    app:layout_constraintEnd_toEndOf="@id/questionnaire_3_message_text">
+                    app:layout_constraintEnd_toEndOf="@id/questionnaire_3_message_text"
+                    tools:listitem="@layout/card_view_questionnaire_3"/>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="16dp"
-                        android:paddingBottom="8dp">
+            <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:id="@+id/questionnaire_3_back_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:layout_marginBottom="@dimen/layout_margin"
+                    android:padding="16dp"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="24dp"
+                    android:backgroundTint="@color/colorAccent"
+                    android:text="@string/back"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_large"
+                    android:textAppearance="@style/Widget.MaterialComponents.Button"
+                    app:cornerRadius="@dimen/button_corner_radius"
+                    app:layout_constraintTop_toBottomOf="@+id/questionnaire_3_recycler_view"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/questionnaire_3_message_text"/>
 
-                    <TextView
-                            android:id="@+id/questionnaire_3_sub_number_a_text"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:text="@string/questionnaire_sub_number_a"
-                            android:textSize="@dimen/text_size_medium"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"/>
-
-                    <TextView
-                            android:id="@+id/questionnaire_3_sub_message_a_text"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginEnd="16dp"
-                            android:text="@string/questionnaire_3_a_message"
-                            android:textSize="@dimen/text_size_medium"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/questionnaire_3_sub_number_a_text"
-                            app:layout_constraintEnd_toEndOf="parent"/>
-
-                    <net.cachapa.expandablelayout.ExpandableLayout
-                            android:id="@+id/questionnaire_3_expandable_weight_a"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            app:el_duration="1000"
-                            app:el_expanded="true"
-                            app:el_parallax="0.5"
-                            app:layout_constraintTop_toBottomOf="@id/questionnaire_3_sub_message_a_text"
-                            app:layout_constraintBottom_toTopOf="@id/questionnaire_3_card_action_button"
-                            app:layout_constraintStart_toStartOf="@id/questionnaire_3_sub_message_a_text">
-
-                        <RadioGroup
-                                android:id="@+id/questionnaire_3_radio_group"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/layout_margin"
-                                android:orientation="vertical">
-
-                            <RadioButton
-                                    android:id="@+id/questionnaire_3_answer_1_radio_button"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginBottom="@dimen/radio_button_vertical_margin"
-                                    android:buttonTint="@color/colorPrimary"
-                                    android:text="@string/questionnaire_3_answer_1"
-                                    android:textSize="@dimen/text_size_large"/>
-
-                            <RadioButton
-                                    android:id="@+id/questionnaire_3_answer_2_radio_button"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginBottom="@dimen/radio_button_vertical_margin"
-                                    android:buttonTint="@color/colorPrimary"
-                                    android:text="@string/questionnaire_3_answer_2"
-                                    android:textSize="@dimen/text_size_large"/>
-
-                            <RadioButton
-                                    android:id="@+id/questionnaire_3_answer_3_radio_button"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginBottom="@dimen/radio_button_vertical_margin"
-                                    android:buttonTint="@color/colorPrimary"
-                                    android:text="@string/questionnaire_3_answer_3"
-                                    android:textSize="@dimen/text_size_large"/>
-
-                        </RadioGroup>
-
-                    </net.cachapa.expandablelayout.ExpandableLayout>
-
-                    <com.google.android.material.button.MaterialButton
-                            style="@style/Widget.MaterialComponents.Button.TextButton"
-                            android:id="@+id/questionnaire_3_card_action_button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:text="@string/questionnaire_expand_text"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="@dimen/text_size_medium"
-                            android:textAppearance="@style/Widget.MaterialComponents.Button.TextButton"
-                            app:layout_constraintStart_toStartOf="@id/questionnaire_3_sub_number_a_text"
-                            app:layout_constraintTop_toBottomOf="@id/questionnaire_3_expandable_weight_a"
-                            app:layout_constraintBottom_toBottomOf="parent"/>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:id="@+id/questionnaire_3_next_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    android:layout_marginBottom="@dimen/layout_margin"
+                    android:padding="16dp"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="24dp"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:text="@string/next"
+                    android:textSize="@dimen/text_size_large"
+                    android:textAppearance="@style/Widget.MaterialComponents.Button"
+                    app:cornerRadius="@dimen/button_corner_radius"
+                    app:layout_constraintTop_toBottomOf="@+id/questionnaire_3_recycler_view"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/questionnaire_3_back_button"
+                    app:layout_constraintEnd_toEndOf="@+id/questionnaire_3_message_text"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </layout>

@@ -29,6 +29,20 @@
     <string name="questionnaire_sub_number_i">ケ</string>
     <string name="questionnaire_sub_number_j">コ)</string>
 
+    <string-array name="questionnaire_sub_numbers">
+        <item>@string/questionnaire_sub_number_a</item>
+        <item>@string/questionnaire_sub_number_b</item>
+        <item>@string/questionnaire_sub_number_c</item>
+        <item>@string/questionnaire_sub_number_d</item>
+        <item>@string/questionnaire_sub_number_e</item>
+        <item>@string/questionnaire_sub_number_f</item>
+        <item>@string/questionnaire_sub_number_g</item>
+        <item>@string/questionnaire_sub_number_h</item>
+        <item>@string/questionnaire_sub_number_i</item>
+        <item>@string/questionnaire_sub_number_j</item>
+
+    </string-array>
+
     <!-- Login -->
     <string name="login_success_message">ログインしました</string>
     <string name="login_failed_message">ログインに失敗しました</string>
@@ -70,14 +84,6 @@
     <string name="questionnaire_1_answer_4">あまり良くない</string>
     <string name="questionnaire_1_answer_5">良くない</string>
 
-    <string-array name="questionnaire_1_answers">
-        <item>@string/questionnaire_1_answer_1</item>
-        <item>@string/questionnaire_1_answer_2</item>
-        <item>@string/questionnaire_1_answer_3</item>
-        <item>@string/questionnaire_1_answer_4</item>
-        <item>@string/questionnaire_1_answer_5</item>
-    </string-array>
-
     <!-- Questionnaire2 -->
     <string name="questionnaire_2_number">問2</string>
     <string name="questionnaire_2_message">1年前と比べて、現在の健康状態はいかがですか。\n（一番よく当てはまるものに☑印をつけて下さい）</string>
@@ -93,9 +99,9 @@
     </string>
     <string name="questionnaire_3_a_message"><u>激しい活動</u>、例えば、一生けんめい走る、重い物を持ち上げる、激しいスポーツをするなど
     </string>
-    <string name="questionnaire_3_b_message"><u>適度の活動</u>、例えば、家や庭のそうじをする、\n1〜2時間散歩するなど
+    <string name="questionnaire_3_b_message"><u>適度の活動</u>、例えば、家や庭のそうじをする、1〜2時間散歩するなど
     </string>
-    <string name="questionnaire_3_c_message">少し重い物を持ち上げたり、運んだりする\n（例えば買い物袋など）</string>
+    <string name="questionnaire_3_c_message">少し重い物を持ち上げたり、運んだりする（例えば買い物袋など）</string>
     <string name="questionnaire_3_d_message">階段を<u>数階上</u>までのぼる
     </string>
     <string name="questionnaire_3_e_message">階段を<u>1階上</u>までのぼる
@@ -111,6 +117,19 @@
     <string name="questionnaire_3_answer_1">とてもむずかしい</string>
     <string name="questionnaire_3_answer_2">少しむずかしい</string>
     <string name="questionnaire_3_answer_3">ぜんぜんむずかしくない</string>
+
+    <string-array name="questionnaire_3_sub_messages">
+        <item>@string/questionnaire_3_a_message</item>
+        <item>@string/questionnaire_3_b_message</item>
+        <item>@string/questionnaire_3_c_message</item>
+        <item>@string/questionnaire_3_d_message</item>
+        <item>@string/questionnaire_3_e_message</item>
+        <item>@string/questionnaire_3_f_message</item>
+        <item>@string/questionnaire_3_g_message</item>
+        <item>@string/questionnaire_3_h_message</item>
+        <item>@string/questionnaire_3_i_message</item>
+        <item>@string/questionnaire_3_j_message</item>
+    </string-array>
 
     <!-- Questionnaire4 -->
     <string name="questionnaire_4_number">問4</string>

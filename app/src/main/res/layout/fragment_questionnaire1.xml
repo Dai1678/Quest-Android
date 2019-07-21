@@ -36,7 +36,7 @@
                     android:layout_marginStart="@dimen/component_interval_size_large"
                     android:layout_marginEnd="@dimen/component_interval_size_large"
                     android:text="@string/questionnaire_1_message"
-                    android:textSize="@dimen/text_size_large"
+                    android:textSize="@dimen/text_size_medium"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/questionnaire_1_number_text"
                     app:layout_constraintEnd_toEndOf="parent"/>
