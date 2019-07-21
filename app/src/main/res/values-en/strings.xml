@@ -14,6 +14,20 @@
     <string name="start_diagnosis">Start diagnosis</string>
     <string name="cancel_diagnosis">Back</string>
     <string name="suspension_diagnosis">Suspend answer</string>
+    <string name="questionnaire_expand_text">Answer</string>
+    <string name="questionnaire_collapsed_text">Close</string>
+
+    <!-- common questionnaire sub number text -->
+    <string name="questionnaire_sub_number_a">a.</string>
+    <string name="questionnaire_sub_number_b">b.</string>
+    <string name="questionnaire_sub_number_c">c.</string>
+    <string name="questionnaire_sub_number_d">d.</string>
+    <string name="questionnaire_sub_number_e">e.</string>
+    <string name="questionnaire_sub_number_f">f.</string>
+    <string name="questionnaire_sub_number_g">g.</string>
+    <string name="questionnaire_sub_number_h">h.</string>
+    <string name="questionnaire_sub_number_i">i.</string>
+    <string name="questionnaire_sub_number_j">j.</string>
 
     <!-- Login -->
     <string name="login_success_message">Logged in successfully</string>
@@ -79,32 +93,30 @@
         you might do during a typical day.Does your health now limit you in these activities? If so, how much?
     </string>
     <string name="questionnaire_3_a_message">
-        a.
         <u>Vigorous activities,</u>
         such as running, lifting heavy objects,
         participating in strenuous sports
     </string>
     <string name="questionnaire_3_b_message">
-        b.
         <u>Moderate activities,</u>
         such as moving a table, pushing a vacuum cleaner, bowling, or playing golf
     </string>
-    <string name="questionnaire_3_c_message">c. Lifting or carrying groceries</string>
-    <string name="questionnaire_3_d_message">d. Climbing <b>several</b> flights of stairs
+    <string name="questionnaire_3_c_message">Lifting or carrying groceries</string>
+    <string name="questionnaire_3_d_message">Climbing <b>several</b> flights of stairs
     </string>
-    <string name="questionnaire_3_e_message">e. Climbing <b>one</b> flight of stairs
+    <string name="questionnaire_3_e_message">Climbing <b>one</b> flight of stairs
     </string>
-    <string name="questionnaire_3_f_message">f. Bending, kneeling, or stooping</string>
-    <string name="questionnaire_3_g_message">g. Walking
+    <string name="questionnaire_3_f_message">Bending, kneeling, or stooping</string>
+    <string name="questionnaire_3_g_message">Walking
         <b>more than a mile</b>
     </string>
-    <string name="questionnaire_3_h_message">h. Walking
+    <string name="questionnaire_3_h_message">Walking
         <b>several blocks</b>
     </string>
-    <string name="questionnaire_3_i_message">i. Walking
+    <string name="questionnaire_3_i_message">Walking
         <b>one block</b>
     </string>
-    <string name="questionnaire_3_j_message">j. Bathing or dressing yourself</string>
+    <string name="questionnaire_3_j_message">Bathing or dressing yourself</string>
     <string name="questionnaire_3_answer_1">Yes, Limited a Lot</string>
     <string name="questionnaire_3_answer_2">Yes, Limited a Little</string>
     <string name="questionnaire_3_answer_3">No, Not limited at All</string>
@@ -114,16 +126,15 @@
     <string name="questionnaire_4_message">During the <b>past 4 weeks,</b> have you had any of the following problems
         with your work or other regular daily activities <b>as a result of your physical health</b>?
     </string>
-    <string name="questionnaire_4_a_message">a. Cut down the amount of time you spent on work or other activities
+    <string name="questionnaire_4_a_message">Cut down the amount of time you spent on work or other activities
     </string>
     <string name="questionnaire_4_b_message">
-        b.
         <b>Accomplished less</b>
         than you would like
     </string>
-    <string name="questionnaire_4_c_message">c. Were limited in the <b>kind</b> of work or other activities
+    <string name="questionnaire_4_c_message">Were limited in the <b>kind</b> of work or other activities
     </string>
-    <string name="questionnaire_4_d_message">d. Had <b>difficulty</b> performing the work or other activities (for
+    <string name="questionnaire_4_d_message">Had <b>difficulty</b> performing the work or other activities (for
         example,
         it took extra effort)
     </string>
@@ -136,11 +147,13 @@
         with your work or other regular daily activities <b>as a result of any emotional problems</b> (such as feeling
         depressed or anxious)?
     </string>
-    <string name="questionnaire_5_a_message">a. Cut down the amount of time you spent on work or other activities
+    <string name="questionnaire_5_a_message">Cut down the amount of time you spent on work or other activities
     </string>
-    <string name="questionnaire_5_b_message">b. <b>Accomplished less</b> than you would like
+    <string name="questionnaire_5_b_message">
+        <b>Accomplished less</b>
+        than you would like
     </string>
-    <string name="questionnaire_5_c_message">c. Did not do work or other activities as <b>carefully</b> asu usual
+    <string name="questionnaire_5_c_message">Did not do work or other activities as <b>carefully</b> asu usual
     </string>
     <string name="questionnaire_5_answer_1">Yes</string>
     <string name="questionnaire_5_answer_2">No</string>
@@ -189,16 +202,16 @@
         during the past 4 weeks.
     </b> For each question, please give the one answer that comes closest to the way you have been feeling.
     </string>
-    <string name="questionnaire_9_a_message">a. Did you feel full of pep?</string>
-    <string name="questionnaire_9_b_message">b. Have you been a very nervous person?</string>
-    <string name="questionnaire_9_c_message">c. Have you felt so down in the dumps that nothing could cheer you up?
+    <string name="questionnaire_9_a_message">Did you feel full of pep?</string>
+    <string name="questionnaire_9_b_message">Have you been a very nervous person?</string>
+    <string name="questionnaire_9_c_message">Have you felt so down in the dumps that nothing could cheer you up?
     </string>
-    <string name="questionnaire_9_d_message">d. Have you felt calm and peaceful?</string>
-    <string name="questionnaire_9_e_message">e. Did you have a lot of energy?</string>
-    <string name="questionnaire_9_f_message">f. Have you felt downhearted and blue?</string>
-    <string name="questionnaire_9_g_message">g. Did you feel worm out?</string>
-    <string name="questionnaire_9_h_message">h. Have you been a happy person?</string>
-    <string name="questionnaire_9_i_message">i. Did you feel tired?</string>
+    <string name="questionnaire_9_d_message">Have you felt calm and peaceful?</string>
+    <string name="questionnaire_9_e_message">Did you have a lot of energy?</string>
+    <string name="questionnaire_9_f_message">Have you felt downhearted and blue?</string>
+    <string name="questionnaire_9_g_message">Did you feel worm out?</string>
+    <string name="questionnaire_9_h_message">Have you been a happy person?</string>
+    <string name="questionnaire_9_i_message">Did you feel tired?</string>
     <string name="questionnaire_9_answer_1">All of the Time</string>
     <string name="questionnaire_9_answer_2">Most of the Time</string>
     <string name="questionnaire_9_answer_3">A Good Bit of the Time</string>
@@ -224,10 +237,10 @@
     <string name="questionnaire_11_message">
         <b>How TRUE or FALSE is each of the following statements for you.</b>
     </string>
-    <string name="questionnaire_11_a_message">a. I seem to get sick a little easier than other people</string>
-    <string name="questionnaire_11_b_message">b. I am as healthy as anybody I know</string>
-    <string name="questionnaire_11_c_message">c. I expect my health to get worse</string>
-    <string name="questionnaire_11_d_message">d. My health is excellent</string>
+    <string name="questionnaire_11_a_message">I seem to get sick a little easier than other people</string>
+    <string name="questionnaire_11_b_message">I am as healthy as anybody I know</string>
+    <string name="questionnaire_11_c_message">I expect my health to get worse</string>
+    <string name="questionnaire_11_d_message">My health is excellent</string>
     <string name="questionnaire_11_answer_1">Definitely True</string>
     <string name="questionnaire_11_answer_2">Mostly True</string>
     <string name="questionnaire_11_answer_3">Do not know</string>
@@ -235,8 +248,10 @@
     <string name="questionnaire_11_answer_5">Definitely False</string>
 
     <!-- QuestionnaireEnd -->
-    <string name="questionnaire_end_message1">これでこのアンケートはおわりです。\nご協力ありがとうございました。</string>
-    <string name="questionnaire_end_message2">担当の看護師に端末を渡して下さい。</string>
-    <string name="questionnaire_end_button_text">結果を送信する</string>
+    <string name="questionnaire_end_message1">
+        This is the end of the survey.\nThank you for your cooperation.
+    </string>
+    <string name="questionnaire_end_message2">Please give the tablet to your nurse.</string>
+    <string name="questionnaire_end_button_text">Send result</string>
 
 </resources>

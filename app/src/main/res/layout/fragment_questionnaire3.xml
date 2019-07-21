@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="viewModel" type="com.dai1678.quest.ui.questionnaire.QuestionnaireViewModel"/>
+    </data>
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:layout_gravity="center_horizontal"
+            android:maxWidth="@dimen/layout_max_width"
+            tools:context=".ui.questionnaire.Questionnaire3Fragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:id="@+id/questionnaire_3_number_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/component_interval_size_large"
+                    android:layout_marginStart="@dimen/component_interval_size_large"
+                    android:text="@string/questionnaire_3_number"
+                    android:textSize="@dimen/text_size_medium"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                    android:id="@+id/questionnaire_3_message_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/component_interval_size_large"
+                    android:layout_marginStart="@dimen/component_interval_size_large"
+                    android:layout_marginEnd="@dimen/component_interval_size_large"
+                    android:text="@string/questionnaire_3_message"
+                    android:textSize="@dimen/text_size_large"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/questionnaire_3_number_text"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.MaterialComponents.CardView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin"
+                    app:layout_constraintTop_toBottomOf="@+id/questionnaire_3_message_text"
+                    app:layout_constraintStart_toStartOf="@id/questionnaire_3_number_text"
+                    app:layout_constraintEnd_toEndOf="@id/questionnaire_3_message_text">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="8dp">
+
+                    <TextView
+                            android:id="@+id/questionnaire_3_sub_number_a_text"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:text="@string/questionnaire_sub_number_a"
+                            android:textSize="@dimen/text_size_medium"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                            android:id="@+id/questionnaire_3_sub_message_a_text"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="16dp"
+                            android:text="@string/questionnaire_3_a_message"
+                            android:textSize="@dimen/text_size_medium"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/questionnaire_3_sub_number_a_text"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <net.cachapa.expandablelayout.ExpandableLayout
+                            android:id="@+id/questionnaire_3_expandable_weight_a"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            app:el_duration="1000"
+                            app:el_expanded="true"
+                            app:el_parallax="0.5"
+                            app:layout_constraintTop_toBottomOf="@id/questionnaire_3_sub_message_a_text"
+                            app:layout_constraintBottom_toTopOf="@id/questionnaire_3_card_action_button"
+                            app:layout_constraintStart_toStartOf="@id/questionnaire_3_sub_message_a_text">
+
+                        <RadioGroup
+                                android:id="@+id/questionnaire_3_radio_group"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/layout_margin"
+                                android:orientation="vertical">
+
+                            <RadioButton
+                                    android:id="@+id/questionnaire_3_answer_1_radio_button"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/radio_button_vertical_margin"
+                                    android:buttonTint="@color/colorPrimary"
+                                    android:text="@string/questionnaire_3_answer_1"
+                                    android:textSize="@dimen/text_size_large"/>
+
+                            <RadioButton
+                                    android:id="@+id/questionnaire_3_answer_2_radio_button"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/radio_button_vertical_margin"
+                                    android:buttonTint="@color/colorPrimary"
+                                    android:text="@string/questionnaire_3_answer_2"
+                                    android:textSize="@dimen/text_size_large"/>
+
+                            <RadioButton
+                                    android:id="@+id/questionnaire_3_answer_3_radio_button"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="@dimen/radio_button_vertical_margin"
+                                    android:buttonTint="@color/colorPrimary"
+                                    android:text="@string/questionnaire_3_answer_3"
+                                    android:textSize="@dimen/text_size_large"/>
+
+                        </RadioGroup>
+
+                    </net.cachapa.expandablelayout.ExpandableLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            android:id="@+id/questionnaire_3_card_action_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:text="@string/questionnaire_expand_text"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/text_size_medium"
+                            android:textAppearance="@style/Widget.MaterialComponents.Button.TextButton"
+                            app:layout_constraintStart_toStartOf="@id/questionnaire_3_sub_number_a_text"
+                            app:layout_constraintTop_toBottomOf="@id/questionnaire_3_expandable_weight_a"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>

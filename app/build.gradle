@@ -29,6 +29,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
@@ -67,7 +70,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
 
     // Navigation
-    def navigation_version = '2.1.0-alpha06'
+    def navigation_version = '2.1.0-beta02'
     implementation "androidx.navigation:navigation-fragment:$navigation_version"
     implementation "androidx.navigation:navigation-ui:$navigation_version"
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
@@ -82,6 +85,9 @@ dependencies {
     implementation 'com.xwray:groupie:2.3.0'
     implementation 'com.xwray:groupie-kotlin-android-extensions:2.3.0'
     implementation 'com.xwray:groupie-databinding:2.3.0'
+
+    // Expandable Layout
+    implementation 'net.cachapa.expandablelayout:expandablelayout:2.9.2'
 }
 
 configurations {
