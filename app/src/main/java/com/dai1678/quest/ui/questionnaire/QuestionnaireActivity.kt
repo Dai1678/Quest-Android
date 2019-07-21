@@ -2,11 +2,9 @@ package com.dai1678.quest.ui.questionnaire
 
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.Navigation
-import androidx.navigation.ui.NavigationUI
+import androidx.navigation.findNavController
 import com.dai1678.quest.R
 import kotlinx.android.synthetic.main.activity_questionnaire.*
 
@@ -20,15 +18,19 @@ class QuestionnaireActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        MenuInflater(this).inflate(R.menu.questionnaire_menu, menu)
-        return super.onCreateOptionsMenu(menu)
+        menuInflater.inflate(R.menu.questionnaire_menu, menu)
+        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        NavigationUI.onNavDestinationSelected(
-            item,
-            Navigation.findNavController(this, R.id.nav_questionnaire_host_fragment)
-        )
-        return super.onOptionsItemSelected(item)
+        return when (item.itemId) {
+            R.id.menu_to_suspend_check_dialog -> {
+                findNavController(R.id.nav_questionnaire_host_fragment)
+                    .navigate(R.id.action_global_suspend_check_dialog)
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
