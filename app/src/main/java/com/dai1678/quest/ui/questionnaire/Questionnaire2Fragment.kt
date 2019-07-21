@@ -9,12 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.dai1678.quest.R
-import com.dai1678.quest.databinding.FragmentQuestionnaire1Binding
+import com.dai1678.quest.databinding.FragmentQuestionnaire2Binding
 
-class Questionnaire1Fragment : Fragment() {
+class Questionnaire2Fragment : Fragment() {
 
     private val viewModel: QuestionnaireViewModel by activityViewModels()
-    private lateinit var binding: FragmentQuestionnaire1Binding
+    private lateinit var binding: FragmentQuestionnaire2Binding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,7 +22,7 @@ class Questionnaire1Fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_questionnaire1, container, false
+            inflater, R.layout.fragment_questionnaire2, container, false
         )
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
@@ -34,14 +34,12 @@ class Questionnaire1Fragment : Fragment() {
 
         val navController = findNavController()
 
-        binding.questionnaire1BackButton.setOnClickListener {
+        binding.questionnaire2BackButton.setOnClickListener {
             navController.popBackStack()
         }
 
-        binding.questionnaire1NextButton.setOnClickListener {
-            navController.navigate(
-                R.id.action_questionnaire1Fragment_to_questionnaire2Fragment
-            )
+        binding.questionnaire2NextButton.setOnClickListener {
+            // TODO Questionnaire3Fragmentにnavigate
         }
     }
 }

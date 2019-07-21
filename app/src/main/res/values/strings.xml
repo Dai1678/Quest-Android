@@ -41,7 +41,7 @@
     </string>
 
     <!-- SuspendCheckDialog -->
-    <string name="suspend_check_message">回答を中断を押すと、それまでの回答内容が削除されます。\nよろしいですか？</string>
+    <string name="suspend_check_message">回答を中断を押すと、それまでに回答した内容が削除されます。\nよろしいですか？</string>
 
     <!--QuestionnaireStart -->
     <string name="questionnaire_toolbar_title">あなたの健康について</string>
@@ -122,7 +122,8 @@
 
     <!-- Questionnaire5 -->
     <string name="questionnaire_5_number">問5</string>
-    <string name="questionnaire_5_message"><u>過去1ヵ月間に</u>
+    <string name="questionnaire_5_message">
+        <u>過去1ヵ月間に</u>
         、仕事やふだんの活動(家事など)をするにあたって、心理的な理由で（例えば、気分がおちこんだり不安を感じたりしたために)、次のような問題がありましたか。（ア〜ウまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
     </string>
     <string name="questionnaire_5_a_message">ア）仕事やふだんの活動を\nする<u>時間</u>をへらした
@@ -140,7 +141,8 @@
 
     <!-- Questionnaire6 -->
     <string name="questionnaire_6_number">問6</string>
-    <string name="questionnaire_6_message"><u>過去１ヶ月間に</u>
+    <string name="questionnaire_6_message">
+        <u>過去１ヶ月間に</u>
         、家族、友人、近所の人、その他の仲間とのふだんのつきあいが、身体的あるいは心理的な理由で、どのくらい妨げられましたか。\n（一番よくあてはまるものに☑印をつけて下さい）
     </string>
     <string name="questionnaire_6_answer_1">ぜんぜん、妨げられなかった</string>
