@@ -14,9 +14,34 @@
     <string name="start_diagnosis">診断を開始</string>
     <string name="cancel_diagnosis">もどる</string>
     <string name="suspension_diagnosis">回答を中断</string>
+    <string name="questionnaire_expand_text">答える</string>
+    <string name="questionnaire_collapsed_text">閉じる</string>
 
-    <!-- common error strings -->
-    <string name="error_login" translatable="false">Login Error!</string>
+    <!-- common questionnaire sub number text -->
+    <string name="questionnaire_sub_number_a">ア)</string>
+    <string name="questionnaire_sub_number_b">イ)</string>
+    <string name="questionnaire_sub_number_c">ウ)</string>
+    <string name="questionnaire_sub_number_d">エ)</string>
+    <string name="questionnaire_sub_number_e">オ)</string>
+    <string name="questionnaire_sub_number_f">カ)</string>
+    <string name="questionnaire_sub_number_g">キ)</string>
+    <string name="questionnaire_sub_number_h">ク)</string>
+    <string name="questionnaire_sub_number_i">ケ</string>
+    <string name="questionnaire_sub_number_j">コ)</string>
+
+    <string-array name="questionnaire_sub_numbers">
+        <item>@string/questionnaire_sub_number_a</item>
+        <item>@string/questionnaire_sub_number_b</item>
+        <item>@string/questionnaire_sub_number_c</item>
+        <item>@string/questionnaire_sub_number_d</item>
+        <item>@string/questionnaire_sub_number_e</item>
+        <item>@string/questionnaire_sub_number_f</item>
+        <item>@string/questionnaire_sub_number_g</item>
+        <item>@string/questionnaire_sub_number_h</item>
+        <item>@string/questionnaire_sub_number_i</item>
+        <item>@string/questionnaire_sub_number_j</item>
+
+    </string-array>
 
     <!-- Login -->
     <string name="login_success_message">ログインしました</string>
@@ -59,14 +84,6 @@
     <string name="questionnaire_1_answer_4">あまり良くない</string>
     <string name="questionnaire_1_answer_5">良くない</string>
 
-    <string-array name="questionnaire_1_answers">
-        <item>@string/questionnaire_1_answer_1</item>
-        <item>@string/questionnaire_1_answer_2</item>
-        <item>@string/questionnaire_1_answer_3</item>
-        <item>@string/questionnaire_1_answer_4</item>
-        <item>@string/questionnaire_1_answer_5</item>
-    </string-array>
-
     <!-- Questionnaire2 -->
     <string name="questionnaire_2_number">問2</string>
     <string name="questionnaire_2_message">1年前と比べて、現在の健康状態はいかがですか。\n（一番よく当てはまるものに☑印をつけて下さい）</string>
@@ -78,13 +95,13 @@
 
     <!-- Questionnaire3 -->
     <string name="questionnaire_3_number">問3</string>
-    <string name="questionnaire_3_message">以下の質問は、日常よく行われている活動です。あなたは<u>健康上の理由で</u>、こうした活動をすることがむずかしいと感じますか。むずかしいとすればどのくらいですか。\n（ア〜コまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
+    <string name="questionnaire_3_message">以下の質問は、日常よく行われている活動です。あなたは<u>健康上の理由で</u>、こうした活動をすることがむずかしいと感じますか。むずかしいとすればどのくらいですか。\n\n（ア〜コまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
     </string>
-    <string name="questionnaire_3_a_message"><u>激しい活動</u>、例えば、一生けんめい走る、\n重い物を持ち上げる、激しいスポーツをするなど
+    <string name="questionnaire_3_a_message"><u>激しい活動</u>、例えば、一生けんめい走る、重い物を持ち上げる、激しいスポーツをするなど
     </string>
-    <string name="questionnaire_3_b_message"><u>適度の活動</u>、例えば、家や庭のそうじをする、\n1〜2時間散歩するなど
+    <string name="questionnaire_3_b_message"><u>適度の活動</u>、例えば、家や庭のそうじをする、1〜2時間散歩するなど
     </string>
-    <string name="questionnaire_3_c_message">少し重い物を持ち上げたり、運んだりする\n（例えば買い物袋など）</string>
+    <string name="questionnaire_3_c_message">少し重い物を持ち上げたり、運んだりする（例えば買い物袋など）</string>
     <string name="questionnaire_3_d_message">階段を<u>数階上</u>までのぼる
     </string>
     <string name="questionnaire_3_e_message">階段を<u>1階上</u>までのぼる
@@ -100,6 +117,19 @@
     <string name="questionnaire_3_answer_1">とてもむずかしい</string>
     <string name="questionnaire_3_answer_2">少しむずかしい</string>
     <string name="questionnaire_3_answer_3">ぜんぜんむずかしくない</string>
+
+    <string-array name="questionnaire_3_sub_messages">
+        <item>@string/questionnaire_3_a_message</item>
+        <item>@string/questionnaire_3_b_message</item>
+        <item>@string/questionnaire_3_c_message</item>
+        <item>@string/questionnaire_3_d_message</item>
+        <item>@string/questionnaire_3_e_message</item>
+        <item>@string/questionnaire_3_f_message</item>
+        <item>@string/questionnaire_3_g_message</item>
+        <item>@string/questionnaire_3_h_message</item>
+        <item>@string/questionnaire_3_i_message</item>
+        <item>@string/questionnaire_3_j_message</item>
+    </string-array>
 
     <!-- Questionnaire4 -->
     <string name="questionnaire_4_number">問4</string>
@@ -126,12 +156,12 @@
         <u>過去1ヵ月間に</u>
         、仕事やふだんの活動(家事など)をするにあたって、心理的な理由で（例えば、気分がおちこんだり不安を感じたりしたために)、次のような問題がありましたか。（ア〜ウまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
     </string>
-    <string name="questionnaire_5_a_message">ア）仕事やふだんの活動を\nする<u>時間</u>をへらした
+    <string name="questionnaire_5_a_message">仕事やふだんの活動を\nする<u>時間</u>をへらした
     </string>
-    <string name="questionnaire_5_b_message">イ）仕事やふだんの活動が\n思ったほど、
+    <string name="questionnaire_5_b_message">仕事やふだんの活動が\n思ったほど、
         <u>できなかった</u>
     </string>
-    <string name="questionnaire_5_c_message">ウ）仕事やふだんの活動が\nいつもほど、<u>集中して</u>\nできなかった
+    <string name="questionnaire_5_c_message">仕事やふだんの活動が\nいつもほど、<u>集中して</u>\nできなかった
     </string>
     <string name="questionnaire_5_answer_1">いつも</string>
     <string name="questionnaire_5_answer_2">ほとんどいつも</string>
@@ -176,15 +206,15 @@
     <string name="questionnaire_9_number">問9</string>
     <string name="questionnaire_9_message">次にあげるのは、<u>過去１ヶ月間に</u>、あなたがどのように感じたかについての質問です。\n（ア〜ケまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
     </string>
-    <string name="questionnaire_9_a_message">ア）元気いっぱいでしたか</string>
-    <string name="questionnaire_9_b_message">イ）かなり神経質でしたか</string>
-    <string name="questionnaire_9_c_message">ウ）どうにもならないくらい、\nきぶんがおちこんでいましたか</string>
-    <string name="questionnaire_9_d_message">エ）おちついていて、おだやかな気分でしたか</string>
-    <string name="questionnaire_9_e_message">オ）活力(エネルギー)に\nあふれていましたか</string>
-    <string name="questionnaire_9_f_message">カ）おちこんで、ゆううつな\n気分でしたか</string>
-    <string name="questionnaire_9_g_message">キ）疲れはてていましたか</string>
-    <string name="questionnaire_9_h_message">ク）楽しい気分でしたか</string>
-    <string name="questionnaire_9_i_message">ケ）疲れを感じましたか</string>
+    <string name="questionnaire_9_a_message">元気いっぱいでしたか</string>
+    <string name="questionnaire_9_b_message">かなり神経質でしたか</string>
+    <string name="questionnaire_9_c_message">どうにもならないくらい、\nきぶんがおちこんでいましたか</string>
+    <string name="questionnaire_9_d_message">おちついていて、おだやかな気分でしたか</string>
+    <string name="questionnaire_9_e_message">活力(エネルギー)に\nあふれていましたか</string>
+    <string name="questionnaire_9_f_message">おちこんで、ゆううつな\n気分でしたか</string>
+    <string name="questionnaire_9_g_message">疲れはてていましたか</string>
+    <string name="questionnaire_9_h_message">楽しい気分でしたか</string>
+    <string name="questionnaire_9_i_message">疲れを感じましたか</string>
     <string name="questionnaire_9_answer_1">いつも</string>
     <string name="questionnaire_9_answer_2">ほとんどいつも</string>
     <string name="questionnaire_9_answer_3">ときどき</string>
@@ -205,10 +235,10 @@
     <string name="questionnaire_11_number">問11</string>
     <string name="questionnaire_11_message">次にあげた各項目はどのくらいあなたにあてはまりますか。\n（ア〜エまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
     </string>
-    <string name="questionnaire_11_a_message">ア）私は他の人に比べて病気に\nなりやすいと思う</string>
-    <string name="questionnaire_11_b_message">イ）私は、人並みに健康である</string>
-    <string name="questionnaire_11_c_message">ウ）私の健康は悪くなるような\n気がする</string>
-    <string name="questionnaire_11_d_message">エ）私の健康状態は非常に良い</string>
+    <string name="questionnaire_11_a_message">私は他の人に比べて病気に\nなりやすいと思う</string>
+    <string name="questionnaire_11_b_message">私は、人並みに健康である</string>
+    <string name="questionnaire_11_c_message">私の健康は悪くなるような\n気がする</string>
+    <string name="questionnaire_11_d_message">私の健康状態は非常に良い</string>
     <string name="questionnaire_11_answer_1">まったくそのとおり</string>
     <string name="questionnaire_11_answer_2">ほぼあてはまる</string>
     <string name="questionnaire_11_answer_3">何とも言えない</string>

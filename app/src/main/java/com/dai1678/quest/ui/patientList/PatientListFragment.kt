@@ -54,11 +54,6 @@ class PatientListFragment : Fragment() {
             }
         }
 
-        binding.patientListRecyclerView.apply {
-            layoutManager = LinearLayoutManager(activity)
-            adapter = groupAdapter
-        }
-
         patientListViewModel.patientList.observe(viewLifecycleOwner, Observer {
             it?.let {
                 groupAdapter.clear()
@@ -70,6 +65,11 @@ class PatientListFragment : Fragment() {
                 groupAdapter.add(section)
             }
         })
+
+        binding.patientListRecyclerView.apply {
+            layoutManager = LinearLayoutManager(activity)
+            adapter = groupAdapter
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -111,11 +111,10 @@ class PatientListFragment : Fragment() {
                 "$lastQuestionnaireLabel ${getLastQuestionnaireTime(patient)}"
 
             viewBinding.listItemPatientView.setOnClickListener {
-                val navController = findNavController()
                 val action = PatientListFragmentDirections
                     .actionPatientListFragmentToDiagnosticCheckDialogFragment()
                 action.patientFirstName = patient.lastName
-                navController.navigate(action)
+                findNavController().navigate(action)
             }
         }
 
