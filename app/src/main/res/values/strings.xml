@@ -207,7 +207,7 @@
 
     <!-- Questionnaire8 -->
     <string name="questionnaire_8_number">問8</string>
-    <string name="questionnaire_8_message"><u>過去１ヶ月間に</u>、いつもの仕事（家事も含みます）が<u>痛みのために</u>、どのくらい妨げられましたか。\n（一番よくあてはまるものに☑印をつけて下さい）
+    <string name="questionnaire_8_message"><u>過去１ヶ月間に</u>、いつもの仕事（家事も含みます）が<u>痛みのために</u>、どのくらい妨げられましたか。\n\n（一番よくあてはまるものに☑印をつけて下さい）
     </string>
     <string name="questionnaire_8_answer_1">ぜんぜん妨げられなかった</string>
     <string name="questionnaire_8_answer_2">わずかに、妨げられた</string>
