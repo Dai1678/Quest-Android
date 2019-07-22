@@ -163,18 +163,24 @@
         <u>過去1ヵ月間に</u>
         、仕事やふだんの活動(家事など)をするにあたって、心理的な理由で（例えば、気分がおちこんだり不安を感じたりしたために)、次のような問題がありましたか。（ア〜ウまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
     </string>
-    <string name="questionnaire_5_a_message">仕事やふだんの活動を\nする<u>時間</u>をへらした
+    <string name="questionnaire_5_a_message">仕事やふだんの活動をする<u>時間</u>をへらした
     </string>
-    <string name="questionnaire_5_b_message">仕事やふだんの活動が\n思ったほど、
+    <string name="questionnaire_5_b_message">仕事やふだんの活動が思ったほど、
         <u>できなかった</u>
     </string>
-    <string name="questionnaire_5_c_message">仕事やふだんの活動が\nいつもほど、<u>集中して</u>\nできなかった
+    <string name="questionnaire_5_c_message">仕事やふだんの活動がいつもほど、<u>集中して</u>\nできなかった
     </string>
     <string name="questionnaire_5_answer_1">いつも</string>
     <string name="questionnaire_5_answer_2">ほとんどいつも</string>
     <string name="questionnaire_5_answer_3" translatable="false">ときどき</string>
     <string name="questionnaire_5_answer_4" translatable="false">まれに</string>
     <string name="questionnaire_5_answer_5" translatable="false">ぜんぜんない</string>
+
+    <string-array name="questionnaire_5_sub_messages">
+        <item>@string/questionnaire_5_a_message</item>
+        <item>@string/questionnaire_5_b_message</item>
+        <item>@string/questionnaire_5_c_message</item>
+    </string-array>
 
     <!-- Questionnaire6 -->
     <string name="questionnaire_6_number">問6</string>
