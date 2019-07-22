@@ -133,7 +133,7 @@
 
     <!-- Questionnaire4 -->
     <string name="questionnaire_4_number">問4</string>
-    <string name="questionnaire_4_message"><u>過去1ヶ月間に</u>、仕事やふだんの活動（家事など）をするにあたって、<u>身体的な理由で</u>次のような問題がありましたか。\n（ア〜エまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
+    <string name="questionnaire_4_message"><u>過去1ヶ月間に</u>、仕事やふだんの活動（家事など）をするにあたって、<u>身体的な理由で</u>次のような問題がありましたか。\n\n（ア〜エまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
     </string>
     <string name="questionnaire_4_a_message">仕事やふだんの活動をする<u>時間</u>をへらした
     </string>
@@ -149,6 +149,13 @@
     <string name="questionnaire_4_answer_3" translatable="false">ときどき</string>
     <string name="questionnaire_4_answer_4" translatable="false">まれに</string>
     <string name="questionnaire_4_answer_5" translatable="false">ぜんぜんない</string>
+
+    <string-array name="questionnaire_4_sub_messages">
+        <item>@string/questionnaire_4_a_message</item>
+        <item>@string/questionnaire_4_b_message</item>
+        <item>@string/questionnaire_4_c_message</item>
+        <item>@string/questionnaire_4_d_message</item>
+    </string-array>
 
     <!-- Questionnaire5 -->
     <string name="questionnaire_5_number">問5</string>

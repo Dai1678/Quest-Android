@@ -10,18 +10,18 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dai1678.quest.R
-import com.dai1678.quest.databinding.CardViewQuestionnaire3Binding
-import com.dai1678.quest.databinding.FragmentQuestionnaire3Binding
+import com.dai1678.quest.databinding.CardViewQuestionnaire4Binding
+import com.dai1678.quest.databinding.FragmentQuestionnaire4Binding
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.databinding.BindableItem
 import com.xwray.groupie.databinding.ViewHolder
 
-class Questionnaire3Fragment : Fragment() {
+class Questionnaire4Fragment : Fragment() {
 
     private val viewModel: QuestionnaireViewModel by activityViewModels()
     private val groupAdapter = GroupAdapter<ViewHolder<*>>()
 
-    private lateinit var binding: FragmentQuestionnaire3Binding
+    private lateinit var binding: FragmentQuestionnaire4Binding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,7 +29,7 @@ class Questionnaire3Fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_questionnaire3, container, false
+            inflater, R.layout.fragment_questionnaire4, container, false
         )
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
@@ -40,55 +40,55 @@ class Questionnaire3Fragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val questionnaireNumbers = resources.getStringArray(R.array.questionnaire_sub_numbers)
-        val questionnaireMessages = resources.getStringArray(R.array.questionnaire_3_sub_messages)
+        val questionnaireMessages = resources.getStringArray(R.array.questionnaire_4_sub_messages)
 
         val items = ArrayList<CardViewItem>()
         for (i in questionnaireMessages.indices)
             items.add(CardViewItem(questionnaireNumbers[i], questionnaireMessages[i]))
         groupAdapter.update(items)
 
-        binding.questionnaire3RecyclerView.apply {
+        binding.questionnaire4RecyclerView.apply {
             layoutManager = LinearLayoutManager(activity)
             adapter = groupAdapter
         }
 
         val navController = findNavController()
 
-        binding.questionnaire3BackButton.setOnClickListener {
+        binding.questionnaire4BackButton.setOnClickListener {
             navController.popBackStack()
         }
 
-        binding.questionnaire3NextButton.setOnClickListener {
-            navController.navigate(R.id.action_questionnaire3Fragment_to_questionnaire4Fragment)
+        binding.questionnaire4NextButton.setOnClickListener {
+            // TODO Questionnaire5Fragmentにnavigate
         }
     }
 
     inner class CardViewItem(
         private val questionnaireNumber: String,
         private val questionnaireMessage: String
-    ) : BindableItem<CardViewQuestionnaire3Binding>() {
+    ) : BindableItem<CardViewQuestionnaire4Binding>() {
 
-        override fun getLayout(): Int = R.layout.card_view_questionnaire_3
+        override fun getLayout(): Int = R.layout.card_view_questionnaire_4
 
-        override fun bind(viewBinding: CardViewQuestionnaire3Binding, position: Int) {
+        override fun bind(viewBinding: CardViewQuestionnaire4Binding, position: Int) {
             viewBinding.apply {
-                questionnaire3SubNumberText.text = questionnaireNumber
-                questionnaire3SubMessageText.text = questionnaireMessage
-                questionnaire3ExpandableLayout.isExpanded = position == 0
+                questionnaire4SubNumberText.text = questionnaireNumber
+                questionnaire4SubMessageText.text = questionnaireMessage
+                questionnaire4ExpandableLayout.isExpanded = position == 0
 
-                questionnaire3CardViewActionButton.apply {
-                    if (questionnaire3ExpandableLayout.isExpanded) {
+                questionnaire4CardViewActionButton.apply {
+                    if (questionnaire4ExpandableLayout.isExpanded) {
                         this.text = resources.getString(R.string.questionnaire_collapsed_text)
                     } else {
                         this.text = resources.getString(R.string.questionnaire_expand_text)
                     }
 
                     setOnClickListener {
-                        if (questionnaire3ExpandableLayout.isExpanded) {
-                            questionnaire3ExpandableLayout.isExpanded = false
+                        if (questionnaire4ExpandableLayout.isExpanded) {
+                            questionnaire4ExpandableLayout.isExpanded = false
                             this.text = resources.getString(R.string.questionnaire_expand_text)
                         } else {
-                            questionnaire3ExpandableLayout.isExpanded = true
+                            questionnaire4ExpandableLayout.isExpanded = true
                             this.text = resources.getString(R.string.questionnaire_collapsed_text)
                         }
                     }
