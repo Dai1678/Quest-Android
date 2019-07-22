@@ -186,7 +186,7 @@
     <string name="questionnaire_6_number">問6</string>
     <string name="questionnaire_6_message">
         <u>過去１ヶ月間に</u>
-        、家族、友人、近所の人、その他の仲間とのふだんのつきあいが、身体的あるいは心理的な理由で、どのくらい妨げられましたか。\n（一番よくあてはまるものに☑印をつけて下さい）
+        、家族、友人、近所の人、その他の仲間とのふだんのつきあいが、身体的あるいは心理的な理由で、どのくらい妨げられましたか。\n\n（一番よくあてはまるものに☑印をつけて下さい）
     </string>
     <string name="questionnaire_6_answer_1">ぜんぜん、妨げられなかった</string>
     <string name="questionnaire_6_answer_2">わずかに、妨げられた</string>
