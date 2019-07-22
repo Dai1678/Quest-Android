@@ -1,6 +1,5 @@
 package com.dai1678.quest.ui.questionnaire
 
-
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,7 +18,8 @@ class Questionnaire6Fragment : Fragment() {
     private lateinit var binding: FragmentQuestionnaire6Binding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(
@@ -43,5 +43,4 @@ class Questionnaire6Fragment : Fragment() {
             navController.navigate(R.id.action_questionnaire6Fragment_to_questionnaire7Fragment)
         }
     }
-
 }
