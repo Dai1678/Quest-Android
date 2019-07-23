@@ -1,15 +1,14 @@
 package com.dai1678.quest.ui.questionnaire
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.CardViewQuestionnaire5Binding
 import com.dai1678.quest.databinding.FragmentQuestionnaire5Binding
@@ -60,7 +59,7 @@ class Questionnaire5Fragment : Fragment() {
         }
 
         binding.questionnaire5NextButton.setOnClickListener {
-            // TODO Questionnaire6Fragmentにnavigate
+            navController.navigate(R.id.action_questionnaire5Fragment_to_questionnaire6Fragment)
         }
     }
 

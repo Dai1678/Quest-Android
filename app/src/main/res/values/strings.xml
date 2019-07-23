@@ -186,7 +186,7 @@
     <string name="questionnaire_6_number">問6</string>
     <string name="questionnaire_6_message">
         <u>過去１ヶ月間に</u>
-        、家族、友人、近所の人、その他の仲間とのふだんのつきあいが、身体的あるいは心理的な理由で、どのくらい妨げられましたか。\n（一番よくあてはまるものに☑印をつけて下さい）
+        、家族、友人、近所の人、その他の仲間とのふだんのつきあいが、身体的あるいは心理的な理由で、どのくらい妨げられましたか。\n\n（一番よくあてはまるものに☑印をつけて下さい）
     </string>
     <string name="questionnaire_6_answer_1">ぜんぜん、妨げられなかった</string>
     <string name="questionnaire_6_answer_2">わずかに、妨げられた</string>
@@ -196,7 +196,7 @@
 
     <!-- Questionnaire7 -->
     <string name="questionnaire_7_number">問7</string>
-    <string name="questionnaire_7_message"><u>過去１ヶ月間に</u>、<u>体の痛み</u>をどのくらい感じましたか。\n（一番よくあてはまるものに☑印をつけて下さい）
+    <string name="questionnaire_7_message"><u>過去１ヶ月間に</u>、<u>体の痛み</u>をどのくらい感じましたか。\n\n（一番よくあてはまるものに☑印をつけて下さい）
     </string>
     <string name="questionnaire_7_answer_1">ぜんぜんなかった</string>
     <string name="questionnaire_7_answer_2">かすかな痛み</string>
@@ -207,7 +207,7 @@
 
     <!-- Questionnaire8 -->
     <string name="questionnaire_8_number">問8</string>
-    <string name="questionnaire_8_message"><u>過去１ヶ月間に</u>、いつもの仕事（家事も含みます）が<u>痛みのために</u>、どのくらい妨げられましたか。\n（一番よくあてはまるものに☑印をつけて下さい）
+    <string name="questionnaire_8_message"><u>過去１ヶ月間に</u>、いつもの仕事（家事も含みます）が<u>痛みのために</u>、どのくらい妨げられましたか。\n\n（一番よくあてはまるものに☑印をつけて下さい）
     </string>
     <string name="questionnaire_8_answer_1">ぜんぜん妨げられなかった</string>
     <string name="questionnaire_8_answer_2">わずかに、妨げられた</string>
