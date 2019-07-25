@@ -1,21 +1,20 @@
 package com.dai1678.quest.ui.questionnaire
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-
 import com.dai1678.quest.R
-import com.dai1678.quest.databinding.FragmentQuestionnaire8Binding
+import com.dai1678.quest.databinding.FragmentQuestionnaire10Binding
 
-class Questionnaire8Fragment : Fragment() {
+class Questionnaire10Fragment : Fragment() {
 
     private val viewModel: QuestionnaireViewModel by activityViewModels()
-    private lateinit var binding: FragmentQuestionnaire8Binding
+    private lateinit var binding: FragmentQuestionnaire10Binding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,7 +22,7 @@ class Questionnaire8Fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_questionnaire8, container, false
+            inflater, R.layout.fragment_questionnaire10, container, false
         )
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
@@ -35,12 +34,12 @@ class Questionnaire8Fragment : Fragment() {
 
         val navController = findNavController()
 
-        binding.questionnaire8BackButton.setOnClickListener {
+        binding.questionnaire10BackButton.setOnClickListener {
             navController.popBackStack()
         }
 
-        binding.questionnaire8NextButton.setOnClickListener {
-            navController.navigate(R.id.action_questionnaire8Fragment_to_questionnaire9Fragment)
+        binding.questionnaire10NextButton.setOnClickListener {
+            navController.navigate(R.id.action_questionnaire10Fragment_to_questionnaire11Fragment)
         }
     }
 }
