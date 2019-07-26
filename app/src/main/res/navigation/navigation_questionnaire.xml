@@ -119,6 +119,45 @@
     <fragment android:id="@+id/questionnaire8Fragment"
               android:name="com.dai1678.quest.ui.questionnaire.Questionnaire8Fragment"
               android:label="Questionnaire8Fragment"
-              tools:layout="@layout/fragment_questionnaire8"/>
+              tools:layout="@layout/fragment_questionnaire8">
+
+        <action android:id="@+id/action_questionnaire8Fragment_to_questionnaire9Fragment"
+                app:destination="@id/questionnaire9Fragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+
+    <fragment android:id="@+id/questionnaire9Fragment"
+              android:name="com.dai1678.quest.ui.questionnaire.Questionnaire9Fragment"
+              android:label="Questionnaire9Fragment"
+              tools:layout="@layout/fragment_questionnaire9">
+
+        <action android:id="@+id/action_questionnaire9Fragment_to_questionnaire10Fragment"
+                app:destination="@id/questionnaire10Fragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+
+    <fragment android:id="@+id/questionnaire10Fragment"
+              android:name="com.dai1678.quest.ui.questionnaire.Questionnaire10Fragment"
+              android:label="Questionnaire10Fragment"
+              tools:layout="@layout/fragment_questionnaire10">
+
+        <action android:id="@+id/action_questionnaire10Fragment_to_questionnaire11Fragment"
+                app:destination="@id/questionnaire11Fragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+
+    <fragment android:id="@+id/questionnaire11Fragment"
+              android:name="com.dai1678.quest.ui.questionnaire.Questionnaire11Fragment"
+              android:label="Questionnaire11Fragment"
+              tools:layout="@layout/fragment_questionnaire11"/>
 
 </navigation>

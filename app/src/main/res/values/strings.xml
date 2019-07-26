@@ -40,7 +40,6 @@
         <item>@string/questionnaire_sub_number_h</item>
         <item>@string/questionnaire_sub_number_i</item>
         <item>@string/questionnaire_sub_number_j</item>
-
     </string-array>
 
     <!-- Login -->
@@ -217,7 +216,7 @@
 
     <!-- Questionnaire9 -->
     <string name="questionnaire_9_number">問9</string>
-    <string name="questionnaire_9_message">次にあげるのは、<u>過去１ヶ月間に</u>、あなたがどのように感じたかについての質問です。\n（ア〜ケまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
+    <string name="questionnaire_9_message">次にあげるのは、<u>過去１ヶ月間に</u>、あなたがどのように感じたかについての質問です。\n\n（ア〜ケまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
     </string>
     <string name="questionnaire_9_a_message">元気いっぱいでしたか</string>
     <string name="questionnaire_9_b_message">かなり神経質でしたか</string>
@@ -234,9 +233,21 @@
     <string name="questionnaire_9_answer_4">まれに</string>
     <string name="questionnaire_9_answer_5">ぜんぜんない</string>
 
+    <string-array name="questionnaire_9_sub_messages">
+        <item>@string/questionnaire_9_a_message</item>
+        <item>@string/questionnaire_9_b_message</item>
+        <item>@string/questionnaire_9_c_message</item>
+        <item>@string/questionnaire_9_d_message</item>
+        <item>@string/questionnaire_9_e_message</item>
+        <item>@string/questionnaire_9_f_message</item>
+        <item>@string/questionnaire_9_g_message</item>
+        <item>@string/questionnaire_9_h_message</item>
+        <item>@string/questionnaire_9_i_message</item>
+    </string-array>
+
     <!-- Questionnaire10 -->
     <string name="questionnaire_10_number">問10</string>
-    <string name="questionnaire_10_message"><u>過去１ヶ月間に</u>、友人や親せきを訪ねるなど、人とのつきあいが、<u>身体的あるいは心理的な理由で</u>、時間的にどのくらい妨げられましたか。\n（一番よくあてはまるものに☑印をつけて下さい）
+    <string name="questionnaire_10_message"><u>過去１ヶ月間に</u>、友人や親せきを訪ねるなど、人とのつきあいが、<u>身体的あるいは心理的な理由で</u>、時間的にどのくらい妨げられましたか。\n\n（一番よくあてはまるものに☑印をつけて下さい）
     </string>
     <string name="questionnaire_10_answer_1">いつも</string>
     <string name="questionnaire_10_answer_2">ほとんどいつも</string>
@@ -246,7 +257,7 @@
 
     <!-- Questionnaire11 -->
     <string name="questionnaire_11_number">問11</string>
-    <string name="questionnaire_11_message">次にあげた各項目はどのくらいあなたにあてはまりますか。\n（ア〜エまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
+    <string name="questionnaire_11_message">次にあげた各項目はどのくらいあなたにあてはまりますか。\n\n（ア〜エまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
     </string>
     <string name="questionnaire_11_a_message">私は他の人に比べて病気に\nなりやすいと思う</string>
     <string name="questionnaire_11_b_message">私は、人並みに健康である</string>
@@ -257,6 +268,13 @@
     <string name="questionnaire_11_answer_3">何とも言えない</string>
     <string name="questionnaire_11_answer_4">ほとんどあてはまらない</string>
     <string name="questionnaire_11_answer_5">ぜんぜんあてはまらない</string>
+
+    <string-array name="questionnaire_11_sub_messages">
+        <item>@string/questionnaire_11_a_message</item>
+        <item>@string/questionnaire_11_b_message</item>
+        <item>@string/questionnaire_11_c_message</item>
+        <item>@string/questionnaire_11_d_message</item>
+    </string-array>
 
     <!-- QuestionnaireEnd -->
     <string name="questionnaire_end_message1">これでこのアンケートはおわりです。\nご協力ありがとうございました。</string>
