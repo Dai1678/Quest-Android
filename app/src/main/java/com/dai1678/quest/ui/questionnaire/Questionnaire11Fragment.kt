@@ -59,7 +59,7 @@ class Questionnaire11Fragment : Fragment() {
         }
 
         binding.questionnaire11NextButton.setOnClickListener {
-            // TODO QuestionnaireEndFragmentにnavigate
+            navController.navigate(R.id.action_questionnaire11Fragment_to_questionnaireEndFragment)
         }
     }
 
