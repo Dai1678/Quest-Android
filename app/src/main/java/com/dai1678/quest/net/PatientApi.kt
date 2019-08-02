@@ -25,6 +25,6 @@ interface PatientApi {
     @GET("users/patient")
     suspend fun getPatientAsync(
         @Header("Authorization") authToken: String,
-        @Query("username") userName: String
+        @Query("id") userName: String
     ): Response<Patient>
 }

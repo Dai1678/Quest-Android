@@ -34,9 +34,9 @@ class PatientRepository : BaseRepository() {
         )
     }
 
-    suspend fun getPatient(token: String, userName: String): Patient? {
+    suspend fun getPatient(token: String, id: String): Patient? {
         return safeApiCall(
-            call = QuestApiClient.patientApi.getPatientAsync(token, userName),
+            call = QuestApiClient.patientApi.getPatientAsync(token, id),
             error = "Get Patient Error"
         )
     }

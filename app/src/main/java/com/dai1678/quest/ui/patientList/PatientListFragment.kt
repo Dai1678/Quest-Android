@@ -119,10 +119,14 @@ class PatientListFragment : Fragment() {
         }
 
         private fun getLastQuestionnaireTime(patient: Patient): String {
-            return if (patient.questionnaireId == null) {
+            if (patient.questionnaire == null) {
+                return resources.getString(R.string.patient_list_none_last_questionnaire_label)
+            }
+
+            return if (patient.questionnaire?.isEmpty()) {
                 resources.getString(R.string.patient_list_none_last_questionnaire_label)
             } else {
-                formatLastQuestionnaireTime(patient.updatedAt)
+                formatLastQuestionnaireTime(patient.updatedAt!!)
             }
         }
 

@@ -1,12 +1,12 @@
 package com.dai1678.quest.entity
 
 data class Patient(
-    val username: String,
+    val id: String,
     val firstName: String,
     val lastName: String,
-    val questionnaireId: String?,
     val updatedAt: String,
-    val hospitalId: String
+    val hospitalId: String,
+    val questionnaire: List<Questionnaire>?
 )
 
 data class PatientListResponse(

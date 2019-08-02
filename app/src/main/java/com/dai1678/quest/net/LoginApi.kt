@@ -12,7 +12,7 @@ interface LoginApi {
     @FormUrlEncoded
     @POST("auth/login")
     suspend fun loginAsync(
-        @Field("username") username: String,
+        @Field("id") username: String,
         @Field("password") password: String
     ): Response<LoginResponse>
 }
