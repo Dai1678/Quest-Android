@@ -158,6 +158,19 @@
     <fragment android:id="@+id/questionnaire11Fragment"
               android:name="com.dai1678.quest.ui.questionnaire.Questionnaire11Fragment"
               android:label="Questionnaire11Fragment"
-              tools:layout="@layout/fragment_questionnaire11"/>
+              tools:layout="@layout/fragment_questionnaire11">
+
+        <action android:id="@+id/action_questionnaire11Fragment_to_questionnaireEndFragment"
+                app:destination="@id/questionnaireEndFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+
+    <fragment android:id="@+id/questionnaireEndFragment"
+              android:name="com.dai1678.quest.ui.questionnaire.QuestionnaireEndFragment"
+              android:label="QuestionnaireEndFragment"
+              tools:layout="@layout/fragment_questionnaire_end"/>
 
 </navigation>

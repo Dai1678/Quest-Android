@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- common strings -->
     <string name="app_name" translatable="false">Quest</string>
-    <string name="username">User Name</string>
+    <string name="username">User ID</string>
     <string name="hospital_number">Hospital Number</string>
     <string name="password">Password</string>
     <string name="require_label">Require</string>
@@ -252,6 +252,6 @@
         This is the end of the survey.\nThank you for your cooperation.
     </string>
     <string name="questionnaire_end_message2">Please give the tablet to your nurse.</string>
-    <string name="questionnaire_end_button_text">Send result</string>
+    <string name="questionnaire_end_submit_text">Send result</string>
 
 </resources>

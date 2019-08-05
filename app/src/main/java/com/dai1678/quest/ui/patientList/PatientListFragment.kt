@@ -55,13 +55,13 @@ class PatientListFragment : Fragment() {
         }
 
         patientListViewModel.patientList.observe(viewLifecycleOwner, Observer {
-            it?.let {
-                groupAdapter.clear()
+            groupAdapter.clear()
+            if (it.isNotEmpty()) {
                 val section = Section()
 //                section.setHeader(
 //                    HeaderItem(resources.getString(R.string.patient_list_patient_name_ascending_order_label))
 //                )
-                for (patient in it) section.add(BodyItem(patient))
+                for (patient in it) section.add(BodyItem(patient!!))
                 groupAdapter.add(section)
             }
         })
@@ -119,7 +119,7 @@ class PatientListFragment : Fragment() {
         }
 
         private fun getLastQuestionnaireTime(patient: Patient): String {
-            return if (patient.questionnaireId == null) {
+            return if (patient.questionnaires.isEmpty()) {
                 resources.getString(R.string.patient_list_none_last_questionnaire_label)
             } else {
                 formatLastQuestionnaireTime(patient.updatedAt)

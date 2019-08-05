@@ -8,23 +8,23 @@ import retrofit2.http.*
 
 interface PatientApi {
 
-    @POST("auth/register/patient")
-    suspend fun registerPatientAsync(
-        @Header("Authorization") authToken: String,
-        @Body user: Patient
-    ): Response<BaseResponse>
-
-    @GET("users/patient/list")
+    @GET("patients")
     suspend fun getPatientListAsync(
         @Header("Authorization") authToken: String,
-        @Query("hospitalId") hospitalId: String,
         @Query("page") page: Int,
-        @Query("limit") limit: Int
+        @Query("limit") limit: Int,
+        @Query("hospitalId") hospitalId: String
     ): Response<PatientListResponse>
 
-    @GET("users/patient")
+    @POST("patients")
+    suspend fun createPatientAsync(
+        @Header("Authorization") authToken: String,
+        @Body patient: Patient
+    ): Response<BaseResponse>
+
+    @GET("patient/{id}")
     suspend fun getPatientAsync(
         @Header("Authorization") authToken: String,
-        @Query("username") userName: String
+        @Path("id") patientId: String
     ): Response<Patient>
 }

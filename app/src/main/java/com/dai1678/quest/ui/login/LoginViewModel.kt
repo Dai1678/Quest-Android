@@ -57,7 +57,7 @@ class LoginViewModel : ViewModel() {
             )
             response?.let {
                 if (it.auth) {
-                    saveLoginDataToPref(it.token, it.user?.hospitalId)
+                    saveLoginDataToPref(it.token, it.doctor?.hospitalId)
                     _authenticationState.postValue(AUTHENTICATED)
                 } else {
                     _authenticationState.postValue(INVALID_AUTHENTICATION)
