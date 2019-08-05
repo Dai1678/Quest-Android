@@ -15,28 +15,28 @@ class PatientRepository : BaseRepository() {
         }
     }
 
-    suspend fun register(token: String, patient: Patient): BaseResponse? {
-        return safeApiCall(
-            call = QuestApiClient.patientApi.registerPatientAsync(token, patient),
-            error = "Register Error!"
-        )
-    }
-
     suspend fun getPatientList(
         token: String,
-        hospitalId: String,
         page: Int,
-        limit: Int
+        limit: Int,
+        hospitalId: String
     ): PatientListResponse? {
         return safeApiCall(
-            call = QuestApiClient.patientApi.getPatientListAsync(token, hospitalId, page, limit),
+            call = QuestApiClient.patientApi.getPatientListAsync(token, limit, page, hospitalId),
             error = "Get Patient Error!"
         )
     }
 
-    suspend fun getPatient(token: String, id: String): Patient? {
+    suspend fun createPatient(token: String, patient: Patient): BaseResponse? {
         return safeApiCall(
-            call = QuestApiClient.patientApi.getPatientAsync(token, id),
+            call = QuestApiClient.patientApi.createPatientAsync(token, patient),
+            error = "Register Error!"
+        )
+    }
+
+    suspend fun getPatient(token: String, patientId: String): Patient? {
+        return safeApiCall(
+            call = QuestApiClient.patientApi.getPatientAsync(token, patientId),
             error = "Get Patient Error"
         )
     }

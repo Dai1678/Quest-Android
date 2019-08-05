@@ -6,10 +6,10 @@ data class Patient(
     val lastName: String,
     val updatedAt: String,
     val hospitalId: String,
-    val questionnaire: List<Questionnaire>?
+    val questionnaires: List<Questionnaire?>
 )
 
 data class PatientListResponse(
     val total: Int,
-    val list: List<Patient>
+    val list: List<Patient?>
 )

@@ -1,6 +1,8 @@
 package com.dai1678.quest.ui.patientList
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.dai1678.quest.entity.Patient
 import com.dai1678.quest.repository.PatientRepository
 import com.dai1678.quest.util.PreferenceService
@@ -23,8 +25,8 @@ class PatientListViewModel : ViewModel() {
     private var _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    private val _patientsList = MutableLiveData<List<Patient>?>()
-    val patientList: LiveData<List<Patient>?> = _patientsList
+    private val _patientsList = MutableLiveData<List<Patient?>>()
+    val patientList: LiveData<List<Patient?>> = _patientsList
 
     init {
         getPatientsList()
@@ -39,7 +41,7 @@ class PatientListViewModel : ViewModel() {
                 var page = 1
                 val limit = 100
 
-                var result = patientRepository.getPatientList(token, hospitalId, page, limit)
+                var result = patientRepository.getPatientList(token, limit, page, hospitalId)
                 result?.let { resultFirst ->
                     val allPatientsList = resultFirst.list
                     val totalPatientsNumber = resultFirst.total
@@ -48,7 +50,7 @@ class PatientListViewModel : ViewModel() {
 
                     while (totalPage > 1 && totalPage >= page) {
                         page++
-                        result = patientRepository.getPatientList(token, hospitalId, page, limit)
+                        result = patientRepository.getPatientList(token, limit, page, hospitalId)
                         result?.let { resultLater ->
                             allPatientsList.plus(resultLater.list)
                         }

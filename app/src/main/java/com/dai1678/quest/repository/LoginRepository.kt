@@ -14,10 +14,10 @@ class LoginRepository : BaseRepository() {
         }
     }
 
-    suspend fun login(username: String, password: String): LoginResponse? {
+    suspend fun login(id: String, password: String): LoginResponse? {
         return try {
             safeApiCall(
-                call = QuestApiClient.loginApi.loginAsync(username, password),
+                call = QuestApiClient.loginApi.loginAsync(id, password),
                 error = "Login Error!"
             )
         } catch (e: Exception) {
@@ -25,7 +25,7 @@ class LoginRepository : BaseRepository() {
             LoginResponse(
                 auth = false,
                 token = null,
-                user = null
+                doctor = null
             )
         }
     }

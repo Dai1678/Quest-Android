@@ -58,10 +58,10 @@ class CreatePatientViewModel : ViewModel() {
                     lastName.value!!,
                     dateFormat.format(Date()),
                     hospitalId,
-                    null
+                    emptyList()
                 )
 
-                val response = patientRepository.register(it, patient) ?: return@launch
+                val response = patientRepository.createPatient(it, patient) ?: return@launch
                 _response.postValue(response)
             }
         }

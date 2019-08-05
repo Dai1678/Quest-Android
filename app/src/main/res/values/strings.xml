@@ -1,7 +1,7 @@
 <resources>
     <!-- common strings -->
     <string name="app_name" translatable="false">Quest</string>
-    <string name="username">ユーザー名</string>
+    <string name="username">ユーザーID</string>
     <string name="hospital_number">病院番号</string>
     <string name="password">パスワード</string>
     <string name="require_label">必須入力です</string>

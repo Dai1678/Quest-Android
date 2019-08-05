@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- common strings -->
     <string name="app_name" translatable="false">Quest</string>
-    <string name="username">User Name</string>
+    <string name="username">User ID</string>
     <string name="hospital_number">Hospital Number</string>
     <string name="password">Password</string>
     <string name="require_label">Require</string>
