@@ -1,6 +1,5 @@
 package com.dai1678.quest.ui.questionnaire
 
-
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,7 +18,8 @@ class QuestionnaireEndFragment : Fragment() {
     private lateinit var binding: FragmentQuestionnaireEndBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(
@@ -41,14 +41,11 @@ class QuestionnaireEndFragment : Fragment() {
 
         binding.questionnaireEndSubmitButton.setOnClickListener {
 
-
             requireActivity().finish()
         }
     }
 
     // TODO アンケート結果送信
     private fun submitResult() {
-
     }
-
 }
