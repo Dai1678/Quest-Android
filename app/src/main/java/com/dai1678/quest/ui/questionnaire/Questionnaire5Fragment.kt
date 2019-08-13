@@ -20,6 +20,7 @@ class Questionnaire5Fragment : Fragment() {
 
     private val viewModel: QuestionnaireViewModel by activityViewModels()
     private val groupAdapter = GroupAdapter<ViewHolder<*>>()
+    private var answerIds = arrayOfNulls<Int>(3)
 
     private lateinit var binding: FragmentQuestionnaire5Binding
 
@@ -42,6 +43,12 @@ class Questionnaire5Fragment : Fragment() {
         val questionnaireNumbers = resources.getStringArray(R.array.questionnaire_sub_numbers)
         val questionnaireMessages = resources.getStringArray(R.array.questionnaire_5_sub_messages)
 
+        for (i in answerIds.indices) {
+            viewModel.selectRadioButtonIds[i + 16]?.let {
+                answerIds[i] = it
+            }
+        }
+
         val items = ArrayList<CardViewItem>()
         for (i in questionnaireMessages.indices)
             items.add(CardViewItem(questionnaireNumbers[i], questionnaireMessages[i]))
@@ -59,6 +66,11 @@ class Questionnaire5Fragment : Fragment() {
         }
 
         binding.questionnaire5NextButton.setOnClickListener {
+
+            for (i in answerIds.indices) {
+                viewModel.selectRadioButtonIds[i + 16] = answerIds[i]
+            }
+
             navController.navigate(R.id.action_questionnaire5Fragment_to_questionnaire6Fragment)
         }
     }
@@ -74,24 +86,11 @@ class Questionnaire5Fragment : Fragment() {
             viewBinding.apply {
                 questionnaire5SubNumberText.text = questionnaireNumber
                 questionnaire5SubMessageText.text = questionnaireMessage
-                questionnaire5ExpandableLayout.isExpanded = position == 0
 
-                questionnaire5CardViewActionButton.apply {
-                    if (questionnaire5ExpandableLayout.isExpanded) {
-                        this.text = resources.getString(R.string.questionnaire_collapsed_text)
-                    } else {
-                        this.text = resources.getString(R.string.questionnaire_expand_text)
-                    }
+                answerIds[position]?.let { questionnaire5RadioGroup.check(it) }
 
-                    setOnClickListener {
-                        if (questionnaire5ExpandableLayout.isExpanded) {
-                            questionnaire5ExpandableLayout.isExpanded = false
-                            this.text = resources.getString(R.string.questionnaire_expand_text)
-                        } else {
-                            questionnaire5ExpandableLayout.isExpanded = true
-                            this.text = resources.getString(R.string.questionnaire_collapsed_text)
-                        }
-                    }
+                questionnaire5RadioGroup.setOnCheckedChangeListener { _, id ->
+                    answerIds[position] = id
                 }
             }
         }

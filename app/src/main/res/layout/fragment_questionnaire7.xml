@@ -48,7 +48,7 @@
                     android:layout_height="0dp"
                     android:layout_marginTop="@dimen/layout_margin"
                     android:orientation="vertical"
-                    android:checkedButton="@id/questionnaire_6_answer_1_radio_button"
+                    android:checkedButton="@id/questionnaire_7_answer_1_radio_button"
                     app:layout_constraintTop_toBottomOf="@+id/questionnaire_7_message_text"
                     app:layout_constraintStart_toStartOf="@id/questionnaire_7_message_text">
 
@@ -59,7 +59,7 @@
                         android:layout_marginBottom="@dimen/radio_button_vertical_margin"
                         android:buttonTint="@color/colorPrimary"
                         android:text="@string/questionnaire_7_answer_1"
-                        android:textSize="@dimen/text_size_large"/>
+                        android:textSize="@dimen/text_size_medium"/>
 
                 <RadioButton
                         android:id="@+id/questionnaire_7_answer_2_radio_button"
@@ -68,7 +68,7 @@
                         android:layout_marginBottom="@dimen/radio_button_vertical_margin"
                         android:buttonTint="@color/colorPrimary"
                         android:text="@string/questionnaire_7_answer_2"
-                        android:textSize="@dimen/text_size_large"/>
+                        android:textSize="@dimen/text_size_medium"/>
 
                 <RadioButton
                         android:id="@+id/questionnaire_7_answer_3_radio_button"
@@ -77,7 +77,7 @@
                         android:layout_marginBottom="@dimen/radio_button_vertical_margin"
                         android:buttonTint="@color/colorPrimary"
                         android:text="@string/questionnaire_7_answer_3"
-                        android:textSize="@dimen/text_size_large"/>
+                        android:textSize="@dimen/text_size_medium"/>
 
                 <RadioButton
                         android:id="@+id/questionnaire_7_answer_4_radio_button"
@@ -86,7 +86,7 @@
                         android:layout_marginBottom="@dimen/radio_button_vertical_margin"
                         android:buttonTint="@color/colorPrimary"
                         android:text="@string/questionnaire_7_answer_4"
-                        android:textSize="@dimen/text_size_large"/>
+                        android:textSize="@dimen/text_size_medium"/>
 
                 <RadioButton
                         android:id="@+id/questionnaire_7_answer_5_radio_button"
@@ -95,7 +95,7 @@
                         android:layout_marginBottom="@dimen/radio_button_vertical_margin"
                         android:buttonTint="@color/colorPrimary"
                         android:text="@string/questionnaire_7_answer_5"
-                        android:textSize="@dimen/text_size_large"/>
+                        android:textSize="@dimen/text_size_medium"/>
 
                 <RadioButton
                         android:id="@+id/questionnaire_7_answer_6_radio_button"
@@ -104,7 +104,7 @@
                         android:layout_marginBottom="@dimen/radio_button_vertical_margin"
                         android:buttonTint="@color/colorPrimary"
                         android:text="@string/questionnaire_7_answer_6"
-                        android:textSize="@dimen/text_size_large"/>
+                        android:textSize="@dimen/text_size_medium"/>
 
             </RadioGroup>
 

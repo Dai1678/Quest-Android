@@ -33,6 +33,10 @@ class Questionnaire8Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.selectRadioButtonIds[21]?.let {
+            binding.questionnaire8RadioGroup.check(it)
+        }
+
         val navController = findNavController()
 
         binding.questionnaire8BackButton.setOnClickListener {
@@ -41,6 +45,10 @@ class Questionnaire8Fragment : Fragment() {
 
         binding.questionnaire8NextButton.setOnClickListener {
             navController.navigate(R.id.action_questionnaire8Fragment_to_questionnaire9Fragment)
+        }
+
+        binding.questionnaire8RadioGroup.setOnCheckedChangeListener { _, id ->
+            viewModel.selectRadioButtonIds[21] = id
         }
     }
 }

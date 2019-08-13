@@ -136,12 +136,12 @@
     </string>
     <string name="questionnaire_4_a_message">仕事やふだんの活動をする<u>時間</u>をへらした
     </string>
-    <string name="questionnaire_4_b_message">仕事やふだんの活動が\n思ったほど、
+    <string name="questionnaire_4_b_message">仕事やふだんの活動が思ったほど、
         <u>できなかった</u>
     </string>
-    <string name="questionnaire_4_c_message">仕事やふだんの活動の<u>内容</u>に\nよっては、できないものがあった
+    <string name="questionnaire_4_c_message">仕事やふだんの活動の<u>内容</u>によっては、できないものがあった
     </string>
-    <string name="questionnaire_4_d_message">仕事やふだんの活動をする\nことが<u>むずかしかった</u>\n（例えばいつもより努力を\n必要としたなど）
+    <string name="questionnaire_4_d_message">仕事やふだんの活動をする\nことが<u>むずかしかった</u>\n（例えばいつもより努力を必要としたなど）
     </string>
     <string name="questionnaire_4_answer_1">いつも</string>
     <string name="questionnaire_4_answer_2">ほとんどいつも</string>
@@ -160,14 +160,14 @@
     <string name="questionnaire_5_number">問5</string>
     <string name="questionnaire_5_message">
         <u>過去1ヵ月間に</u>
-        、仕事やふだんの活動(家事など)をするにあたって、心理的な理由で（例えば、気分がおちこんだり不安を感じたりしたために)、次のような問題がありましたか。（ア〜ウまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
+        、仕事やふだんの活動(家事など)をするにあたって、心理的な理由で（例えば、気分がおちこんだり不安を感じたりしたために)、次のような問題がありましたか。\n\n（ア〜ウまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
     </string>
     <string name="questionnaire_5_a_message">仕事やふだんの活動をする<u>時間</u>をへらした
     </string>
     <string name="questionnaire_5_b_message">仕事やふだんの活動が思ったほど、
         <u>できなかった</u>
     </string>
-    <string name="questionnaire_5_c_message">仕事やふだんの活動がいつもほど、<u>集中して</u>\nできなかった
+    <string name="questionnaire_5_c_message">仕事やふだんの活動がいつもほど、<u>集中して</u>できなかった
     </string>
     <string name="questionnaire_5_answer_1">いつも</string>
     <string name="questionnaire_5_answer_2">ほとんどいつも</string>
