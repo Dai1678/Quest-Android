@@ -22,7 +22,8 @@ class DiagnosticCheckDialogFragment : DialogFragment() {
     @SuppressLint("SetTextI18n")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
-        val patientName = args.patientFirstName
+        val patientId = args.patientId
+        val lastName = args.patientLastName
 
         val paddingLeftRight =
             TypedValue.applyDimension(
@@ -41,7 +42,7 @@ class DiagnosticCheckDialogFragment : DialogFragment() {
                     ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
                 )
             setPadding(paddingLeftRight, paddingTopBottom, paddingLeftRight, paddingTopBottom)
-            text = "$patientName ${resources.getString(R.string.diagnostic_check_dialog_title)}"
+            text = "$lastName ${resources.getString(R.string.diagnostic_check_dialog_title)}"
             setTextSize(TypedValue.COMPLEX_UNIT_SP, 18F)
             typeface = Typeface.DEFAULT_BOLD
         }
@@ -50,10 +51,9 @@ class DiagnosticCheckDialogFragment : DialogFragment() {
             setCustomTitle(titleTextView)
             setMessage(R.string.diagnostic_check_dialog_message)
             setPositiveButton(R.string.start_diagnosis) { _, _ ->
-                val navController = findNavController()
-                navController.navigate(
-                    R.id.action_diagnosticCheckDialogFragment_to_questionnaireActivity
-                )
+                val action = DiagnosticCheckDialogFragmentDirections
+                    .actionDiagnosticCheckDialogFragmentToQuestionnaireActivity(patientId)
+                findNavController().navigate(action)
             }
             setNegativeButton(R.string.cancel_diagnosis) { dialog, _ ->
                 dialog.cancel()

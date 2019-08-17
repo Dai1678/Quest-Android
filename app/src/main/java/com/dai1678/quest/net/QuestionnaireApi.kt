@@ -27,5 +27,4 @@ interface QuestionnaireApi {
         @Header("Authorization") authToken: String,
         @Path("id") questionnaireId: String
     ): Response<Questionnaire>
-
 }

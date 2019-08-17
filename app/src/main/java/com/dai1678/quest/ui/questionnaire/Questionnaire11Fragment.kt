@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -69,6 +70,10 @@ class Questionnaire11Fragment : Fragment() {
 
             for (i in answerIds.indices) {
                 viewModel.selectRadioButtonIds[i + 32] = answerIds[i]
+                answerIds[i]?.let {
+                    viewModel.selectRadioButtonTexts[i + 32] =
+                        view.findViewById<RadioButton>(it).text.toString()
+                }
             }
 
             navController.navigate(R.id.action_questionnaire11Fragment_to_questionnaireEndFragment)
@@ -88,6 +93,7 @@ class Questionnaire11Fragment : Fragment() {
                 questionnaire11SubMessageText.text = questionnaireMessage
 
                 answerIds[position]?.let { questionnaire11RadioGroup.check(it) }
+                answerIds[position] = questionnaire11RadioGroup.checkedRadioButtonId
 
                 questionnaire11RadioGroup.setOnCheckedChangeListener { _, id ->
                     answerIds[position] = id

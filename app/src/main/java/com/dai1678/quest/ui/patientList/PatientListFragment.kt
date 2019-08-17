@@ -112,8 +112,9 @@ class PatientListFragment : Fragment() {
 
             viewBinding.listItemPatientView.setOnClickListener {
                 val action = PatientListFragmentDirections
-                    .actionPatientListFragmentToDiagnosticCheckDialogFragment()
-                action.patientFirstName = patient.lastName
+                    .actionPatientListFragmentToDiagnosticCheckDialogFragment(
+                        patient.id, patient.lastName
+                    )
                 findNavController().navigate(action)
             }
         }

@@ -11,6 +11,12 @@ object PreferenceService {
         return preferences.getString("hospitalId", null)
     }
 
+    fun getLoggedInDoctorId(): String? {
+        val context = Quest.instance
+        val preferences = context.getSharedPreferences("DataStore", Context.MODE_PRIVATE)
+        return preferences.getString("doctorId", null)
+    }
+
     fun getAuthToken(): String? {
         val context = Quest.instance
         val preferences = context.getSharedPreferences("DataStore", Context.MODE_PRIVATE)

@@ -22,7 +22,9 @@ class QuestionnaireRepository : BaseRepository() {
         patientId: String
     ): QuestionnaireListResponse? {
         return safeApiCall(
-            call = QuestApiClient.questionnaireApi.getResultListAsync(token, page, limit, patientId),
+            call = QuestApiClient.questionnaireApi.getResultListAsync(
+                token, page, limit, patientId
+            ),
             error = "Get Questionnaire Result List Error!"
         )
     }
@@ -40,5 +42,4 @@ class QuestionnaireRepository : BaseRepository() {
             error = "Get Questionnaire Result Error!"
         )
     }
-
 }

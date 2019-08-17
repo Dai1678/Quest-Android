@@ -1,14 +1,14 @@
 package com.dai1678.quest.ui.questionnaire
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentQuestionnaire8Binding
 
@@ -44,11 +44,14 @@ class Questionnaire8Fragment : Fragment() {
         }
 
         binding.questionnaire8NextButton.setOnClickListener {
-            navController.navigate(R.id.action_questionnaire8Fragment_to_questionnaire9Fragment)
-        }
+            val checkId = binding.questionnaire8RadioGroup.checkedRadioButtonId
+            viewModel.selectRadioButtonIds[21] = checkId
+            viewModel.selectRadioButtonTexts[21] =
+                view.findViewById<RadioButton>(checkId).text.toString()
 
-        binding.questionnaire8RadioGroup.setOnCheckedChangeListener { _, id ->
-            viewModel.selectRadioButtonIds[21] = id
+            navController.navigate(
+                R.id.action_questionnaire8Fragment_to_questionnaire9Fragment
+            )
         }
     }
 }
