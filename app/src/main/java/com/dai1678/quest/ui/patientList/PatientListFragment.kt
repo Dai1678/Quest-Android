@@ -22,6 +22,7 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
 import com.xwray.groupie.databinding.BindableItem
 import com.xwray.groupie.databinding.ViewHolder
+import kotlinx.android.synthetic.main.fragment_patient_list.*
 import java.text.SimpleDateFormat
 
 class PatientListFragment : Fragment() {
@@ -84,6 +85,11 @@ class PatientListFragment : Fragment() {
 
             requireActivity().finish()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        patientListViewModel.getPatientsList()
     }
 
     inner class HeaderItem(private val sortCategoryName: String) :
