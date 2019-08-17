@@ -61,7 +61,7 @@
     <string name="diagnostic_check_dialog_title">さんの診断です</string>
     <string name="diagnostic_check_dialog_message">
         <b>診断を開始</b>
-        を押すとアンケートの回答画面に進みます。\n受検する患者に端末を渡してください。
+        を押すとアンケートの回答画面に進みます。\n\n受検する患者に端末を渡してください。
     </string>
 
     <!-- SuspendCheckDialog -->
