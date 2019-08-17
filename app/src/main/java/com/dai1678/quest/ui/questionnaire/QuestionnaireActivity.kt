@@ -1,9 +1,6 @@
 package com.dai1678.quest.ui.questionnaire
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -24,7 +21,6 @@ class QuestionnaireActivity : AppCompatActivity() {
         setSupportActionBar(questionnaire_toolbar)
 
         patientId = args.patientId
-        Log.d("patientId", args.patientId)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -41,19 +37,6 @@ class QuestionnaireActivity : AppCompatActivity() {
             }
 
             else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-    companion object {
-        private const val INTENT_QUESTIONNAIRE_ACTIVITY_KEY = "QUESTIONNAIRE_ACTIVITY_KEY"
-
-        fun createIntent(
-            context: Context,
-            patientId: String
-        ): Intent {
-            val intent = Intent(context, QuestionnaireActivity::class.java)
-            intent.putExtra(INTENT_QUESTIONNAIRE_ACTIVITY_KEY, patientId)
-            return intent
         }
     }
 }
