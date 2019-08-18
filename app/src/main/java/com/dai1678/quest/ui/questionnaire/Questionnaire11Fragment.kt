@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -20,6 +21,7 @@ class Questionnaire11Fragment : Fragment() {
 
     private val viewModel: QuestionnaireViewModel by activityViewModels()
     private val groupAdapter = GroupAdapter<ViewHolder<*>>()
+    private var answerIds = arrayOfNulls<Int>(4)
 
     private lateinit var binding: FragmentQuestionnaire11Binding
 
@@ -42,6 +44,12 @@ class Questionnaire11Fragment : Fragment() {
         val questionnaireNumbers = resources.getStringArray(R.array.questionnaire_sub_numbers)
         val questionnaireMessages = resources.getStringArray(R.array.questionnaire_11_sub_messages)
 
+        for (i in answerIds.indices) {
+            viewModel.selectRadioButtonIds[i + 32]?.let {
+                answerIds[i] = it
+            }
+        }
+
         val items = ArrayList<CardViewItem>()
         for (i in questionnaireMessages.indices)
             items.add(CardViewItem(questionnaireNumbers[i], questionnaireMessages[i]))
@@ -59,6 +67,15 @@ class Questionnaire11Fragment : Fragment() {
         }
 
         binding.questionnaire11NextButton.setOnClickListener {
+
+            for (i in answerIds.indices) {
+                viewModel.selectRadioButtonIds[i + 32] = answerIds[i]
+                answerIds[i]?.let {
+                    viewModel.selectRadioButtonTexts[i + 32] =
+                        view.findViewById<RadioButton>(it).text.toString()
+                }
+            }
+
             navController.navigate(R.id.action_questionnaire11Fragment_to_questionnaireEndFragment)
         }
     }
@@ -74,24 +91,12 @@ class Questionnaire11Fragment : Fragment() {
             viewBinding.apply {
                 questionnaire11SubNumberText.text = questionnaireNumber
                 questionnaire11SubMessageText.text = questionnaireMessage
-                questionnaire11ExpandableLayout.isExpanded = position == 0
 
-                questionnaire11CardViewActionButton.apply {
-                    if (questionnaire11ExpandableLayout.isExpanded) {
-                        this.text = resources.getString(R.string.questionnaire_collapsed_text)
-                    } else {
-                        this.text = resources.getString(R.string.questionnaire_expand_text)
-                    }
+                answerIds[position]?.let { questionnaire11RadioGroup.check(it) }
+                answerIds[position] = questionnaire11RadioGroup.checkedRadioButtonId
 
-                    setOnClickListener {
-                        if (questionnaire11ExpandableLayout.isExpanded) {
-                            questionnaire11ExpandableLayout.isExpanded = false
-                            this.text = resources.getString(R.string.questionnaire_expand_text)
-                        } else {
-                            questionnaire11ExpandableLayout.isExpanded = true
-                            this.text = resources.getString(R.string.questionnaire_collapsed_text)
-                        }
-                    }
+                questionnaire11RadioGroup.setOnCheckedChangeListener { _, id ->
+                    answerIds[position] = id
                 }
             }
         }

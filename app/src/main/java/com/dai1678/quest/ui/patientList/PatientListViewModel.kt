@@ -32,7 +32,7 @@ class PatientListViewModel : ViewModel() {
         getPatientsList()
     }
 
-    private fun getPatientsList() {
+    fun getPatientsList() {
         val token = PreferenceService.getAuthToken()
         val hospitalId = PreferenceService.getLoggedInHospitalId()
 

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -32,6 +33,10 @@ class Questionnaire2Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.selectRadioButtonIds[1]?.let {
+            binding.questionnaire2RadioGroup.check(it)
+        }
+
         val navController = findNavController()
 
         binding.questionnaire2BackButton.setOnClickListener {
@@ -39,6 +44,11 @@ class Questionnaire2Fragment : Fragment() {
         }
 
         binding.questionnaire2NextButton.setOnClickListener {
+            val checkId = binding.questionnaire2RadioGroup.checkedRadioButtonId
+            viewModel.selectRadioButtonIds[1] = checkId
+            viewModel.selectRadioButtonTexts[1] =
+                view.findViewById<RadioButton>(checkId).text.toString()
+
             navController.navigate(
                 R.id.action_questionnaire2Fragment_to_questionnaire3Fragment
             )

@@ -14,6 +14,7 @@ object QuestApiClient {
     val loginApi: LoginApi = create(LoginApi::class.java)
     val patientApi: PatientApi = create(PatientApi::class.java)
     val doctorApi: DoctorApi = create(DoctorApi::class.java)
+    val questionnaireApi: QuestionnaireApi = create(QuestionnaireApi::class.java)
 
     private lateinit var retrofit: Retrofit
 

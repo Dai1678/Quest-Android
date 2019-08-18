@@ -57,7 +57,7 @@ class LoginViewModel : ViewModel() {
             )
             response?.let {
                 if (it.auth) {
-                    saveLoginDataToPref(it.token, it.doctor?.hospitalId)
+                    saveLoginDataToPref(it.token, it.doctor!!)
                     _authenticationState.postValue(AUTHENTICATED)
                 } else {
                     _authenticationState.postValue(INVALID_AUTHENTICATION)
@@ -68,11 +68,12 @@ class LoginViewModel : ViewModel() {
 
     fun cancelRequests() = coroutineContext.cancel()
 
-    private fun saveLoginDataToPref(token: String?, hospitalId: String?) {
+    private fun saveLoginDataToPref(token: String?, doctor: Doctor) {
         token?.let {
             val preferences = context.getSharedPreferences("DataStore", Context.MODE_PRIVATE)
             preferences.edit().apply {
-                putString("hospitalId", hospitalId)
+                putString("hospitalId", doctor.hospitalId)
+                putString("doctorId", doctor.id)
                 putString("token", it)
                 apply()
             }

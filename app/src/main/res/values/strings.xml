@@ -61,7 +61,7 @@
     <string name="diagnostic_check_dialog_title">さんの診断です</string>
     <string name="diagnostic_check_dialog_message">
         <b>診断を開始</b>
-        を押すとアンケートの回答画面に進みます。\n受検する患者に端末を渡してください。
+        を押すとアンケートの回答画面に進みます。\n\n受検する患者に端末を渡してください。
     </string>
 
     <!-- SuspendCheckDialog -->
@@ -136,12 +136,12 @@
     </string>
     <string name="questionnaire_4_a_message">仕事やふだんの活動をする<u>時間</u>をへらした
     </string>
-    <string name="questionnaire_4_b_message">仕事やふだんの活動が\n思ったほど、
+    <string name="questionnaire_4_b_message">仕事やふだんの活動が思ったほど、
         <u>できなかった</u>
     </string>
-    <string name="questionnaire_4_c_message">仕事やふだんの活動の<u>内容</u>に\nよっては、できないものがあった
+    <string name="questionnaire_4_c_message">仕事やふだんの活動の<u>内容</u>によっては、できないものがあった
     </string>
-    <string name="questionnaire_4_d_message">仕事やふだんの活動をする\nことが<u>むずかしかった</u>\n（例えばいつもより努力を\n必要としたなど）
+    <string name="questionnaire_4_d_message">仕事やふだんの活動をする\nことが<u>むずかしかった</u>（例えばいつもより努力を必要としたなど）
     </string>
     <string name="questionnaire_4_answer_1">いつも</string>
     <string name="questionnaire_4_answer_2">ほとんどいつも</string>
@@ -160,14 +160,14 @@
     <string name="questionnaire_5_number">問5</string>
     <string name="questionnaire_5_message">
         <u>過去1ヵ月間に</u>
-        、仕事やふだんの活動(家事など)をするにあたって、心理的な理由で（例えば、気分がおちこんだり不安を感じたりしたために)、次のような問題がありましたか。（ア〜ウまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
+        、仕事やふだんの活動(家事など)をするにあたって、心理的な理由で（例えば、気分がおちこんだり不安を感じたりしたために)、次のような問題がありましたか。\n\n（ア〜ウまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
     </string>
     <string name="questionnaire_5_a_message">仕事やふだんの活動をする<u>時間</u>をへらした
     </string>
     <string name="questionnaire_5_b_message">仕事やふだんの活動が思ったほど、
         <u>できなかった</u>
     </string>
-    <string name="questionnaire_5_c_message">仕事やふだんの活動がいつもほど、<u>集中して</u>\nできなかった
+    <string name="questionnaire_5_c_message">仕事やふだんの活動がいつもほど、<u>集中して</u>できなかった
     </string>
     <string name="questionnaire_5_answer_1">いつも</string>
     <string name="questionnaire_5_answer_2">ほとんどいつも</string>
@@ -220,10 +220,10 @@
     </string>
     <string name="questionnaire_9_a_message">元気いっぱいでしたか</string>
     <string name="questionnaire_9_b_message">かなり神経質でしたか</string>
-    <string name="questionnaire_9_c_message">どうにもならないくらい、\nきぶんがおちこんでいましたか</string>
+    <string name="questionnaire_9_c_message">どうにもならないくらい、きぶんがおちこんでいましたか</string>
     <string name="questionnaire_9_d_message">おちついていて、おだやかな気分でしたか</string>
-    <string name="questionnaire_9_e_message">活力(エネルギー)に\nあふれていましたか</string>
-    <string name="questionnaire_9_f_message">おちこんで、ゆううつな\n気分でしたか</string>
+    <string name="questionnaire_9_e_message">活力(エネルギー)にあふれていましたか</string>
+    <string name="questionnaire_9_f_message">おちこんで、ゆううつな気分でしたか</string>
     <string name="questionnaire_9_g_message">疲れはてていましたか</string>
     <string name="questionnaire_9_h_message">楽しい気分でしたか</string>
     <string name="questionnaire_9_i_message">疲れを感じましたか</string>
@@ -259,9 +259,9 @@
     <string name="questionnaire_11_number">問11</string>
     <string name="questionnaire_11_message">次にあげた各項目はどのくらいあなたにあてはまりますか。\n\n（ア〜エまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
     </string>
-    <string name="questionnaire_11_a_message">私は他の人に比べて病気に\nなりやすいと思う</string>
+    <string name="questionnaire_11_a_message">私は他の人に比べて病気になりやすいと思う</string>
     <string name="questionnaire_11_b_message">私は、人並みに健康である</string>
-    <string name="questionnaire_11_c_message">私の健康は悪くなるような\n気がする</string>
+    <string name="questionnaire_11_c_message">私の健康は悪くなるような気がする</string>
     <string name="questionnaire_11_d_message">私の健康状態は非常に良い</string>
     <string name="questionnaire_11_answer_1">まったくそのとおり</string>
     <string name="questionnaire_11_answer_2">ほぼあてはまる</string>

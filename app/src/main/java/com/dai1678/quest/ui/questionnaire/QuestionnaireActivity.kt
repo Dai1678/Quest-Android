@@ -5,16 +5,22 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
+import androidx.navigation.navArgs
 import com.dai1678.quest.R
 import kotlinx.android.synthetic.main.activity_questionnaire.*
 
 class QuestionnaireActivity : AppCompatActivity() {
+
+    private val args: QuestionnaireActivityArgs by navArgs()
+    lateinit var patientId: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_questionnaire)
 
         setSupportActionBar(questionnaire_toolbar)
+
+        patientId = args.patientId
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
