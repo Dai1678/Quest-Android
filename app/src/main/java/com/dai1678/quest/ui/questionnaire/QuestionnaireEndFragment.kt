@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentQuestionnaireEndBinding
@@ -35,10 +34,6 @@ class QuestionnaireEndFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.response.observe(viewLifecycleOwner, Observer {
-            Log.d("response", it.message)
-        })
-
         val navController = findNavController()
 
         binding.questionnaireEndBackButton.setOnClickListener {
@@ -51,7 +46,6 @@ class QuestionnaireEndFragment : Fragment() {
         }
     }
 
-    // TODO アンケート結果送信
     private fun submitResult() {
         Log.d("answer", formatResult().toString())
         val questionnaireActivity = activity as QuestionnaireActivity
