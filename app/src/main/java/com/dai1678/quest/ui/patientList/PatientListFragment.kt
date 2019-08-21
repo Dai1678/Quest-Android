@@ -129,7 +129,7 @@ class PatientListFragment : Fragment() {
             return if (patient.questionnaires.isEmpty()) {
                 resources.getString(R.string.patient_list_none_last_questionnaire_label)
             } else {
-                formatLastQuestionnaireTime(patient.updatedAt)
+                formatLastQuestionnaireTime(patient.questionnaires[0]!!.updatedAt)
             }
         }
 
