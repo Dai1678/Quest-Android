@@ -10,8 +10,8 @@ import java.util.concurrent.TimeUnit
 
 object QuestApiClient {
     // FIXME インターネット環境がない場合は直接localhostのIPアドレスを指定
-    private const val API_URL = "https://quest.serveo.net/api/v1/"
-//    private const val API_URL = "http://192.168.11.12:3000/api/v1/"
+//    private const val API_URL = "https://quest.serveo.net/api/v1/"
+    private const val API_URL = "http://192.168.11.12:3000/api/v1/"
 
     val loginApi: LoginApi = create(LoginApi::class.java)
     val patientApi: PatientApi = create(PatientApi::class.java)

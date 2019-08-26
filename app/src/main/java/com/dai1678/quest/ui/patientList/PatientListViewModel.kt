@@ -28,10 +28,6 @@ class PatientListViewModel : ViewModel() {
     private val _patientsList = MutableLiveData<List<Patient?>>()
     val patientList: LiveData<List<Patient?>> = _patientsList
 
-    init {
-        getPatientsList()
-    }
-
     fun getPatientsList() {
         val token = PreferenceService.getAuthToken()
         val hospitalId = PreferenceService.getLoggedInHospitalId()
