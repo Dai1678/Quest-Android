@@ -19,6 +19,7 @@
                 android:background="@color/colorPrimary"
                 app:title="@string/patient_list_toolbar_title"
                 app:titleTextColor="@color/colorAccent"
+                app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent">

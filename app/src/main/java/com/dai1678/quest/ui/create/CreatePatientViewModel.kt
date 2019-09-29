@@ -2,12 +2,10 @@ package com.dai1678.quest.ui.create
 
 import android.annotation.SuppressLint
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.dai1678.quest.entity.BaseResponse
 import com.dai1678.quest.entity.Patient
+import com.dai1678.quest.entity.Patient2
 import com.dai1678.quest.repository.PatientRepository
 import com.dai1678.quest.util.PreferenceService
 import kotlinx.coroutines.CoroutineScope
@@ -19,11 +17,6 @@ import java.util.*
 import kotlin.coroutines.CoroutineContext
 
 class CreatePatientViewModel : ViewModel() {
-
-    private val parentJob = Job()
-    private val coroutineContext: CoroutineContext
-        get() = parentJob + Dispatchers.Default
-    private val coroutineScope = CoroutineScope(coroutineContext)
 
     private val patientRepository = PatientRepository.getInstance()
 
@@ -43,27 +36,20 @@ class CreatePatientViewModel : ViewModel() {
 
     @SuppressLint("SimpleDateFormat")
     fun onClickRegister() {
-        val token = PreferenceService.getAuthToken()
-        Log.d("token", token)
+        viewModelScope.launch {
+            val id = UUID.randomUUID().toString()
+            val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
 
-        token?.let {
-            coroutineScope.launch {
-                val id = UUID.randomUUID().toString()
-                val hospitalId = PreferenceService.getLoggedInHospitalId() ?: return@launch
-                val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+            val patient = Patient2(
+                id,
+                firstName.value!!,
+                lastName.value!!,
+                dateFormat.format(Date()),
+                emptyList()
+            )
 
-                val patient = Patient(
-                    id,
-                    firstName.value!!,
-                    lastName.value!!,
-                    dateFormat.format(Date()),
-                    hospitalId,
-                    emptyList()
-                )
-
-                val response = patientRepository.createPatient(it, patient) ?: return@launch
-                _response.postValue(response)
-            }
+            val response = patientRepository.createPatient(patient) ?: return@launch
+            _response.postValue(response)
         }
     }
 }

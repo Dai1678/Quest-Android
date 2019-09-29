@@ -10,7 +10,6 @@ interface QuestionnaireApi {
 
     @GET("questionnaires")
     suspend fun getResultListAsync(
-        @Header("Authorization") authToken: String,
         @Query("page") page: Int,
         @Query("limit") limit: Int,
         @Query("patientId") patientId: String
@@ -18,13 +17,11 @@ interface QuestionnaireApi {
 
     @POST("questionnaires")
     suspend fun createResultAsync(
-        @Header("Authorization") authToken: String,
         @Body questionnaire: Questionnaire
     ): Response<BaseResponse>
 
     @GET("questionnaires/{id}")
     suspend fun getResultAsync(
-        @Header("Authorization") authToken: String,
         @Path("id") questionnaireId: String
     ): Response<Questionnaire>
 }

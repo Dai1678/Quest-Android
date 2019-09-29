@@ -2,6 +2,7 @@ package com.dai1678.quest.repository
 
 import com.dai1678.quest.entity.BaseResponse
 import com.dai1678.quest.entity.Patient
+import com.dai1678.quest.entity.Patient2
 import com.dai1678.quest.entity.PatientListResponse
 import com.dai1678.quest.net.QuestApiClient
 
@@ -16,27 +17,25 @@ class PatientRepository : BaseRepository() {
     }
 
     suspend fun getPatientList(
-        token: String,
         page: Int,
-        limit: Int,
-        hospitalId: String
+        limit: Int
     ): PatientListResponse? {
         return safeApiCall(
-            call = QuestApiClient.patientApi.getPatientListAsync(token, limit, page, hospitalId),
+            call = QuestApiClient.patientApi.getPatientListAsync(limit, page),
             error = "Get Patient Error!"
         )
     }
 
-    suspend fun createPatient(token: String, patient: Patient): BaseResponse? {
+    suspend fun createPatient(patient: Patient2): BaseResponse? {
         return safeApiCall(
-            call = QuestApiClient.patientApi.createPatientAsync(token, patient),
+            call = QuestApiClient.patientApi.createPatientAsync(patient),
             error = "Register Error!"
         )
     }
 
-    suspend fun getPatient(token: String, patientId: String): Patient? {
+    suspend fun getPatient(patientId: String): Patient? {
         return safeApiCall(
-            call = QuestApiClient.patientApi.getPatientAsync(token, patientId),
+            call = QuestApiClient.patientApi.getPatientAsync(patientId),
             error = "Get Patient Error"
         )
     }

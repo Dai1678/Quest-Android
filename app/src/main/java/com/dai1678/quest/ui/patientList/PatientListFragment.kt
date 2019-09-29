@@ -1,29 +1,21 @@
 package com.dai1678.quest.ui.patientList
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.addCallback
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.onNavDestinationSelected
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentPatientListBinding
-import com.dai1678.quest.databinding.ListHeaderPatientBinding
-import com.dai1678.quest.databinding.ListItemPatientBinding
-import com.dai1678.quest.entity.Patient
+import com.dai1678.quest.entity.Patient2
+import com.dai1678.quest.ui.questionnaire.QuestionnaireActivity
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
-import com.xwray.groupie.databinding.BindableItem
 import com.xwray.groupie.databinding.ViewHolder
-import kotlinx.android.synthetic.main.fragment_patient_list.*
-import java.text.SimpleDateFormat
 
 class PatientListFragment : Fragment() {
 
@@ -51,94 +43,47 @@ class PatientListFragment : Fragment() {
         binding.patientListToolbar.apply {
             inflateMenu(R.menu.patient_list_menu)
             setOnMenuItemClickListener {
-                it.onNavDestinationSelected(findNavController())
+                when (it.itemId) {
+//                    R.id.reload_patient_list -> patientListViewModel.onRefresh()
+                    R.id.intent_create_patient_activity -> {
+                        findNavController().navigate(R.id.action_patientListFragment_to_createUserActivity)
+                    }
+                }
+                true
+            }
+            setNavigationOnClickListener {
+                findNavController().popBackStack()
             }
         }
 
-        patientListViewModel.patientList.observe(viewLifecycleOwner, Observer {
-            groupAdapter.clear()
-            if (it.isNotEmpty()) {
-                val section = Section()
-//                section.setHeader(
-//                    HeaderItem(resources.getString(R.string.patient_list_patient_name_ascending_order_label))
-//                )
-                for (patient in it) section.add(BodyItem(patient!!))
-                groupAdapter.add(section)
-            }
-        })
+//        patientListViewModel.patientList.observe(viewLifecycleOwner, Observer {
+//            groupAdapter.clear()
+//            if (it.isNullOrEmpty()) {
+//                val section = Section()
+//                section.add(LoginDoctorItem("テスト ユーザー"))
+//                section.setHeader(PatientListHeaderItem())
+//                for (patient in it) section.add(PatientListBodyItem(patient!!))
+//                groupAdapter.add(section)
+//            }
+//        })
+
+        val section = Section()
+        section.add(LoginDoctorItem("テスト ユーザー"))
+        section.add(PatientListHeaderItem())
+        val patient = Patient2("test", "テスト", "ユーザー", "2019-09-23T19:27:00.000Z", listOf())
+        for (i in 1..10) section.add(PatientListBodyItem(patient))
+        groupAdapter.add(section)
 
         binding.patientListRecyclerView.apply {
             layoutManager = LinearLayoutManager(activity)
             adapter = groupAdapter
         }
-    }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
 
-        requireActivity().onBackPressedDispatcher.addCallback(this) {
-            val fragmentManager = requireActivity().supportFragmentManager
-            val backStackCnt = fragmentManager.backStackEntryCount
-            if (backStackCnt > 1) {
-                handleOnBackPressed()
-            }
-
-            requireActivity().finish()
-        }
     }
 
     override fun onResume() {
         super.onResume()
-        patientListViewModel.getPatientsList()
-    }
-
-    inner class HeaderItem(private val sortCategoryName: String) :
-        BindableItem<ListHeaderPatientBinding>() {
-
-        override fun getLayout() = R.layout.list_header_patient
-
-        override fun bind(viewBinding: ListHeaderPatientBinding, position: Int) {
-            viewBinding.sortCategoryName = sortCategoryName
-            // TODO bottomLayoutを表示して並び替えメニュー起動 -> 反映
-        }
-    }
-
-    inner class BodyItem(private val patient: Patient) :
-        BindableItem<ListItemPatientBinding>() {
-
-        private val lastQuestionnaireLabel: String =
-            resources.getString(R.string.patient_list_last_questionnaire_label)
-
-        override fun getLayout() = R.layout.list_item_patient
-
-        override fun bind(viewBinding: ListItemPatientBinding, position: Int) {
-            viewBinding.patientName = "${patient.lastName} ${patient.firstName}"
-            viewBinding.lastQuestionnaireTime =
-                "$lastQuestionnaireLabel ${getLastQuestionnaireTime(patient)}"
-
-            viewBinding.listItemPatientView.setOnClickListener {
-                val action = PatientListFragmentDirections
-                    .actionPatientListFragmentToDiagnosticCheckDialogFragment(
-                        patient.id, patient.lastName
-                    )
-                findNavController().navigate(action)
-            }
-        }
-
-        private fun getLastQuestionnaireTime(patient: Patient): String {
-            return if (patient.questionnaires.isEmpty()) {
-                resources.getString(R.string.patient_list_none_last_questionnaire_label)
-            } else {
-                formatLastQuestionnaireTime(patient.questionnaires[0]!!.updatedAt)
-            }
-        }
-
-        @SuppressLint("SimpleDateFormat")
-        private fun formatLastQuestionnaireTime(before: String): String {
-            val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sss'Z'")
-            val date = dateFormat.parse(before)
-            val dateFormat2 = SimpleDateFormat("yyyy年MM月dd日")
-            return dateFormat2.format(date)
-        }
+//        patientListViewModel.onRefresh()
     }
 }

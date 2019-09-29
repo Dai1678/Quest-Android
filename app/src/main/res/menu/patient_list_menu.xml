@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/action_patientListFragment_to_createUserActivity"
-          android:title="@string/patient_create_label"
-          app:showAsAction="never">
-    </item>
+<!--    <item-->
+<!--            android:id="@+id/search_patient_list"-->
+<!--            android:icon="@drawable/ic_search_white_24dp"-->
+<!--            android:title="@string/search"-->
+<!--            app:showAsAction="ifRoom" />-->
+
+    <item
+            android:id="@+id/reload_patient_list"
+            android:icon="@drawable/ic_refresh_white_24dp"
+            android:title="@string/reload"
+            app:showAsAction="ifRoom" />
+
+    <item
+            android:id="@+id/intent_create_patient_activity"
+            android:title="@string/patient_create_label"
+            app:showAsAction="never" />
 
 </menu>

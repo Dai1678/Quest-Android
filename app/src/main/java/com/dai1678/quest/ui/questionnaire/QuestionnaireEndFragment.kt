@@ -19,9 +19,7 @@ class QuestionnaireEndFragment : Fragment() {
     private lateinit var binding: FragmentQuestionnaireEndBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_questionnaire_end, container, false
@@ -37,19 +35,19 @@ class QuestionnaireEndFragment : Fragment() {
         val navController = findNavController()
 
         binding.questionnaireEndBackButton.setOnClickListener {
-            navController.popBackStack()
+            viewModel.backPage()
+            navController.navigate(R.id.action_global_questionnaire_fragment)
         }
 
         binding.questionnaireEndSubmitButton.setOnClickListener {
-            submitResult()
+            // submitResult()
             requireActivity().finish()
         }
     }
 
     private fun submitResult() {
         Log.d("answer", formatResult().toString())
-        val questionnaireActivity = activity as QuestionnaireActivity
-        viewModel.submitQuestionnaire(formatResult(), questionnaireActivity.patientId)
+        viewModel.submitQuestionnaire(formatResult())
     }
 
     private fun formatResult(): QuestionnaireResult {

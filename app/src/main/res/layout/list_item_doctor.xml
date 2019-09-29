@@ -8,43 +8,44 @@
         <import type="android.view.View" />
 
         <variable
-                name="patientName"
+                name="doctorName"
                 type="String" />
 
         <variable
-                name="lastQuestionnaireTime"
+                name="lastLoginTime"
                 type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/list_item_patient_view"
+            android:id="@+id/list_item_doctor_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?android:attr/selectableItemBackground"
             android:padding="@dimen/component_interval_size_medium">
 
         <TextView
-                android:id="@+id/list_item_patient_name"
+                android:id="@+id/list_item_doctor_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{patientName}"
                 android:textColor="@color/colorPrimaryText"
-                android:textSize="@dimen/text_size_medium"
+                android:text="@{doctorName}"
                 android:textStyle="bold"
+                android:textSize="@dimen/text_size_medium"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="東海 太郎" />
 
         <TextView
-                android:id="@+id/list_item_patient_last_questionnaire_time"
+                android:id="@+id/list_item_doctor_last_login_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/component_interval_size_small"
-                android:text="@{lastQuestionnaireTime}"
+                android:layout_marginTop="8dp"
+                android:text="@{lastLoginTime}"
+                android:textSize="@dimen/text_size_small"
                 android:textColor="@color/colorPrimaryPaleText"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/list_item_patient_name"
-                tools:text="最終受験日 : 2019年7月14日" />
+                app:layout_constraintStart_toStartOf="@id/list_item_doctor_name"
+                app:layout_constraintTop_toBottomOf="@+id/list_item_doctor_name"
+                tools:text="最終ログイン : 2019年7月14日" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

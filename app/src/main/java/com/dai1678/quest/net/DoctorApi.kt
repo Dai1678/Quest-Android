@@ -10,21 +10,17 @@ interface DoctorApi {
 
     @GET("doctors")
     suspend fun getDoctorListAsync(
-        @Header("Authorization") Authorization: String,
         @Query("page") page: Int,
-        @Query("limit") limit: Int,
-        @Query("hospitalId") hospitalId: String
+        @Query("limit") limit: Int
     ): Response<DoctorListResponse>
 
     @POST("doctors")
     suspend fun createDoctorAsync(
-        @Header("Authorization") Authorization: String,
         @Body doctor: Doctor
     ): Response<BaseResponse>
 
     @GET("doctor/{id}")
     suspend fun getDoctorAsync(
-        @Header("Authorization") Authorization: String,
         @Path("id") doctorId: String
     ): Response<Doctor>
 

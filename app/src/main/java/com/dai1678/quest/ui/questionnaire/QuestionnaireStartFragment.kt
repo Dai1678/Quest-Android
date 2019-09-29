@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentQuestionnaireStartBinding
 
 class QuestionnaireStartFragment : Fragment() {
 
+    private val viewModel: QuestionnaireViewModel by activityViewModels()
     private lateinit var binding: FragmentQuestionnaireStartBinding
 
     override fun onCreateView(
@@ -30,8 +32,10 @@ class QuestionnaireStartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.questionnaireTopNextButton.setOnClickListener {
+            viewModel.nextPage()
             findNavController().navigate(
-                R.id.action_questionnaireStartFragment_to_questionnaire1Fragment
+//                R.id.action_questionnaireStartFragment_to_questionnaire1Fragment
+            R.id.action_questionnaireStartFragment_to_questionnaireFragment
             )
         }
     }

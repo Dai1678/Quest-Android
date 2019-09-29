@@ -16,29 +16,28 @@ class QuestionnaireRepository : BaseRepository() {
     }
 
     suspend fun getResultList(
-        token: String,
         page: Int,
         limit: Int,
         patientId: String
     ): QuestionnaireListResponse? {
         return safeApiCall(
             call = QuestApiClient.questionnaireApi.getResultListAsync(
-                token, page, limit, patientId
+                page, limit, patientId
             ),
             error = "Get Questionnaire Result List Error!"
         )
     }
 
-    suspend fun createResult(token: String, questionnaire: Questionnaire): BaseResponse? {
+    suspend fun createResult(questionnaire: Questionnaire): BaseResponse? {
         return safeApiCall(
-            call = QuestApiClient.questionnaireApi.createResultAsync(token, questionnaire),
+            call = QuestApiClient.questionnaireApi.createResultAsync(questionnaire),
             error = "Create Questionnaire Error!"
         )
     }
 
-    suspend fun getResult(token: String, questionnaireId: String): Questionnaire? {
+    suspend fun getResult(questionnaireId: String): Questionnaire? {
         return safeApiCall(
-            call = QuestApiClient.questionnaireApi.getResultAsync(token, questionnaireId),
+            call = QuestApiClient.questionnaireApi.getResultAsync(questionnaireId),
             error = "Get Questionnaire Result Error!"
         )
     }

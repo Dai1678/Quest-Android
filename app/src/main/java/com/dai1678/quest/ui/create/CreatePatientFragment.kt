@@ -37,7 +37,7 @@ class CreatePatientFragment : Fragment() {
             createPatientViewModel.onClickRegister()
         }
 
-        createPatientViewModel.response.observe(this, Observer {
+        createPatientViewModel.response.observe(viewLifecycleOwner, Observer {
             requireActivity().finish()
         })
     }

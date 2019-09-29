@@ -1,24 +1,18 @@
 package com.dai1678.quest.util
 
 import android.content.Context
-import com.dai1678.quest.Quest
+import com.dai1678.quest.App
 
 object PreferenceService {
 
-    fun getLoggedInHospitalId(): String? {
-        val context = Quest.instance
-        val preferences = context.getSharedPreferences("DataStore", Context.MODE_PRIVATE)
-        return preferences.getString("hospitalId", null)
-    }
-
     fun getLoggedInDoctorId(): String? {
-        val context = Quest.instance
+        val context = App.instance
         val preferences = context.getSharedPreferences("DataStore", Context.MODE_PRIVATE)
         return preferences.getString("doctorId", null)
     }
 
     fun getAuthToken(): String? {
-        val context = Quest.instance
+        val context = App.instance
         val preferences = context.getSharedPreferences("DataStore", Context.MODE_PRIVATE)
         val token = preferences.getString("token", null)
         return if (token == null) {

@@ -9,5 +9,13 @@ data class Doctor(
 
 data class DoctorListResponse(
     val total: Int,
-    val list: List<Doctor?>
+    val list: List<Doctor> = listOf()
+)
+
+data class Doctor2(
+    val id: String,
+    val firstName: String,
+    val lastName: String,
+    val updatedAt: String,
+    val isAdmin: Boolean
 )
