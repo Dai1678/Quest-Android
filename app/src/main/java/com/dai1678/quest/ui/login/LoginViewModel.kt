@@ -1,7 +1,10 @@
 package com.dai1678.quest.ui.login
 
 import android.util.Log
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.liveData
 import com.dai1678.quest.entity.ErrorResponse
 import com.dai1678.quest.entity.SnackBarMessage
 import com.dai1678.quest.repository.DoctorRepository
@@ -52,12 +55,7 @@ class LoginViewModel : ViewModel() {
         }
     }
 
-    init {
-        getDoctorList()
-    }
-
     fun reloadDoctorList() {
         isLoadingLiveData.value = true
-        Log.d("doctorList", getDoctorList().hasActiveObservers().toString()) // TODO: ObserveがActiveになってない
     }
 }
