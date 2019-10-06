@@ -1,10 +1,13 @@
 package com.dai1678.quest.repository
 
+import com.dai1678.quest.net.QuestApiClient
+
 class DoctorRepository : BaseRepository() {
 
-    companion object {
+    suspend fun getDoctorList() =
+        QuestApiClient.doctorApi.getDoctorListAsync()
 
-        const val LIMIT = 100
+    companion object {
 
         @Volatile
         private var instance: DoctorRepository? = null

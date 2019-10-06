@@ -1,18 +1,63 @@
 package com.dai1678.quest.ui.login
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import android.util.Log
+import androidx.lifecycle.*
+import com.dai1678.quest.entity.ErrorResponse
+import com.dai1678.quest.entity.SnackBarMessage
 import com.dai1678.quest.repository.DoctorRepository
-import kotlinx.coroutines.launch
+import com.dai1678.quest.util.ActionLiveData
+import com.squareup.moshi.Moshi
+import kotlinx.coroutines.Dispatchers
 
 class LoginViewModel : ViewModel() {
 
     private val repository: DoctorRepository = DoctorRepository.getInstance()
 
-    // ログインボタンの処理
-    fun getDoctorList() {
-        viewModelScope.launch {
-            // TODO 医者ユーザー一覧取得処理
+    private val snackBarAction = ActionLiveData<SnackBarMessage>()
+
+    fun getSnackBarAction() = snackBarAction
+
+    private lateinit var isLoadingLiveData: MutableLiveData<Boolean>
+
+    fun isLoading(): LiveData<Boolean> {
+        if (!::isLoadingLiveData.isInitialized) {
+            isLoadingLiveData = MutableLiveData()
+            isLoadingLiveData.value = true
         }
+        return isLoadingLiveData
+    }
+
+    fun getDoctorList() = liveData(Dispatchers.IO) {
+        try {
+            val response = repository.getDoctorList()
+            if (response.isSuccessful) {
+                emit(response.body())
+            } else {
+                response.errorBody()?.let { errorBody ->
+                    val moshi = Moshi.Builder().build()
+                    val error =
+                        moshi.adapter(ErrorResponse::class.java).fromJson(errorBody.string())
+                    Log.e("LoginViewModel", error.toString())
+                    emit(null)
+                    error?.let {
+                        snackBarAction.sendActionBackGround(SnackBarMessage(it.message))
+                    }
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("LoginViewModel", e.toString())
+            snackBarAction.sendActionBackGround(SnackBarMessage("データの取得に失敗しました"))
+        } finally {
+            isLoadingLiveData.postValue(false)
+        }
+    }
+
+    init {
+        getDoctorList()
+    }
+
+    fun reloadDoctorList() {
+        isLoadingLiveData.value = true
+        Log.d("doctorList", getDoctorList().hasActiveObservers().toString()) // TODO: ObserveがActiveになってない
     }
 }

@@ -1,23 +1,22 @@
 package com.dai1678.quest.net
 
-import com.dai1678.quest.entity.BaseResponse
 import com.dai1678.quest.entity.Doctor
 import com.dai1678.quest.entity.DoctorListResponse
 import retrofit2.Response
-import retrofit2.http.*
+import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface DoctorApi {
 
     @GET("doctors")
-    suspend fun getDoctorListAsync(
-        @Query("page") page: Int,
-        @Query("limit") limit: Int
-    ): Response<DoctorListResponse>
+    suspend fun getDoctorListAsync(): Response<DoctorListResponse>
 
     @POST("doctors")
     suspend fun createDoctorAsync(
         @Body doctor: Doctor
-    ): Response<BaseResponse>
+    ): Response<Doctor>
 
     @GET("doctor/{id}")
     suspend fun getDoctorAsync(
