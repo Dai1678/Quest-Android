@@ -1,53 +1,64 @@
 package com.dai1678.quest.ui.patientList
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.dai1678.quest.entity.Patient
+import androidx.lifecycle.liveData
+import com.dai1678.quest.entity.ErrorResponse
+import com.dai1678.quest.entity.SnackBarMessage
 import com.dai1678.quest.repository.PatientRepository
-import kotlinx.coroutines.launch
-import kotlin.math.ceil
+import com.dai1678.quest.util.ActionLiveData
+import com.squareup.moshi.Moshi
+import kotlinx.coroutines.Dispatchers
 
 class PatientListViewModel : ViewModel() {
 
-    private val patientRepository = PatientRepository.getInstance()
+    private val repository = PatientRepository.getInstance()
 
-    private var _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> = _isLoading
+    private val snackBarAction = ActionLiveData<SnackBarMessage>()
 
-    private val _patientsList = MutableLiveData<List<Patient?>>()
-    val patientList: LiveData<List<Patient?>> = _patientsList
+    fun getSnackBarAction() = snackBarAction
 
-    private fun getPatientsList() {
-        viewModelScope.launch {
-            var page = 1
-            val limit = 100
+    private lateinit var isLoadingLiveData: MutableLiveData<Boolean>
 
-            var result = patientRepository.getPatientList(limit, page)
-            result?.let { resultFirst ->
-                val allPatientsList = resultFirst.list
-                val totalPatientsNumber = resultFirst.total
+    fun isLoading(): LiveData<Boolean> {
+        if (!::isLoadingLiveData.isInitialized) {
+            isLoadingLiveData = MutableLiveData()
+            isLoadingLiveData.value = true
+        }
+        return isLoadingLiveData
+    }
 
-                val totalPage = ceil((totalPatientsNumber / limit).toDouble()).toInt()
-
-                while (totalPage > 1 && totalPage >= page) {
-                    page++
-                    result = patientRepository.getPatientList(limit, page)
-                    result?.let { resultLater ->
-                        allPatientsList.plus(resultLater.list)
+    fun getPatientList() = liveData(Dispatchers.IO) {
+        try {
+            val response = repository.getPatientList()
+            if (response.isSuccessful && response.body() != null) {
+                emit(response.body())
+                if (response.body()!!.list.isEmpty()) {
+                    snackBarAction.sendActionBackGround(SnackBarMessage("受検可能な患者はいません"))
+                }
+            } else {
+                response.errorBody()?.let { errorBody ->
+                    val moshi = Moshi.Builder().build()
+                    val error =
+                        moshi.adapter(ErrorResponse::class.java).fromJson(errorBody.string())
+                    Log.e("PatientListViewModel", error.toString())
+                    emit(null)
+                    error?.let {
+                        snackBarAction.sendActionBackGround(SnackBarMessage(it.message))
                     }
                 }
-
-                _patientsList.postValue(allPatientsList)
             }
-
-            _isLoading.postValue(false)
+        } catch (e: Exception) {
+            Log.e("PatientListViewModel", e.toString())
+            snackBarAction.sendActionBackGround(SnackBarMessage("データの取得に失敗しました"))
+        } finally {
+            isLoadingLiveData.postValue(false)
         }
     }
 
-    fun onRefresh() {
-        _isLoading.value = true
-        getPatientsList()
+    fun reloadPatientList() {
+        isLoadingLiveData.value = true
     }
 }

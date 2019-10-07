@@ -8,19 +8,41 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dai1678.quest.R
-import com.dai1678.quest.entity.*
+import com.dai1678.quest.entity.ErrorResponse
+import com.dai1678.quest.entity.Question1
+import com.dai1678.quest.entity.Question10
+import com.dai1678.quest.entity.Question11
+import com.dai1678.quest.entity.Question2
+import com.dai1678.quest.entity.Question3
+import com.dai1678.quest.entity.Question4
+import com.dai1678.quest.entity.Question5
+import com.dai1678.quest.entity.Question6
+import com.dai1678.quest.entity.Question7
+import com.dai1678.quest.entity.Question8
+import com.dai1678.quest.entity.Question9
+import com.dai1678.quest.entity.QuestionSize
+import com.dai1678.quest.entity.Questionnaire
+import com.dai1678.quest.entity.QuestionnaireResult
+import com.dai1678.quest.entity.SnackBarMessage
 import com.dai1678.quest.repository.QuestionnaireRepository
+import com.dai1678.quest.util.ActionLiveData
 import com.dai1678.quest.util.PreferenceService
-import kotlinx.coroutines.launch
+import com.squareup.moshi.Moshi
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
+import java.util.UUID
+import kotlinx.coroutines.launch
 
 class QuestionnaireViewModel : ViewModel() {
 
     private val questionnaireRepository = QuestionnaireRepository.getInstance()
 
-    private var _response = MutableLiveData<BaseResponse>()
-    val response: LiveData<BaseResponse> = _response
+    private val snackBarAction = ActionLiveData<SnackBarMessage>()
+
+    fun getSnackBarAction() = snackBarAction
+
+    private val response = MutableLiveData<Questionnaire>()
+    fun getResponse(): LiveData<Questionnaire> = response
 
     private var page = MutableLiveData<Int>()
     fun getPage(): LiveData<Int> = page
@@ -32,7 +54,6 @@ class QuestionnaireViewModel : ViewModel() {
     }
 
     var selectRadioButtonPositions = arrayOfNulls<Int>(36)
-    var selectRadioButtonIds = arrayOfNulls<Int>(36)
     var selectRadioButtonTexts = arrayOfNulls<String>(36)
 
     init {
@@ -41,24 +62,40 @@ class QuestionnaireViewModel : ViewModel() {
 
     @SuppressLint("SimpleDateFormat")
     fun submitQuestionnaire(result: QuestionnaireResult) {
-
         viewModelScope.launch {
-            val id = UUID.randomUUID().toString()
-            val doctorId = PreferenceService.getLoggedInDoctorId()
-            val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+            try {
+                val id = UUID.randomUUID().toString()
+                val doctorId = PreferenceService.getLoggedInDoctorId()
+                val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
 
-            val response = questionnaireRepository.createResult(
-                Questionnaire(
-                    id = id,
-                    result = result,
-                    responsibleDoctorId = doctorId!!,
-                    createdAt = dateFormat.format(Date()),
-                    updatedAt = dateFormat.format(Date()),
-                    patientId = patientId
+                val res = questionnaireRepository.createResult(
+                    Questionnaire(
+                        id = id,
+                        result = result,
+                        responsibleDoctorId = doctorId!!,
+                        createdAt = dateFormat.format(Date()),
+                        updatedAt = dateFormat.format(Date()),
+                        patientId = patientId
+                    )
                 )
-            )
 
-            _response.postValue(response)
+                if (res.isSuccessful && res.body() != null) {
+                    response.postValue(res.body()!!)
+                } else {
+                    res.errorBody()?.let { errorBody ->
+                        val moshi = Moshi.Builder().build()
+                        val error =
+                            moshi.adapter(ErrorResponse::class.java).fromJson(errorBody.string())
+                        Log.e("QuestionnaireEnd", error.toString())
+                        error?.let {
+                            snackBarAction.sendActionBackGround(SnackBarMessage(it.message))
+                        }
+                    }
+                }
+            } catch (e: Exception) {
+                Log.e("QuestionnaireViewModel", e.toString())
+                snackBarAction.sendActionBackGround(SnackBarMessage("データの送信に失敗しました"))
+            }
         }
     }
 

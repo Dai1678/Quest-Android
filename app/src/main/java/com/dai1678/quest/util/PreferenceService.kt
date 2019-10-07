@@ -5,20 +5,21 @@ import com.dai1678.quest.App
 
 object PreferenceService {
 
+    fun registerLoggedInDoctorId(doctorId: String) {
+        val context = App.instance
+        val preferences = context.getSharedPreferences(App.PREFERENCES_NAME, Context.MODE_PRIVATE)
+        preferences.edit().putString("doctorId", doctorId).apply()
+    }
+
     fun getLoggedInDoctorId(): String? {
         val context = App.instance
-        val preferences = context.getSharedPreferences("DataStore", Context.MODE_PRIVATE)
+        val preferences = context.getSharedPreferences(App.PREFERENCES_NAME, Context.MODE_PRIVATE)
         return preferences.getString("doctorId", null)
     }
 
-    fun getAuthToken(): String? {
+    fun deleteLoggedInDoctorId() {
         val context = App.instance
-        val preferences = context.getSharedPreferences("DataStore", Context.MODE_PRIVATE)
-        val token = preferences.getString("token", null)
-        return if (token == null) {
-            null
-        } else {
-            "JWT $token"
-        }
+        val preferences = context.getSharedPreferences(App.PREFERENCES_NAME, Context.MODE_PRIVATE)
+        preferences.edit().remove("doctorId").apply()
     }
 }

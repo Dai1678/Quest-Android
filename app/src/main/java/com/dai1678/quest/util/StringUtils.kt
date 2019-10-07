@@ -2,7 +2,7 @@ package com.dai1678.quest.util
 
 import android.annotation.SuppressLint
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
 
 interface StringUtils {
     val String.formatDateStr: String

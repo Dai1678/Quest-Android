@@ -14,9 +14,4 @@
             android:title="@string/reload"
             app:showAsAction="ifRoom" />
 
-    <item
-            android:id="@+id/intent_create_patient_activity"
-            android:title="@string/patient_create_label"
-            app:showAsAction="never" />
-
 </menu>

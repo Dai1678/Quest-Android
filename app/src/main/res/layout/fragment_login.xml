@@ -110,16 +110,6 @@
                     tools:listitem="@layout/list_item_doctor"
                     tools:visibility="visible" />
 
-            <TextView
-                    android:id="@+id/login_empty_doctor_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/component_interval_size_large"
-                    android:text="@string/content_login_empty_doctor_message"
-                    android:textSize="@dimen/text_size_medium"
-                    tools:visibility="invisible" />
-
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

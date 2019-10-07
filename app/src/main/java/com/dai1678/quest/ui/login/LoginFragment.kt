@@ -65,7 +65,6 @@ class LoginFragment : Fragment() {
 
         viewModel.isLoading().observe(viewLifecycleOwner) {
             binding.loginProgressBar.visibility = if (it) View.VISIBLE else View.GONE
-            binding.loginEmptyDoctorText.visibility = if (it) View.INVISIBLE else View.VISIBLE
         }
 
         viewModel.getSnackBarAction().observe(viewLifecycleOwner) {
@@ -79,26 +78,24 @@ class LoginFragment : Fragment() {
             }.show()
         }
 
-        makeDoctorList()
-
         binding.loginDoctorList.apply {
             layoutManager = LinearLayoutManager(activity)
             adapter = groupAdapter
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        makeDoctorList()
+    }
+
     private fun makeDoctorList() {
         val groupList = arrayListOf<Group>()
 
-        viewModel.getDoctorList().observe(viewLifecycleOwner) { response ->
-            binding.loginDoctorList.visibility =
-                if (response != null) View.VISIBLE else View.INVISIBLE
+        viewModel.getDoctorList().observe(viewLifecycleOwner) {
 
-            binding.loginEmptyDoctorText.visibility =
-                if (response == null) View.VISIBLE else View.INVISIBLE
-
-            response?.let {
-                for (doctor in response.list) {
+            it?.let {
+                for (doctor in it.list) {
                     groupList.add(DoctorGroup(doctor))
                 }
                 groupAdapter.update(groupList)

@@ -9,6 +9,9 @@ data class Doctor(
     val id: String,
     val firstName: String,
     val lastName: String,
+    val firstNameReading: String,
+    val lastNameReading: String,
     val updatedAt: String,
-    val isAdmin: Boolean
+    val isAdmin: Boolean,
+    val hospitalId: String
 )

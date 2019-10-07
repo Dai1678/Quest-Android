@@ -33,8 +33,11 @@ class LoginViewModel : ViewModel() {
     fun getDoctorList() = liveData(Dispatchers.IO) {
         try {
             val response = repository.getDoctorList()
-            if (response.isSuccessful) {
+            if (response.isSuccessful && response.body() != null) {
                 emit(response.body())
+                if (response.body()!!.list.isEmpty()) {
+                    snackBarAction.sendActionBackGround(SnackBarMessage("ログイン可能なユーザーはいません"))
+                }
             } else {
                 response.errorBody()?.let { errorBody ->
                     val moshi = Moshi.Builder().build()

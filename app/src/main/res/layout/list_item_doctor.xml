@@ -12,7 +12,7 @@
                 type="String" />
 
         <variable
-                name="lastLoginTime"
+                name="doctorNameReading"
                 type="String" />
     </data>
 
@@ -24,28 +24,27 @@
             android:padding="@dimen/component_interval_size_medium">
 
         <TextView
+                android:id="@+id/list_item_doctor_name_reading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{doctorNameReading}"
+                android:textColor="@color/colorPrimaryPaleText"
+                android:textSize="@dimen/text_size_micro"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="とうかい たろう" />
+
+        <TextView
                 android:id="@+id/list_item_doctor_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryText"
                 android:text="@{doctorName}"
-                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryText"
                 android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/list_item_doctor_name_reading"
                 tools:text="東海 太郎" />
-
-        <TextView
-                android:id="@+id/list_item_doctor_last_login_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@{lastLoginTime}"
-                android:textSize="@dimen/text_size_small"
-                android:textColor="@color/colorPrimaryPaleText"
-                app:layout_constraintStart_toStartOf="@id/list_item_doctor_name"
-                app:layout_constraintTop_toBottomOf="@+id/list_item_doctor_name"
-                tools:text="最終ログイン : 2019年7月14日" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -60,15 +60,20 @@ class QuestionnaireGroup(
                     )
 
                 val bottomMargin =
-                    viewBinding.root.context.resources.getDimension(R.dimen.radio_button_vertical_margin)
-                        .toInt()
+                    viewBinding.root.context.resources.getDimension(
+                        R.dimen.radio_button_vertical_margin
+                    ).toInt()
                 buttonLayoutParams.setMargins(0, 0, 0, bottomMargin)
 
                 layoutParams = buttonLayoutParams
 
                 val setUpCheckPosition =
                     viewModel.selectRadioButtonPositions[questionSizeUntilCurrentPage] ?: 0
-                if (i == setUpCheckPosition) toggle()
+                if (i == setUpCheckPosition) {
+                    toggle()
+                    viewModel.selectRadioButtonTexts[questionSizeUntilCurrentPage] =
+                        text.toString()
+                }
 
                 viewBinding.questionnaireRadioGroup.addView(this)
             }
@@ -77,9 +82,12 @@ class QuestionnaireGroup(
         viewBinding.questionnaireRadioGroup.setOnCheckedChangeListener { radioGroup, _ ->
             val selectedRadioButton =
                 viewBinding.root.findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
+
             val currentQuestionNumber = selectedRadioButton.tag as Int
+
             viewModel.selectRadioButtonPositions[currentQuestionNumber] =
                 radioGroup.indexOfChild(selectedRadioButton)
+
             viewModel.selectRadioButtonTexts[currentQuestionNumber] =
                 selectedRadioButton.text.toString()
         }

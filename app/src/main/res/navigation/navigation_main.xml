@@ -1,74 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/navigation_main"
-            app:startDestination="@id/loginFragment">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/navigation_main"
+        app:startDestination="@id/loginFragment">
 
-    <action android:id="@+id/action_global_login_fragment"
+    <action
+            android:id="@+id/action_global_login_fragment"
             app:destination="@id/loginFragment"
             app:popUpTo="@id/navigation_main"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
 
-    <action android:id="@+id/action_global_patient_list_fragment"
+    <action
+            android:id="@+id/action_global_patient_list_fragment"
             app:destination="@+id/patientListFragment"
             app:popUpTo="@id/navigation_main"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
 
-    <fragment android:id="@+id/patientListFragment"
-              android:name="com.dai1678.quest.ui.patientList.PatientListFragment"
-              android:label="@string/patient_list_toolbar_title"
-              tools:layout="@layout/fragment_patient_list">
+    <fragment
+            android:id="@+id/loginFragment"
+            android:name="com.dai1678.quest.ui.login.LoginFragment"
+            android:label="@string/login"
+            tools:layout="@layout/fragment_login">
 
-        <action android:id="@+id/action_patientListFragment_to_createUserActivity"
-                app:destination="@id/createUserActivity"
-                app:popUpTo="@id/patientListFragment"/>
-
-        <action android:id="@+id/action_patientListFragment_to_diagnosticCheckDialogFragment"
-                app:destination="@id/diagnosticCheckDialogFragment"/>
-
-    </fragment>
-
-    <fragment android:id="@+id/loginFragment"
-              android:name="com.dai1678.quest.ui.login.LoginFragment"
-              android:label="@string/login"
-              tools:layout="@layout/fragment_login">
-
-        <action android:id="@+id/action_loginFragment_to_patientListFragment"
+        <action
+                android:id="@+id/action_loginFragment_to_patientListFragment"
                 app:destination="@id/patientListFragment"
                 app:enterAnim="@anim/nav_default_enter_anim"
                 app:exitAnim="@anim/nav_default_exit_anim"
                 app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-                app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
 
     </fragment>
 
-    <activity android:id="@+id/createUserActivity"
-              android:name="com.dai1678.quest.ui.create.CreatePatientActivity"
-              android:label="activity_create_patient"
-              tools:layout="@layout/activity_create_patient"/>
+    <fragment
+            android:id="@+id/patientListFragment"
+            android:name="com.dai1678.quest.ui.patientList.PatientListFragment"
+            android:label="@string/patient_list_toolbar_title"
+            tools:layout="@layout/fragment_patient_list">
 
-    <dialog android:id="@+id/diagnosticCheckDialogFragment"
+        <argument
+                android:name="loginUserName"
+                android:defaultValue="テストユーザー"
+                app:argType="string" />
+
+        <argument
+                android:name="loginUserNameReading"
+                android:defaultValue="テストユーザー"
+                app:argType="string" />
+
+        <action
+                android:id="@+id/action_patientListFragment_to_diagnosticCheckDialogFragment"
+                app:destination="@id/diagnosticCheckDialogFragment" />
+
+    </fragment>
+
+    <dialog
+            android:id="@+id/diagnosticCheckDialogFragment"
             android:name="com.dai1678.quest.ui.dialog.DiagnosticCheckDialogFragment">
 
-        <argument android:name="patientId"
-                  app:argType="string"/>
+        <argument
+                android:name="patientId"
+                app:argType="string" />
 
-        <argument android:name="patientLastName"
-                  app:argType="string"/>
+        <argument
+                android:name="patientLastName"
+                app:argType="string" />
 
-        <action android:id="@+id/action_diagnosticCheckDialogFragment_to_questionnaireActivity"
-                app:destination="@id/questionnaireActivity"/>
+        <action
+                android:id="@+id/action_diagnosticCheckDialogFragment_to_questionnaireActivity"
+                app:destination="@id/questionnaireActivity" />
     </dialog>
 
 
-    <activity android:id="@+id/questionnaireActivity"
-              android:name="com.dai1678.quest.ui.questionnaire.QuestionnaireActivity"
-              android:label="activity_questionnaire"
-              tools:layout="@layout/activity_questionnaire">
+    <activity
+            android:id="@+id/questionnaireActivity"
+            android:name="com.dai1678.quest.ui.questionnaire.QuestionnaireActivity"
+            android:label="activity_questionnaire"
+            tools:layout="@layout/activity_questionnaire">
 
-        <argument android:name="patientId"
-                  app:argType="string"/>
+        <argument
+                android:name="patientId"
+                app:argType="string" />
 
     </activity>
 

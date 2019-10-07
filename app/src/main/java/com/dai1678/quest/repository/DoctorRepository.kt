@@ -2,7 +2,7 @@ package com.dai1678.quest.repository
 
 import com.dai1678.quest.net.QuestApiClient
 
-class DoctorRepository : BaseRepository() {
+class DoctorRepository {
 
     suspend fun getDoctorList() =
         QuestApiClient.doctorApi.getDoctorListAsync()

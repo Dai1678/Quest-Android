@@ -1,6 +1,5 @@
 package com.dai1678.quest.ui.questionnaire
 
-
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +9,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dai1678.quest.R
@@ -28,7 +27,9 @@ class QuestionnaireFragment : Fragment() {
     private lateinit var binding: FragmentQuestionnaireBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_questionnaire, container, false
@@ -44,19 +45,21 @@ class QuestionnaireFragment : Fragment() {
 
         val navController = findNavController()
 
-        viewModel.getPage().observe(viewLifecycleOwner, Observer {
+        viewModel.getPage().observe(viewLifecycleOwner) {
             when (it) {
                 QuestionnaireActivity.FIRST_PAGE -> {
                     navController.popBackStack()
                 }
                 QuestionnaireActivity.LAST_PAGE -> {
-                    navController.navigate(R.id.action_questionnaireFragment_to_questionnaireEndFragment)
+                    navController.navigate(
+                        R.id.action_questionnaireFragment_to_questionnaireEndFragment
+                    )
                 }
                 else -> {
                     loadQuestionView()
                 }
             }
-        })
+        }
 
         binding.questionnaireRecyclerView.apply {
             layoutManager = LinearLayoutManager(activity)
@@ -80,7 +83,8 @@ class QuestionnaireFragment : Fragment() {
                     viewModel.backPage()
                     navController.navigate(R.id.action_global_questionnaire_fragment)
                 }
-            })
+            }
+        )
     }
 
     @SuppressLint("SetTextI18n")
@@ -89,17 +93,18 @@ class QuestionnaireFragment : Fragment() {
             resources.getString(it)
         }
 
-        binding.questionnaireMainMessageText.text = viewModel.getQuestionMainMessageResId()?.let {
-            resources.getString(it)
-        } ?: ""
+        binding.questionnaireMainMessageText.text =
+            viewModel.getQuestionMainMessageResId()?.let {
+                resources.getString(it)
+            } ?: ""
 
         val questionSubNumberMessage = when (viewModel.getPage().value) {
-            QuestionSize.PAGE3.pageNumber, QuestionSize.PAGE10.pageNumber -> resources.getStringArray(
-                R.array.questionnaire_sub_first_half_numbers
-            )
-            QuestionSize.PAGE4.pageNumber, QuestionSize.PAGE11.pageNumber -> resources.getStringArray(
-                R.array.questionnaire_sub_latter_half_numbers
-            )
+            QuestionSize.PAGE3.pageNumber, QuestionSize.PAGE10.pageNumber ->
+                resources.getStringArray(R.array.questionnaire_sub_first_half_numbers)
+
+            QuestionSize.PAGE4.pageNumber, QuestionSize.PAGE11.pageNumber ->
+                resources.getStringArray(R.array.questionnaire_sub_latter_half_numbers)
+
             else -> resources.getStringArray(R.array.questionnaire_sub_numbers)
         }
 

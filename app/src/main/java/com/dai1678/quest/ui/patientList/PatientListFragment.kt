@@ -1,26 +1,32 @@
 package com.dai1678.quest.ui.patientList
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.observe
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentPatientListBinding
-import com.dai1678.quest.entity.Patient2
-import com.dai1678.quest.ui.questionnaire.QuestionnaireActivity
+import com.google.android.material.snackbar.Snackbar
+import com.xwray.groupie.Group
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
 import com.xwray.groupie.databinding.ViewHolder
 
 class PatientListFragment : Fragment() {
 
-    private val patientListViewModel: PatientListViewModel by viewModels()
+    private val viewModel: PatientListViewModel by viewModels()
     private val groupAdapter = GroupAdapter<ViewHolder<*>>()
+    private val args: PatientListFragmentArgs by navArgs()
 
     private lateinit var binding: FragmentPatientListBinding
 
@@ -32,7 +38,7 @@ class PatientListFragment : Fragment() {
         binding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_patient_list, container, false
         )
-        binding.viewModel = patientListViewModel
+        binding.viewModel = viewModel
         binding.lifecycleOwner = this
         return binding.root
     }
@@ -44,9 +50,9 @@ class PatientListFragment : Fragment() {
             inflateMenu(R.menu.patient_list_menu)
             setOnMenuItemClickListener {
                 when (it.itemId) {
-//                    R.id.reload_patient_list -> patientListViewModel.onRefresh()
-                    R.id.intent_create_patient_activity -> {
-                        findNavController().navigate(R.id.action_patientListFragment_to_createUserActivity)
+                    R.id.reload_patient_list -> {
+                        viewModel.reloadPatientList()
+                        makePatientList()
                     }
                 }
                 true
@@ -56,34 +62,50 @@ class PatientListFragment : Fragment() {
             }
         }
 
-//        patientListViewModel.patientList.observe(viewLifecycleOwner, Observer {
-//            groupAdapter.clear()
-//            if (it.isNullOrEmpty()) {
-//                val section = Section()
-//                section.add(LoginDoctorItem("テスト ユーザー"))
-//                section.setHeader(PatientListHeaderItem())
-//                for (patient in it) section.add(PatientListBodyItem(patient!!))
-//                groupAdapter.add(section)
-//            }
-//        })
+        viewModel.isLoading().observe(viewLifecycleOwner) {
+            binding.patientListSwipeRefreshLayout.isRefreshing = it
+        }
 
-        val section = Section()
-        section.add(LoginDoctorItem("テスト ユーザー"))
-        section.add(PatientListHeaderItem())
-        val patient = Patient2("test", "テスト", "ユーザー", "2019-09-23T19:27:00.000Z", listOf())
-        for (i in 1..10) section.add(PatientListBodyItem(patient))
-        groupAdapter.add(section)
+        viewModel.getSnackBarAction().observe(viewLifecycleOwner) {
+            Snackbar.make(view, it.text, Snackbar.LENGTH_LONG).apply {
+                getView().setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary))
+                getView().findViewById<TextView>(
+                    com.google.android.material.R.id.snackbar_text
+                ).apply {
+                    setTextColor(Color.WHITE)
+                }
+            }.show()
+        }
 
         binding.patientListRecyclerView.apply {
             layoutManager = LinearLayoutManager(activity)
             adapter = groupAdapter
         }
 
-
+        binding.patientListSwipeRefreshLayout.setOnRefreshListener {
+            viewModel.reloadPatientList()
+            makePatientList()
+        }
     }
 
     override fun onResume() {
         super.onResume()
-//        patientListViewModel.onRefresh()
+        makePatientList()
+    }
+
+    private fun makePatientList() {
+        val groupList = arrayListOf<Group>()
+        groupList.add(LoginDoctorItem(args.loginUserName, args.loginUserNameReading))
+
+        viewModel.getPatientList().observe(viewLifecycleOwner) {
+
+            val section = Section()
+            it?.let {
+                section.setHeader(PatientListHeaderItem())
+                for (patient in it.list) section.add(PatientListBodyItem(patient))
+            }
+            groupList.add(section)
+            groupAdapter.update(groupList)
+        }
     }
 }
