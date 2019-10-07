@@ -1,82 +1,64 @@
 package com.dai1678.quest.ui.login
 
-import android.content.Context
+import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.dai1678.quest.Quest
-import com.dai1678.quest.entity.Doctor
-import com.dai1678.quest.repository.LoginRepository
-import com.dai1678.quest.ui.login.LoginViewModel.AuthenticationState.*
-import kotlinx.coroutines.*
-import kotlin.coroutines.CoroutineContext
+import androidx.lifecycle.liveData
+import com.dai1678.quest.entity.ErrorResponse
+import com.dai1678.quest.entity.SnackBarMessage
+import com.dai1678.quest.repository.DoctorRepository
+import com.dai1678.quest.util.ActionLiveData
+import com.squareup.moshi.Moshi
+import kotlinx.coroutines.Dispatchers
 
 class LoginViewModel : ViewModel() {
 
-    enum class AuthenticationState {
-        AUTHENTICATED, // Initial state, the user needs to authenticate
-        UNAUTHENTICATED, // The user has authenticated successfully
-        INVALID_AUTHENTICATION // Authentication failed
+    private val repository: DoctorRepository = DoctorRepository.getInstance()
+
+    private val snackBarAction = ActionLiveData<SnackBarMessage>()
+
+    fun getSnackBarAction() = snackBarAction
+
+    private lateinit var isLoadingLiveData: MutableLiveData<Boolean>
+
+    fun isLoading(): LiveData<Boolean> {
+        if (!::isLoadingLiveData.isInitialized) {
+            isLoadingLiveData = MutableLiveData()
+            isLoadingLiveData.value = true
+        }
+        return isLoadingLiveData
     }
 
-    private val parentJob = Job()
-    private val coroutineContext: CoroutineContext
-        get() = parentJob + Dispatchers.Default
-    private val coroutineScope = CoroutineScope(coroutineContext)
-
-    private val loginRepository = LoginRepository.getInstance()
-    private val context = Quest.instance
-
-    var username = MutableLiveData<String>()
-    var password = MutableLiveData<String>()
-
-    private var _authenticationState = MutableLiveData<AuthenticationState>()
-    val authenticationState: LiveData<AuthenticationState> = _authenticationState
-
-    private var _loginUser = MutableLiveData<Doctor>()
-    val loginUser: LiveData<Doctor> = _loginUser
-
-    fun refuseAuthentication() {
-        _authenticationState.value = UNAUTHENTICATED
-    }
-
-    private fun isValid() =
-        !username.value.isNullOrBlank() && !password.value.isNullOrBlank()
-
-    val canSubmit = MediatorLiveData<Boolean>().also { result ->
-        result.addSource(username) { result.value = isValid() }
-        result.addSource(password) { result.value = isValid() }
-    }
-
-    // ログインボタンの処理
-    fun onClickLogin() {
-        coroutineScope.launch {
-            val response = loginRepository.login(
-                username.value!!, password.value!!
-            )
-            response?.let {
-                if (it.auth) {
-                    saveLoginDataToPref(it.token, it.doctor!!)
-                    _authenticationState.postValue(AUTHENTICATED)
-                } else {
-                    _authenticationState.postValue(INVALID_AUTHENTICATION)
+    fun getDoctorList() = liveData(Dispatchers.IO) {
+        try {
+            val response = repository.getDoctorList()
+            if (response.isSuccessful && response.body() != null) {
+                emit(response.body())
+                if (response.body()!!.list.isEmpty()) {
+                    snackBarAction.sendActionBackGround(SnackBarMessage("ログイン可能なユーザーはいません"))
+                }
+            } else {
+                response.errorBody()?.let { errorBody ->
+                    val moshi = Moshi.Builder().build()
+                    val error =
+                        moshi.adapter(ErrorResponse::class.java).fromJson(errorBody.string())
+                    Log.e("LoginViewModel", error.toString())
+                    emit(null)
+                    error?.let {
+                        snackBarAction.sendActionBackGround(SnackBarMessage(it.message))
+                    }
                 }
             }
+        } catch (e: Exception) {
+            Log.e("LoginViewModel", e.toString())
+            snackBarAction.sendActionBackGround(SnackBarMessage("データの取得に失敗しました"))
+        } finally {
+            isLoadingLiveData.postValue(false)
         }
     }
 
-    fun cancelRequests() = coroutineContext.cancel()
-
-    private fun saveLoginDataToPref(token: String?, doctor: Doctor) {
-        token?.let {
-            val preferences = context.getSharedPreferences("DataStore", Context.MODE_PRIVATE)
-            preferences.edit().apply {
-                putString("hospitalId", doctor.hospitalId)
-                putString("doctorId", doctor.id)
-                putString("token", it)
-                apply()
-            }
-        }
+    fun reloadDoctorList() {
+        isLoadingLiveData.value = true
     }
 }

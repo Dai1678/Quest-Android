@@ -9,6 +9,9 @@
     <string name="add">作成</string>
     <string name="next">次へ進む</string>
     <string name="back">前に戻る</string>
+    <string name="reload">更新する</string>
+    <string name="search">検索する</string>
+    <string name="question_label">問</string>
     <string name="patient_create_label">新規患者作成</string>
     <string name="doctor_create_label">新規医者作成</string>
     <string name="start_diagnosis">診断を開始</string>
@@ -41,21 +44,51 @@
         <item>@string/questionnaire_sub_number_i</item>
         <item>@string/questionnaire_sub_number_j</item>
     </string-array>
+    
+    <string-array name="questionnaire_sub_first_half_numbers">
+        <item>@string/questionnaire_sub_number_a</item>
+        <item>@string/questionnaire_sub_number_b</item>
+        <item>@string/questionnaire_sub_number_c</item>
+        <item>@string/questionnaire_sub_number_d</item>
+        <item>@string/questionnaire_sub_number_e</item>
+    </string-array>
+
+    <string-array name="questionnaire_sub_latter_half_numbers">
+        <item>@string/questionnaire_sub_number_f</item>
+        <item>@string/questionnaire_sub_number_g</item>
+        <item>@string/questionnaire_sub_number_h</item>
+        <item>@string/questionnaire_sub_number_i</item>
+        <item>@string/questionnaire_sub_number_j</item>
+    </string-array>
 
     <!-- Login -->
     <string name="login_success_message">ログインしました</string>
     <string name="login_failed_message">ログインに失敗しました</string>
+    <string name="login_toolbar_image_content_description">アプリロゴ</string>
+
+    <!-- LoginContent -->
+    <string name="content_login_header_message">担当医を選択してください</string>
+    <string name="content_login_doctor_list_reload_button_message">@string/reload</string>
+    <string name="content_login_empty_doctor_message">ログインできるユーザーがいません</string>
+    <string name="content_login_last_login_label">最終ログイン : </string>
 
     <!-- CreateUser -->
     <string name="create_user_fist_name_label">名前</string>
     <string name="create_user_last_name_label">名字</string>
 
     <!-- PatientList -->
-    <string name="patient_list_toolbar_title">患者一覧</string>
+    <string name="patient_list_toolbar_title">ホーム</string>
     <string name="patient_list_patient_name_ascending_order_label">名前順 (昇順)</string>
     <string name="patient_list_patient_name_descending_order_label">名前順 (降順)</string>
-    <string name="patient_list_last_questionnaire_label">最終受検日:</string>
+    <string name="patient_list_last_questionnaire_label">最終受検日 : </string>
     <string name="patient_list_none_last_questionnaire_label">なし</string>
+
+    <!-- ListItemLoginDoctor -->
+    <string name="list_item_login_doctor_header_message">利用中のユーザー</string>
+    <string name="list_item_doctor_logout_button_text">他のユーザーに切り替える</string>
+
+    <!-- ListHeaderPatient -->
+    <string name="list_header_patient_message">患者一覧</string>
 
     <!-- DiagnosticCheckDialog -->
     <string name="diagnostic_check_dialog_title">さんの診断です</string>
@@ -83,6 +116,14 @@
     <string name="questionnaire_1_answer_4">あまり良くない</string>
     <string name="questionnaire_1_answer_5">良くない</string>
 
+    <string-array name="questionnaire_1_answers">
+        <item>@string/questionnaire_1_answer_1</item>
+        <item>@string/questionnaire_1_answer_2</item>
+        <item>@string/questionnaire_1_answer_3</item>
+        <item>@string/questionnaire_1_answer_4</item>
+        <item>@string/questionnaire_1_answer_5</item>
+    </string-array>
+
     <!-- Questionnaire2 -->
     <string name="questionnaire_2_number">問2</string>
     <string name="questionnaire_2_message">1年前と比べて、現在の健康状態はいかがですか。\n（一番よく当てはまるものに☑印をつけて下さい）</string>
@@ -91,6 +132,14 @@
     <string name="questionnaire_2_answer_3">1年前と、ほぼ同じ</string>
     <string name="questionnaire_2_answer_4">1年前ほど、良くない</string>
     <string name="questionnaire_2_answer_5">1年前より、はるかに悪い</string>
+
+    <string-array name="questionnaire_2_answers">
+        <item>@string/questionnaire_2_answer_1</item>
+        <item>@string/questionnaire_2_answer_2</item>
+        <item>@string/questionnaire_2_answer_3</item>
+        <item>@string/questionnaire_2_answer_4</item>
+        <item>@string/questionnaire_2_answer_5</item>
+    </string-array>
 
     <!-- Questionnaire3 -->
     <string name="questionnaire_3_number">問3</string>
@@ -130,6 +179,28 @@
         <item>@string/questionnaire_3_j_message</item>
     </string-array>
 
+    <string-array name="questionnaire_3_1_sub_messages">
+        <item>@string/questionnaire_3_a_message</item>
+        <item>@string/questionnaire_3_b_message</item>
+        <item>@string/questionnaire_3_c_message</item>
+        <item>@string/questionnaire_3_d_message</item>
+        <item>@string/questionnaire_3_e_message</item>
+    </string-array>
+
+    <string-array name="questionnaire_3_2_sub_messages">
+        <item>@string/questionnaire_3_f_message</item>
+        <item>@string/questionnaire_3_g_message</item>
+        <item>@string/questionnaire_3_h_message</item>
+        <item>@string/questionnaire_3_i_message</item>
+        <item>@string/questionnaire_3_j_message</item>
+    </string-array>
+
+    <string-array name="questionnaire_3_answers">
+        <item>@string/questionnaire_3_answer_1</item>
+        <item>@string/questionnaire_3_answer_2</item>
+        <item>@string/questionnaire_3_answer_3</item>
+    </string-array>
+
     <!-- Questionnaire4 -->
     <string name="questionnaire_4_number">問4</string>
     <string name="questionnaire_4_message"><u>過去1ヶ月間に</u>、仕事やふだんの活動（家事など）をするにあたって、<u>身体的な理由で</u>次のような問題がありましたか。\n\n（ア〜エまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
@@ -154,6 +225,14 @@
         <item>@string/questionnaire_4_b_message</item>
         <item>@string/questionnaire_4_c_message</item>
         <item>@string/questionnaire_4_d_message</item>
+    </string-array>
+
+    <string-array name="questionnaire_4_answers">
+        <item>@string/questionnaire_4_answer_1</item>
+        <item>@string/questionnaire_4_answer_2</item>
+        <item>@string/questionnaire_4_answer_3</item>
+        <item>@string/questionnaire_4_answer_4</item>
+        <item>@string/questionnaire_4_answer_5</item>
     </string-array>
 
     <!-- Questionnaire5 -->
@@ -181,6 +260,14 @@
         <item>@string/questionnaire_5_c_message</item>
     </string-array>
 
+    <string-array name="questionnaire_5_answers">
+        <item>@string/questionnaire_5_answer_1</item>
+        <item>@string/questionnaire_5_answer_2</item>
+        <item>@string/questionnaire_5_answer_3</item>
+        <item>@string/questionnaire_5_answer_4</item>
+        <item>@string/questionnaire_5_answer_5</item>
+    </string-array>
+
     <!-- Questionnaire6 -->
     <string name="questionnaire_6_number">問6</string>
     <string name="questionnaire_6_message">
@@ -193,6 +280,14 @@
     <string name="questionnaire_6_answer_4">かなり、妨げられた</string>
     <string name="questionnaire_6_answer_5">非常に、妨げられた</string>
 
+    <string-array name="questionnaire_6_answers">
+        <item>@string/questionnaire_6_answer_1</item>
+        <item>@string/questionnaire_6_answer_2</item>
+        <item>@string/questionnaire_6_answer_3</item>
+        <item>@string/questionnaire_6_answer_4</item>
+        <item>@string/questionnaire_6_answer_5</item>
+    </string-array>
+
     <!-- Questionnaire7 -->
     <string name="questionnaire_7_number">問7</string>
     <string name="questionnaire_7_message"><u>過去１ヶ月間に</u>、<u>体の痛み</u>をどのくらい感じましたか。\n\n（一番よくあてはまるものに☑印をつけて下さい）
@@ -204,6 +299,15 @@
     <string name="questionnaire_7_answer_5">強い痛み</string>
     <string name="questionnaire_7_answer_6">非常に激しい痛み</string>
 
+    <string-array name="questionnaire_7_answers">
+        <item>@string/questionnaire_7_answer_1</item>
+        <item>@string/questionnaire_7_answer_2</item>
+        <item>@string/questionnaire_7_answer_3</item>
+        <item>@string/questionnaire_7_answer_4</item>
+        <item>@string/questionnaire_7_answer_5</item>
+        <item>@string/questionnaire_7_answer_6</item>
+    </string-array>
+
     <!-- Questionnaire8 -->
     <string name="questionnaire_8_number">問8</string>
     <string name="questionnaire_8_message"><u>過去１ヶ月間に</u>、いつもの仕事（家事も含みます）が<u>痛みのために</u>、どのくらい妨げられましたか。\n\n（一番よくあてはまるものに☑印をつけて下さい）
@@ -213,6 +317,14 @@
     <string name="questionnaire_8_answer_3">少し、妨げられた</string>
     <string name="questionnaire_8_answer_4">かなり、妨げられた</string>
     <string name="questionnaire_8_answer_5">非常に、妨げられた</string>
+
+    <string-array name="questionnaire_8_answers">
+        <item>@string/questionnaire_8_answer_1</item>
+        <item>@string/questionnaire_8_answer_2</item>
+        <item>@string/questionnaire_8_answer_3</item>
+        <item>@string/questionnaire_8_answer_4</item>
+        <item>@string/questionnaire_8_answer_5</item>
+    </string-array>
 
     <!-- Questionnaire9 -->
     <string name="questionnaire_9_number">問9</string>
@@ -245,6 +357,29 @@
         <item>@string/questionnaire_9_i_message</item>
     </string-array>
 
+    <string-array name="questionnaire_9_1_sub_messages">
+        <item>@string/questionnaire_9_a_message</item>
+        <item>@string/questionnaire_9_b_message</item>
+        <item>@string/questionnaire_9_c_message</item>
+        <item>@string/questionnaire_9_d_message</item>
+        <item>@string/questionnaire_9_e_message</item>
+    </string-array>
+
+    <string-array name="questionnaire_9_2_sub_messages">
+        <item>@string/questionnaire_9_f_message</item>
+        <item>@string/questionnaire_9_g_message</item>
+        <item>@string/questionnaire_9_h_message</item>
+        <item>@string/questionnaire_9_i_message</item>
+    </string-array>
+
+    <string-array name="questionnaire_9_answers">
+        <item>@string/questionnaire_9_answer_1</item>
+        <item>@string/questionnaire_9_answer_2</item>
+        <item>@string/questionnaire_9_answer_3</item>
+        <item>@string/questionnaire_9_answer_4</item>
+        <item>@string/questionnaire_9_answer_5</item>
+    </string-array>
+
     <!-- Questionnaire10 -->
     <string name="questionnaire_10_number">問10</string>
     <string name="questionnaire_10_message"><u>過去１ヶ月間に</u>、友人や親せきを訪ねるなど、人とのつきあいが、<u>身体的あるいは心理的な理由で</u>、時間的にどのくらい妨げられましたか。\n\n（一番よくあてはまるものに☑印をつけて下さい）
@@ -254,6 +389,14 @@
     <string name="questionnaire_10_answer_3">ときどき</string>
     <string name="questionnaire_10_answer_4">まれに</string>
     <string name="questionnaire_10_answer_5">ぜんぜんない</string>
+
+    <string-array name="questionnaire_10_answers">
+        <item>@string/questionnaire_10_answer_1</item>
+        <item>@string/questionnaire_10_answer_2</item>
+        <item>@string/questionnaire_10_answer_3</item>
+        <item>@string/questionnaire_10_answer_4</item>
+        <item>@string/questionnaire_10_answer_5</item>
+    </string-array>
 
     <!-- Questionnaire11 -->
     <string name="questionnaire_11_number">問11</string>
@@ -274,6 +417,14 @@
         <item>@string/questionnaire_11_b_message</item>
         <item>@string/questionnaire_11_c_message</item>
         <item>@string/questionnaire_11_d_message</item>
+    </string-array>
+
+    <string-array name="questionnaire_11_answers">
+        <item>@string/questionnaire_11_answer_1</item>
+        <item>@string/questionnaire_11_answer_2</item>
+        <item>@string/questionnaire_11_answer_3</item>
+        <item>@string/questionnaire_11_answer_4</item>
+        <item>@string/questionnaire_11_answer_5</item>
     </string-array>
 
     <!-- QuestionnaireEnd -->

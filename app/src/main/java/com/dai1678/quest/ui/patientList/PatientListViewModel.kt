@@ -1,67 +1,64 @@
 package com.dai1678.quest.ui.patientList
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.dai1678.quest.entity.Patient
+import androidx.lifecycle.liveData
+import com.dai1678.quest.entity.ErrorResponse
+import com.dai1678.quest.entity.SnackBarMessage
 import com.dai1678.quest.repository.PatientRepository
-import com.dai1678.quest.util.PreferenceService
-import kotlinx.coroutines.CoroutineScope
+import com.dai1678.quest.util.ActionLiveData
+import com.squareup.moshi.Moshi
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
-import kotlin.coroutines.CoroutineContext
-import kotlin.math.ceil
 
 class PatientListViewModel : ViewModel() {
 
-    private val parentJob = Job()
-    private val coroutineContext: CoroutineContext
-        get() = parentJob + Dispatchers.Default
-    private val coroutineScope = CoroutineScope(coroutineContext)
+    private val repository = PatientRepository.getInstance()
 
-    private val patientRepository = PatientRepository.getInstance()
+    private val snackBarAction = ActionLiveData<SnackBarMessage>()
 
-    private var _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> = _isLoading
+    fun getSnackBarAction() = snackBarAction
 
-    private val _patientsList = MutableLiveData<List<Patient?>>()
-    val patientList: LiveData<List<Patient?>> = _patientsList
+    private lateinit var isLoadingLiveData: MutableLiveData<Boolean>
 
-    fun getPatientsList() {
-        val token = PreferenceService.getAuthToken()
-        val hospitalId = PreferenceService.getLoggedInHospitalId()
+    fun isLoading(): LiveData<Boolean> {
+        if (!::isLoadingLiveData.isInitialized) {
+            isLoadingLiveData = MutableLiveData()
+            isLoadingLiveData.value = true
+        }
+        return isLoadingLiveData
+    }
 
-        if (token != null && hospitalId != null) {
-            coroutineScope.launch {
-                var page = 1
-                val limit = 100
-
-                var result = patientRepository.getPatientList(token, limit, page, hospitalId)
-                result?.let { resultFirst ->
-                    val allPatientsList = resultFirst.list
-                    val totalPatientsNumber = resultFirst.total
-
-                    val totalPage = ceil((totalPatientsNumber / limit).toDouble()).toInt()
-
-                    while (totalPage > 1 && totalPage >= page) {
-                        page++
-                        result = patientRepository.getPatientList(token, limit, page, hospitalId)
-                        result?.let { resultLater ->
-                            allPatientsList.plus(resultLater.list)
-                        }
-                    }
-
-                    _patientsList.postValue(allPatientsList)
+    fun getPatientList() = liveData(Dispatchers.IO) {
+        try {
+            val response = repository.getPatientList()
+            if (response.isSuccessful && response.body() != null) {
+                emit(response.body())
+                if (response.body()!!.list.isEmpty()) {
+                    snackBarAction.sendActionBackGround(SnackBarMessage("受検可能な患者はいません"))
                 }
-
-                _isLoading.postValue(false)
+            } else {
+                response.errorBody()?.let { errorBody ->
+                    val moshi = Moshi.Builder().build()
+                    val error =
+                        moshi.adapter(ErrorResponse::class.java).fromJson(errorBody.string())
+                    Log.e("PatientListViewModel", error.toString())
+                    emit(null)
+                    error?.let {
+                        snackBarAction.sendActionBackGround(SnackBarMessage(it.message))
+                    }
+                }
             }
+        } catch (e: Exception) {
+            Log.e("PatientListViewModel", e.toString())
+            snackBarAction.sendActionBackGround(SnackBarMessage("データの取得に失敗しました"))
+        } finally {
+            isLoadingLiveData.postValue(false)
         }
     }
 
-    fun onRefresh() {
-        _isLoading.value = true
-        getPatientsList()
+    fun reloadPatientList() {
+        isLoadingLiveData.value = true
     }
 }

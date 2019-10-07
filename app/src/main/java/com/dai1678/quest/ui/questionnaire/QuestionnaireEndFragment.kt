@@ -1,17 +1,22 @@
 package com.dai1678.quest.ui.questionnaire
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentQuestionnaireEndBinding
 import com.dai1678.quest.entity.QuestionnaireResult
+import com.google.android.material.snackbar.Snackbar
 
 class QuestionnaireEndFragment : Fragment() {
 
@@ -34,22 +39,32 @@ class QuestionnaireEndFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.getSnackBarAction().observe(viewLifecycleOwner) {
+            Snackbar.make(view, it.text, Snackbar.LENGTH_LONG).apply {
+                getView().setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary))
+                getView().findViewById<TextView>(
+                    com.google.android.material.R.id.snackbar_text
+                ).apply {
+                    setTextColor(Color.WHITE)
+                }
+            }.show()
+        }
+
+        viewModel.getResponse().observe(viewLifecycleOwner) {
+            requireActivity().finish()
+        }
+
         val navController = findNavController()
 
         binding.questionnaireEndBackButton.setOnClickListener {
-            navController.popBackStack()
+            viewModel.backPage()
+            navController.navigate(R.id.action_global_questionnaire_fragment)
         }
 
         binding.questionnaireEndSubmitButton.setOnClickListener {
-            submitResult()
-            requireActivity().finish()
+            Log.d("answer", formatResult().toString())
+            viewModel.submitQuestionnaire(formatResult())
         }
-    }
-
-    private fun submitResult() {
-        Log.d("answer", formatResult().toString())
-        val questionnaireActivity = activity as QuestionnaireActivity
-        viewModel.submitQuestionnaire(formatResult(), questionnaireActivity.patientId)
     }
 
     private fun formatResult(): QuestionnaireResult {
