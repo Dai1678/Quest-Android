@@ -12,10 +12,12 @@
     <dimen name="text_size_medium">18sp</dimen>
     <dimen name="text_size_large">22sp</dimen>
 
-    <dimen name="input_layout_corner_radius">16dp</dimen>
+    <dimen name="button_vertical_padding">16dp</dimen>
+    <dimen name="button_horizontal_padding">48dp</dimen>
     <dimen name="button_corner_radius">8dp</dimen>
 
     <dimen name="radio_button_vertical_margin">16dp</dimen>
-    <dimen name="layout_margin">24dp</dimen>
-    <dimen name="layout_max_width">480dp</dimen>
+
+    <dimen name="guideline_left_percent">0.05</dimen>
+    <dimen name="guideline_right_percent">0.95</dimen>
 </resources>

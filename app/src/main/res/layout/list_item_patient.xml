@@ -57,6 +57,7 @@
                 android:layout_marginTop="@dimen/component_interval_size_small"
                 android:text="@{lastQuestionnaireTime}"
                 android:textColor="@color/colorPrimaryPaleText"
+                android:textSize="@dimen/text_size_small"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/list_item_patient_name"
                 tools:text="最終受験日 : 2019年7月14日" />
