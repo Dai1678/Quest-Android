@@ -29,7 +29,7 @@
     <string name="questionnaire_sub_number_f">カ)</string>
     <string name="questionnaire_sub_number_g">キ)</string>
     <string name="questionnaire_sub_number_h">ク)</string>
-    <string name="questionnaire_sub_number_i">ケ</string>
+    <string name="questionnaire_sub_number_i">ケ)</string>
     <string name="questionnaire_sub_number_j">コ)</string>
 
     <string-array name="questionnaire_sub_numbers">
@@ -44,7 +44,7 @@
         <item>@string/questionnaire_sub_number_i</item>
         <item>@string/questionnaire_sub_number_j</item>
     </string-array>
-    
+
     <string-array name="questionnaire_sub_first_half_numbers">
         <item>@string/questionnaire_sub_number_a</item>
         <item>@string/questionnaire_sub_number_b</item>
@@ -92,10 +92,7 @@
 
     <!-- DiagnosticCheckDialog -->
     <string name="diagnostic_check_dialog_title">さんの診断です</string>
-    <string name="diagnostic_check_dialog_message">
-        <b>診断を開始</b>
-        を押すとアンケートの回答画面に進みます。\n\n受検する患者に端末を渡してください。
-    </string>
+    <string name="diagnostic_check_dialog_message"><b>診断を開始</b>を押すとアンケートの回答画面に進みます。\n\n受検する患者に端末を渡してください。</string>
 
     <!-- SuspendCheckDialog -->
     <string name="suspend_check_message">回答を中断を押すと、それまでに回答した内容が削除されます。\nよろしいですか？</string>
@@ -103,7 +100,7 @@
     <!--QuestionnaireStart -->
     <string name="questionnaire_toolbar_title">あなたの健康について</string>
     <string name="questionnaire_start_message1">
-        このアンケートはあなたがご自分の健康をどのように考えているかをおうかがいするものです。あなたが毎日をどのように感じ、日常の活動をどのくらい自由にできるかを知るうえで参考になります。お手数をおかけしますが、何卒ご協力のほど宜しくお願い申し上げます。
+        このアンケートはあなたがご自分の健康をどのように考えているかをおうかがいするものです。\nあなたが毎日をどのように感じ、日常の活動をどのくらい自由にできるかを知るうえで参考になります。\nお手数をおかけしますが、何卒ご協力のほど宜しくお願い申し上げます。
     </string>
     <string name="questionnaire_start_message2">以下のそれぞれの質問について、一番よくあてはまるものに印（☑）をつけてください。</string>
 

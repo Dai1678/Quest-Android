@@ -7,17 +7,17 @@
     <dimen name="component_notification_height">64dp</dimen>
     <dimen name="component_navigation_drawer_width">240dp</dimen>
     
-    <dimen name="text_size_micro">12sp</dimen>
-    <dimen name="text_size_small">14sp</dimen>
-    <dimen name="text_size_medium">18sp</dimen>
-    <dimen name="text_size_large">22sp</dimen>
+    <dimen name="text_size_micro">18sp</dimen>
+    <dimen name="text_size_small">20sp</dimen>
+    <dimen name="text_size_medium">24sp</dimen>
+    <dimen name="text_size_large">28sp</dimen>
 
-    <dimen name="button_vertical_padding">16dp</dimen>
-    <dimen name="button_horizontal_padding">32dp</dimen>
+    <dimen name="button_vertical_padding">32dp</dimen>
+    <dimen name="button_horizontal_padding">96dp</dimen>
     <dimen name="button_corner_radius">8dp</dimen>
 
-    <dimen name="radio_button_vertical_margin">16dp</dimen>
+    <dimen name="radio_button_vertical_margin">24dp</dimen>
 
-    <dimen name="guideline_left_percent">0.05</dimen>
-    <dimen name="guideline_right_percent">0.95</dimen>
+    <dimen name="guideline_left_percent">0.15</dimen>
+    <dimen name="guideline_right_percent">0.85</dimen>
 </resources>

@@ -1,11 +1,10 @@
 package com.dai1678.quest.ui.questionnaire
 
 import android.content.res.ColorStateList
-import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.RadioButton
+import android.widget.RadioGroup
 import androidx.core.content.ContextCompat
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.ListItemQuestionnaireBinding
@@ -45,16 +44,12 @@ class QuestionnaireGroup(
                 id = View.generateViewId()
                 tag = questionSizeUntilCurrentPage
                 text = questionChild.selectAnswerMessage[i]
-                textSize = TypedValue.applyDimension(
-                    TypedValue.COMPLEX_UNIT_SP,
-                    8F,
-                    context.resources.displayMetrics
-                )
+
                 buttonTintList =
                     ColorStateList.valueOf(ContextCompat.getColor(context, R.color.colorPrimary))
 
-                val buttonLayoutParams: LinearLayout.LayoutParams =
-                    LinearLayout.LayoutParams(
+                val buttonLayoutParams: RadioGroup.LayoutParams =
+                    RadioGroup.LayoutParams(
                         ViewGroup.LayoutParams.WRAP_CONTENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT
                     )
