@@ -1,10 +1,8 @@
 package com.dai1678.quest.ui.questionnaire
 
 import android.content.res.ColorStateList
-import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.core.content.ContextCompat
