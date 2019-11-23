@@ -4,6 +4,8 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -38,6 +40,7 @@ class QuestionnaireEndFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
 
         viewModel.getSnackBarAction().observe(viewLifecycleOwner) {
             Snackbar.make(view, it.text, Snackbar.LENGTH_LONG).apply {
@@ -83,5 +86,10 @@ class QuestionnaireEndFragment : Fragment() {
             answer10 = answerTexts[31],
             answer11 = answerTexts.subList(32, 35)
         )
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.questionnaire_menu, menu)
     }
 }

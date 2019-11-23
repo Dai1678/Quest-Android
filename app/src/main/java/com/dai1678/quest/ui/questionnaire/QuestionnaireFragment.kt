@@ -3,6 +3,8 @@ package com.dai1678.quest.ui.questionnaire
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
@@ -42,15 +44,16 @@ class QuestionnaireFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
 
         val navController = findNavController()
 
         viewModel.getPage().observe(viewLifecycleOwner) {
             when (it) {
-                QuestionnaireActivity.FIRST_PAGE -> {
+                FIRST_PAGE -> {
                     navController.popBackStack()
                 }
-                QuestionnaireActivity.LAST_PAGE -> {
+                LAST_PAGE -> {
                     navController.navigate(
                         R.id.action_questionnaireFragment_to_questionnaireEndFragment
                     )
@@ -135,5 +138,15 @@ class QuestionnaireFragment : Fragment() {
             list.add(QuestionnaireGroup(viewModel, questionChild, false))
         }
         groupAdapter.update(list)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.questionnaire_menu, menu)
+    }
+
+    companion object {
+        private const val FIRST_PAGE = 0
+        private const val LAST_PAGE = 14
     }
 }

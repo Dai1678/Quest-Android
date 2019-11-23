@@ -3,26 +3,10 @@ package com.dai1678.quest.ui.patientList
 import androidx.navigation.findNavController
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.ListHeaderPatientBinding
-import com.dai1678.quest.databinding.ListItemLoginDoctorBinding
 import com.dai1678.quest.databinding.ListItemPatientBinding
 import com.dai1678.quest.entity.Patient
 import com.dai1678.quest.util.StringUtils
 import com.xwray.groupie.databinding.BindableItem
-
-class LoginDoctorItem(private val doctorName: String, private val doctorNameReading: String) :
-    BindableItem<ListItemLoginDoctorBinding>() {
-
-    override fun getLayout(): Int = R.layout.list_item_login_doctor
-
-    override fun bind(viewBinding: ListItemLoginDoctorBinding, position: Int) {
-        viewBinding.loginDoctorName = doctorName
-        viewBinding.loginDoctorNameReading = doctorNameReading
-
-        viewBinding.listItemDoctorLogoutButton.setOnClickListener {
-            it.findNavController().popBackStack()
-        }
-    }
-}
 
 class PatientListHeaderItem :
     BindableItem<ListHeaderPatientBinding>() {

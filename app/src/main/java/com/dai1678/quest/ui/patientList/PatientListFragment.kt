@@ -11,8 +11,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentPatientListBinding
@@ -26,7 +24,6 @@ class PatientListFragment : Fragment() {
 
     private val viewModel: PatientListViewModel by viewModels()
     private val groupAdapter = GroupAdapter<ViewHolder<*>>()
-    private val args: PatientListFragmentArgs by navArgs()
 
     private lateinit var binding: FragmentPatientListBinding
 
@@ -45,22 +42,6 @@ class PatientListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.patientListToolbar.apply {
-            inflateMenu(R.menu.patient_list_menu)
-            setOnMenuItemClickListener {
-                when (it.itemId) {
-                    R.id.reload_patient_list -> {
-                        viewModel.reloadPatientList()
-                        makePatientList()
-                    }
-                }
-                true
-            }
-            setNavigationOnClickListener {
-                findNavController().popBackStack()
-            }
-        }
 
         viewModel.isLoading().observe(viewLifecycleOwner) {
             binding.patientListSwipeRefreshLayout.isRefreshing = it
@@ -95,7 +76,6 @@ class PatientListFragment : Fragment() {
 
     private fun makePatientList() {
         val groupList = arrayListOf<Group>()
-        groupList.add(LoginDoctorItem(args.loginUserName, args.loginUserNameReading))
 
         viewModel.getPatientList().observe(viewLifecycleOwner) {
 

@@ -2,6 +2,8 @@ package com.dai1678.quest.ui.questionnaire
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -30,6 +32,7 @@ class QuestionnaireStartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
 
         binding.questionnaireTopNextButton.setOnClickListener {
             viewModel.nextPage()
@@ -37,5 +40,10 @@ class QuestionnaireStartFragment : Fragment() {
                 R.id.action_questionnaireStartFragment_to_questionnaireFragment
             )
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.questionnaire_menu, menu)
     }
 }
