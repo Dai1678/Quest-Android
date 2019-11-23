@@ -26,7 +26,6 @@ import com.dai1678.quest.entity.QuestionnaireResult
 import com.dai1678.quest.entity.SnackBarMessage
 import com.dai1678.quest.repository.QuestionnaireRepository
 import com.dai1678.quest.util.ActionLiveData
-import com.dai1678.quest.util.PreferenceService
 import com.squareup.moshi.Moshi
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -65,14 +64,13 @@ class QuestionnaireViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val id = UUID.randomUUID().toString()
-                val doctorId = PreferenceService.getLoggedInDoctorId()
                 val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
 
                 val res = questionnaireRepository.createResult(
                     Questionnaire(
                         id = id,
                         result = result,
-                        responsibleDoctorId = doctorId!!,
+                        responsibleDoctorId = "empty",
                         createdAt = dateFormat.format(Date()),
                         updatedAt = dateFormat.format(Date()),
                         patientId = patientId
