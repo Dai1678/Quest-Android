@@ -5,33 +5,11 @@
         android:id="@+id/navigation_main"
         app:startDestination="@id/patientListFragment">
 
-<!--    <action-->
-<!--            android:id="@+id/action_global_login_fragment"-->
-<!--            app:destination="@id/loginFragment"-->
-<!--            app:popUpTo="@id/navigation_main"-->
-<!--            app:popUpToInclusive="true" />-->
-
     <action
             android:id="@+id/action_global_patient_list_fragment"
             app:destination="@+id/patientListFragment"
             app:popUpTo="@id/navigation_main"
             app:popUpToInclusive="true" />
-
-<!--    <fragment-->
-<!--            android:id="@+id/loginFragment"-->
-<!--            android:name="com.dai1678.quest.ui.login.LoginFragment"-->
-<!--            android:label="@string/login"-->
-<!--            tools:layout="@layout/fragment_login">-->
-
-<!--        <action-->
-<!--                android:id="@+id/action_loginFragment_to_patientListFragment"-->
-<!--                app:destination="@id/patientListFragment"-->
-<!--                app:enterAnim="@anim/nav_default_enter_anim"-->
-<!--                app:exitAnim="@anim/nav_default_exit_anim"-->
-<!--                app:popEnterAnim="@anim/nav_default_pop_enter_anim"-->
-<!--                app:popExitAnim="@anim/nav_default_pop_exit_anim" />-->
-
-<!--    </fragment>-->
 
     <action
             android:id="@+id/action_global_suspend_check_dialog"
@@ -51,16 +29,6 @@
             android:name="com.dai1678.quest.ui.patientList.PatientListFragment"
             android:label="@string/patient_list_toolbar_title"
             tools:layout="@layout/fragment_patient_list">
-
-<!--        <argument-->
-<!--                android:name="loginUserName"-->
-<!--                android:defaultValue="テストユーザー"-->
-<!--                app:argType="string" />-->
-
-<!--        <argument-->
-<!--                android:name="loginUserNameReading"-->
-<!--                android:defaultValue="テストユーザー"-->
-<!--                app:argType="string" />-->
 
         <action
                 android:id="@+id/action_patientListFragment_to_diagnosticCheckDialogFragment"

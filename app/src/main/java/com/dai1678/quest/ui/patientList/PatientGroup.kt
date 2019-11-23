@@ -3,7 +3,6 @@ package com.dai1678.quest.ui.patientList
 import androidx.navigation.findNavController
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.ListHeaderPatientBinding
-import com.dai1678.quest.databinding.ListItemLoginDoctorBinding
 import com.dai1678.quest.databinding.ListItemPatientBinding
 import com.dai1678.quest.entity.Patient
 import com.dai1678.quest.util.StringUtils
