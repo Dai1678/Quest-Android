@@ -15,7 +15,7 @@
             android:label="SuspendCheckDialogFragment">
 
         <action
-                android:id="@+id/action_suspendCheckDialogFragment_to_patientListFragment"
+                android:id="@+id/action_to_patientListFragment"
                 app:destination="@+id/patientListFragment"
                 app:popUpTo="@id/navigation_main"
                 app:popUpToInclusive="true" />
@@ -33,7 +33,7 @@
             tools:layout="@layout/fragment_patient_list">
 
         <action
-                android:id="@+id/action_patientListFragment_to_diagnosticCheckDialogFragment"
+                android:id="@+id/action_to_diagnosticCheckDialogFragment"
                 app:destination="@id/diagnosticCheckDialogFragment" />
 
     </fragment>
@@ -51,7 +51,7 @@
                 app:argType="string" />
 
         <action
-                android:id="@+id/action_diagnosticCheckDialogFragment_to_questionnaireStartFragment"
+                android:id="@+id/action_to_questionnaireStartFragment"
                 app:destination="@+id/questionnaireStartFragment" />
     </dialog>
 
@@ -62,7 +62,7 @@
             tools:layout="@layout/fragment_questionnaire_start">
 
         <action
-                android:id="@+id/action_questionnaireStartFragment_to_questionnaireFragment"
+                android:id="@+id/action_to_questionnaireFragment"
                 app:destination="@id/questionnaireFragment"
                 app:enterAnim="@anim/nav_default_enter_anim"
                 app:exitAnim="@anim/nav_default_exit_anim"
@@ -81,7 +81,7 @@
             tools:layout="@layout/fragment_questionnaire">
 
         <action
-                android:id="@+id/action_questionnaireFragment_to_questionnaireEndFragment"
+                android:id="@+id/action_to_questionnaireEndFragment"
                 app:destination="@id/questionnaireEndFragment"
                 app:enterAnim="@anim/nav_default_enter_anim"
                 app:exitAnim="@anim/nav_default_exit_anim"

@@ -55,7 +55,7 @@ class QuestionnaireFragment : Fragment() {
                 }
                 LAST_PAGE -> {
                     navController.navigate(
-                        R.id.action_questionnaireFragment_to_questionnaireEndFragment
+                        R.id.action_to_questionnaireEndFragment
                     )
                 }
                 else -> {

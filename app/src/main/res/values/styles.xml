@@ -23,8 +23,8 @@
     </style>
 
     <style name="ProgressBar.Style" parent="@style/Widget.AppCompat.ProgressBar">
-        <item name="android:progressBackgroundTint">#69f0ae</item>
-        <item name="android:progressTint">#b71c1c</item>
+        <item name="android:progressBackgroundTint">@android:color/white</item>
+        <item name="android:progressTint">@color/colorPrimary</item>
     </style>
 
     <style name="AlertDialog.Style" parent="Theme.AppCompat.Light.Dialog.Alert">
@@ -34,15 +34,10 @@
 
     <style name="NegativeButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
         <item name="android:textColor">@color/colorPrimaryText</item>
-        <item name="android:textSize">@dimen/text_size_small</item>
-        <item name="android:layout_marginEnd">@dimen/component_interval_size_small</item>
     </style>
 
     <style name="PositiveButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
-        <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:background">@drawable/radius_button_background</item>
-        <item name="android:textSize">@dimen/text_size_small</item>
-        <item name="android:padding">@dimen/component_interval_size_small</item>
+        <item name="android:textColor">@color/colorPrimary</item>
     </style>
 
     <style name="RadioButton.Style" parent="Widget.AppCompat.CompoundButton.RadioButton">

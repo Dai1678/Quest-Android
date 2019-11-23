@@ -16,7 +16,7 @@ class SuspendCheckDialogFragment : DialogFragment() {
                 setMessage(R.string.suspend_check_message)
                 setPositiveButton(R.string.suspension_diagnosis) { _, _ ->
                     val action: NavDirections =
-                        SuspendCheckDialogFragmentDirections.actionSuspendCheckDialogFragmentToPatientListFragment()
+                        SuspendCheckDialogFragmentDirections.actionToPatientListFragment()
                     findNavController().navigate(action)
                 }
                 setNegativeButton(R.string.cancel_diagnosis) { dialog, _ ->

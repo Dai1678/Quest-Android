@@ -39,10 +39,9 @@ class PatientListBodyItem(private val patient: Patient) :
 
         viewBinding.listItemPatientView.setOnClickListener {
             val action =
-                PatientListFragmentDirections
-                    .actionPatientListFragmentToDiagnosticCheckDialogFragment(
-                        patient.id, patient.lastName
-                    )
+                PatientListFragmentDirections.actionToDiagnosticCheckDialogFragment(
+                    patient.id, patient.lastName
+                )
             it.findNavController().navigate(action)
         }
     }
