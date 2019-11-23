@@ -36,7 +36,7 @@ class DiagnosticCheckDialogFragment : DialogFragment() {
             setView(view)
             setPositiveButton(R.string.start_diagnosis) { _, _ ->
                 val action = DiagnosticCheckDialogFragmentDirections
-                    .actionDiagnosticCheckDialogFragmentToQuestionnaireActivity(patientId)
+                    .actionDiagnosticCheckDialogFragmentToQuestionnaireStartFragment(patientId)
                 findNavController().navigate(action)
             }
             setNegativeButton(R.string.cancel_diagnosis) { dialog, _ ->

@@ -47,10 +47,10 @@ class QuestionnaireFragment : Fragment() {
 
         viewModel.getPage().observe(viewLifecycleOwner) {
             when (it) {
-                QuestionnaireActivity.FIRST_PAGE -> {
+                FIRST_PAGE -> {
                     navController.popBackStack()
                 }
-                QuestionnaireActivity.LAST_PAGE -> {
+                LAST_PAGE -> {
                     navController.navigate(
                         R.id.action_questionnaireFragment_to_questionnaireEndFragment
                     )
@@ -135,5 +135,10 @@ class QuestionnaireFragment : Fragment() {
             list.add(QuestionnaireGroup(viewModel, questionChild, false))
         }
         groupAdapter.update(list)
+    }
+
+    companion object {
+        private const val FIRST_PAGE = 0
+        private const val LAST_PAGE = 14
     }
 }

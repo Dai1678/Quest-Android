@@ -11,8 +11,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentPatientListBinding
@@ -26,7 +24,6 @@ class PatientListFragment : Fragment() {
 
     private val viewModel: PatientListViewModel by viewModels()
     private val groupAdapter = GroupAdapter<ViewHolder<*>>()
-    private val args: PatientListFragmentArgs by navArgs()
 
     private lateinit var binding: FragmentPatientListBinding
 
@@ -95,7 +92,6 @@ class PatientListFragment : Fragment() {
 
     private fun makePatientList() {
         val groupList = arrayListOf<Group>()
-        groupList.add(LoginDoctorItem(args.loginUserName, args.loginUserNameReading))
 
         viewModel.getPatientList().observe(viewLifecycleOwner) {
 

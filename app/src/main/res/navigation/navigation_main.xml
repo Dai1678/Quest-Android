@@ -33,21 +33,34 @@
 
 <!--    </fragment>-->
 
+    <action
+            android:id="@+id/action_global_suspend_check_dialog"
+            app:destination="@+id/suspendCheckDialogFragment" />
+
+    <dialog
+            android:id="@+id/suspendCheckDialogFragment"
+            android:name="com.dai1678.quest.ui.dialog.SuspendCheckDialogFragment"
+            android:label="SuspendCheckDialogFragment" />
+
+    <action
+            android:id="@+id/action_global_questionnaire_fragment"
+            app:destination="@+id/questionnaireFragment" />
+
     <fragment
             android:id="@+id/patientListFragment"
             android:name="com.dai1678.quest.ui.patientList.PatientListFragment"
             android:label="@string/patient_list_toolbar_title"
             tools:layout="@layout/fragment_patient_list">
 
-        <argument
-                android:name="loginUserName"
-                android:defaultValue="テストユーザー"
-                app:argType="string" />
+<!--        <argument-->
+<!--                android:name="loginUserName"-->
+<!--                android:defaultValue="テストユーザー"-->
+<!--                app:argType="string" />-->
 
-        <argument
-                android:name="loginUserNameReading"
-                android:defaultValue="テストユーザー"
-                app:argType="string" />
+<!--        <argument-->
+<!--                android:name="loginUserNameReading"-->
+<!--                android:defaultValue="テストユーザー"-->
+<!--                app:argType="string" />-->
 
         <action
                 android:id="@+id/action_patientListFragment_to_diagnosticCheckDialogFragment"
@@ -68,21 +81,48 @@
                 app:argType="string" />
 
         <action
-                android:id="@+id/action_diagnosticCheckDialogFragment_to_questionnaireActivity"
-                app:destination="@id/questionnaireActivity" />
+                android:id="@+id/action_diagnosticCheckDialogFragment_to_questionnaireStartFragment"
+                app:destination="@+id/questionnaireStartFragment" />
     </dialog>
 
+    <fragment
+            android:id="@+id/questionnaireStartFragment"
+            android:name="com.dai1678.quest.ui.questionnaire.QuestionnaireStartFragment"
+            android:label="QuestionnaireStartFragment"
+            tools:layout="@layout/fragment_questionnaire_start">
 
-    <activity
-            android:id="@+id/questionnaireActivity"
-            android:name="com.dai1678.quest.ui.questionnaire.QuestionnaireActivity"
-            android:label="activity_questionnaire"
-            tools:layout="@layout/activity_questionnaire">
+        <action
+                android:id="@+id/action_questionnaireStartFragment_to_questionnaireFragment"
+                app:destination="@id/questionnaireFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
 
         <argument
                 android:name="patientId"
                 app:argType="string" />
+    </fragment>
 
-    </activity>
+    <fragment
+            android:id="@+id/questionnaireFragment"
+            android:name="com.dai1678.quest.ui.questionnaire.QuestionnaireFragment"
+            android:label="QuestionnaireFragment"
+            tools:layout="@layout/fragment_questionnaire">
+
+        <action
+                android:id="@+id/action_questionnaireFragment_to_questionnaireEndFragment"
+                app:destination="@id/questionnaireEndFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/questionnaireEndFragment"
+            android:name="com.dai1678.quest.ui.questionnaire.QuestionnaireEndFragment"
+            android:label="QuestionnaireEndFragment"
+            tools:layout="@layout/fragment_questionnaire_end" />
 
 </navigation>

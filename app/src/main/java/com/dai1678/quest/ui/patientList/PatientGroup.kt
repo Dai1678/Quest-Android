@@ -9,21 +9,6 @@ import com.dai1678.quest.entity.Patient
 import com.dai1678.quest.util.StringUtils
 import com.xwray.groupie.databinding.BindableItem
 
-class LoginDoctorItem(private val doctorName: String, private val doctorNameReading: String) :
-    BindableItem<ListItemLoginDoctorBinding>() {
-
-    override fun getLayout(): Int = R.layout.list_item_login_doctor
-
-    override fun bind(viewBinding: ListItemLoginDoctorBinding, position: Int) {
-        viewBinding.loginDoctorName = doctorName
-        viewBinding.loginDoctorNameReading = doctorNameReading
-
-        viewBinding.listItemDoctorLogoutButton.setOnClickListener {
-            it.findNavController().popBackStack()
-        }
-    }
-}
-
 class PatientListHeaderItem :
     BindableItem<ListHeaderPatientBinding>() {
 
