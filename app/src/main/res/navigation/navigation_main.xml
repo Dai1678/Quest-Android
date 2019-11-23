@@ -6,19 +6,21 @@
         app:startDestination="@id/patientListFragment">
 
     <action
-            android:id="@+id/action_global_patient_list_fragment"
-            app:destination="@+id/patientListFragment"
-            app:popUpTo="@id/navigation_main"
-            app:popUpToInclusive="true" />
-
-    <action
             android:id="@+id/action_global_suspend_check_dialog"
             app:destination="@+id/suspendCheckDialogFragment" />
 
     <dialog
             android:id="@+id/suspendCheckDialogFragment"
             android:name="com.dai1678.quest.ui.dialog.SuspendCheckDialogFragment"
-            android:label="SuspendCheckDialogFragment" />
+            android:label="SuspendCheckDialogFragment">
+
+        <action
+                android:id="@+id/action_suspendCheckDialogFragment_to_patientListFragment"
+                app:destination="@+id/patientListFragment"
+                app:popUpTo="@id/navigation_main"
+                app:popUpToInclusive="true" />
+
+    </dialog>
 
     <action
             android:id="@+id/action_global_questionnaire_fragment"
