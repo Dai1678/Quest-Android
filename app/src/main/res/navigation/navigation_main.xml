@@ -3,13 +3,13 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/navigation_main"
-        app:startDestination="@id/loginFragment">
+        app:startDestination="@id/patientListFragment">
 
-    <action
-            android:id="@+id/action_global_login_fragment"
-            app:destination="@id/loginFragment"
-            app:popUpTo="@id/navigation_main"
-            app:popUpToInclusive="true" />
+<!--    <action-->
+<!--            android:id="@+id/action_global_login_fragment"-->
+<!--            app:destination="@id/loginFragment"-->
+<!--            app:popUpTo="@id/navigation_main"-->
+<!--            app:popUpToInclusive="true" />-->
 
     <action
             android:id="@+id/action_global_patient_list_fragment"
@@ -17,21 +17,21 @@
             app:popUpTo="@id/navigation_main"
             app:popUpToInclusive="true" />
 
-    <fragment
-            android:id="@+id/loginFragment"
-            android:name="com.dai1678.quest.ui.login.LoginFragment"
-            android:label="@string/login"
-            tools:layout="@layout/fragment_login">
+<!--    <fragment-->
+<!--            android:id="@+id/loginFragment"-->
+<!--            android:name="com.dai1678.quest.ui.login.LoginFragment"-->
+<!--            android:label="@string/login"-->
+<!--            tools:layout="@layout/fragment_login">-->
 
-        <action
-                android:id="@+id/action_loginFragment_to_patientListFragment"
-                app:destination="@id/patientListFragment"
-                app:enterAnim="@anim/nav_default_enter_anim"
-                app:exitAnim="@anim/nav_default_exit_anim"
-                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+<!--        <action-->
+<!--                android:id="@+id/action_loginFragment_to_patientListFragment"-->
+<!--                app:destination="@id/patientListFragment"-->
+<!--                app:enterAnim="@anim/nav_default_enter_anim"-->
+<!--                app:exitAnim="@anim/nav_default_exit_anim"-->
+<!--                app:popEnterAnim="@anim/nav_default_pop_enter_anim"-->
+<!--                app:popExitAnim="@anim/nav_default_pop_exit_anim" />-->
 
-    </fragment>
+<!--    </fragment>-->
 
     <fragment
             android:id="@+id/patientListFragment"

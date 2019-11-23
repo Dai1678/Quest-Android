@@ -46,21 +46,21 @@ class PatientListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.patientListToolbar.apply {
-            inflateMenu(R.menu.patient_list_menu)
-            setOnMenuItemClickListener {
-                when (it.itemId) {
-                    R.id.reload_patient_list -> {
-                        viewModel.reloadPatientList()
-                        makePatientList()
-                    }
-                }
-                true
-            }
-            setNavigationOnClickListener {
-                findNavController().popBackStack()
-            }
-        }
+//        binding.patientListToolbar.apply {
+//            inflateMenu(R.menu.patient_list_menu)
+//            setOnMenuItemClickListener {
+//                when (it.itemId) {
+//                    R.id.reload_patient_list -> {
+//                        viewModel.reloadPatientList()
+//                        makePatientList()
+//                    }
+//                }
+//                true
+//            }
+//            setNavigationOnClickListener {
+//                findNavController().popBackStack()
+//            }
+//        }
 
         viewModel.isLoading().observe(viewLifecycleOwner) {
             binding.patientListSwipeRefreshLayout.isRefreshing = it
