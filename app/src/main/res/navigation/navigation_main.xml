@@ -56,7 +56,7 @@
     <fragment
             android:id="@+id/questionnaireStartFragment"
             android:name="com.dai1678.quest.ui.questionnaire.QuestionnaireStartFragment"
-            android:label="QuestionnaireStartFragment"
+            android:label="@string/questionnaire_toolbar_title"
             tools:layout="@layout/fragment_questionnaire_start">
 
         <action
@@ -75,7 +75,7 @@
     <fragment
             android:id="@+id/questionnaireFragment"
             android:name="com.dai1678.quest.ui.questionnaire.QuestionnaireFragment"
-            android:label="QuestionnaireFragment"
+            android:label="@string/questionnaire_toolbar_title"
             tools:layout="@layout/fragment_questionnaire">
 
         <action
@@ -90,7 +90,7 @@
     <fragment
             android:id="@+id/questionnaireEndFragment"
             android:name="com.dai1678.quest.ui.questionnaire.QuestionnaireEndFragment"
-            android:label="QuestionnaireEndFragment"
+            android:label="@string/questionnaire_toolbar_title"
             tools:layout="@layout/fragment_questionnaire_end" />
 
 </navigation>
