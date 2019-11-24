@@ -85,6 +85,8 @@
     <string name="create_user_toolbar_title">Candidate registration</string>
     <string name="create_user_fist_name_label">First Name</string>
     <string name="create_user_last_name_label">Last Name</string>
+    <string name="create_user_name_header_label">Name</string>
+    <string name="create_user_info_header_label">Detail</string>
     <string name="create_user_age_label">Age</string>
     <string name="create_user_gender_label">Gender</string>
     <string name="create_user_agreement_label">Please register after agreeing to the terms of use\n and handling of personal information</string>
