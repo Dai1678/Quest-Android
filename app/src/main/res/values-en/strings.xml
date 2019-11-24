@@ -1,6 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- common strings -->
-    <string name="app_name" translatable="false">Quest</string>
     <string name="password">Password</string>
     <string name="add">Create</string>
     <string name="next">Next</string>
@@ -35,6 +34,10 @@
     <!-- CreatePatient -->
     <string name="create_user_fist_name_label">First Name</string>
     <string name="create_user_last_name_label">Last Name</string>
+    <string name="create_user_age_label">Age</string>
+    <string name="create_user_gender_label">Gender</string>
+    <string name="create_user_agreement_label">Please register after agreeing to the terms of use\n and handling of personal information</string>
+    <string name="create_user_agreement_button_label">Agree and register</string>
 
     <!-- PatientList -->
     <string name="patient_list_toolbar_title">Patient list</string>

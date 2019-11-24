@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
                 name="viewModel"
                 type="com.dai1678.quest.ui.createUser.CreateUserViewModel" />
@@ -10,6 +13,52 @@
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+        <include
+                android:id="@+id/create_user_input_name"
+                layout="@layout/create_user_input_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+                android:id="@+id/create_user_input_info"
+                layout="@layout/create_user_input_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/create_user_input_name" />
+
+        <TextView
+                android:id="@+id/create_user_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center_horizontal"
+                android:textSize="@dimen/text_size_small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_user_input_info"
+                tools:text="利用規約と個人情報の取扱についてに同意の上、\n登録してください" />
+
+        <com.google.android.material.button.MaterialButton
+                android:id="@+id/create_user_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:padding="@dimen/button_vertical_padding"
+                android:paddingStart="@dimen/button_horizontal_padding"
+                android:paddingEnd="@dimen/button_horizontal_padding"
+                android:text="@string/create_user_agreement_button_label"
+                android:textSize="@dimen/text_size_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_user_text" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

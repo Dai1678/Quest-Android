@@ -12,7 +12,7 @@ class SuspendCheckDialogFragment : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
-            AlertDialog.Builder(it, R.style.AlertDialog_Style).apply {
+            AlertDialog.Builder(it, R.style.DialogStyle).apply {
                 setMessage(R.string.suspend_check_message)
                 setPositiveButton(R.string.suspension_diagnosis) { _, _ ->
                     val action: NavDirections =

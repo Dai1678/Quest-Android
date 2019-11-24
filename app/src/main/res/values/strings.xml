@@ -62,8 +62,14 @@
     <!-- LoginContent -->
 
     <!-- CreateUser -->
-    <string name="create_user_fist_name_label">名前</string>
-    <string name="create_user_last_name_label">名字</string>
+    <string name="create_user_fist_name_label">姓</string>
+    <string name="create_user_last_name_label">名</string>
+    <string name="create_user_first_name_read_label" translatable="false">姓(カナ)</string>
+    <string name="create_user_last_name_read_label" translatable="false">名(カナ)</string>
+    <string name="create_user_age_label">年齢</string>
+    <string name="create_user_gender_label">性別</string>
+    <string name="create_user_agreement_label">利用規約と個人情報の取扱についてに同意の上、\n登録してください</string>
+    <string name="create_user_agreement_button_label">同意して登録</string>
 
     <!-- PatientList -->
     <string name="patient_list_toolbar_title">ホーム</string>
