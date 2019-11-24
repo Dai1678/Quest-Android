@@ -32,6 +32,7 @@
     <!-- LoginContent -->
 
     <!-- CreatePatient -->
+    <string name="create_user_toolbar_title">Candidate registration</string>
     <string name="create_user_fist_name_label">First Name</string>
     <string name="create_user_last_name_label">Last Name</string>
     <string name="create_user_age_label">Age</string>

@@ -62,6 +62,7 @@
     <!-- LoginContent -->
 
     <!-- CreateUser -->
+    <string name="create_user_toolbar_title">受検者登録</string>
     <string name="create_user_fist_name_label">姓</string>
     <string name="create_user_last_name_label">名</string>
     <string name="create_user_first_name_read_label" translatable="false">姓(カナ)</string>

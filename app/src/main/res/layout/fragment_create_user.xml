@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools">
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -40,11 +39,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:gravity="center_horizontal"
+                android:text="@string/create_user_agreement_label"
                 android:textSize="@dimen/text_size_small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/create_user_input_info"
-                tools:text="利用規約と個人情報の取扱についてに同意の上、\n登録してください" />
+                app:layout_constraintTop_toBottomOf="@+id/create_user_input_info" />
 
         <com.google.android.material.button.MaterialButton
                 android:id="@+id/create_user_button"
