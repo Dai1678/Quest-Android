@@ -64,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/component_interval_size_large"
                     android:layout_marginBottom="@dimen/component_interval_size_large"
-                    android:backgroundTint="@color/colorAccent"
+                    android:backgroundTint="@android:color/white"
                     android:padding="@dimen/button_vertical_padding"
                     android:paddingStart="@dimen/button_horizontal_padding"
                     android:paddingEnd="@dimen/button_horizontal_padding"

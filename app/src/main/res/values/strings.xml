@@ -1,11 +1,7 @@
 <resources>
     <!-- common strings -->
     <string name="app_name" translatable="false">Quest</string>
-    <string name="username">ユーザーID</string>
-    <string name="hospital_number">病院番号</string>
     <string name="password">パスワード</string>
-    <string name="require_label">必須入力です</string>
-    <string name="login">ログイン</string>
     <string name="add">作成</string>
     <string name="next">次へ進む</string>
     <string name="back">前に戻る</string>
@@ -13,7 +9,6 @@
     <string name="search">検索する</string>
     <string name="question_label">問</string>
     <string name="patient_create_label">新規患者作成</string>
-    <string name="doctor_create_label">新規医者作成</string>
     <string name="start_diagnosis">診断を開始</string>
     <string name="cancel_diagnosis">もどる</string>
     <string name="suspension_diagnosis">回答を中断</string>
@@ -62,15 +57,9 @@
     </string-array>
 
     <!-- Login -->
-    <string name="login_success_message">ログインしました</string>
-    <string name="login_failed_message">ログインに失敗しました</string>
     <string name="login_toolbar_image_content_description">アプリロゴ</string>
 
     <!-- LoginContent -->
-    <string name="content_login_header_message">担当医を選択してください</string>
-    <string name="content_login_doctor_list_reload_button_message">@string/reload</string>
-    <string name="content_login_empty_doctor_message">ログインできるユーザーがいません</string>
-    <string name="content_login_last_login_label">最終ログイン : </string>
 
     <!-- CreateUser -->
     <string name="create_user_fist_name_label">名前</string>
@@ -84,8 +73,6 @@
     <string name="patient_list_none_last_questionnaire_label">なし</string>
 
     <!-- ListItemLoginDoctor -->
-    <string name="list_item_login_doctor_header_message">利用中のユーザー</string>
-    <string name="list_item_doctor_logout_button_text">他のユーザーに切り替える</string>
 
     <!-- ListHeaderPatient -->
     <string name="list_header_patient_message">患者一覧</string>

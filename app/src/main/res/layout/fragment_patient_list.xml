@@ -15,21 +15,6 @@
             android:layout_height="match_parent"
             tools:context=".ui.patientList.PatientListFragment">
 
-        <!--        <androidx.appcompat.widget.Toolbar-->
-        <!--                android:id="@+id/patient_list_toolbar"-->
-        <!--                android:layout_width="0dp"-->
-        <!--                android:layout_height="?attr/actionBarSize"-->
-        <!--                android:background="@color/colorPrimary"-->
-        <!--                android:theme="@style/AppTheme"-->
-        <!--                app:layout_constraintEnd_toEndOf="parent"-->
-        <!--                app:layout_constraintStart_toStartOf="parent"-->
-        <!--                app:layout_constraintTop_toTopOf="parent"-->
-        <!--                app:navigationIcon="@drawable/ic_arrow_back_white_24dp"-->
-        <!--                app:title="@string/patient_list_toolbar_title"-->
-        <!--                app:titleTextColor="@color/colorAccent">-->
-
-        <!--        </androidx.appcompat.widget.Toolbar>-->
-
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
                 android:id="@+id/patient_list_swipe_refresh_layout"
                 android:layout_width="match_parent"

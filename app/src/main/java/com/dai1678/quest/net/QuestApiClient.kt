@@ -14,7 +14,6 @@ object QuestApiClient {
     private const val API_URL = "http://192.168.0.3:3000/api/v1/"
 
     val patientApi: PatientApi = create(PatientApi::class.java)
-    val doctorApi: DoctorApi = create(DoctorApi::class.java)
     val questionnaireApi: QuestionnaireApi = create(QuestionnaireApi::class.java)
 
     private lateinit var retrofit: Retrofit

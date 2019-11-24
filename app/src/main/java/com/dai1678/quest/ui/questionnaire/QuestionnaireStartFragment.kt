@@ -37,7 +37,7 @@ class QuestionnaireStartFragment : Fragment() {
         binding.questionnaireTopNextButton.setOnClickListener {
             viewModel.nextPage()
             findNavController().navigate(
-                R.id.action_questionnaireStartFragment_to_questionnaireFragment
+                R.id.action_to_questionnaireFragment
             )
         }
     }

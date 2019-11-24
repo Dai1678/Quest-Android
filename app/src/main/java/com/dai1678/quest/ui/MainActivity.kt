@@ -14,7 +14,9 @@ import com.dai1678.quest.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private val navController: NavController by lazy { findNavController(R.id.nav_host_main_fragment) }
+    private val navController: NavController by lazy {
+        findNavController(R.id.nav_host_main_fragment)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +29,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item, navController) || super.onOptionsItemSelected(item)
+        return NavigationUI.onNavDestinationSelected(
+            item,
+            navController
+        ) || super.onOptionsItemSelected(item)
     }
 
     override fun onSupportNavigateUp(): Boolean = navController.navigateUp()
