@@ -56,7 +56,7 @@
         <item>@string/questionnaire_sub_number_j</item>
     </string-array>
 
-    <!-- common create user age range text -->
+    <!-- common create user age range label -->
     <string name="age_range_10_to_14">10歳〜14歳</string>
     <string name="age_range_15_to_19">15歳〜19歳</string>
     <string name="age_range_20_to_24">20歳〜24歳</string>
@@ -75,7 +75,7 @@
     <string name="age_range_85_to_89">85歳〜89歳</string>
     <string name="age_range_other">その他</string>
 
-    <string-array name="create_user_age_array">
+    <string-array name="age_range_array">
         <item>@string/age_range_10_to_14</item>
         <item>@string/age_range_15_to_19</item>
         <item>@string/age_range_20_to_24</item>
@@ -93,6 +93,17 @@
         <item>@string/age_range_80_to_84</item>
         <item>@string/age_range_85_to_89</item>
         <item>@string/age_range_other</item>
+    </string-array>
+
+    <!-- common gender label -->
+    <string name="gender_male">男性</string>
+    <string name="gender_female">女性</string>
+    <string name="gender_other">その他</string>
+
+    <string-array name="gender_array">
+        <item>@string/gender_male</item>
+        <item>@string/gender_female</item>
+        <item>@string/gender_other</item>
     </string-array>
 
     <!-- Login -->
