@@ -26,6 +26,45 @@
     <string name="questionnaire_sub_number_i">i.</string>
     <string name="questionnaire_sub_number_j">j.</string>
 
+    <!-- common create user age range text -->
+    <string name="age_range_10_to_14">10~14 years old</string>
+    <string name="age_range_15_to_19">15~19 years old</string>
+    <string name="age_range_20_to_24">20~24 years old</string>
+    <string name="age_range_25_to_29">25~29 years old</string>
+    <string name="age_range_30_to_34">30~34 years old</string>
+    <string name="age_range_35_to_39">35~39 years old</string>
+    <string name="age_range_40_to_44">40~44 years old</string>
+    <string name="age_range_45_to_49">45~49 years old</string>
+    <string name="age_range_50_to_54">50~54 years old</string>
+    <string name="age_range_55_to_59">55~59 years old</string>
+    <string name="age_range_60_to_64">60~64 years old</string>
+    <string name="age_range_65_to_69">65~69 years old</string>
+    <string name="age_range_70_to_74">70~74 years old</string>
+    <string name="age_range_75_to_79">75~79 years old</string>
+    <string name="age_range_80_to_84">80~84 years old</string>
+    <string name="age_range_85_to_89">85~89 years old</string>
+    <string name="age_range_other">Other</string>
+
+    <string-array name="create_user_age_array">
+        <item>@string/age_range_10_to_14</item>
+        <item>@string/age_range_15_to_19</item>
+        <item>@string/age_range_20_to_24</item>
+        <item>@string/age_range_25_to_29</item>
+        <item>@string/age_range_30_to_34</item>
+        <item>@string/age_range_35_to_39</item>
+        <item>@string/age_range_40_to_44</item>
+        <item>@string/age_range_45_to_49</item>
+        <item>@string/age_range_50_to_54</item>
+        <item>@string/age_range_55_to_59</item>
+        <item>@string/age_range_60_to_64</item>
+        <item>@string/age_range_65_to_69</item>
+        <item>@string/age_range_70_to_74</item>
+        <item>@string/age_range_75_to_79</item>
+        <item>@string/age_range_80_to_84</item>
+        <item>@string/age_range_85_to_89</item>
+        <item>@string/age_range_other</item>
+    </string-array>
+
     <!-- Login -->
     <string name="login_toolbar_image_content_description">app logo</string>
 

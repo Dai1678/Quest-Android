@@ -56,6 +56,45 @@
         <item>@string/questionnaire_sub_number_j</item>
     </string-array>
 
+    <!-- common create user age range text -->
+    <string name="age_range_10_to_14">10歳〜14歳</string>
+    <string name="age_range_15_to_19">15歳〜19歳</string>
+    <string name="age_range_20_to_24">20歳〜24歳</string>
+    <string name="age_range_25_to_29">25歳〜29歳</string>
+    <string name="age_range_30_to_34">30歳〜34歳</string>
+    <string name="age_range_35_to_39">35歳〜39歳</string>
+    <string name="age_range_40_to_44">40歳〜44歳</string>
+    <string name="age_range_45_to_49">45歳〜49歳</string>
+    <string name="age_range_50_to_54">50歳〜54歳</string>
+    <string name="age_range_55_to_59">55歳〜59歳</string>
+    <string name="age_range_60_to_64">60歳〜64歳</string>
+    <string name="age_range_65_to_69">65歳〜69歳</string>
+    <string name="age_range_70_to_74">70歳〜74歳</string>
+    <string name="age_range_75_to_79">75歳〜79歳</string>
+    <string name="age_range_80_to_84">80歳〜84歳</string>
+    <string name="age_range_85_to_89">85歳〜89歳</string>
+    <string name="age_range_other">その他</string>
+
+    <string-array name="create_user_age_array">
+        <item>@string/age_range_10_to_14</item>
+        <item>@string/age_range_15_to_19</item>
+        <item>@string/age_range_20_to_24</item>
+        <item>@string/age_range_25_to_29</item>
+        <item>@string/age_range_30_to_34</item>
+        <item>@string/age_range_35_to_39</item>
+        <item>@string/age_range_40_to_44</item>
+        <item>@string/age_range_45_to_49</item>
+        <item>@string/age_range_50_to_54</item>
+        <item>@string/age_range_55_to_59</item>
+        <item>@string/age_range_60_to_64</item>
+        <item>@string/age_range_65_to_69</item>
+        <item>@string/age_range_70_to_74</item>
+        <item>@string/age_range_75_to_79</item>
+        <item>@string/age_range_80_to_84</item>
+        <item>@string/age_range_85_to_89</item>
+        <item>@string/age_range_other</item>
+    </string-array>
+
     <!-- Login -->
     <string name="login_toolbar_image_content_description">アプリロゴ</string>
 
