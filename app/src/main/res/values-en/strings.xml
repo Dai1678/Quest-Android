@@ -1,6 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- common strings -->
-    <string name="app_name" translatable="false">Quest</string>
     <string name="password">Password</string>
     <string name="add">Create</string>
     <string name="next">Next</string>
@@ -27,14 +26,71 @@
     <string name="questionnaire_sub_number_i">i.</string>
     <string name="questionnaire_sub_number_j">j.</string>
 
+    <!-- common create user age range text -->
+    <string name="age_range_10_to_14">10~14 years old</string>
+    <string name="age_range_15_to_19">15~19 years old</string>
+    <string name="age_range_20_to_24">20~24 years old</string>
+    <string name="age_range_25_to_29">25~29 years old</string>
+    <string name="age_range_30_to_34">30~34 years old</string>
+    <string name="age_range_35_to_39">35~39 years old</string>
+    <string name="age_range_40_to_44">40~44 years old</string>
+    <string name="age_range_45_to_49">45~49 years old</string>
+    <string name="age_range_50_to_54">50~54 years old</string>
+    <string name="age_range_55_to_59">55~59 years old</string>
+    <string name="age_range_60_to_64">60~64 years old</string>
+    <string name="age_range_65_to_69">65~69 years old</string>
+    <string name="age_range_70_to_74">70~74 years old</string>
+    <string name="age_range_75_to_79">75~79 years old</string>
+    <string name="age_range_80_to_84">80~84 years old</string>
+    <string name="age_range_85_to_89">85~89 years old</string>
+    <string name="age_range_other">Other</string>
+
+    <string-array name="age_range_array">
+        <item>@string/age_range_10_to_14</item>
+        <item>@string/age_range_15_to_19</item>
+        <item>@string/age_range_20_to_24</item>
+        <item>@string/age_range_25_to_29</item>
+        <item>@string/age_range_30_to_34</item>
+        <item>@string/age_range_35_to_39</item>
+        <item>@string/age_range_40_to_44</item>
+        <item>@string/age_range_45_to_49</item>
+        <item>@string/age_range_50_to_54</item>
+        <item>@string/age_range_55_to_59</item>
+        <item>@string/age_range_60_to_64</item>
+        <item>@string/age_range_65_to_69</item>
+        <item>@string/age_range_70_to_74</item>
+        <item>@string/age_range_75_to_79</item>
+        <item>@string/age_range_80_to_84</item>
+        <item>@string/age_range_85_to_89</item>
+        <item>@string/age_range_other</item>
+    </string-array>
+
+    <!-- common gender label -->
+    <string name="gender_male">男性</string>
+    <string name="gender_female">女性</string>
+    <string name="gender_other">その他</string>
+
+    <string-array name="gender_array">
+        <item>@string/gender_male</item>
+        <item>@string/gender_female</item>
+        <item>@string/gender_other</item>
+    </string-array>
+
     <!-- Login -->
     <string name="login_toolbar_image_content_description">app logo</string>
 
     <!-- LoginContent -->
 
-    <!-- CreatePatient -->
+    <!-- RegisterUser -->
+    <string name="create_user_toolbar_title">Candidate registration</string>
     <string name="create_user_fist_name_label">First Name</string>
     <string name="create_user_last_name_label">Last Name</string>
+    <string name="create_user_name_header_label">Name</string>
+    <string name="create_user_info_header_label">Detail</string>
+    <string name="create_user_age_label">Age</string>
+    <string name="create_user_gender_label">Gender</string>
+    <string name="create_user_agreement_label">Please register after agreeing to the terms of use\n and handling of personal information</string>
+    <string name="create_user_agreement_button_label">Agree and register</string>
 
     <!-- PatientList -->
     <string name="patient_list_toolbar_title">Patient list</string>

@@ -35,8 +35,20 @@
         <action
                 android:id="@+id/action_to_diagnosticCheckDialogFragment"
                 app:destination="@id/diagnosticCheckDialogFragment" />
+        <action
+                android:id="@+id/action_to_createUserFragment"
+                app:destination="@id/createUserFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
 
     </fragment>
+
+    <fragment
+            android:id="@+id/createUserFragment"
+            android:name="com.dai1678.quest.ui.registerUser.RegisterUserFragment"
+            android:label="@string/create_user_toolbar_title" />
 
     <dialog
             android:id="@+id/diagnosticCheckDialogFragment"

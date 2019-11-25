@@ -11,9 +11,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentPatientListBinding
+import com.dai1678.quest.listener.PatientListFragmentListener
 import com.google.android.material.snackbar.Snackbar
 import com.xwray.groupie.Group
 import com.xwray.groupie.GroupAdapter
@@ -27,6 +29,13 @@ class PatientListFragment : Fragment() {
 
     private lateinit var binding: FragmentPatientListBinding
 
+    private val listener = object : PatientListFragmentListener {
+        override fun onClickCreateUserFab(view: View) {
+            val action = PatientListFragmentDirections.actionToCreateUserFragment()
+            findNavController().navigate(action)
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -36,6 +45,7 @@ class PatientListFragment : Fragment() {
             inflater, R.layout.fragment_patient_list, container, false
         )
         binding.viewModel = viewModel
+        binding.listener = listener
         binding.lifecycleOwner = this
         return binding.root
     }

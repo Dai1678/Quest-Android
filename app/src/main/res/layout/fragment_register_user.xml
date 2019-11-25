@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="viewModel"
+                type="com.dai1678.quest.ui.registerUser.RegisterUserViewModel" />
+
+        <variable
+                name="listener"
+                type="com.dai1678.quest.listener.RegisterUserFragmentListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <include
+                android:id="@+id/create_user_input_name"
+                layout="@layout/register_user_input_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                bind:firstName="@={viewModel.firstName}"
+                bind:firstReadName="@={viewModel.firstReadName}"
+                bind:lastName="@={viewModel.lastName}"
+                bind:lastReadName="@={viewModel.lastReadName}" />
+
+        <include
+                android:id="@+id/create_user_input_info"
+                layout="@layout/register_user_input_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/create_user_input_name"
+                bind:ageRange="@={viewModel.ageRange}"
+                bind:gender="@={viewModel.gender}" />
+
+        <TextView
+                android:id="@+id/create_user_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center_horizontal"
+                android:text="@string/create_user_agreement_label"
+                android:textSize="@dimen/text_size_small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_user_input_info" />
+
+        <com.google.android.material.button.MaterialButton
+                android:id="@+id/create_user_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:enabled="@{viewModel.canSubmit}"
+                android:onClick="@{listener::onClickRegisterUserData}"
+                android:padding="@dimen/button_vertical_padding"
+                android:paddingStart="@dimen/button_horizontal_padding"
+                android:paddingEnd="@dimen/button_horizontal_padding"
+                android:text="@string/create_user_agreement_button_label"
+                android:textSize="@dimen/text_size_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_user_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
