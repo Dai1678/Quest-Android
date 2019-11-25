@@ -1,4 +1,4 @@
-package com.dai1678.quest.ui.createUser
+package com.dai1678.quest.ui.registerUser
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,21 +8,29 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.dai1678.quest.R
-import com.dai1678.quest.databinding.FragmentCreateUserBinding
+import com.dai1678.quest.databinding.FragmentRegisterUserBinding
+import com.dai1678.quest.listener.RegisterUserFragmentListener
 
-class CreateUserFragment : Fragment() {
+class RegisterUserFragment : Fragment() {
 
-    private val createUserViewModel: CreateUserViewModel by viewModels()
-    private lateinit var binding: FragmentCreateUserBinding
+    private val registerUserViewModel: RegisterUserViewModel by viewModels()
+    private lateinit var binding: FragmentRegisterUserBinding
+
+    private val registerUserFragmentListener = object : RegisterUserFragmentListener {
+        override fun onClickRegisterUserData(view: View) {
+            registerUserViewModel.submitUserData()
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentCreateUserBinding.inflate(inflater, container, false).apply {
-            lifecycleOwner = this@CreateUserFragment
-            viewModel = createUserViewModel
+        binding = FragmentRegisterUserBinding.inflate(inflater, container, false).apply {
+            lifecycleOwner = this@RegisterUserFragment
+            viewModel = registerUserViewModel
+            listener = registerUserFragmentListener
         }
         return binding.root
     }

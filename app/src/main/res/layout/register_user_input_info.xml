@@ -5,8 +5,12 @@
     <data>
 
         <variable
-                name="viewModel"
-                type="com.dai1678.quest.ui.createUser.CreateUserViewModel" />
+                name="ageRange"
+                type="String" />
+
+        <variable
+                name="gender"
+                type="String" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -55,7 +59,8 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/create_user_age_label"
                         android:inputType="none"
-                        android:singleLine="true" />
+                        android:singleLine="true"
+                        android:text="@={ageRange}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -77,7 +82,8 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/create_user_gender_label"
                         android:inputType="none"
-                        android:singleLine="true" />
+                        android:singleLine="true"
+                        android:text="@={gender}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

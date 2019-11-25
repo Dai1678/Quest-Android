@@ -5,8 +5,20 @@
     <data>
 
         <variable
-                name="viewModel"
-                type="com.dai1678.quest.ui.createUser.CreateUserViewModel" />
+                name="firstName"
+                type="String" />
+
+        <variable
+                name="lastName"
+                type="String" />
+
+        <variable
+                name="firstReadName"
+                type="String" />
+
+        <variable
+                name="lastReadName"
+                type="String" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -55,7 +67,8 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/create_user_fist_name_label"
                         android:inputType="text"
-                        android:singleLine="true" />
+                        android:singleLine="true"
+                        android:text="@={firstName}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,7 +91,7 @@
                         android:hint="@string/create_user_last_name_label"
                         android:inputType="text"
                         android:singleLine="true"
-                        android:theme="@style/EditText.Style" />
+                        android:text="@={lastName}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -102,7 +115,7 @@
                         android:hint="@string/create_user_first_name_read_label"
                         android:inputType="text"
                         android:singleLine="true"
-                        android:theme="@style/EditText.Style" />
+                        android:text="@={firstReadName}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -125,7 +138,7 @@
                         android:hint="@string/create_user_last_name_label"
                         android:inputType="text"
                         android:singleLine="true"
-                        android:theme="@style/EditText.Style" />
+                        android:text="@={lastReadName}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

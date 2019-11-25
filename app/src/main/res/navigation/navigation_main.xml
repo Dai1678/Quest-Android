@@ -47,7 +47,7 @@
 
     <fragment
             android:id="@+id/createUserFragment"
-            android:name="com.dai1678.quest.ui.createUser.CreateUserFragment"
+            android:name="com.dai1678.quest.ui.registerUser.RegisterUserFragment"
             android:label="@string/create_user_toolbar_title" />
 
     <dialog
