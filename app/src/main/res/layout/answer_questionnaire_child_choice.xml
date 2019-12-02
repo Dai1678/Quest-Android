@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <import type="android.view.View" />
+
+        <variable
+                name="viewModel"
+                type="com.dai1678.quest.ui.new_questionnaire.QuestionnaireAnswerViewModel" />
+
+        <variable
+                name="position"
+                type="Integer" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -20,7 +29,8 @@
                     android:id="@+id/questionnaire_sub_number_text"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/text_size_large"
+                    android:text="@{viewModel.questionChildNumberLabels[position]}"
+                    android:textSize="@dimen/text_size_medium"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="@string/questionnaire_sub_number_a" />
@@ -31,7 +41,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/component_interval_size_small"
                     android:paddingBottom="@dimen/component_interval_size_medium"
-                    android:textSize="@dimen/text_size_large"
+                    android:text="@{viewModel.questionChildMessages[position]}"
+                    android:textSize="@dimen/text_size_medium"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/questionnaire_sub_number_text"
                     app:layout_constraintTop_toTopOf="parent"
@@ -41,56 +52,64 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    app:layout_constraintTop_toBottomOf="@id/questionnaire_sub_message_text"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent">
+                    app:layout_constraintTop_toBottomOf="@id/questionnaire_sub_message_text">
 
                 <com.google.android.material.radiobutton.MaterialRadioButton
                         android:id="@+id/answer_child_choice_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/component_interval_size_medium"
-                        android:textSize="@dimen/text_size_large"
                         android:buttonTint="@color/colorPrimary"
-                        tools:text="回答1"/>
+                        android:padding="@dimen/component_interval_size_medium"
+                        android:text="@{viewModel.answerChoiceMessage1}"
+                        android:textSize="@dimen/text_size_medium"
+                        android:checked="true"
+                        tools:text="回答1" />
 
                 <com.google.android.material.radiobutton.MaterialRadioButton
                         android:id="@+id/answer_child_choice_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/component_interval_size_medium"
-                        android:textSize="@dimen/text_size_large"
                         android:buttonTint="@color/colorPrimary"
-                        tools:text="回答2"/>
+                        android:padding="@dimen/component_interval_size_medium"
+                        android:text="@{viewModel.answerChoiceMessage2}"
+                        android:textSize="@dimen/text_size_medium"
+                        tools:text="回答2" />
 
                 <com.google.android.material.radiobutton.MaterialRadioButton
                         android:id="@+id/answer_child_choice_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/component_interval_size_medium"
-                        android:textSize="@dimen/text_size_large"
                         android:buttonTint="@color/colorPrimary"
-                        tools:text="回答3"/>
+                        android:padding="@dimen/component_interval_size_medium"
+                        android:text="@{viewModel.answerChoiceMessage3}"
+                        android:textSize="@dimen/text_size_medium"
+                        tools:text="回答3" />
 
                 <com.google.android.material.radiobutton.MaterialRadioButton
                         android:id="@+id/answer_child_choice_4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        android:padding="@dimen/component_interval_size_medium"
-                        android:textSize="@dimen/text_size_large"
                         android:buttonTint="@color/colorPrimary"
-                        tools:text="回答4"/>
+                        android:padding="@dimen/component_interval_size_medium"
+                        android:text="@{viewModel.answerChoiceMessage4}"
+                        android:textSize="@dimen/text_size_medium"
+                        android:visibility="@{viewModel.answerChoiceMessageVisible ? View.VISIBLE : View.GONE}"
+                        tools:text="回答4"
+                        tools:visibility="gone" />
 
                 <com.google.android.material.radiobutton.MaterialRadioButton
                         android:id="@+id/answer_child_choice_5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        android:padding="@dimen/component_interval_size_medium"
-                        android:textSize="@dimen/text_size_large"
                         android:buttonTint="@color/colorPrimary"
-                        tools:text="回答5"/>
+                        android:padding="@dimen/component_interval_size_medium"
+                        android:text="@{viewModel.answerChoiceMessage5}"
+                        android:textSize="@dimen/text_size_medium"
+                        android:visibility="@{viewModel.answerChoiceMessageVisible ? View.VISIBLE : View.GONE}"
+                        tools:text="回答5"
+                        tools:visibility="gone" />
 
             </RadioGroup>
 

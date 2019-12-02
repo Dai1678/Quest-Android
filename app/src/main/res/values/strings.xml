@@ -255,7 +255,7 @@
     </string>
     <string name="questionnaire_4_c_message">仕事やふだんの活動の<u>内容</u>によっては、できないものがあった
     </string>
-    <string name="questionnaire_4_d_message">仕事やふだんの活動をする\nことが<u>むずかしかった</u>（例えばいつもより努力を必要としたなど）
+    <string name="questionnaire_4_d_message">仕事やふだんの活動をすることが<u>むずかしかった</u>（例えばいつもより努力を必要としたなど）
     </string>
     <string name="questionnaire_4_answer_1">いつも</string>
     <string name="questionnaire_4_answer_2">ほとんどいつも</string>
@@ -286,9 +286,7 @@
     </string>
     <string name="questionnaire_5_a_message">仕事やふだんの活動をする<u>時間</u>をへらした
     </string>
-    <string name="questionnaire_5_b_message">仕事やふだんの活動が思ったほど、
-        <u>できなかった</u>
-    </string>
+    <string name="questionnaire_5_b_message">仕事やふだんの活動が思ったほど、<u>できなかった</u></string>
     <string name="questionnaire_5_c_message">仕事やふだんの活動がいつもほど、<u>集中して</u>できなかった
     </string>
     <string name="questionnaire_5_answer_1">いつも</string>
@@ -375,7 +373,7 @@
     </string>
     <string name="questionnaire_9_a_message">元気いっぱいでしたか</string>
     <string name="questionnaire_9_b_message">かなり神経質でしたか</string>
-    <string name="questionnaire_9_c_message">どうにもならないくらい、きぶんがおちこんでいましたか</string>
+    <string name="questionnaire_9_c_message">どうにもならないくらい、気分がおちこんでいましたか</string>
     <string name="questionnaire_9_d_message">おちついていて、おだやかな気分でしたか</string>
     <string name="questionnaire_9_e_message">活力(エネルギー)にあふれていましたか</string>
     <string name="questionnaire_9_f_message">おちこんで、ゆううつな気分でしたか</string>

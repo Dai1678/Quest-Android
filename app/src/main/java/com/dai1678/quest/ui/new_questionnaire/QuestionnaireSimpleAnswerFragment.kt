@@ -10,7 +10,7 @@ import com.dai1678.quest.databinding.FragmentQuestionnaireSimpleAnswerBinding
 
 class QuestionnaireSimpleAnswerFragment : Fragment() {
 
-    private val questionnaireSimpleAnswerViewModel: QuestionnaireSimpleAnswerViewModel by viewModels()
+    private val questionnaireAnswerViewModel: QuestionnaireAnswerViewModel by viewModels()
     private lateinit var binding: FragmentQuestionnaireSimpleAnswerBinding
 
     override fun onCreateView(
@@ -21,7 +21,7 @@ class QuestionnaireSimpleAnswerFragment : Fragment() {
         binding =
             FragmentQuestionnaireSimpleAnswerBinding.inflate(inflater, container, false).apply {
                 lifecycleOwner = this@QuestionnaireSimpleAnswerFragment
-                viewModel = questionnaireSimpleAnswerViewModel
+                viewModel = questionnaireAnswerViewModel
             }
         return binding.root
     }
@@ -30,7 +30,7 @@ class QuestionnaireSimpleAnswerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val page = arguments?.getInt(KEY_PAGE) ?: 1
-        questionnaireSimpleAnswerViewModel.setQuestionInfo(page)
+        questionnaireAnswerViewModel.setQuestionInfo(page)
     }
 
     companion object {

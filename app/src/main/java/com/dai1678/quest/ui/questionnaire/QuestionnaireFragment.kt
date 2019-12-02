@@ -37,7 +37,6 @@ class QuestionnaireFragment : Fragment() {
             inflater, R.layout.fragment_questionnaire, container, false
         )
         binding.lifecycleOwner = this
-        binding.viewModel = viewModel
         return binding.root
     }
 
@@ -67,16 +66,6 @@ class QuestionnaireFragment : Fragment() {
         binding.questionnaireRecyclerView.apply {
             layoutManager = LinearLayoutManager(activity)
             adapter = groupAdapter
-        }
-
-        binding.questionnaireBackButton.setOnClickListener {
-            viewModel.backPage()
-            navController.navigate(R.id.action_global_questionnaire_fragment)
-        }
-
-        binding.questionnaireNextButton.setOnClickListener {
-            viewModel.nextPage()
-            navController.navigate(R.id.action_global_questionnaire_fragment)
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(

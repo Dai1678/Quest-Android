@@ -9,7 +9,7 @@
 
         <variable
                 name="viewModel"
-                type="com.dai1678.quest.ui.new_questionnaire.QuestionnaireSimpleAnswerViewModel" />
+                type="com.dai1678.quest.ui.new_questionnaire.QuestionnaireAnswerViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
