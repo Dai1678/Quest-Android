@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
-import com.dai1678.quest.databinding.AnswerQuestionnaireChildChoiceBinding
+import com.dai1678.quest.databinding.ListItemQuestionnaireChildChoiceBinding
 import com.dai1678.quest.ui.new_questionnaire.QuestionnaireRecyclerAdapter.QuestionnaireViewHolder
 
 class QuestionnaireRecyclerAdapter(
@@ -17,7 +17,7 @@ class QuestionnaireRecyclerAdapter(
     private val inflater = LayoutInflater.from(context)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuestionnaireViewHolder {
-        val binding = AnswerQuestionnaireChildChoiceBinding.inflate(inflater, parent, false)
+        val binding = ListItemQuestionnaireChildChoiceBinding.inflate(inflater, parent, false)
 
         return QuestionnaireViewHolder(binding)
     }
@@ -30,6 +30,6 @@ class QuestionnaireRecyclerAdapter(
         holder.binding.lifecycleOwner = parentLifecycleOwner
     }
 
-    inner class QuestionnaireViewHolder(val binding: AnswerQuestionnaireChildChoiceBinding) :
+    inner class QuestionnaireViewHolder(val binding: ListItemQuestionnaireChildChoiceBinding) :
         RecyclerView.ViewHolder(binding.root)
 }

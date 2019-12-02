@@ -25,9 +25,6 @@ class DiagnosticCheckDialogFragment : DialogFragment() {
                 setMessage(R.string.diagnostic_check_dialog_message)
                 setPositiveButton(R.string.start_diagnosis) { _, _ ->
                     val action =
-//                        DiagnosticCheckDialogFragmentDirections.actionToQuestionnaireStartFragment(
-//                            patientId
-//                        )
                         DiagnosticCheckDialogFragmentDirections.actionToQuestionnairePagerFragment()
                     findNavController().navigate(action)
                 }

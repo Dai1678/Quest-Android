@@ -57,7 +57,7 @@
                     app:layout_constraintStart_toStartOf="@id/questionnaire_number_text"
                     app:layout_constraintTop_toBottomOf="@+id/questionnaire_main_message_text"
                     tools:itemCount="1"
-                    tools:listitem="@layout/answer_questionnaire_child_choice" />
+                    tools:listitem="@layout/list_item_questionnaire_child_choice" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
