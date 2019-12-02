@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/component_interval_size_medium">
+
+        <TextView
+                android:id="@+id/questionnaire_main_number_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_large"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/questionnaire_1_number" />
+
+        <TextView
+                android:id="@+id/questionnaire_main_message_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/component_interval_size_small"
+                android:paddingBottom="@dimen/component_interval_size_medium"
+                android:textSize="@dimen/text_size_large"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/questionnaire_main_number_text"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/questionnaire_1_message" />
+
+        <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/questionnaire_main_message_text">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/component_interval_size_small">
+
+                <RadioGroup
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/answer_simple_choice_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/component_interval_size_medium"
+                            android:textSize="@dimen/text_size_large"
+                            android:buttonTint="@color/colorPrimary"
+                            tools:text="@string/questionnaire_1_answer_1"/>
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/answer_simple_choice_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/component_interval_size_medium"
+                            android:textSize="@dimen/text_size_large"
+                            android:buttonTint="@color/colorPrimary"
+                            tools:text="@string/questionnaire_1_answer_2"/>
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/answer_simple_choice_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/component_interval_size_medium"
+                            android:textSize="@dimen/text_size_large"
+                            android:buttonTint="@color/colorPrimary"
+                            tools:text="@string/questionnaire_1_answer_3"/>
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/answer_simple_choice_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/component_interval_size_medium"
+                            android:textSize="@dimen/text_size_large"
+                            android:buttonTint="@color/colorPrimary"
+                            tools:text="@string/questionnaire_1_answer_4"/>
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/answer_simple_choice_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/component_interval_size_medium"
+                            android:textSize="@dimen/text_size_large"
+                            android:buttonTint="@color/colorPrimary"
+                            tools:text="@string/questionnaire_1_answer_5"/>
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/answer_simple_choice_6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/component_interval_size_medium"
+                            android:textSize="@dimen/text_size_large"
+                            android:buttonTint="@color/colorPrimary"
+                            android:visibility="gone"
+                            tools:text="回答6"/>
+
+                </RadioGroup>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
