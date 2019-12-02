@@ -1,22 +1,19 @@
-package com.dai1678.quest.ui.questionnaire
+package com.dai1678.quest.ui.new_questionnaire
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.dai1678.quest.databinding.FragmentQuestionnairePagerBinding
+import com.dai1678.quest.databinding.FragmentQuestionnaireStartBinding
 
-class QuestionnairePagerFragment : Fragment() {
+class QuestionnaireStartFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return FragmentQuestionnairePagerBinding.inflate(inflater, container, false).apply {
-
-        }.root
+        return FragmentQuestionnaireStartBinding.inflate(inflater, container, false).root
     }
-
 }

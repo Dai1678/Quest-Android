@@ -65,7 +65,19 @@
         <action
                 android:id="@+id/action_to_questionnaireStartFragment"
                 app:destination="@+id/questionnaireStartFragment" />
+        <action
+                android:id="@+id/action_to_questionnairePagerFragment"
+                app:destination="@id/questionnairePagerFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </dialog>
+
+    <fragment
+            android:id="@+id/questionnairePagerFragment"
+            android:name="com.dai1678.quest.ui.new_questionnaire.QuestionnairePagerFragment"
+            android:label="@string/questionnaire_toolbar_title" />
 
     <fragment
             android:id="@+id/questionnaireStartFragment"
