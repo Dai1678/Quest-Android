@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.dai1678.quest.databinding.FragmentQuestionnairePagerBinding
+import com.dai1678.quest.listener.QuestionnairePagerFragmentListener
 
 class QuestionnairePagerFragment : Fragment() {
 
@@ -42,12 +43,24 @@ class QuestionnairePagerFragment : Fragment() {
         }
     }
 
+    private val questionnairePagerFragmentListener = object : QuestionnairePagerFragmentListener {
+        override fun onClickBack(view: View) {
+            binding.pager.setCurrentItem(binding.pager.currentItem - 1, true)
+        }
+
+        override fun onClickNext(view: View) {
+            binding.pager.setCurrentItem(binding.pager.currentItem + 1, true)
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentQuestionnairePagerBinding.inflate(inflater, container, false)
+        binding = FragmentQuestionnairePagerBinding.inflate(inflater, container, false).apply {
+            listener = questionnairePagerFragmentListener
+        }
         return binding.root
     }
 
