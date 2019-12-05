@@ -8,8 +8,16 @@
         <import type="android.view.View" />
 
         <variable
+                name="page"
+                type="Integer" />
+
+        <variable
                 name="viewModel"
                 type="com.dai1678.quest.ui.new_questionnaire.QuestionnaireAnswerViewModel" />
+
+        <variable
+                name="listener"
+                type="com.dai1678.quest.listener.QuestionnaireAnswerFragmentListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +29,7 @@
                 android:id="@+id/questionnaire_main_number_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{viewModel.questionNumberLabel}"
+                android:text="@{viewModel.questionNumberLabels[page]}"
                 android:textSize="@dimen/text_size_large"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -33,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/component_interval_size_small"
                 android:paddingBottom="@dimen/component_interval_size_medium"
-                android:text="@{viewModel.questionMessage}"
+                android:text="@{viewModel.questionMessages[page]}"
                 android:textSize="@dimen/text_size_large"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/questionnaire_main_number_text"
@@ -54,6 +62,8 @@
                         android:id="@+id/answer_simple_choice_radio_group"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:checkedButton="@id/answer_simple_choice_1"
+                        android:onCheckedChanged="@{listener::onChangeAnswer}"
                         android:orientation="vertical"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -65,9 +75,9 @@
                             android:layout_height="wrap_content"
                             android:buttonTint="@color/colorPrimary"
                             android:padding="@dimen/component_interval_size_medium"
-                            android:text="@{viewModel.answerChoiceMessage1}"
+                            android:tag="1"
+                            android:text="@{viewModel.answerChoice1Messages[page]}"
                             android:textSize="@dimen/text_size_large"
-                            android:checked="true"
                             tools:text="@string/questionnaire_1_answer_1" />
 
                     <com.google.android.material.radiobutton.MaterialRadioButton
@@ -76,7 +86,8 @@
                             android:layout_height="wrap_content"
                             android:buttonTint="@color/colorPrimary"
                             android:padding="@dimen/component_interval_size_medium"
-                            android:text="@{viewModel.answerChoiceMessage2}"
+                            android:tag="2"
+                            android:text="@{viewModel.answerChoice2Messages[page]}"
                             android:textSize="@dimen/text_size_large"
                             tools:text="@string/questionnaire_1_answer_2" />
 
@@ -86,7 +97,8 @@
                             android:layout_height="wrap_content"
                             android:buttonTint="@color/colorPrimary"
                             android:padding="@dimen/component_interval_size_medium"
-                            android:text="@{viewModel.answerChoiceMessage3}"
+                            android:tag="3"
+                            android:text="@{viewModel.answerChoice3Messages[page]}"
                             android:textSize="@dimen/text_size_large"
                             tools:text="@string/questionnaire_1_answer_3" />
 
@@ -96,7 +108,8 @@
                             android:layout_height="wrap_content"
                             android:buttonTint="@color/colorPrimary"
                             android:padding="@dimen/component_interval_size_medium"
-                            android:text="@{viewModel.answerChoiceMessage4}"
+                            android:tag="4"
+                            android:text="@{viewModel.answerChoice4Messages[page]}"
                             android:textSize="@dimen/text_size_large"
                             tools:text="@string/questionnaire_1_answer_4" />
 
@@ -106,7 +119,8 @@
                             android:layout_height="wrap_content"
                             android:buttonTint="@color/colorPrimary"
                             android:padding="@dimen/component_interval_size_medium"
-                            android:text="@{viewModel.answerChoiceMessage5}"
+                            android:tag="5"
+                            android:text="@{viewModel.answerChoice5Messages[page]}"
                             android:textSize="@dimen/text_size_large"
                             tools:text="@string/questionnaire_1_answer_5" />
 
@@ -116,10 +130,10 @@
                             android:layout_height="wrap_content"
                             android:buttonTint="@color/colorPrimary"
                             android:padding="@dimen/component_interval_size_medium"
-                            android:text="@{viewModel.answerChoiceMessage6}"
+                            android:tag="6"
+                            android:text="@string/questionnaire_7_answer_6"
                             android:textSize="@dimen/text_size_large"
-                            android:visibility="@{viewModel.answerChoiceMessageVisible ? View.VISIBLE : View.GONE}"
-                            tools:text="回答6"
+                            android:visibility="@{page == 8 ? View.VISIBLE : View.GONE}"
                             tools:visibility="gone" />
 
                 </RadioGroup>

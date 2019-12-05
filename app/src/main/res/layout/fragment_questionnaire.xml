@@ -6,6 +6,10 @@
     <data>
 
         <variable
+                name="page"
+                type="Integer" />
+
+        <variable
                 name="viewModel"
                 type="com.dai1678.quest.ui.new_questionnaire.QuestionnaireAnswerViewModel" />
     </data>
@@ -20,15 +24,14 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:padding="@dimen/text_size_medium">
 
             <TextView
                     android:id="@+id/questionnaire_number_text"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/component_interval_size_medium"
-                    android:layout_marginTop="@dimen/component_interval_size_medium"
-                    android:text="@{viewModel.questionNumberLabel}"
+                    android:text="@{viewModel.questionNumberLabels[page]}"
                     android:textSize="@dimen/text_size_medium"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -38,10 +41,7 @@
                     android:id="@+id/questionnaire_main_message_text"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/component_interval_size_medium"
-                    android:layout_marginTop="@dimen/component_interval_size_medium"
-                    android:layout_marginEnd="@dimen/component_interval_size_medium"
-                    android:text="@{viewModel.questionMessage}"
+                    android:text="@{viewModel.questionMessages[page]}"
                     android:textSize="@dimen/text_size_medium"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/questionnaire_number_text"

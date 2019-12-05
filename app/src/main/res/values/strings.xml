@@ -14,8 +14,40 @@
     <string name="suspension_diagnosis">回答を中断</string>
     <string name="questionnaire_expand_text">答える</string>
     <string name="questionnaire_collapsed_text">閉じる</string>
+    <string name="dummy"> </string>
 
-    <!-- common questionnaire sub number text -->
+    <!-- common questionnaire main number label -->
+    <string name="questionnaire_1_number">問1</string>
+    <string name="questionnaire_2_number">問2</string>
+    <string name="questionnaire_3_number">問3</string>
+    <string name="questionnaire_4_number">問4</string>
+    <string name="questionnaire_5_number">問5</string>
+    <string name="questionnaire_6_number">問6</string>
+    <string name="questionnaire_7_number">問7</string>
+    <string name="questionnaire_8_number">問8</string>
+    <string name="questionnaire_9_number">問9</string>
+    <string name="questionnaire_10_number">問10</string>
+    <string name="questionnaire_11_number">問11</string>
+
+    <string-array name="questionnaire_main_number_label_page_array">
+        <item>@string/dummy</item>
+        <item>@string/questionnaire_1_number</item>
+        <item>@string/questionnaire_2_number</item>
+        <item>@string/questionnaire_3_number</item>
+        <item>@string/questionnaire_3_number</item>
+        <item>@string/questionnaire_4_number</item>
+        <item>@string/questionnaire_5_number</item>
+        <item>@string/questionnaire_6_number</item>
+        <item>@string/questionnaire_7_number</item>
+        <item>@string/questionnaire_8_number</item>
+        <item>@string/questionnaire_9_number</item>
+        <item>@string/questionnaire_9_number</item>
+        <item>@string/questionnaire_10_number</item>
+        <item>@string/questionnaire_11_number</item>
+        <item>@string/dummy</item>
+    </string-array>
+
+    <!-- common questionnaire sub number label -->
     <string name="questionnaire_sub_number_a">ア)</string>
     <string name="questionnaire_sub_number_b">イ)</string>
     <string name="questionnaire_sub_number_c">ウ)</string>
@@ -26,19 +58,6 @@
     <string name="questionnaire_sub_number_h">ク)</string>
     <string name="questionnaire_sub_number_i">ケ)</string>
     <string name="questionnaire_sub_number_j">コ)</string>
-
-    <string-array name="questionnaire_sub_numbers">
-        <item>@string/questionnaire_sub_number_a</item>
-        <item>@string/questionnaire_sub_number_b</item>
-        <item>@string/questionnaire_sub_number_c</item>
-        <item>@string/questionnaire_sub_number_d</item>
-        <item>@string/questionnaire_sub_number_e</item>
-        <item>@string/questionnaire_sub_number_f</item>
-        <item>@string/questionnaire_sub_number_g</item>
-        <item>@string/questionnaire_sub_number_h</item>
-        <item>@string/questionnaire_sub_number_i</item>
-        <item>@string/questionnaire_sub_number_j</item>
-    </string-array>
 
     <string-array name="questionnaire_sub_first_half_numbers">
         <item>@string/questionnaire_sub_number_a</item>
@@ -151,7 +170,6 @@
     <string name="questionnaire_start_message2">以下のそれぞれの質問について、一番よくあてはまるものに印（☑）をつけてください。</string>
 
     <!-- Questionnaire1 -->
-    <string name="questionnaire_1_number">問1</string>
     <string name="questionnaire_1_message">あなたの健康状態は?\n（一番よく当てはまるものに☑印をつけて下さい）</string>
     <string name="questionnaire_1_answer_1">最高に良い</string>
     <string name="questionnaire_1_answer_2">とても良い</string>
@@ -168,7 +186,6 @@
     </string-array>
 
     <!-- Questionnaire2 -->
-    <string name="questionnaire_2_number">問2</string>
     <string name="questionnaire_2_message">1年前と比べて、現在の健康状態はいかがですか。\n（一番よく当てはまるものに☑印をつけて下さい）</string>
     <string name="questionnaire_2_answer_1">1年前より、はるかに良い</string>
     <string name="questionnaire_2_answer_2">1年前よりは、やや良い</string>
@@ -185,7 +202,6 @@
     </string-array>
 
     <!-- Questionnaire3 -->
-    <string name="questionnaire_3_number">問3</string>
     <string name="questionnaire_3_message">以下の質問は、日常よく行われている活動です。あなたは<u>健康上の理由で</u>、こうした活動をすることがむずかしいと感じますか。むずかしいとすればどのくらいですか。\n\n（ア〜コまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
     </string>
     <string name="questionnaire_3_a_message"><u>激しい活動</u>、例えば、一生けんめい走る、重い物を持ち上げる、激しいスポーツをするなど
@@ -245,7 +261,6 @@
     </string-array>
 
     <!-- Questionnaire4 -->
-    <string name="questionnaire_4_number">問4</string>
     <string name="questionnaire_4_message"><u>過去1ヶ月間に</u>、仕事やふだんの活動（家事など）をするにあたって、<u>身体的な理由で</u>次のような問題がありましたか。\n\n（ア〜エまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
     </string>
     <string name="questionnaire_4_a_message">仕事やふだんの活動をする<u>時間</u>をへらした
@@ -279,7 +294,6 @@
     </string-array>
 
     <!-- Questionnaire5 -->
-    <string name="questionnaire_5_number">問5</string>
     <string name="questionnaire_5_message">
         <u>過去1ヵ月間に</u>
         、仕事やふだんの活動(家事など)をするにあたって、心理的な理由で（例えば、気分がおちこんだり不安を感じたりしたために)、次のような問題がありましたか。\n\n（ア〜ウまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
@@ -310,7 +324,6 @@
     </string-array>
 
     <!-- Questionnaire6 -->
-    <string name="questionnaire_6_number">問6</string>
     <string name="questionnaire_6_message">
         <u>過去１ヶ月間に</u>
         、家族、友人、近所の人、その他の仲間とのふだんのつきあいが、身体的あるいは心理的な理由で、どのくらい妨げられましたか。\n\n（一番よくあてはまるものに☑印をつけて下さい）
@@ -330,7 +343,6 @@
     </string-array>
 
     <!-- Questionnaire7 -->
-    <string name="questionnaire_7_number">問7</string>
     <string name="questionnaire_7_message"><u>過去１ヶ月間に</u>、<u>体の痛み</u>をどのくらい感じましたか。\n\n（一番よくあてはまるものに☑印をつけて下さい）
     </string>
     <string name="questionnaire_7_answer_1">ぜんぜんなかった</string>
@@ -350,7 +362,6 @@
     </string-array>
 
     <!-- Questionnaire8 -->
-    <string name="questionnaire_8_number">問8</string>
     <string name="questionnaire_8_message"><u>過去１ヶ月間に</u>、いつもの仕事（家事も含みます）が<u>痛みのために</u>、どのくらい妨げられましたか。\n\n（一番よくあてはまるものに☑印をつけて下さい）
     </string>
     <string name="questionnaire_8_answer_1">ぜんぜん、妨げられなかった</string>
@@ -368,7 +379,6 @@
     </string-array>
 
     <!-- Questionnaire9 -->
-    <string name="questionnaire_9_number">問9</string>
     <string name="questionnaire_9_message">次にあげるのは、<u>過去１ヶ月間に</u>、あなたがどのように感じたかについての質問です。\n\n（ア〜ケまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
     </string>
     <string name="questionnaire_9_a_message">元気いっぱいでしたか</string>
@@ -422,7 +432,6 @@
     </string-array>
 
     <!-- Questionnaire10 -->
-    <string name="questionnaire_10_number">問10</string>
     <string name="questionnaire_10_message"><u>過去１ヶ月間に</u>、友人や親せきを訪ねるなど、人とのつきあいが、<u>身体的あるいは心理的な理由で</u>、時間的にどのくらい妨げられましたか。\n\n（一番よくあてはまるものに☑印をつけて下さい）
     </string>
     <string name="questionnaire_10_answer_1">いつも</string>
@@ -440,7 +449,6 @@
     </string-array>
 
     <!-- Questionnaire11 -->
-    <string name="questionnaire_11_number">問11</string>
     <string name="questionnaire_11_message">次にあげた各項目はどのくらいあなたにあてはまりますか。\n\n（ア〜エまでのそれぞれの質問について、一番よくあてはまるものに☑印をつけて下さい）
     </string>
     <string name="questionnaire_11_a_message">私は他の人に比べて病気になりやすいと思う</string>
@@ -466,6 +474,114 @@
         <item>@string/questionnaire_11_answer_3</item>
         <item>@string/questionnaire_11_answer_4</item>
         <item>@string/questionnaire_11_answer_5</item>
+    </string-array>
+
+    <string-array name="questionnaire_message_array">
+        <item>@string/dummy</item>
+        <item>@string/questionnaire_1_message</item>
+        <item>@string/questionnaire_2_message</item>
+        <item>@string/questionnaire_3_message</item>
+        <item>@string/questionnaire_3_message</item>
+        <item>@string/questionnaire_4_message</item>
+        <item>@string/questionnaire_5_message</item>
+        <item>@string/questionnaire_6_message</item>
+        <item>@string/questionnaire_7_message</item>
+        <item>@string/questionnaire_8_message</item>
+        <item>@string/questionnaire_9_message</item>
+        <item>@string/questionnaire_9_message</item>
+        <item>@string/questionnaire_10_message</item>
+        <item>@string/questionnaire_11_message</item>
+        <item>@string/dummy</item>
+    </string-array>
+
+    <string-array name="questionnaire_answer_1_array">
+        <item>@string/dummy</item>
+        <item>@string/questionnaire_1_answer_1</item>
+        <item>@string/questionnaire_2_answer_1</item>
+        <item>@string/questionnaire_3_answer_1</item>
+        <item>@string/questionnaire_3_answer_1</item>
+        <item>@string/questionnaire_4_answer_1</item>
+        <item>@string/questionnaire_5_answer_1</item>
+        <item>@string/questionnaire_6_answer_1</item>
+        <item>@string/questionnaire_7_answer_1</item>
+        <item>@string/questionnaire_8_answer_1</item>
+        <item>@string/questionnaire_9_answer_1</item>
+        <item>@string/questionnaire_9_answer_1</item>
+        <item>@string/questionnaire_10_answer_1</item>
+        <item>@string/questionnaire_11_answer_1</item>
+        <item>@string/dummy</item>
+    </string-array>
+
+    <string-array name="questionnaire_answer_2_array">
+        <item>@string/dummy</item>
+        <item>@string/questionnaire_1_answer_2</item>
+        <item>@string/questionnaire_2_answer_2</item>
+        <item>@string/questionnaire_3_answer_2</item>
+        <item>@string/questionnaire_3_answer_2</item>
+        <item>@string/questionnaire_4_answer_2</item>
+        <item>@string/questionnaire_5_answer_2</item>
+        <item>@string/questionnaire_6_answer_2</item>
+        <item>@string/questionnaire_7_answer_2</item>
+        <item>@string/questionnaire_8_answer_2</item>
+        <item>@string/questionnaire_9_answer_2</item>
+        <item>@string/questionnaire_9_answer_2</item>
+        <item>@string/questionnaire_10_answer_2</item>
+        <item>@string/questionnaire_11_answer_2</item>
+        <item>@string/dummy</item>
+    </string-array>
+
+    <string-array name="questionnaire_answer_3_array">
+        <item>@string/dummy</item>
+        <item>@string/questionnaire_1_answer_3</item>
+        <item>@string/questionnaire_2_answer_3</item>
+        <item>@string/questionnaire_3_answer_3</item>
+        <item>@string/questionnaire_3_answer_3</item>
+        <item>@string/questionnaire_4_answer_3</item>
+        <item>@string/questionnaire_5_answer_3</item>
+        <item>@string/questionnaire_6_answer_3</item>
+        <item>@string/questionnaire_7_answer_3</item>
+        <item>@string/questionnaire_8_answer_3</item>
+        <item>@string/questionnaire_9_answer_3</item>
+        <item>@string/questionnaire_9_answer_3</item>
+        <item>@string/questionnaire_10_answer_3</item>
+        <item>@string/questionnaire_11_answer_3</item>
+        <item>@string/dummy</item>
+    </string-array>
+
+    <string-array name="questionnaire_answer_4_array">
+        <item>@string/dummy</item>
+        <item>@string/questionnaire_1_answer_4</item>
+        <item>@string/questionnaire_2_answer_4</item>
+        <item>@string/dummy</item>
+        <item>@string/dummy</item>
+        <item>@string/questionnaire_4_answer_4</item>
+        <item>@string/questionnaire_5_answer_4</item>
+        <item>@string/questionnaire_6_answer_4</item>
+        <item>@string/questionnaire_7_answer_4</item>
+        <item>@string/questionnaire_8_answer_4</item>
+        <item>@string/questionnaire_9_answer_4</item>
+        <item>@string/questionnaire_9_answer_4</item>
+        <item>@string/questionnaire_10_answer_4</item>
+        <item>@string/questionnaire_11_answer_4</item>
+        <item>@string/dummy</item>
+    </string-array>
+
+    <string-array name="questionnaire_answer_5_array">
+        <item>@string/dummy</item>
+        <item>@string/questionnaire_1_answer_5</item>
+        <item>@string/questionnaire_2_answer_5</item>
+        <item>@string/dummy</item>
+        <item>@string/dummy</item>
+        <item>@string/questionnaire_4_answer_5</item>
+        <item>@string/questionnaire_5_answer_5</item>
+        <item>@string/questionnaire_6_answer_5</item>
+        <item>@string/questionnaire_7_answer_5</item>
+        <item>@string/questionnaire_8_answer_5</item>
+        <item>@string/questionnaire_9_answer_5</item>
+        <item>@string/questionnaire_9_answer_5</item>
+        <item>@string/questionnaire_10_answer_5</item>
+        <item>@string/questionnaire_11_answer_5</item>
+        <item>@string/dummy</item>
     </string-array>
 
     <!-- QuestionnaireEnd -->

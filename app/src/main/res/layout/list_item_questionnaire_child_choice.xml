@@ -7,12 +7,34 @@
 
         <import type="android.view.View" />
 
+        <import type="java.util.List" />
+
         <variable
                 name="viewModel"
                 type="com.dai1678.quest.ui.new_questionnaire.QuestionnaireAnswerViewModel" />
 
         <variable
+                name="listener"
+                type="com.dai1678.quest.listener.QuestionnaireAnswerFragmentListener" />
+
+        <variable
+                name="numberLabels"
+                type="List&lt;String>" />
+
+        <variable
+                name="messages"
+                type="List&lt;String>" />
+
+        <variable
+                name="answerVisible"
+                type="Boolean" />
+
+        <variable
                 name="position"
+                type="Integer" />
+
+        <variable
+                name="page"
                 type="Integer" />
     </data>
 
@@ -29,7 +51,7 @@
                     android:id="@+id/questionnaire_sub_number_text"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.questionChildNumberLabels[position]}"
+                    android:text="@{numberLabels[position]}"
                     android:textSize="@dimen/text_size_medium"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -41,7 +63,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/component_interval_size_small"
                     android:paddingBottom="@dimen/component_interval_size_medium"
-                    android:text="@{viewModel.questionChildMessages[position]}"
+                    android:text="@{messages[position]}"
                     android:textSize="@dimen/text_size_medium"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/questionnaire_sub_number_text"
@@ -51,6 +73,8 @@
             <RadioGroup
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:checkedButton="@id/answer_child_choice_1"
+                    android:onCheckedChanged="@{listener::onChangeAnswer}"
                     android:orientation="vertical"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -62,9 +86,9 @@
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/colorPrimary"
                         android:padding="@dimen/component_interval_size_medium"
-                        android:text="@{viewModel.answerChoiceMessage1}"
+                        android:tag="1"
+                        android:text="@{viewModel.answerChoice1Messages[page]}"
                         android:textSize="@dimen/text_size_medium"
-                        android:checked="true"
                         tools:text="回答1" />
 
                 <com.google.android.material.radiobutton.MaterialRadioButton
@@ -73,7 +97,8 @@
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/colorPrimary"
                         android:padding="@dimen/component_interval_size_medium"
-                        android:text="@{viewModel.answerChoiceMessage2}"
+                        android:tag="2"
+                        android:text="@{viewModel.answerChoice2Messages[page]}"
                         android:textSize="@dimen/text_size_medium"
                         tools:text="回答2" />
 
@@ -83,7 +108,8 @@
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/colorPrimary"
                         android:padding="@dimen/component_interval_size_medium"
-                        android:text="@{viewModel.answerChoiceMessage3}"
+                        android:tag="3"
+                        android:text="@{viewModel.answerChoice3Messages[page]}"
                         android:textSize="@dimen/text_size_medium"
                         tools:text="回答3" />
 
@@ -93,9 +119,10 @@
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/colorPrimary"
                         android:padding="@dimen/component_interval_size_medium"
-                        android:text="@{viewModel.answerChoiceMessage4}"
+                        android:tag="4"
+                        android:text="@{viewModel.answerChoice4Messages[page]}"
                         android:textSize="@dimen/text_size_medium"
-                        android:visibility="@{viewModel.answerChoiceMessageVisible ? View.VISIBLE : View.GONE}"
+                        android:visibility="@{answerVisible ? View.VISIBLE : View.GONE}"
                         tools:text="回答4"
                         tools:visibility="gone" />
 
@@ -105,9 +132,10 @@
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/colorPrimary"
                         android:padding="@dimen/component_interval_size_medium"
-                        android:text="@{viewModel.answerChoiceMessage5}"
+                        android:tag="5"
+                        android:text="@{viewModel.answerChoice5Messages[page]}"
                         android:textSize="@dimen/text_size_medium"
-                        android:visibility="@{viewModel.answerChoiceMessageVisible ? View.VISIBLE : View.GONE}"
+                        android:visibility="@{answerVisible ? View.VISIBLE : View.GONE}"
                         tools:text="回答5"
                         tools:visibility="gone" />
 

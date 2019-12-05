@@ -11,8 +11,19 @@ import com.dai1678.quest.databinding.FragmentQuestionnaireBinding
 
 class QuestionnaireChildAnswerFragment : Fragment() {
 
-    private val questionnaireAnswerViewModel: QuestionnaireAnswerViewModel by viewModels()
+    private val questionnaireAnswerViewModel: QuestionnaireAnswerViewModel by viewModels({
+        requireParentFragment()
+    })
+
     private lateinit var binding: FragmentQuestionnaireBinding
+
+    private var currentPage = 0
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        currentPage = arguments?.getInt(KEY_PAGE) ?: 0
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,6 +32,7 @@ class QuestionnaireChildAnswerFragment : Fragment() {
     ): View? {
         binding = FragmentQuestionnaireBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = this@QuestionnaireChildAnswerFragment
+            page = currentPage
             viewModel = questionnaireAnswerViewModel
         }
         return binding.root
@@ -29,11 +41,12 @@ class QuestionnaireChildAnswerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val page = arguments?.getInt(KEY_PAGE) ?: 3
-        questionnaireAnswerViewModel.setQuestionInfo(page)
-
-        val questionnaireRecyclerAdapter =
-            QuestionnaireRecyclerAdapter(requireContext(), questionnaireAnswerViewModel, this)
+        val questionnaireRecyclerAdapter = QuestionnaireRecyclerAdapter(
+            requireContext(),
+            currentPage,
+            questionnaireAnswerViewModel,
+            this
+        )
 
         binding.questionnaireRecyclerView.apply {
             adapter = questionnaireRecyclerAdapter
