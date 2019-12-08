@@ -1,13 +1,25 @@
 package com.dai1678.quest.ui.new_questionnaire
 
+import android.annotation.SuppressLint
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.dai1678.quest.App
 import com.dai1678.quest.R
+import com.dai1678.quest.entity.Questionnaire
 import com.dai1678.quest.entity.QuestionnaireResult
+import com.dai1678.quest.repository.QuestionnaireRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.UUID
 
 class QuestionnaireAnswerViewModel : ViewModel() {
+    private val questionnaireRepository = QuestionnaireRepository.getInstance()
     private val resource = App.instance.resources
+    var callback: Callback? = null
 
     val questionNumberLabels: Array<String> =
         resource.getStringArray(R.array.questionnaire_main_number_label_page_array)
@@ -55,7 +67,48 @@ class QuestionnaireAnswerViewModel : ViewModel() {
         }
     }
 
-    fun sendQuestionnaireResult() {
+    @SuppressLint("SimpleDateFormat")
+    fun sendQuestionnaireResult(patientId: String) {
         Log.d("answer", questionnaireResult.toString())
+
+        viewModelScope.launch(Dispatchers.Main) {
+            val id = UUID.randomUUID().toString()
+            val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+            runCatching {
+                withContext(Dispatchers.IO) {
+                    questionnaireRepository.createResult(
+                        Questionnaire(
+                            id = id,
+                            result = questionnaireResult,
+                            createdAt = dateFormat.format(Date()),
+                            updatedAt = dateFormat.format(Date()),
+                            patientId = patientId
+                        )
+                    )
+                }
+            }.onSuccess {
+                if (it.isSuccessful) {
+                    callback?.finishQuestionnaire()
+                } else {
+                    callback?.showErrorSnackBar(it.message())
+                }
+            }.onFailure {
+                val errorThrowsMessage = "データの送信に失敗しました"
+                Log.e("sendQuestionnaireResult", it.message ?: errorThrowsMessage)
+                callback?.showErrorSnackBar(errorThrowsMessage)
+            }
+        }
+    }
+
+    interface Callback {
+        /**
+         * 送信完了
+         */
+        fun finishQuestionnaire()
+
+        /**
+         * スナックバー表示
+         */
+        fun showErrorSnackBar(message: String)
     }
 }

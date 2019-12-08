@@ -3,7 +3,6 @@ package com.dai1678.quest.entity
 data class Questionnaire(
     val id: String,
     val result: QuestionnaireResult,
-    val responsibleDoctorId: String,
     val createdAt: String,
     val updatedAt: String,
     val patientId: String
