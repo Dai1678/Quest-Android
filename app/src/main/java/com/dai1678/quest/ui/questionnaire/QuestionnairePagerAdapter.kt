@@ -4,7 +4,8 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class QuestionnairePagerAdapter(
-    fragment: Fragment, private val patientId: String
+    fragment: Fragment,
+    private val patientId: String
 ) : FragmentStateAdapter(fragment) {
 
     override fun getItemCount(): Int = 15
@@ -21,5 +22,4 @@ class QuestionnairePagerAdapter(
             )
         }
     }
-
 }

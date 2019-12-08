@@ -47,7 +47,6 @@ class QuestionnaireEndFragment : Fragment() {
                 }
             }.show()
         }
-
     }
 
     override fun onCreateView(

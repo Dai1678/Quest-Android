@@ -9,12 +9,12 @@ import com.dai1678.quest.R
 import com.dai1678.quest.entity.Questionnaire
 import com.dai1678.quest.entity.QuestionnaireResult
 import com.dai1678.quest.repository.QuestionnaireRepository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.UUID
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class QuestionnaireAnswerViewModel : ViewModel() {
     private val questionnaireRepository = QuestionnaireRepository.getInstance()
