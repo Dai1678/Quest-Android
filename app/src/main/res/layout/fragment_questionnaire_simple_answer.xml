@@ -33,7 +33,7 @@
                 android:textSize="@dimen/text_size_large"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="@string/questionnaire_1_number" />
+                tools:text="問1" />
 
         <TextView
                 android:id="@+id/questionnaire_main_message_text"
