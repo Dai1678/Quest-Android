@@ -20,127 +20,135 @@
                 type="com.dai1678.quest.listener.QuestionnaireAnswerFragmentListener" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/component_interval_size_medium">
+            android:fillViewport="true">
 
-        <TextView
-                android:id="@+id/questionnaire_main_number_text"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@{viewModel.questionNumberLabels[page]}"
-                android:textSize="@dimen/text_size_large"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="問1" />
-
-        <TextView
-                android:id="@+id/questionnaire_main_message_text"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/component_interval_size_small"
-                android:paddingBottom="@dimen/component_interval_size_medium"
-                android:text="@{viewModel.questionMessages[page]}"
-                android:textSize="@dimen/text_size_large"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/questionnaire_main_number_text"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="@string/questionnaire_1_message" />
-
-        <com.google.android.material.card.MaterialCardView
+        <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/questionnaire_main_message_text">
+                android:padding="@dimen/component_interval_size_medium">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <TextView
+                    android:id="@+id/questionnaire_main_number_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.questionNumberLabels[page]}"
+                    android:textSize="@dimen/text_size_medium"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="問1" />
+
+            <TextView
+                    android:id="@+id/questionnaire_main_message_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/component_interval_size_small"
+                    android:paddingBottom="@dimen/component_interval_size_medium"
+                    android:text="@{viewModel.questionMessages[page]}"
+                    android:textSize="@dimen/text_size_medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/questionnaire_main_number_text"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/questionnaire_1_message" />
+
+            <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="@dimen/component_interval_size_small">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/component_interval_size_large"
+                    app:layout_constraintTop_toBottomOf="@id/questionnaire_main_message_text">
 
-                <RadioGroup
-                        android:id="@+id/answer_simple_choice_radio_group"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:checkedButton="@id/answer_simple_choice_1"
-                        android:onCheckedChanged="@{listener::onChangeAnswer}"
-                        android:orientation="vertical"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/component_interval_size_small">
 
-                    <com.google.android.material.radiobutton.MaterialRadioButton
-                            android:id="@+id/answer_simple_choice_1"
-                            android:layout_width="match_parent"
+                    <RadioGroup
+                            android:id="@+id/answer_simple_choice_radio_group"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:buttonTint="@color/colorPrimary"
-                            android:padding="@dimen/component_interval_size_medium"
-                            android:tag="1"
-                            android:text="@{viewModel.answerChoice1Messages[page]}"
-                            android:textSize="@dimen/text_size_large"
-                            tools:text="@string/questionnaire_1_answer_1" />
+                            android:checkedButton="@id/answer_simple_choice_1"
+                            android:onCheckedChanged="@{listener::onChangeAnswer}"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
 
-                    <com.google.android.material.radiobutton.MaterialRadioButton
-                            android:id="@+id/answer_simple_choice_2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:buttonTint="@color/colorPrimary"
-                            android:padding="@dimen/component_interval_size_medium"
-                            android:tag="2"
-                            android:text="@{viewModel.answerChoice2Messages[page]}"
-                            android:textSize="@dimen/text_size_large"
-                            tools:text="@string/questionnaire_1_answer_2" />
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/answer_simple_choice_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/colorPrimary"
+                                android:padding="@dimen/component_interval_size_medium"
+                                android:tag="1"
+                                android:text="@{viewModel.answerChoice1Messages[page]}"
+                                android:textSize="@dimen/text_size_medium"
+                                tools:text="@string/questionnaire_1_answer_1" />
 
-                    <com.google.android.material.radiobutton.MaterialRadioButton
-                            android:id="@+id/answer_simple_choice_3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:buttonTint="@color/colorPrimary"
-                            android:padding="@dimen/component_interval_size_medium"
-                            android:tag="3"
-                            android:text="@{viewModel.answerChoice3Messages[page]}"
-                            android:textSize="@dimen/text_size_large"
-                            tools:text="@string/questionnaire_1_answer_3" />
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/answer_simple_choice_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/colorPrimary"
+                                android:padding="@dimen/component_interval_size_medium"
+                                android:tag="2"
+                                android:text="@{viewModel.answerChoice2Messages[page]}"
+                                android:textSize="@dimen/text_size_medium"
+                                tools:text="@string/questionnaire_1_answer_2" />
 
-                    <com.google.android.material.radiobutton.MaterialRadioButton
-                            android:id="@+id/answer_simple_choice_4"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:buttonTint="@color/colorPrimary"
-                            android:padding="@dimen/component_interval_size_medium"
-                            android:tag="4"
-                            android:text="@{viewModel.answerChoice4Messages[page]}"
-                            android:textSize="@dimen/text_size_large"
-                            tools:text="@string/questionnaire_1_answer_4" />
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/answer_simple_choice_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/colorPrimary"
+                                android:padding="@dimen/component_interval_size_medium"
+                                android:tag="3"
+                                android:text="@{viewModel.answerChoice3Messages[page]}"
+                                android:textSize="@dimen/text_size_medium"
+                                tools:text="@string/questionnaire_1_answer_3" />
 
-                    <com.google.android.material.radiobutton.MaterialRadioButton
-                            android:id="@+id/answer_simple_choice_5"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:buttonTint="@color/colorPrimary"
-                            android:padding="@dimen/component_interval_size_medium"
-                            android:tag="5"
-                            android:text="@{viewModel.answerChoice5Messages[page]}"
-                            android:textSize="@dimen/text_size_large"
-                            tools:text="@string/questionnaire_1_answer_5" />
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/answer_simple_choice_4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/colorPrimary"
+                                android:padding="@dimen/component_interval_size_medium"
+                                android:tag="4"
+                                android:text="@{viewModel.answerChoice4Messages[page]}"
+                                android:textSize="@dimen/text_size_medium"
+                                tools:text="@string/questionnaire_1_answer_4" />
 
-                    <com.google.android.material.radiobutton.MaterialRadioButton
-                            android:id="@+id/answer_simple_choice_6"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:buttonTint="@color/colorPrimary"
-                            android:padding="@dimen/component_interval_size_medium"
-                            android:tag="6"
-                            android:text="@string/questionnaire_7_answer_6"
-                            android:textSize="@dimen/text_size_large"
-                            android:visibility="@{page == 8 ? View.VISIBLE : View.GONE}"
-                            tools:visibility="gone" />
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/answer_simple_choice_5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/colorPrimary"
+                                android:padding="@dimen/component_interval_size_medium"
+                                android:tag="5"
+                                android:text="@{viewModel.answerChoice5Messages[page]}"
+                                android:textSize="@dimen/text_size_medium"
+                                tools:text="@string/questionnaire_1_answer_5" />
 
-                </RadioGroup>
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/answer_simple_choice_6"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/colorPrimary"
+                                android:padding="@dimen/component_interval_size_medium"
+                                android:tag="6"
+                                android:text="@string/questionnaire_7_answer_6"
+                                android:textSize="@dimen/text_size_medium"
+                                android:visibility="@{page == 8 ? View.VISIBLE : View.GONE}"
+                                tools:visibility="gone" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    </RadioGroup>
 
-        </com.google.android.material.card.MaterialCardView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 </layout>
