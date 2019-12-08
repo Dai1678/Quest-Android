@@ -25,7 +25,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/text_size_medium">
+                android:padding="@dimen/component_interval_size_large">
 
             <TextView
                     android:id="@+id/questionnaire_number_text"
@@ -35,18 +35,19 @@
                     android:textSize="@dimen/text_size_medium"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="問1" />
+                    tools:text="問3" />
 
             <TextView
                     android:id="@+id/questionnaire_main_message_text"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/component_interval_size_small"
                     android:text="@{viewModel.questionMessages[page]}"
                     android:textSize="@dimen/text_size_medium"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/questionnaire_number_text"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="問題文です" />
+                    tools:text="@string/questionnaire_3_message" />
 
             <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/questionnaire_recycler_view"
