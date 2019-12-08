@@ -42,30 +42,11 @@
                 android:lineSpacingExtra="16dp"
                 android:text="@string/questionnaire_start_message2"
                 android:textSize="@dimen/text_size_medium"
-                app:layout_constraintBottom_toTopOf="@+id/questionnaire_top_next_button"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/questionnaire_start_guideline_right"
                 app:layout_constraintStart_toStartOf="@id/questionnaire_start_guideline_left"
                 app:layout_constraintTop_toBottomOf="@+id/questionnaire_start_message1"
                 app:layout_constraintVertical_bias="0.6" />
-
-        <com.google.android.material.button.MaterialButton
-                android:id="@+id/questionnaire_top_next_button"
-                style="@style/Widget.MaterialComponents.Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorPrimary"
-                android:padding="@dimen/button_vertical_padding"
-                android:paddingStart="@dimen/button_horizontal_padding"
-                android:paddingEnd="@dimen/button_horizontal_padding"
-                android:text="@string/next"
-                android:textAppearance="@style/Widget.MaterialComponents.Button"
-                android:textSize="@dimen/text_size_large"
-                app:cornerRadius="@dimen/button_corner_radius"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/questionnaire_start_message2"
-                app:layout_constraintVertical_bias="0.8" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
