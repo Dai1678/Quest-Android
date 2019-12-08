@@ -12,7 +12,9 @@ import com.dai1678.quest.listener.QuestionnaireEndFragmentListener
 
 class QuestionnaireEndFragment : Fragment() {
 
-    private val questionnaireAnswerViewModel: QuestionnaireAnswerViewModel by viewModels({ requireParentFragment() })
+    private val questionnaireAnswerViewModel: QuestionnaireAnswerViewModel by viewModels({
+        requireParentFragment()
+    })
 
     private val questionnaireEndFragmentListener = object : QuestionnaireEndFragmentListener {
         override fun onClickSendAnswer(view: View) {

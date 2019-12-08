@@ -7,7 +7,6 @@ import com.dai1678.quest.R
 import com.dai1678.quest.entity.QuestionnaireResult
 
 class QuestionnaireAnswerViewModel : ViewModel() {
-
     private val resource = App.instance.resources
 
     val questionNumberLabels: Array<String> =

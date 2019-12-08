@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentQuestionnaireBinding
 
 class QuestionnaireChildAnswerFragment : Fragment() {
@@ -19,10 +20,20 @@ class QuestionnaireChildAnswerFragment : Fragment() {
 
     private var currentPage = 0
 
+    private var questionnaireCachePositionArray: IntArray = intArrayOf(
+        R.id.answer_child_choice_1,
+        R.id.answer_child_choice_1,
+        R.id.answer_child_choice_1,
+        R.id.answer_child_choice_1,
+        R.id.answer_child_choice_1
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         currentPage = arguments?.getInt(KEY_PAGE) ?: 0
+        questionnaireCachePositionArray =
+            savedInstanceState?.getIntArray(KEY_CHILD_ANSWER) ?: return
     }
 
     override fun onCreateView(
@@ -57,6 +68,7 @@ class QuestionnaireChildAnswerFragment : Fragment() {
     companion object {
 
         private const val KEY_PAGE = "page"
+        private const val KEY_CHILD_ANSWER = "answer"
 
         fun newInstance(page: Int): Fragment {
             return QuestionnaireChildAnswerFragment().apply {

@@ -13,7 +13,9 @@ import com.dai1678.quest.listener.QuestionnaireAnswerFragmentListener
 
 class QuestionnaireSimpleAnswerFragment : Fragment() {
 
-    private val questionnaireAnswerViewModel: QuestionnaireAnswerViewModel by viewModels({ requireParentFragment() })
+    private val questionnaireAnswerViewModel: QuestionnaireAnswerViewModel by viewModels({
+        requireParentFragment()
+    })
     private lateinit var binding: FragmentQuestionnaireSimpleAnswerBinding
 
     private var currentPage = 0
