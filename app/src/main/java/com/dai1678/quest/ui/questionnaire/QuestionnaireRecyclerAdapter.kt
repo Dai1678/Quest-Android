@@ -1,4 +1,4 @@
-package com.dai1678.quest.ui.new_questionnaire
+package com.dai1678.quest.ui.questionnaire
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -11,7 +11,7 @@ import com.dai1678.quest.R
 import com.dai1678.quest.databinding.ListItemQuestionnaireChildChoiceBinding
 import com.dai1678.quest.entity.QuestionSize
 import com.dai1678.quest.listener.QuestionnaireAnswerFragmentListener
-import com.dai1678.quest.ui.new_questionnaire.QuestionnaireRecyclerAdapter.QuestionnaireViewHolder
+import com.dai1678.quest.ui.questionnaire.QuestionnaireRecyclerAdapter.QuestionnaireViewHolder
 
 class QuestionnaireRecyclerAdapter(
     private val context: Context,

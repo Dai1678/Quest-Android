@@ -13,7 +13,7 @@
 
         <variable
                 name="viewModel"
-                type="com.dai1678.quest.ui.new_questionnaire.QuestionnaireAnswerViewModel" />
+                type="com.dai1678.quest.ui.questionnaire.QuestionnaireAnswerViewModel" />
 
         <variable
                 name="listener"

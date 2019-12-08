@@ -1,4 +1,4 @@
-package com.dai1678.quest.ui.new_questionnaire
+package com.dai1678.quest.ui.questionnaire
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -20,17 +20,13 @@ class QuestionnairePagerFragment : Fragment() {
     private val args: QuestionnairePagerFragmentArgs by navArgs()
 
     private val onPageChangeCallback = object : ViewPager2.OnPageChangeCallback() {
-        override fun onPageScrollStateChanged(state: Int) {
-            super.onPageScrollStateChanged(state)
-        }
+        override fun onPageScrollStateChanged(state: Int) = Unit
 
         override fun onPageScrolled(
             position: Int,
             positionOffset: Float,
             positionOffsetPixels: Int
-        ) {
-            super.onPageScrolled(position, positionOffset, positionOffsetPixels)
-        }
+        ) = Unit
 
         override fun onPageSelected(position: Int) {
             super.onPageSelected(position)

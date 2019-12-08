@@ -1,4 +1,4 @@
-package com.dai1678.quest.ui.new_questionnaire
+package com.dai1678.quest.ui.questionnaire
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -52,15 +52,16 @@ class QuestionnaireChildAnswerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val questionnaireRecyclerAdapter = QuestionnaireRecyclerAdapter(
-            requireContext(),
-            currentPage,
-            questionnaireCacheAnswerArray,
-            questionnaireAnswerViewModel,
-            this
-        ){ position, checkedButtonId ->
-            questionnaireCacheAnswerArray[position] = checkedButtonId
-        }
+        val questionnaireRecyclerAdapter =
+            QuestionnaireRecyclerAdapter(
+                requireContext(),
+                currentPage,
+                questionnaireCacheAnswerArray,
+                questionnaireAnswerViewModel,
+                this
+            ) { position, checkedButtonId ->
+                questionnaireCacheAnswerArray[position] = checkedButtonId
+            }
 
         binding.questionnaireRecyclerView.apply {
             adapter = questionnaireRecyclerAdapter
@@ -79,7 +80,8 @@ class QuestionnaireChildAnswerFragment : Fragment() {
         private const val KEY_CHILD_ANSWER = "answer"
 
         fun newInstance(page: Int): Fragment {
-            return QuestionnaireChildAnswerFragment().apply {
+            return QuestionnaireChildAnswerFragment()
+                .apply {
                 arguments = Bundle().apply {
                     putInt(KEY_PAGE, page)
                 }

@@ -1,4 +1,4 @@
-package com.dai1678.quest.ui.new_questionnaire
+package com.dai1678.quest.ui.questionnaire
 
 import android.os.Bundle
 import android.view.LayoutInflater

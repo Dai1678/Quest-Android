@@ -1,4 +1,4 @@
-package com.dai1678.quest.ui.new_questionnaire
+package com.dai1678.quest.ui.questionnaire
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -57,7 +57,8 @@ class QuestionnaireSimpleAnswerFragment : Fragment() {
         private const val KEY_PAGE = "page"
 
         fun newInstance(page: Int): Fragment {
-            return QuestionnaireSimpleAnswerFragment().apply {
+            return QuestionnaireSimpleAnswerFragment()
+                .apply {
                 arguments = Bundle().apply {
                     putInt(KEY_PAGE, page)
                 }

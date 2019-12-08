@@ -75,7 +75,7 @@
 
     <fragment
             android:id="@+id/questionnairePagerFragment"
-            android:name="com.dai1678.quest.ui.new_questionnaire.QuestionnairePagerFragment"
+            android:name="com.dai1678.quest.ui.questionnaire.QuestionnairePagerFragment"
             android:label="@string/questionnaire_toolbar_title">
 
         <argument

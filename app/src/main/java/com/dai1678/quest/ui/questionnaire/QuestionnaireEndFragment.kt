@@ -1,4 +1,4 @@
-package com.dai1678.quest.ui.new_questionnaire
+package com.dai1678.quest.ui.questionnaire
 
 import android.graphics.Color
 import android.os.Bundle
@@ -11,7 +11,6 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentQuestionnaireEndBinding
 import com.dai1678.quest.listener.QuestionnaireEndFragmentListener
@@ -32,7 +31,8 @@ class QuestionnaireEndFragment : Fragment() {
         }
     }
 
-    private val callbackListener = object : QuestionnaireAnswerViewModel.Callback {
+    private val callbackListener = object :
+        QuestionnaireAnswerViewModel.Callback {
         override fun finishQuestionnaire() {
             findNavController().navigate(R.id.action_global_patient_list_fragment)
         }
