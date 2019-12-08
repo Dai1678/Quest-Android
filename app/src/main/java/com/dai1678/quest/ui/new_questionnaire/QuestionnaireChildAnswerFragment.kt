@@ -20,7 +20,7 @@ class QuestionnaireChildAnswerFragment : Fragment() {
 
     private var currentPage = 0
 
-    private var questionnaireCachePositionArray: IntArray = intArrayOf(
+    private var questionnaireCacheAnswerArray: IntArray = intArrayOf(
         R.id.answer_child_choice_1,
         R.id.answer_child_choice_1,
         R.id.answer_child_choice_1,
@@ -32,7 +32,7 @@ class QuestionnaireChildAnswerFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         currentPage = arguments?.getInt(KEY_PAGE) ?: 0
-        questionnaireCachePositionArray =
+        questionnaireCacheAnswerArray =
             savedInstanceState?.getIntArray(KEY_CHILD_ANSWER) ?: return
     }
 
@@ -55,14 +55,22 @@ class QuestionnaireChildAnswerFragment : Fragment() {
         val questionnaireRecyclerAdapter = QuestionnaireRecyclerAdapter(
             requireContext(),
             currentPage,
+            questionnaireCacheAnswerArray,
             questionnaireAnswerViewModel,
             this
-        )
+        ){ position, checkedButtonId ->
+            questionnaireCacheAnswerArray[position] = checkedButtonId
+        }
 
         binding.questionnaireRecyclerView.apply {
             adapter = questionnaireRecyclerAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putIntArray(KEY_CHILD_ANSWER, questionnaireCacheAnswerArray)
     }
 
     companion object {

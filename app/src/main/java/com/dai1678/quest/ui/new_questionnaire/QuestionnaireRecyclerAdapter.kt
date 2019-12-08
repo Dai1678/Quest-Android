@@ -16,8 +16,10 @@ import com.dai1678.quest.ui.new_questionnaire.QuestionnaireRecyclerAdapter.Quest
 class QuestionnaireRecyclerAdapter(
     private val context: Context,
     private val currentPage: Int,
+    private val cacheAnswerArray: IntArray,
     private val viewModel: QuestionnaireAnswerViewModel,
-    private val parentLifecycleOwner: LifecycleOwner
+    private val parentLifecycleOwner: LifecycleOwner,
+    private val checkCallbackListener: (Int, Int) -> Unit
 ) :
     RecyclerView.Adapter<QuestionnaireViewHolder>() {
     private val inflater = LayoutInflater.from(context)
@@ -72,11 +74,14 @@ class QuestionnaireRecyclerAdapter(
 
         holder.binding.answerVisible = currentPage != 3 && currentPage != 4
 
+        holder.binding.answerChildChoiceRadioGroup.check(cacheAnswerArray[position])
+
         holder.binding.listener = object : QuestionnaireAnswerFragmentListener {
             override fun onChangeAnswer(radioGroup: RadioGroup, id: Int) {
                 val checkedButton = holder.binding.root.findViewById<RadioButton>(id)
                 val answerNumber = checkedButton.tag.toString().toInt()
                 viewModel.setQuestionnaireResult(currentPage, position, answerNumber)
+                checkCallbackListener(position, id)
             }
         }
     }

@@ -71,6 +71,7 @@
                     tools:text="問題文です" />
 
             <RadioGroup
+                    android:id="@+id/answer_child_choice_radio_group"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:checkedButton="@id/answer_child_choice_1"
