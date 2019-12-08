@@ -7,6 +7,7 @@ import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentQuestionnairePagerBinding
@@ -15,6 +16,8 @@ import com.dai1678.quest.listener.QuestionnairePagerFragmentListener
 class QuestionnairePagerFragment : Fragment() {
 
     private lateinit var binding: FragmentQuestionnairePagerBinding
+
+    private val args: QuestionnairePagerFragmentArgs by navArgs()
 
     private val onPageChangeCallback = object : ViewPager2.OnPageChangeCallback() {
         override fun onPageScrollStateChanged(state: Int) {
@@ -71,7 +74,7 @@ class QuestionnairePagerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
 
-        val questionnairePagerAdapter = QuestionnairePagerAdapter(this)
+        val questionnairePagerAdapter = QuestionnairePagerAdapter(this, args.patientId)
 
         binding.pager.apply {
             adapter = questionnairePagerAdapter

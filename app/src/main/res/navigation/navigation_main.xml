@@ -70,6 +70,12 @@
     <fragment
             android:id="@+id/questionnairePagerFragment"
             android:name="com.dai1678.quest.ui.new_questionnaire.QuestionnairePagerFragment"
-            android:label="@string/questionnaire_toolbar_title" />
+            android:label="@string/questionnaire_toolbar_title">
+
+        <argument
+                android:name="patientId"
+                app:argType="string" />
+
+    </fragment>
 
 </navigation>

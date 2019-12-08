@@ -1,12 +1,12 @@
 package com.dai1678.quest.ui.new_questionnaire
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProviders
 import com.dai1678.quest.databinding.FragmentQuestionnaireEndBinding
 import com.dai1678.quest.listener.QuestionnaireEndFragmentListener
 
@@ -37,6 +37,8 @@ class QuestionnaireEndFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        Log.d("patientId", arguments?.getString(KEY_PATIENT_ID) ?: "empty")
+
 //        questionnaireViewModel.getSnackBarAction().observe(viewLifecycleOwner) {
 //            Snackbar.make(view, it.text, Snackbar.LENGTH_LONG).apply {
 //                getView().setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary))
@@ -51,5 +53,18 @@ class QuestionnaireEndFragment : Fragment() {
 //        questionnaireViewModel.getResponse().observe(viewLifecycleOwner) {
 //            requireActivity().finish()
 //        }
+    }
+
+    companion object {
+
+        private const val KEY_PATIENT_ID = "patientId"
+
+        fun newInstance(patientId: String): Fragment {
+            return QuestionnaireEndFragment().apply {
+                arguments = Bundle().apply {
+                    putString(KEY_PATIENT_ID, patientId)
+                }
+            }
+        }
     }
 }
