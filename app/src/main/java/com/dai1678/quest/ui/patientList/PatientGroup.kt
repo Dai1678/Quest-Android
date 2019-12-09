@@ -24,8 +24,8 @@ class PatientListBodyItem(private val patient: Patient) :
     override fun getLayout() = R.layout.list_item_patient
 
     override fun bind(viewBinding: ListItemPatientBinding, position: Int) {
-        viewBinding.patientName = "${patient.lastName} ${patient.firstName}"
-        viewBinding.patientNameReading = "${patient.lastNameReading} ${patient.firstNameReading}"
+        viewBinding.patientName = "${patient.firstName} ${patient.lastName}"
+        viewBinding.patientNameReading = "${patient.firstNameReading} ${patient.lastNameReading}"
 
         viewBinding.lastQuestionnaireTime =
             viewBinding.root.resources.getString(R.string.patient_list_last_questionnaire_label) +
