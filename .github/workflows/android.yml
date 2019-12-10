@@ -19,7 +19,29 @@ jobs:
           ./gradlew test
           ./gradlew lint test
 
-  Build:
+  danger_ktlint:
+    name: Danger & ktlint
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: set up ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6'
+          architecture: 'x64'
+      - name: install danger
+        run: |
+          gem install bundler
+          bundle install
+      - name: run ktlintCheck
+        run: ./gradlew ktlint
+      - name: run danger
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: danger
+
+  build:
     name: Build
     runs-on: ubuntu-latest
 
