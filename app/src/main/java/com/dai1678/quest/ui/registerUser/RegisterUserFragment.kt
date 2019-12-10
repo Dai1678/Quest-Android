@@ -42,7 +42,6 @@ class RegisterUserFragment : Fragment() {
                 }
             }.show()
         }
-
     }
 
     override fun onCreateView(
