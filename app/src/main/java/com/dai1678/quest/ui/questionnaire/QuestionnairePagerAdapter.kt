@@ -14,7 +14,8 @@ class QuestionnairePagerAdapter(
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> QuestionnaireStartFragment()
-            1, 2, 7, 8, 9, 12 -> QuestionnaireSimpleAnswerFragment.newInstance(position, patientDetail)
+            1, 2, 7, 8, 9, 12 ->
+                QuestionnaireSimpleAnswerFragment.newInstance(position, patientDetail)
             3, 4, 5, 6, 10, 11, 13 -> QuestionnaireChildAnswerFragment.newInstance(
                 position, patientDetail
             )

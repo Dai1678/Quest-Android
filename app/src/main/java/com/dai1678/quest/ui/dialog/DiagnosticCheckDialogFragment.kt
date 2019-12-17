@@ -20,7 +20,10 @@ class DiagnosticCheckDialogFragment : DialogFragment() {
 
         return activity?.let {
             AlertDialog.Builder(it, R.style.DialogStyle).apply {
-                setTitle("${patientDetail.lastName} ${resources.getString(R.string.diagnostic_check_dialog_title)}")
+                setTitle(
+                    "${patientDetail.lastName} " +
+                            resources.getString(R.string.diagnostic_check_dialog_title)
+                )
                 setMessage(R.string.diagnostic_check_dialog_message)
                 setPositiveButton(R.string.start_diagnosis) { _, _ ->
                     val action =

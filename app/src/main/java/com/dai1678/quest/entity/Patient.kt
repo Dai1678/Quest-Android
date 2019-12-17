@@ -1,8 +1,8 @@
 package com.dai1678.quest.entity
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
 import java.util.UUID
+import kotlinx.android.parcel.Parcelize
 
 data class Patient(
     val id: String = UUID.randomUUID().toString(),
