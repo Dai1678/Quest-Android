@@ -75,8 +75,8 @@
             android:label="@string/questionnaire_toolbar_title">
 
         <argument
-                android:name="patientId"
-                app:argType="string" />
+                android:name="patientDetail"
+                app:argType="com.dai1678.quest.entity.PatientDetail" />
 
     </fragment>
 

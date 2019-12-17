@@ -70,7 +70,7 @@ class QuestionnairePagerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
 
-        val questionnairePagerAdapter = QuestionnairePagerAdapter(this, args.patientId)
+        val questionnairePagerAdapter = QuestionnairePagerAdapter(this, args.patientDetail)
 
         binding.pager.apply {
             adapter = questionnairePagerAdapter

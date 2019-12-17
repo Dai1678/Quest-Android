@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentQuestionnaireBinding
+import com.dai1678.quest.entity.PatientDetail
 
 class QuestionnaireChildAnswerFragment : Fragment() {
 
@@ -78,14 +79,16 @@ class QuestionnaireChildAnswerFragment : Fragment() {
 
         private const val KEY_PAGE = "page"
         private const val KEY_CHILD_ANSWER = "answer"
+        private const val KEY_PATIENT_DETAIL = "patient"
 
-        fun newInstance(page: Int): Fragment {
+        fun newInstance(page: Int, patientDetail: PatientDetail): Fragment {
             return QuestionnaireChildAnswerFragment()
                 .apply {
-                arguments = Bundle().apply {
-                    putInt(KEY_PAGE, page)
+                    arguments = Bundle().apply {
+                        putInt(KEY_PAGE, page)
+                        putParcelable(KEY_PATIENT_DETAIL, patientDetail)
+                    }
                 }
-            }
         }
     }
 }
