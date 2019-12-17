@@ -95,6 +95,9 @@ dependencies {
 
     // FireBase Analytics
     implementation 'com.google.firebase:firebase-analytics:17.2.1'
+
+    // FireBase RealTimeDatabase
+    implementation 'com.google.firebase:firebase-database:19.2.0'
 }
 
 configurations {
