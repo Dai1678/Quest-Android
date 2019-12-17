@@ -68,10 +68,6 @@ class QuestionnaireEndFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         Log.d("patientId", arguments?.getString(KEY_PATIENT_ID) ?: "empty")
-//
-//        questionnaireViewModel.getResponse().observe(viewLifecycleOwner) {
-//            requireActivity().finish()
-//        }
     }
 
     companion object {
