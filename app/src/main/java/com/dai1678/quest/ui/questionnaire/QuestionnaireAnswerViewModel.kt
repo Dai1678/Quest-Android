@@ -8,9 +8,7 @@ import com.dai1678.quest.App
 import com.dai1678.quest.R
 import com.dai1678.quest.entity.Questionnaire
 import com.dai1678.quest.entity.QuestionnaireResult
-import com.dai1678.quest.entity.ScreenLog
 import com.dai1678.quest.repository.QuestionnaireRepository
-import com.google.firebase.database.FirebaseDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -19,7 +17,6 @@ import java.util.Date
 import java.util.UUID
 
 class QuestionnaireAnswerViewModel : ViewModel() {
-    private val fireBaseDatabase = FirebaseDatabase.getInstance()
     private val questionnaireRepository = QuestionnaireRepository.getInstance()
     private val resource = App.instance.resources
     var callback: Callback? = null
@@ -103,17 +100,6 @@ class QuestionnaireAnswerViewModel : ViewModel() {
         }
     }
 
-    fun sendScreenLog() {
-        val screenLog = ScreenLog(
-            startTime = 0L,
-            endTime = 0L,
-            gender = "",
-            ageRange = ""
-        )
-
-        fireBaseDatabase.reference.child(SCREEN_LOG_CHILD).push().setValue(screenLog)
-    }
-
     interface Callback {
         /**
          * 送信完了
@@ -124,9 +110,5 @@ class QuestionnaireAnswerViewModel : ViewModel() {
          * スナックバー表示
          */
         fun showErrorSnackBar(message: String)
-    }
-
-    companion object {
-        private const val SCREEN_LOG_CHILD = "screenLog"
     }
 }

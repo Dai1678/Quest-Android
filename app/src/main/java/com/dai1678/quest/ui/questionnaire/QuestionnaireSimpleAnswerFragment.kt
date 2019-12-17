@@ -49,10 +49,6 @@ class QuestionnaireSimpleAnswerFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
-
     companion object {
 
         private const val KEY_PAGE = "page"
@@ -61,11 +57,11 @@ class QuestionnaireSimpleAnswerFragment : Fragment() {
         fun newInstance(page: Int, patientDetail: PatientDetail): Fragment {
             return QuestionnaireSimpleAnswerFragment()
                 .apply {
-                arguments = Bundle().apply {
-                    putInt(KEY_PAGE, page)
-                    putParcelable(KEY_PATIENT_DETAIL, patientDetail)
+                    arguments = Bundle().apply {
+                        putInt(KEY_PAGE, page)
+                        putParcelable(KEY_PATIENT_DETAIL, patientDetail)
+                    }
                 }
-            }
         }
     }
 }

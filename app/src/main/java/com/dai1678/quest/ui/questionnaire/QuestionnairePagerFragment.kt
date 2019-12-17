@@ -7,6 +7,7 @@ import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
 import com.dai1678.quest.R
@@ -18,6 +19,7 @@ class QuestionnairePagerFragment : Fragment() {
     private lateinit var binding: FragmentQuestionnairePagerBinding
 
     private val args: QuestionnairePagerFragmentArgs by navArgs()
+    private val questionnairePagerViewModel: QuestionnairePagerViewModel by viewModels()
 
     private val onPageChangeCallback = object : ViewPager2.OnPageChangeCallback() {
         override fun onPageScrollStateChanged(state: Int) = Unit
@@ -38,6 +40,7 @@ class QuestionnairePagerFragment : Fragment() {
                     binding.questionnaireNextButton.visibility = View.INVISIBLE
                 }
                 else -> {
+                    questionnairePagerViewModel.sendScreenLog(position, args.patientDetail)
                     binding.questionnaireBackButton.visibility = View.VISIBLE
                     binding.questionnaireNextButton.visibility = View.VISIBLE
                 }
