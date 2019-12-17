@@ -16,8 +16,8 @@ class DiagnosticCheckDialogFragment : DialogFragment() {
     @SuppressLint("SetTextI18n", "InflateParams")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
-        val patientId = args.patientId
-        val lastName = args.patientLastName
+        val patientId = args.patientDetail.id
+        val lastName = args.patientDetail.lastName
 
         return activity?.let {
             AlertDialog.Builder(it, R.style.DialogStyle).apply {

@@ -57,12 +57,8 @@
             android:name="com.dai1678.quest.ui.dialog.DiagnosticCheckDialogFragment">
 
         <argument
-                android:name="patientId"
-                app:argType="string" />
-
-        <argument
-                android:name="patientLastName"
-                app:argType="string" />
+                android:name="patientDetail"
+                app:argType="com.dai1678.quest.entity.PatientDetail"/>
 
         <action
                 android:id="@+id/action_to_questionnairePagerFragment"
