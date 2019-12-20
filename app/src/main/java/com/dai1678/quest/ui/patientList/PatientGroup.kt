@@ -5,6 +5,7 @@ import com.dai1678.quest.R
 import com.dai1678.quest.databinding.ListHeaderPatientBinding
 import com.dai1678.quest.databinding.ListItemPatientBinding
 import com.dai1678.quest.entity.Patient
+import com.dai1678.quest.entity.PatientDetail
 import com.dai1678.quest.util.StringUtils
 import com.xwray.groupie.databinding.BindableItem
 
@@ -40,7 +41,15 @@ class PatientListBodyItem(private val patient: Patient) :
         viewBinding.listItemPatientView.setOnClickListener {
             val action =
                 PatientListFragmentDirections.actionToDiagnosticCheckDialogFragment(
-                    patient.id, patient.lastName
+                    PatientDetail(
+                        id = patient.id,
+                        firstName = patient.firstName,
+                        lastName = patient.lastName,
+                        firstNameReading = patient.firstNameReading,
+                        lastNameReading = patient.lastNameReading,
+                        gender = patient.gender,
+                        ageRange = patient.ageRange
+                    )
                 )
             it.findNavController().navigate(action)
         }

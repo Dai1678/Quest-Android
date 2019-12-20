@@ -9,6 +9,7 @@ import android.widget.RadioGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.dai1678.quest.databinding.FragmentQuestionnaireSimpleAnswerBinding
+import com.dai1678.quest.entity.PatientDetail
 import com.dai1678.quest.listener.QuestionnaireAnswerFragmentListener
 
 class QuestionnaireSimpleAnswerFragment : Fragment() {
@@ -48,21 +49,19 @@ class QuestionnaireSimpleAnswerFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
-
     companion object {
 
         private const val KEY_PAGE = "page"
+        private const val KEY_PATIENT_DETAIL = "patient"
 
-        fun newInstance(page: Int): Fragment {
+        fun newInstance(page: Int, patientDetail: PatientDetail): Fragment {
             return QuestionnaireSimpleAnswerFragment()
                 .apply {
-                arguments = Bundle().apply {
-                    putInt(KEY_PAGE, page)
+                    arguments = Bundle().apply {
+                        putInt(KEY_PAGE, page)
+                        putParcelable(KEY_PATIENT_DETAIL, patientDetail)
+                    }
                 }
-            }
         }
     }
 }
