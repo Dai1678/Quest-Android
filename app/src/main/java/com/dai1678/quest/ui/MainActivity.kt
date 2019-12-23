@@ -24,7 +24,8 @@ class MainActivity : AppCompatActivity() {
             DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         setSupportActionBar(binding.toolbar)
 
-        val appBarConfiguration = AppBarConfiguration(navController.graph)
+        val appBarConfiguration =
+            AppBarConfiguration(setOf(R.id.patientListFragment, R.id.questionnairePagerFragment))
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
 

@@ -78,6 +78,7 @@ class QuestionnairePagerFragment : Fragment() {
         binding.pager.apply {
             adapter = questionnairePagerAdapter
             registerOnPageChangeCallback(onPageChangeCallback)
+            isUserInputEnabled = false // 誤スクロール防止のため、横スクロール操作を受け付けない
         }
     }
 

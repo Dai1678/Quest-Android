@@ -28,7 +28,7 @@ object QuestApiClient {
             .build()
     }
 
-    fun <S> create(serviceClass: Class<S>): S {
+    private fun <S> create(serviceClass: Class<S>): S {
         val moshi = Moshi.Builder()
             .add(KotlinJsonAdapterFactory())
             .build()
