@@ -32,6 +32,7 @@ class QuestionnairePagerFragment : Fragment() {
 
         override fun onPageSelected(position: Int) {
             super.onPageSelected(position)
+            questionnairePagerViewModel.sendScreenLog(position, args.patientDetail)
             when (position) {
                 0 -> {
                     binding.questionnaireBackButton.visibility = View.INVISIBLE
@@ -40,7 +41,6 @@ class QuestionnairePagerFragment : Fragment() {
                     binding.questionnaireNextButton.visibility = View.INVISIBLE
                 }
                 else -> {
-                    questionnairePagerViewModel.sendScreenLog(position, args.patientDetail)
                     binding.questionnaireBackButton.visibility = View.VISIBLE
                     binding.questionnaireNextButton.visibility = View.VISIBLE
                 }
