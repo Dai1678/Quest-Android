@@ -31,7 +31,7 @@ class RegisterUserViewModel : ViewModel() {
                 ageRange.value.isNullOrBlank().not() &&
                 gender.value.isNullOrBlank().not()
 
-    // TODO カナ入力制限処理を入れる
+    // TODO ひらがな入力制限処理を入れる
 
     val canSubmit = MediatorLiveData<Boolean>().also { result ->
         result.addSource(firstName) { result.value = isValidInput() }
