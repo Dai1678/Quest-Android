@@ -20,4 +20,6 @@
 
     <dimen name="guideline_left_percent">0.05</dimen>
     <dimen name="guideline_right_percent">0.95</dimen>
+    <dimen name="guideline_center_percent">0.5</dimen>
+    <dimen name="questionnaire_button_guideline_horizontal_percent">0.9</dimen>
 </resources>
