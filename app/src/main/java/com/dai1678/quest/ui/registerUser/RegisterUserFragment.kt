@@ -1,10 +1,12 @@
 package com.dai1678.quest.ui.registerUser
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -29,6 +31,14 @@ class RegisterUserFragment : Fragment() {
 
     private val callbackListener = object : RegisterUserViewModel.Callback {
         override fun finishQuestionnaire() {
+            val context = context ?: return
+            val inputMethodManager =
+                context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(
+                view?.windowToken,
+                InputMethodManager.HIDE_NOT_ALWAYS
+            )
+
             findNavController().navigate(R.id.action_global_patient_list_fragment)
         }
 
