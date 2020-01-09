@@ -19,6 +19,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
+            android:scrollbars="vertical"
+            android:scrollbarThumbVertical="@android:color/darker_gray"
+            android:scrollbarSize="@dimen/scrollbar_size"
             android:fillViewport="true"
             android:overScrollMode="never">
 

@@ -28,6 +28,9 @@
                     android:id="@+id/patient_list_recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:scrollbars="vertical"
+                    android:scrollbarThumbVertical="@android:color/darker_gray"
+                    android:scrollbarSize="@dimen/scrollbar_size"
                     tools:listitem="@layout/list_item_patient" />
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

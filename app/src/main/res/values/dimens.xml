@@ -18,6 +18,8 @@
 
     <dimen name="radio_button_vertical_margin">16dp</dimen>
 
+    <dimen name="scrollbar_size">5dp</dimen>
+
     <dimen name="guideline_left_percent">0.05</dimen>
     <dimen name="guideline_right_percent">0.95</dimen>
     <dimen name="guideline_center_percent">0.5</dimen>
