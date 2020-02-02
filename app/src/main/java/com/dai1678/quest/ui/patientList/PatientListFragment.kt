@@ -1,21 +1,19 @@
 package com.dai1678.quest.ui.patientList
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.core.content.ContextCompat
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentPatientListBinding
 import com.dai1678.quest.listener.PatientListFragmentListener
-import com.google.android.material.snackbar.Snackbar
+import com.dai1678.quest.util.setUpRefreshLayout
+import com.dai1678.quest.util.setupSnackbar
 import com.xwray.groupie.Group
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
@@ -36,6 +34,12 @@ class PatientListFragment : Fragment() {
         }
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        view?.setupSnackbar(this, viewModel.snackBarText, Toast.LENGTH_LONG)
+        this.setUpRefreshLayout(binding.patientListSwipeRefreshLayout)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -54,17 +58,6 @@ class PatientListFragment : Fragment() {
 
         viewModel.isLoading.observe(viewLifecycleOwner) {
             binding.patientListSwipeRefreshLayout.isRefreshing = it
-        }
-
-        viewModel.getSnackBarAction().observe(viewLifecycleOwner) {
-            Snackbar.make(view, it.text, Snackbar.LENGTH_LONG).apply {
-                getView().setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary))
-                getView().findViewById<TextView>(
-                    com.google.android.material.R.id.snackbar_text
-                ).apply {
-                    setTextColor(Color.WHITE)
-                }
-            }.show()
         }
 
         viewModel.users.observe(viewLifecycleOwner) { list ->
