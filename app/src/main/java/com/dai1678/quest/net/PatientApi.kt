@@ -19,7 +19,7 @@ interface PatientApi {
     ): Response<Patient>
 
     @GET("patient/{id}")
-    suspend fun getPatientAsync(
-        @Path("id") patientId: String
-    ): Response<Patient>
+    suspend fun getUser(
+        @Path("id") userId: String
+    ): Patient
 }

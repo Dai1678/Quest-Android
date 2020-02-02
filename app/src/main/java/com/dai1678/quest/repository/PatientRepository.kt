@@ -20,7 +20,14 @@ class PatientRepository {
     suspend fun createPatient(patient: Patient) =
         QuestApiClient.patientApi.createPatientAsync(patient)
 
-    suspend fun getPatient(patientId: String) = QuestApiClient.patientApi.getPatientAsync(patientId)
+    suspend fun getUser(userId: String) : NetworkResult<Patient> {
+        return try {
+            val user = QuestApiClient.patientApi.getUser(userId)
+            NetworkResult.Success(user)
+        } catch (e: Exception) {
+            NetworkResult.Error(e)
+        }
+    }
 
     companion object Factory {
         private var instance: PatientRepository? = null
