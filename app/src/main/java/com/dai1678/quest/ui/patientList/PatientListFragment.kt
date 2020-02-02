@@ -41,13 +41,11 @@ class PatientListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_patient_list, container, false
-        )
-        binding.viewModel = viewModel
-        binding.listener = listener
-        binding.lifecycleOwner = this
-        return binding.root
+        return FragmentPatientListBinding.inflate(inflater, container, false).apply {
+            viewModel = this@PatientListFragment.viewModel
+            listener = this@PatientListFragment.listener
+            lifecycleOwner = this@PatientListFragment
+        }.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
