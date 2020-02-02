@@ -60,7 +60,7 @@ class PatientListFragment : Fragment() {
 
         viewModel.users.observe(viewLifecycleOwner) { userList ->
             groupAdapter.clear()
-            groupAdapter.add(PatientListHeaderItem())
+            groupAdapter.add(PatientListHeaderItem("名前(昇順)"))
             groupAdapter.addAll(
                 userList.map {
                     PatientListBodyItem(it)

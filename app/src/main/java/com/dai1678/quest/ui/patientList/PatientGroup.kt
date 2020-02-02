@@ -9,16 +9,26 @@ import com.dai1678.quest.entity.PatientDetail
 import com.dai1678.quest.util.StringUtils
 import com.xwray.groupie.databinding.BindableItem
 
-class PatientListHeaderItem :
+/**
+ * 受検者リスト画面 並び替えヘッダー
+ */
+class PatientListHeaderItem(private val sortCategoryName: String) :
     BindableItem<ListHeaderPatientBinding>() {
 
     override fun getLayout() = R.layout.list_header_patient
 
     override fun bind(viewBinding: ListHeaderPatientBinding, position: Int) {
-        // TODO bottomLayoutを表示して並び替えメニュー起動 -> 反映
+        viewBinding.sortCategoryName = sortCategoryName
+
+        viewBinding.listHeaderSort.setOnClickListener {
+            // TODO bottomLayoutを表示して並び替えメニュー起動 -> 反映
+        }
     }
 }
 
+/**
+ * 受検者リスト画面 受検者情報
+ */
 class PatientListBodyItem(val patient: Patient) :
     BindableItem<ListItemPatientBinding>(), StringUtils {
 
