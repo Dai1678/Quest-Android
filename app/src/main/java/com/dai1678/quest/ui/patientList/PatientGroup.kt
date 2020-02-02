@@ -19,7 +19,7 @@ class PatientListHeaderItem :
     }
 }
 
-class PatientListBodyItem(private val patient: Patient) :
+class PatientListBodyItem(val patient: Patient) :
     BindableItem<ListItemPatientBinding>(), StringUtils {
 
     override fun getLayout() = R.layout.list_item_patient

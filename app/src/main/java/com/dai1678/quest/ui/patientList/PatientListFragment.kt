@@ -14,16 +14,13 @@ import com.dai1678.quest.databinding.FragmentPatientListBinding
 import com.dai1678.quest.listener.PatientListFragmentListener
 import com.dai1678.quest.util.setUpRefreshLayout
 import com.dai1678.quest.util.setupSnackbar
-import com.xwray.groupie.Group
 import com.xwray.groupie.GroupAdapter
-import com.xwray.groupie.Section
-import com.xwray.groupie.databinding.ViewHolder
+import com.xwray.groupie.databinding.GroupieViewHolder
+import java.util.Locale
 
 class PatientListFragment : Fragment() {
 
     private val viewModel: PatientListViewModel by viewModels()
-    private val groupList = arrayListOf<Group>()
-    private val groupAdapter = GroupAdapter<ViewHolder<*>>()
 
     private lateinit var binding: FragmentPatientListBinding
 
@@ -55,18 +52,22 @@ class PatientListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val groupAdapter = GroupAdapter<GroupieViewHolder<*>>()
 
         viewModel.isLoading.observe(viewLifecycleOwner) {
             binding.patientListSwipeRefreshLayout.isRefreshing = it
         }
 
-        viewModel.users.observe(viewLifecycleOwner) { list ->
-            groupList.clear()
-            val section = Section()
-            section.setHeader(PatientListHeaderItem())
-            for (patient in list) section.add(PatientListBodyItem(patient))
-            groupList.add(section)
-            groupAdapter.update(groupList)
+        viewModel.users.observe(viewLifecycleOwner) { userList ->
+            groupAdapter.clear()
+            groupAdapter.add(PatientListHeaderItem())
+            groupAdapter.addAll(
+                userList.map {
+                    PatientListBodyItem(it)
+                }.sortedBy {
+                    it.patient.lastName.toUpperCase(Locale.getDefault())
+                }
+            )
         }
 
         binding.patientListRecyclerView.apply {
