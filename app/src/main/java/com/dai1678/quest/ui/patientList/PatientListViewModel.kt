@@ -30,7 +30,7 @@ class PatientListViewModel : ViewModel() {
     }
 
     fun getUsers() {
-        mutableIsLoading.value = true
+        mutableIsLoading.postValue(true)
         viewModelScope.launch {
             when (val result = repository.getUsers()) {
                 is NetworkResult.Success -> {
@@ -42,7 +42,7 @@ class PatientListViewModel : ViewModel() {
                 }
             }
         }
-        mutableIsLoading.value = false
+        mutableIsLoading.postValue(false)
     }
 
     private fun showLoadingFailureMessage() {
