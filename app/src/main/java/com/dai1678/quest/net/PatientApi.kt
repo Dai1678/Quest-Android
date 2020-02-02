@@ -11,7 +11,7 @@ import retrofit2.http.Path
 interface PatientApi {
 
     @GET("patients")
-    suspend fun getPatientListAsync(): Response<PatientListResponse>
+    suspend fun getUsers(): PatientListResponse
 
     @POST("patients")
     suspend fun createPatientAsync(

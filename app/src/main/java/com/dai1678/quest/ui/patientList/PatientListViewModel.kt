@@ -4,61 +4,43 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
-import com.dai1678.quest.entity.ErrorResponse
+import androidx.lifecycle.viewModelScope
+import com.dai1678.quest.entity.Patient
 import com.dai1678.quest.entity.SnackBarMessage
+import com.dai1678.quest.net.NetworkResult
 import com.dai1678.quest.repository.PatientRepository
 import com.dai1678.quest.util.ActionLiveData
-import com.squareup.moshi.Moshi
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class PatientListViewModel : ViewModel() {
 
     private val repository = PatientRepository.getInstance()
+    private val mutableIsLoading = MutableLiveData<Boolean>(false)
+    val isLoading: LiveData<Boolean> = mutableIsLoading
+    private val mutableUsers = MutableLiveData<List<Patient>>()
+    val users: LiveData<List<Patient>> = mutableUsers
 
     private val snackBarAction = ActionLiveData<SnackBarMessage>()
 
     fun getSnackBarAction() = snackBarAction
 
-    private lateinit var isLoadingLiveData: MutableLiveData<Boolean>
-
-    fun isLoading(): LiveData<Boolean> {
-        if (!::isLoadingLiveData.isInitialized) {
-            isLoadingLiveData = MutableLiveData()
-            isLoadingLiveData.value = true
-        }
-        return isLoadingLiveData
+    init {
+        getUsers()
     }
 
-    fun getPatientList() = liveData(Dispatchers.IO) {
-        try {
-            val response = repository.getPatientList()
-            if (response.isSuccessful && response.body() != null) {
-                emit(response.body())
-                if (response.body()!!.list.isEmpty()) {
-                    snackBarAction.sendActionBackGround(SnackBarMessage("受検可能な患者はいません"))
+    fun getUsers() {
+        mutableIsLoading.value = true
+        viewModelScope.launch {
+            when (val result = repository.getUsers()) {
+                is NetworkResult.Success -> {
+                    mutableUsers.postValue(result.value.list)
                 }
-            } else {
-                response.errorBody()?.let { errorBody ->
-                    val moshi = Moshi.Builder().build()
-                    val error =
-                        moshi.adapter(ErrorResponse::class.java).fromJson(errorBody.string())
-                    Log.e("PatientListViewModel", error.toString())
-                    emit(null)
-                    error?.let {
-                        snackBarAction.sendActionBackGround(SnackBarMessage(it.message))
-                    }
+                is NetworkResult.Error -> {
+                    Log.e("PatientListViewModel", result.exception.toString())
+                    // TODO Show SnackBar
                 }
             }
-        } catch (e: Exception) {
-            Log.e("PatientListViewModel", e.toString())
-            snackBarAction.sendActionBackGround(SnackBarMessage("データの取得に失敗しました"))
-        } finally {
-            isLoadingLiveData.postValue(false)
         }
-    }
-
-    fun reloadPatientList() {
-        isLoadingLiveData.value = true
+        mutableIsLoading.value = false
     }
 }
