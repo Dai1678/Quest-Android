@@ -12,6 +12,9 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.dai1678.quest.R
 import com.google.android.material.snackbar.Snackbar
 
+/**
+ * SnackBar表示のEventの発火をObserveして表示する
+ */
 fun View.setupSnackBar(
     lifecycleOwner: LifecycleOwner,
     snackBarEvent: LiveData<Event<Int>>,
@@ -32,6 +35,9 @@ fun View.setupSnackBar(
     }
 }
 
+/**
+ * SwipeRefreshLayoutの初期化
+ */
 fun Fragment.setUpRefreshLayout(
     refreshLayout: SwipeRefreshLayout
 ) {

@@ -12,13 +12,18 @@ import com.dai1678.quest.repository.PatientRepository
 import com.dai1678.quest.util.Event
 import kotlinx.coroutines.launch
 
+/**
+ * 受検者リスト画面 ViewModel
+ */
 class UserListViewModel : ViewModel() {
 
     private val repository = PatientRepository.getInstance()
 
+    // SwipeRefreshLayoutのローディング管理
     private val mutableIsLoading = MutableLiveData<Boolean>(false)
     val isLoading: LiveData<Boolean> = mutableIsLoading
 
+    // 受検者リストデータ
     private val mutableUsers = MutableLiveData<List<Patient>>()
     val users: LiveData<List<Patient>> = mutableUsers
 
@@ -29,6 +34,7 @@ class UserListViewModel : ViewModel() {
         getUsers()
     }
 
+    // 受検者データの取得
     fun getUsers() {
         mutableIsLoading.value = true
         viewModelScope.launch {
@@ -45,6 +51,7 @@ class UserListViewModel : ViewModel() {
         }
     }
 
+    // 受検者データ失敗時のメッセージ設定
     private fun showLoadingFailureMessage() {
         val snackBarTextId = R.string.user_list_error_loading_message
         mutableSnackBarText.value = Event((snackBarTextId))

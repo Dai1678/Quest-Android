@@ -48,6 +48,7 @@ class UserListBodyItem(val patient: Patient) :
                         patient.questionnaires[0].updatedAt.formatDateStr
                     }
 
+        // 受検者確認ダイアログの表示
         viewBinding.listItemPatientView.setOnClickListener {
             val action =
                 UserListFragmentDirections.actionToDiagnosticCheckDialogFragment(

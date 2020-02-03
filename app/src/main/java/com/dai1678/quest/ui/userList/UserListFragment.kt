@@ -18,6 +18,9 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.databinding.GroupieViewHolder
 import java.util.Locale
 
+/**
+ * 受検者リスト画面 Fragment
+ */
 class UserListFragment : Fragment() {
 
     private val viewModel: UserListViewModel by viewModels()
@@ -65,7 +68,7 @@ class UserListFragment : Fragment() {
                 userList.map {
                     UserListBodyItem(it)
                 }.sortedBy {
-                    it.patient.lastName.toUpperCase(Locale.getDefault())
+                    it.patient.lastName.toUpperCase(Locale.getDefault()) // TODO 並び替え機能に合わせる
                 }
             )
         }
