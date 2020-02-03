@@ -12,21 +12,22 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.dai1678.quest.R
 import com.google.android.material.snackbar.Snackbar
 
-fun View.setupSnackbar(
+fun View.setupSnackBar(
     lifecycleOwner: LifecycleOwner,
     snackBarEvent: LiveData<Event<Int>>,
     timeLength: Int
 ) {
     snackBarEvent.observe(lifecycleOwner) { event ->
         event.getContentIfNotHandled()?.let {
-            Snackbar.make(this, context.getString(it), timeLength).apply {
+            Snackbar.make(this, context.getString(it), timeLength).run {
                 view.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary))
                 view.findViewById<TextView>(
                     com.google.android.material.R.id.snackbar_text
                 ).apply {
                     setTextColor(Color.WHITE)
                 }
-            }.show()
+                show()
+            }
         }
     }
 }

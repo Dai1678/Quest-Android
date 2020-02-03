@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dai1678.quest.databinding.FragmentPatientListBinding
 import com.dai1678.quest.listener.PatientListFragmentListener
 import com.dai1678.quest.util.setUpRefreshLayout
-import com.dai1678.quest.util.setupSnackbar
+import com.dai1678.quest.util.setupSnackBar
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.databinding.GroupieViewHolder
 import java.util.Locale
@@ -33,7 +33,7 @@ class PatientListFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        view?.setupSnackbar(this, viewModel.snackBarText, Toast.LENGTH_LONG)
+        view?.setupSnackBar(this, viewModel.snackBarText, Toast.LENGTH_SHORT)
         this.setUpRefreshLayout(binding.patientListSwipeRefreshLayout)
     }
 
@@ -60,7 +60,7 @@ class PatientListFragment : Fragment() {
 
         viewModel.users.observe(viewLifecycleOwner) { userList ->
             groupAdapter.clear()
-            groupAdapter.add(PatientListHeaderItem("名前(昇順)"))
+//            groupAdapter.add(PatientListHeaderItem("名前(昇順)")) // TODO 並び替え機能の実装後に有効化
             groupAdapter.addAll(
                 userList.map {
                     PatientListBodyItem(it)

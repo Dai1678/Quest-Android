@@ -30,23 +30,23 @@ class PatientListViewModel : ViewModel() {
     }
 
     fun getUsers() {
-        mutableIsLoading.postValue(true)
+        mutableIsLoading.value = true
         viewModelScope.launch {
             when (val result = repository.getUsers()) {
                 is NetworkResult.Success -> {
-                    mutableUsers.postValue(result.value.list)
+                    mutableUsers.value = result.value.list
                 }
                 is NetworkResult.Error -> {
                     Log.e("PatientListViewModel", result.exception.toString())
                     showLoadingFailureMessage()
                 }
             }
+            mutableIsLoading.value = false
         }
-        mutableIsLoading.postValue(false)
     }
 
     private fun showLoadingFailureMessage() {
         val snackBarTextId = R.string.patient_list_error_loading_message
-        mutableSnackBarText.postValue(Event((snackBarTextId)))
+        mutableSnackBarText.value = Event((snackBarTextId))
     }
 }
