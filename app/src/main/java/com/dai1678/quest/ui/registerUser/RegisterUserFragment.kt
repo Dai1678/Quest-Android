@@ -39,7 +39,7 @@ class RegisterUserFragment : Fragment() {
                 InputMethodManager.HIDE_NOT_ALWAYS
             )
 
-            findNavController().navigate(R.id.action_global_patient_list_fragment)
+            findNavController().navigate(R.id.action_global_user_list_fragment)
         }
 
         override fun showErrorSnackBar(message: String) {

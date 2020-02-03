@@ -8,7 +8,6 @@
     <string name="reload">更新する</string>
     <string name="search">検索する</string>
     <string name="question_label">問</string>
-    <string name="patient_create_label">新規患者作成</string>
     <string name="start_diagnosis">診断を開始</string>
     <string name="cancel_diagnosis">もどる</string>
     <string name="suspension_diagnosis">回答を中断</string>
@@ -125,11 +124,6 @@
         <item>@string/gender_other</item>
     </string-array>
 
-    <!-- Login -->
-    <string name="login_toolbar_image_content_description">アプリロゴ</string>
-
-    <!-- LoginContent -->
-
     <!-- RegisterUser -->
     <string name="create_user_toolbar_title">受検者登録</string>
     <string name="create_user_fist_name_label">姓</string>
@@ -143,18 +137,17 @@
     <string name="create_user_agreement_label">利用規約と個人情報の取扱についてに同意の上、\n登録してください</string>
     <string name="create_user_agreement_button_label">同意して登録</string>
 
-    <!-- PatientList -->
-    <string name="patient_list_toolbar_title">受検者一覧</string>
-    <string name="patient_list_patient_name_ascending_order_label">名前順 (昇順)</string>
-    <string name="patient_list_patient_name_descending_order_label">名前順 (降順)</string>
-    <string name="patient_list_last_questionnaire_label">最終受検日 : </string>
-    <string name="patient_list_none_last_questionnaire_label">なし</string>
-    <string name="patient_list_error_loading_message">読み込みに失敗しました</string>
+    <!-- UserList -->
+    <string name="user_list_toolbar_title">受検者一覧</string>
+    <string name="user_list_last_questionnaire_label">最終受検日 : </string>
+    <string name="user_list_none_last_questionnaire_label">なし</string>
+    <string name="user_list_error_loading_message">読み込みに失敗しました</string>
 
-    <!-- ListItemLoginDoctor -->
-
-    <!-- ListHeaderPatient -->
-    <string name="list_header_patient_message">患者一覧</string>
+    <!-- ListHeaderUser -->
+    <string name="user_list_name_ascending_order_label">名前(昇順)</string>
+    <string name="user_list_name_descending_order_label">名前(降順)</string>
+    <string name="user_list_last_questionnaire_ascending_order_label">最終受検日(昇順)</string>
+    <string name="user_list_last_questionnaire_descending_order_label">最終受検日(降順)</string>
 
     <!-- DiagnosticCheckDialog -->
     <string name="diagnostic_check_dialog_title">さんの診断です</string>

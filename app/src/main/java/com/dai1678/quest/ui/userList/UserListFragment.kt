@@ -1,4 +1,4 @@
-package com.dai1678.quest.ui.patientList
+package com.dai1678.quest.ui.userList
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dai1678.quest.databinding.FragmentPatientListBinding
+import com.dai1678.quest.databinding.FragmentUserListBinding
 import com.dai1678.quest.listener.PatientListFragmentListener
 import com.dai1678.quest.util.setUpRefreshLayout
 import com.dai1678.quest.util.setupSnackBar
@@ -18,15 +18,15 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.databinding.GroupieViewHolder
 import java.util.Locale
 
-class PatientListFragment : Fragment() {
+class UserListFragment : Fragment() {
 
-    private val viewModel: PatientListViewModel by viewModels()
+    private val viewModel: UserListViewModel by viewModels()
 
-    private lateinit var binding: FragmentPatientListBinding
+    private lateinit var binding: FragmentUserListBinding
 
     private val listener = object : PatientListFragmentListener {
         override fun onClickCreateUserFab(view: View) {
-            val action = PatientListFragmentDirections.actionToCreateUserFragment()
+            val action = UserListFragmentDirections.actionToCreateUserFragment()
             findNavController().navigate(action)
         }
     }
@@ -42,10 +42,10 @@ class PatientListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentPatientListBinding.inflate(inflater, container, false).apply {
-            viewModel = this@PatientListFragment.viewModel
-            listener = this@PatientListFragment.listener
-            lifecycleOwner = this@PatientListFragment
+        binding = FragmentUserListBinding.inflate(inflater, container, false).apply {
+            viewModel = this@UserListFragment.viewModel
+            listener = this@UserListFragment.listener
+            lifecycleOwner = this@UserListFragment
         }
         return binding.root
     }
@@ -60,10 +60,10 @@ class PatientListFragment : Fragment() {
 
         viewModel.users.observe(viewLifecycleOwner) { userList ->
             groupAdapter.clear()
-//            groupAdapter.add(PatientListHeaderItem("名前(昇順)")) // TODO 並び替え機能の実装後に有効化
+//            groupAdapter.add(UserListHeaderItem("名前(昇順)")) // TODO 並び替え機能の実装後に有効化
             groupAdapter.addAll(
                 userList.map {
-                    PatientListBodyItem(it)
+                    UserListBodyItem(it)
                 }.sortedBy {
                     it.patient.lastName.toUpperCase(Locale.getDefault())
                 }

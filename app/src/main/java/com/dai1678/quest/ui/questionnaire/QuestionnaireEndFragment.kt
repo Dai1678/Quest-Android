@@ -36,7 +36,7 @@ class QuestionnaireEndFragment : Fragment() {
     private val callbackListener = object :
         QuestionnaireAnswerViewModel.Callback {
         override fun finishQuestionnaire() {
-            findNavController().navigate(R.id.action_global_patient_list_fragment)
+            findNavController().navigate(R.id.action_global_user_list_fragment)
         }
 
         override fun showErrorSnackBar(message: String) {

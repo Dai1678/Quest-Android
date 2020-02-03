@@ -3,11 +3,11 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/navigation_main"
-        app:startDestination="@id/patientListFragment">
+        app:startDestination="@id/userListFragment">
 
     <action
-            android:id="@+id/action_global_patient_list_fragment"
-            app:destination="@id/patientListFragment"
+            android:id="@+id/action_global_user_list_fragment"
+            app:destination="@id/userListFragment"
             app:popUpTo="@id/navigation_main"
             app:popUpToInclusive="true" />
 
@@ -22,17 +22,17 @@
 
         <action
                 android:id="@+id/action_to_patientListFragment"
-                app:destination="@+id/patientListFragment"
+                app:destination="@+id/userListFragment"
                 app:popUpTo="@id/navigation_main"
                 app:popUpToInclusive="true" />
 
     </dialog>
 
     <fragment
-            android:id="@+id/patientListFragment"
-            android:name="com.dai1678.quest.ui.patientList.PatientListFragment"
-            android:label="@string/patient_list_toolbar_title"
-            tools:layout="@layout/fragment_patient_list">
+            android:id="@+id/userListFragment"
+            android:name="com.dai1678.quest.ui.userList.UserListFragment"
+            android:label="@string/user_list_toolbar_title"
+            tools:layout="@layout/fragment_user_list">
 
         <action
                 android:id="@+id/action_to_diagnosticCheckDialogFragment"

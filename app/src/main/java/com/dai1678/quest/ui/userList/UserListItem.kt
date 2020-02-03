@@ -1,9 +1,9 @@
-package com.dai1678.quest.ui.patientList
+package com.dai1678.quest.ui.userList
 
 import androidx.navigation.findNavController
 import com.dai1678.quest.R
-import com.dai1678.quest.databinding.ListHeaderPatientBinding
-import com.dai1678.quest.databinding.ListItemPatientBinding
+import com.dai1678.quest.databinding.ListHeaderUserBinding
+import com.dai1678.quest.databinding.ListItemUserBinding
 import com.dai1678.quest.entity.Patient
 import com.dai1678.quest.entity.PatientDetail
 import com.dai1678.quest.util.StringUtils
@@ -12,12 +12,12 @@ import com.xwray.groupie.databinding.BindableItem
 /**
  * 受検者リスト画面 並び替えヘッダー
  */
-class PatientListHeaderItem(private val sortCategoryName: String) :
-    BindableItem<ListHeaderPatientBinding>() {
+class UserListHeaderItem(private val sortCategoryName: String) :
+    BindableItem<ListHeaderUserBinding>() {
 
-    override fun getLayout() = R.layout.list_header_patient
+    override fun getLayout() = R.layout.list_header_user
 
-    override fun bind(viewBinding: ListHeaderPatientBinding, position: Int) {
+    override fun bind(viewBinding: ListHeaderUserBinding, position: Int) {
         viewBinding.sortCategoryName = sortCategoryName
 
         viewBinding.listHeaderSort.setOnClickListener {
@@ -29,20 +29,20 @@ class PatientListHeaderItem(private val sortCategoryName: String) :
 /**
  * 受検者リスト画面 受検者情報
  */
-class PatientListBodyItem(val patient: Patient) :
-    BindableItem<ListItemPatientBinding>(), StringUtils {
+class UserListBodyItem(val patient: Patient) :
+    BindableItem<ListItemUserBinding>(), StringUtils {
 
-    override fun getLayout() = R.layout.list_item_patient
+    override fun getLayout() = R.layout.list_item_user
 
-    override fun bind(viewBinding: ListItemPatientBinding, position: Int) {
+    override fun bind(viewBinding: ListItemUserBinding, position: Int) {
         viewBinding.patientName = "${patient.lastName} ${patient.firstName}"
         viewBinding.patientNameReading = "${patient.lastNameReading} ${patient.firstNameReading}"
 
         viewBinding.lastQuestionnaireTime =
-            viewBinding.root.resources.getString(R.string.patient_list_last_questionnaire_label) +
+            viewBinding.root.resources.getString(R.string.user_list_last_questionnaire_label) +
                     if (patient.questionnaires.isEmpty()) {
                         viewBinding.root.resources.getString(
-                            R.string.patient_list_none_last_questionnaire_label
+                            R.string.user_list_none_last_questionnaire_label
                         )
                     } else {
                         patient.questionnaires[0].updatedAt.formatDateStr
@@ -50,7 +50,7 @@ class PatientListBodyItem(val patient: Patient) :
 
         viewBinding.listItemPatientView.setOnClickListener {
             val action =
-                PatientListFragmentDirections.actionToDiagnosticCheckDialogFragment(
+                UserListFragmentDirections.actionToDiagnosticCheckDialogFragment(
                     PatientDetail(
                         id = patient.id,
                         firstName = patient.firstName,

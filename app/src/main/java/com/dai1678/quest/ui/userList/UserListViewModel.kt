@@ -1,4 +1,4 @@
-package com.dai1678.quest.ui.patientList
+package com.dai1678.quest.ui.userList
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -12,7 +12,7 @@ import com.dai1678.quest.repository.PatientRepository
 import com.dai1678.quest.util.Event
 import kotlinx.coroutines.launch
 
-class PatientListViewModel : ViewModel() {
+class UserListViewModel : ViewModel() {
 
     private val repository = PatientRepository.getInstance()
 
@@ -46,7 +46,7 @@ class PatientListViewModel : ViewModel() {
     }
 
     private fun showLoadingFailureMessage() {
-        val snackBarTextId = R.string.patient_list_error_loading_message
+        val snackBarTextId = R.string.user_list_error_loading_message
         mutableSnackBarText.value = Event((snackBarTextId))
     }
 }
