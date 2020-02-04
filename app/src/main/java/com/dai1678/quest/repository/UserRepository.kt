@@ -4,7 +4,6 @@ import com.dai1678.quest.entity.Patient
 import com.dai1678.quest.entity.PatientListResponse
 import com.dai1678.quest.net.NetworkResult
 import com.dai1678.quest.net.QuestApiClient
-import java.lang.Exception
 
 /**
  * ユーザー情報 リポジトリ層
@@ -12,7 +11,7 @@ import java.lang.Exception
 class UserRepository {
 
     // ユーザーリストの取得
-    suspend fun getUsers() : NetworkResult<PatientListResponse> {
+    suspend fun getUsers(): NetworkResult<PatientListResponse> {
         return try {
             val users = QuestApiClient.userApi.getUsers()
             NetworkResult.Success(users)
@@ -26,7 +25,7 @@ class UserRepository {
         QuestApiClient.userApi.createPatientAsync(patient)
 
     // Id指定によるユーザー情報の取得
-    suspend fun getUser(userId: String) : NetworkResult<Patient> {
+    suspend fun getUser(userId: String): NetworkResult<Patient> {
         return try {
             val user = QuestApiClient.userApi.getUser(userId)
             NetworkResult.Success(user)
