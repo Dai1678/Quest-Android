@@ -8,7 +8,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
 
-interface PatientApi {
+interface UserApi {
 
     @GET("patients")
     suspend fun getUsers(): PatientListResponse

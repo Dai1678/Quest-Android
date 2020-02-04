@@ -9,11 +9,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 object QuestApiClient {
-    // FIXME インターネット環境がない場合は直接localhostのIPアドレスを指定
-//    private const val API_URL = "https://quest.serveo.net/api/v1/"
+    // FIXME 環境によってサーバーの接続先を変更する
     private const val API_URL = "http://192.168.0.5:3000/api/v1/"
 
-    val patientApi: PatientApi = create(PatientApi::class.java)
+    val userApi: UserApi = create(UserApi::class.java)
     val questionnaireApi: QuestionnaireApi = create(QuestionnaireApi::class.java)
 
     private lateinit var retrofit: Retrofit

@@ -8,16 +8,16 @@ import androidx.lifecycle.viewModelScope
 import com.dai1678.quest.R
 import com.dai1678.quest.entity.Patient
 import com.dai1678.quest.net.NetworkResult
-import com.dai1678.quest.repository.PatientRepository
+import com.dai1678.quest.repository.UserRepository
 import com.dai1678.quest.util.Event
 import kotlinx.coroutines.launch
 
 /**
- * 受検者リスト画面 ViewModel
+ * 受検者リスト画面 ViewModel層
  */
 class UserListViewModel : ViewModel() {
 
-    private val repository = PatientRepository.getInstance()
+    private val repository = UserRepository.getInstance()
 
     // SwipeRefreshLayoutのローディング管理
     private val mutableIsLoading = MutableLiveData<Boolean>(false)

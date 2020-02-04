@@ -6,23 +6,29 @@ import com.dai1678.quest.net.NetworkResult
 import com.dai1678.quest.net.QuestApiClient
 import java.lang.Exception
 
-class PatientRepository {
+/**
+ * ユーザー情報 リポジトリ層
+ */
+class UserRepository {
 
+    // ユーザーリストの取得
     suspend fun getUsers() : NetworkResult<PatientListResponse> {
         return try {
-            val users = QuestApiClient.patientApi.getUsers()
+            val users = QuestApiClient.userApi.getUsers()
             NetworkResult.Success(users)
         } catch (e: Exception) {
             NetworkResult.Error(e)
         }
     }
 
+    // ユーザー作成
     suspend fun createPatient(patient: Patient) =
-        QuestApiClient.patientApi.createPatientAsync(patient)
+        QuestApiClient.userApi.createPatientAsync(patient)
 
+    // Id指定によるユーザー情報の取得
     suspend fun getUser(userId: String) : NetworkResult<Patient> {
         return try {
-            val user = QuestApiClient.patientApi.getUser(userId)
+            val user = QuestApiClient.userApi.getUser(userId)
             NetworkResult.Success(user)
         } catch (e: Exception) {
             NetworkResult.Error(e)
@@ -30,10 +36,10 @@ class PatientRepository {
     }
 
     companion object Factory {
-        private var instance: PatientRepository? = null
+        private var instance: UserRepository? = null
 
         fun getInstance() = instance ?: synchronized(this) {
-            instance ?: PatientRepository().also { instance = it }
+            instance ?: UserRepository().also { instance = it }
         }
     }
 }
