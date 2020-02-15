@@ -54,6 +54,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
 
     // Retrofit
     def retrofit_version = '2.6.2'
@@ -87,7 +88,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.0-alpha04'
 
     // groupie
-    def groupie_version = '2.3.0'
+    def groupie_version = '2.7.2'
     implementation "com.xwray:groupie:$groupie_version"
     implementation "com.xwray:groupie-kotlin-android-extensions:$groupie_version"
     implementation "com.xwray:groupie-databinding:$groupie_version"

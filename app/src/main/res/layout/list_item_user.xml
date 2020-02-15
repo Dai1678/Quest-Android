@@ -27,14 +27,25 @@
             android:background="?android:attr/selectableItemBackground"
             android:padding="@dimen/component_interval_size_medium">
 
+        <ImageView
+                android:id="@+id/list_item_user_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/component_interval_size_small"
+                android:src="@mipmap/user_image"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
                 android:id="@+id/list_item_patient_name_reading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/component_interval_size_small"
                 android:text="@{patientNameReading}"
                 android:textColor="@color/colorPrimaryPaleText"
                 android:textSize="@dimen/text_size_micro"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/list_item_user_image"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="とうかい たろう" />
 
@@ -42,11 +53,12 @@
                 android:id="@+id/list_item_patient_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/component_interval_size_small"
                 android:text="@{patientName}"
                 android:textColor="@color/colorPrimaryText"
                 android:textSize="@dimen/text_size_medium"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/list_item_user_image"
                 app:layout_constraintTop_toBottomOf="@id/list_item_patient_name_reading"
                 tools:text="東海 太郎" />
 
@@ -54,11 +66,12 @@
                 android:id="@+id/list_item_patient_last_questionnaire_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/component_interval_size_small"
                 android:layout_marginTop="@dimen/component_interval_size_small"
                 android:text="@{lastQuestionnaireTime}"
                 android:textColor="@color/colorPrimaryPaleText"
                 android:textSize="@dimen/text_size_small"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/list_item_user_image"
                 app:layout_constraintTop_toBottomOf="@+id/list_item_patient_name"
                 tools:text="最終受験日 : 2019年7月14日" />
 

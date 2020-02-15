@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
 
         val appBarConfiguration =
-            AppBarConfiguration(setOf(R.id.patientListFragment, R.id.questionnairePagerFragment))
+            AppBarConfiguration(setOf(R.id.userListFragment, R.id.questionnairePagerFragment))
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
 

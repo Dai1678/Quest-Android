@@ -8,10 +8,10 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
 
-interface PatientApi {
+interface UserApi {
 
     @GET("patients")
-    suspend fun getPatientListAsync(): Response<PatientListResponse>
+    suspend fun getUsers(): PatientListResponse
 
     @POST("patients")
     suspend fun createPatientAsync(
@@ -19,7 +19,7 @@ interface PatientApi {
     ): Response<Patient>
 
     @GET("patient/{id}")
-    suspend fun getPatientAsync(
-        @Path("id") patientId: String
-    ): Response<Patient>
+    suspend fun getUser(
+        @Path("id") userId: String
+    ): Patient
 }

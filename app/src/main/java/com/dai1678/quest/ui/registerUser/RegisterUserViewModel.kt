@@ -6,13 +6,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dai1678.quest.entity.Patient
-import com.dai1678.quest.repository.PatientRepository
+import com.dai1678.quest.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class RegisterUserViewModel : ViewModel() {
-    private val patientRepository = PatientRepository.getInstance()
+    private val patientRepository = UserRepository.getInstance()
     var callback: Callback? = null
 
     var firstName = MutableLiveData<String>()
