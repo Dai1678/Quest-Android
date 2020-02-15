@@ -17,6 +17,7 @@ import androidx.navigation.fragment.findNavController
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentRegisterUserBinding
 import com.dai1678.quest.listener.RegisterUserFragmentListener
+import com.dai1678.quest.util.addHyperLink
 import com.dai1678.quest.util.setupSnackBar
 import com.google.android.material.snackbar.Snackbar
 
@@ -70,6 +71,10 @@ class RegisterUserFragment : Fragment() {
 
         setupAgeExposedDropdown()
         setupGenderExposedDropdown()
+
+        binding.createUserPrivacyPolicyText.addHyperLink("利用規約", "個人情報の取扱") {
+            Toast.makeText(context, "実装中です", Toast.LENGTH_SHORT).show() // TODO 規約画面への遷移
+        }
     }
 
     private fun setupAgeExposedDropdown() {
