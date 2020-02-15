@@ -20,12 +20,12 @@ import com.google.android.material.snackbar.Snackbar
 
 class RegisterUserFragment : Fragment() {
 
-    private val registerUserViewModel: RegisterUserViewModel by viewModels()
+    private val viewModel: RegisterUserViewModel by viewModels()
     private lateinit var binding: FragmentRegisterUserBinding
 
     private val registerUserFragmentListener = object : RegisterUserFragmentListener {
         override fun onClickRegisterUserData(view: View) {
-            registerUserViewModel.registerUserData()
+            viewModel.registerUserData()
         }
     }
 
@@ -54,6 +54,11 @@ class RegisterUserFragment : Fragment() {
         }
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+//        view?.setupSnackBar(this, viewModel.snackBarText, Toast.LENGTH_SHORT)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -61,10 +66,10 @@ class RegisterUserFragment : Fragment() {
     ): View? {
         binding = FragmentRegisterUserBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = this@RegisterUserFragment
-            viewModel = registerUserViewModel.apply {
-                callback = callbackListener
+            viewModel = this@RegisterUserFragment.viewModel.apply {
+                callback = this@RegisterUserFragment.callbackListener
             }
-            listener = registerUserFragmentListener
+            listener = this@RegisterUserFragment.registerUserFragmentListener
         }
         return binding.root
     }
