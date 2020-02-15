@@ -1,16 +1,13 @@
 package com.dai1678.quest.ui.registerUser
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
-import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -19,7 +16,6 @@ import com.dai1678.quest.databinding.FragmentRegisterUserBinding
 import com.dai1678.quest.listener.RegisterUserFragmentListener
 import com.dai1678.quest.util.addHyperLink
 import com.dai1678.quest.util.setupSnackBar
-import com.google.android.material.snackbar.Snackbar
 
 class RegisterUserFragment : Fragment() {
 
