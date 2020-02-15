@@ -40,17 +40,16 @@
         <action
                 android:id="@+id/action_to_createUserFragment"
                 app:destination="@id/createUserFragment"
-                app:enterAnim="@anim/nav_default_enter_anim"
-                app:exitAnim="@anim/nav_default_exit_anim"
-                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+                app:enterAnim="@anim/slide_from_right"
+                app:exitAnim="@anim/slide_to_left" />
 
     </fragment>
 
     <fragment
             android:id="@+id/createUserFragment"
             android:name="com.dai1678.quest.ui.registerUser.RegisterUserFragment"
-            android:label="@string/create_user_toolbar_title" />
+            android:label="@string/create_user_toolbar_title"
+            tools:layout="@layout/fragment_register_user"/>
 
     <dialog
             android:id="@+id/diagnosticCheckDialogFragment"
