@@ -128,8 +128,8 @@
     <string name="create_user_toolbar_title">受検者登録</string>
     <string name="create_user_fist_name_label">姓</string>
     <string name="create_user_last_name_label">名</string>
-    <string name="create_user_first_name_read_label" translatable="false">姓(カナ)</string>
-    <string name="create_user_last_name_read_label" translatable="false">名(カナ)</string>
+    <string name="create_user_first_name_read_label" translatable="false">姓(かな)</string>
+    <string name="create_user_last_name_read_label" translatable="false">名(かな)</string>
     <string name="create_user_name_header_label">氏名</string>
     <string name="create_user_info_header_label">詳細</string>
     <string name="create_user_age_label">年齢</string>
