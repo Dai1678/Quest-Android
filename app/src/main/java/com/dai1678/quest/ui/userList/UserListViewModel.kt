@@ -7,10 +7,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dai1678.quest.R
 import com.dai1678.quest.entity.Patient
+import com.dai1678.quest.entity.PatientListResponse
 import com.dai1678.quest.net.NetworkResult
 import com.dai1678.quest.repository.UserRepository
 import com.dai1678.quest.util.Event
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 /**
  * 受検者リスト画面 ViewModel層
@@ -38,7 +41,7 @@ class UserListViewModel : ViewModel() {
     fun getUsers() {
         mutableIsLoading.value = true
         viewModelScope.launch {
-            when (val result = repository.getUsers()) {
+            when (val result = fetchUsers()) {
                 is NetworkResult.Success -> {
                     mutableUsers.value = result.value.list
                 }
@@ -50,6 +53,11 @@ class UserListViewModel : ViewModel() {
             mutableIsLoading.value = false
         }
     }
+
+    private suspend fun fetchUsers(): NetworkResult<PatientListResponse> =
+        withContext(Dispatchers.IO) {
+            repository.getUsers()
+        }
 
     // 受検者データ失敗時のメッセージ設定
     private fun showLoadingFailureMessage() {
