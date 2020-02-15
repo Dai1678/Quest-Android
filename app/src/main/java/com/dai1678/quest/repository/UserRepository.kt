@@ -1,5 +1,6 @@
 package com.dai1678.quest.repository
 
+import com.dai1678.quest.entity.DefaultResponse
 import com.dai1678.quest.entity.Patient
 import com.dai1678.quest.entity.PatientListResponse
 import com.dai1678.quest.net.NetworkResult
@@ -21,8 +22,14 @@ class UserRepository {
     }
 
     // ユーザー作成
-    suspend fun createPatient(patient: Patient) =
-        QuestApiClient.userApi.createPatientAsync(patient)
+    suspend fun createUser(patient: Patient): NetworkResult<DefaultResponse> {
+        return try {
+            val response = QuestApiClient.userApi.createUser(patient)
+            NetworkResult.Success(response)
+        } catch (e: Exception) {
+            NetworkResult.Error(e)
+        }
+    }
 
     // Id指定によるユーザー情報の取得
     suspend fun getUser(userId: String): NetworkResult<Patient> {

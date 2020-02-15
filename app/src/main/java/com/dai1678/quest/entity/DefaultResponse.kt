@@ -1,7 +1,7 @@
 package com.dai1678.quest.entity
 
-data class ErrorResponse(
+data class DefaultResponse(
     val statusCode: Int,
-    val error: String,
+    val isSuccess: Boolean,
     val message: String
 )

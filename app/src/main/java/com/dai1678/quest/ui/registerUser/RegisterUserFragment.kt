@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -16,6 +17,7 @@ import androidx.navigation.fragment.findNavController
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentRegisterUserBinding
 import com.dai1678.quest.listener.RegisterUserFragmentListener
+import com.dai1678.quest.util.setupSnackBar
 import com.google.android.material.snackbar.Snackbar
 
 class RegisterUserFragment : Fragment() {
@@ -41,22 +43,11 @@ class RegisterUserFragment : Fragment() {
 
             findNavController().navigate(R.id.action_global_user_list_fragment)
         }
-
-        override fun showErrorSnackBar(message: String) {
-            Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG).apply {
-                view.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary))
-                view.findViewById<TextView>(
-                    com.google.android.material.R.id.snackbar_text
-                ).apply {
-                    setTextColor(Color.WHITE)
-                }
-            }.show()
-        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-//        view?.setupSnackBar(this, viewModel.snackBarText, Toast.LENGTH_SHORT)
+        view?.setupSnackBar(this, viewModel.snackBarText, Toast.LENGTH_SHORT)
     }
 
     override fun onCreateView(

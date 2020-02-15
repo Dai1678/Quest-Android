@@ -136,6 +136,8 @@
     <string name="create_user_gender_label">性別</string>
     <string name="create_user_agreement_label">利用規約と個人情報の取扱についてに同意の上、\n登録してください</string>
     <string name="create_user_agreement_button_label">同意して登録</string>
+    <string name="create_user_success_label">受検者データの登録を行いました</string>
+    <string name="create_user_failure_label">受検者データの登録に失敗しました</string>
 
     <!-- UserList -->
     <string name="user_list_toolbar_title">受検者一覧</string>
