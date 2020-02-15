@@ -136,7 +136,7 @@
                         android:id="@+id/text_input_first_name_read_edit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/create_user_last_name_label"
+                        android:hint="@string/create_user_last_name_read_label"
                         android:inputType="text"
                         android:singleLine="true"
                         android:text="@={firstReadName}" />
