@@ -17,6 +17,9 @@ import com.dai1678.quest.listener.RegisterUserFragmentListener
 import com.dai1678.quest.util.addHyperLink
 import com.dai1678.quest.util.setupSnackBar
 
+/**
+ * 受検者登録画面 Fragment
+ */
 class RegisterUserFragment : Fragment() {
 
     private val viewModel: RegisterUserViewModel by viewModels()

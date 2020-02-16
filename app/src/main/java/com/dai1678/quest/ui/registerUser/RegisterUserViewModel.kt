@@ -16,6 +16,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+/**
+ * 受検者登録画面 ViewModel層
+ */
 class RegisterUserViewModel : ViewModel() {
     private val repository = UserRepository.getInstance()
     var callback: Callback? = null
@@ -31,6 +34,7 @@ class RegisterUserViewModel : ViewModel() {
     var ageRange = MutableLiveData<String>()
     var gender = MutableLiveData<String>()
 
+    // 入力フォームの確認
     private fun isValidInput() =
         firstName.value.isNullOrBlank().not() &&
                 lastName.value.isNullOrBlank().not() &&
@@ -41,6 +45,7 @@ class RegisterUserViewModel : ViewModel() {
 
     // TODO ひらがな入力制限処理を入れる
 
+    // 入力フォームが全て埋まっていれば、trueを返す
     val canSubmit = MediatorLiveData<Boolean>().also { result ->
         result.addSource(firstName) { result.value = isValidInput() }
         result.addSource(lastName) { result.value = isValidInput() }
@@ -50,7 +55,7 @@ class RegisterUserViewModel : ViewModel() {
         result.addSource(gender) { result.value = isValidInput() }
     }
 
-    // 受検者登録処理
+    // 登録ボタンを押したときの処理
     fun registerUserData() {
         viewModelScope.launch {
             when (val result = postUserData()) {
@@ -66,6 +71,7 @@ class RegisterUserViewModel : ViewModel() {
         }
     }
 
+    // 受検者登録処理
     private suspend fun postUserData(): NetworkResult<DefaultResponse> =
         withContext(Dispatchers.IO) {
             val newPatient = Patient(
