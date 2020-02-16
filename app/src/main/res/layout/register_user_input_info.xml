@@ -21,7 +21,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="8dp">
+                android:padding="@dimen/component_interval_size_small">
 
             <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/horizontal_guideline"
@@ -44,7 +44,8 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="@dimen/component_interval_size_medium"
+                    android:layout_marginEnd="@dimen/component_interval_size_small"
                     app:boxStrokeColor="@color/colorPrimary"
                     app:endIconMode="dropdown_menu"
                     app:hintAnimationEnabled="true"
@@ -69,7 +70,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="@dimen/component_interval_size_small"
                     app:hintAnimationEnabled="true"
                     app:hintEnabled="true"
                     app:layout_constraintEnd_toEndOf="parent"

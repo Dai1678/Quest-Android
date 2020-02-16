@@ -1,31 +1,33 @@
 package com.dai1678.quest.ui.registerUser
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
-import android.widget.TextView
-import androidx.core.content.ContextCompat
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentRegisterUserBinding
 import com.dai1678.quest.listener.RegisterUserFragmentListener
-import com.google.android.material.snackbar.Snackbar
+import com.dai1678.quest.util.addHyperLink
+import com.dai1678.quest.util.setupSnackBar
 
+/**
+ * 受検者登録画面 Fragment
+ */
 class RegisterUserFragment : Fragment() {
 
-    private val registerUserViewModel: RegisterUserViewModel by viewModels()
+    private val viewModel: RegisterUserViewModel by viewModels()
     private lateinit var binding: FragmentRegisterUserBinding
 
     private val registerUserFragmentListener = object : RegisterUserFragmentListener {
         override fun onClickRegisterUserData(view: View) {
-            registerUserViewModel.registerUserData()
+            viewModel.registerUserData()
         }
     }
 
@@ -41,17 +43,11 @@ class RegisterUserFragment : Fragment() {
 
             findNavController().navigate(R.id.action_global_user_list_fragment)
         }
+    }
 
-        override fun showErrorSnackBar(message: String) {
-            Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG).apply {
-                view.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary))
-                view.findViewById<TextView>(
-                    com.google.android.material.R.id.snackbar_text
-                ).apply {
-                    setTextColor(Color.WHITE)
-                }
-            }.show()
-        }
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        view?.setupSnackBar(this, viewModel.snackBarText, Toast.LENGTH_SHORT)
     }
 
     override fun onCreateView(
@@ -61,10 +57,10 @@ class RegisterUserFragment : Fragment() {
     ): View? {
         binding = FragmentRegisterUserBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = this@RegisterUserFragment
-            viewModel = registerUserViewModel.apply {
-                callback = callbackListener
+            viewModel = this@RegisterUserFragment.viewModel.apply {
+                callback = this@RegisterUserFragment.callbackListener
             }
-            listener = registerUserFragmentListener
+            listener = this@RegisterUserFragment.registerUserFragmentListener
         }
         return binding.root
     }
@@ -74,6 +70,10 @@ class RegisterUserFragment : Fragment() {
 
         setupAgeExposedDropdown()
         setupGenderExposedDropdown()
+
+        binding.createUserPrivacyPolicyText.addHyperLink("利用規約", "個人情報の取扱") {
+            Toast.makeText(context, "実装中です", Toast.LENGTH_SHORT).show() // TODO 規約画面への遷移
+        }
     }
 
     private fun setupAgeExposedDropdown() {

@@ -23,7 +23,7 @@
                 layout="@layout/register_user_input_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_margin="@dimen/component_interval_size_medium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -37,8 +37,7 @@
                 layout="@layout/register_user_input_info"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_margin="@dimen/component_interval_size_medium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/create_user_input_name"
@@ -46,22 +45,22 @@
                 bind:gender="@={viewModel.gender}" />
 
         <TextView
-                android:id="@+id/create_user_text"
+                android:id="@+id/create_user_privacy_policy_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="48dp"
                 android:gravity="center_horizontal"
                 android:text="@string/create_user_agreement_label"
-                android:textSize="@dimen/text_size_small"
+                android:textSize="@dimen/text_size_micro"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/create_user_input_info" />
 
         <com.google.android.material.button.MaterialButton
                 android:id="@+id/create_user_button"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:enabled="@{viewModel.canSubmit}"
                 android:onClick="@{listener::onClickRegisterUserData}"
                 android:padding="@dimen/button_vertical_padding"
@@ -69,9 +68,9 @@
                 android:paddingEnd="@dimen/button_horizontal_padding"
                 android:text="@string/create_user_agreement_button_label"
                 android:textSize="@dimen/text_size_medium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/create_user_text" />
+                app:layout_constraintEnd_toEndOf="@id/create_user_privacy_policy_text"
+                app:layout_constraintStart_toStartOf="@id/create_user_privacy_policy_text"
+                app:layout_constraintTop_toBottomOf="@+id/create_user_privacy_policy_text" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
