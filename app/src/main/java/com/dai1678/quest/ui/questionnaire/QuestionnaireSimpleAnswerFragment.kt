@@ -14,18 +14,18 @@ import com.dai1678.quest.listener.QuestionnaireAnswerFragmentListener
 
 class QuestionnaireSimpleAnswerFragment : Fragment() {
 
-    private val questionnaireAnswerViewModel: QuestionnaireAnswerViewModel by viewModels({
+    private val viewModel: QuestionnaireAnswerViewModel by viewModels({
         requireParentFragment()
     })
     private lateinit var binding: FragmentQuestionnaireSimpleAnswerBinding
 
     private var currentPage = 0
 
-    private val questionnaireAnswerFragmentListener = object : QuestionnaireAnswerFragmentListener {
+    private val listener = object : QuestionnaireAnswerFragmentListener {
         override fun onChangeAnswer(radioGroup: RadioGroup, id: Int) {
             val checkedButton = binding.root.findViewById<RadioButton>(id)
             val answerNumber = checkedButton.tag.toString().toInt()
-            questionnaireAnswerViewModel.setQuestionnaireResult(currentPage, answerNumber)
+            viewModel.setQuestionnaireResult(currentPage, answerNumber)
         }
     }
 
@@ -43,25 +43,23 @@ class QuestionnaireSimpleAnswerFragment : Fragment() {
             FragmentQuestionnaireSimpleAnswerBinding.inflate(inflater, container, false).apply {
                 lifecycleOwner = this@QuestionnaireSimpleAnswerFragment
                 page = currentPage
-                viewModel = questionnaireAnswerViewModel
-                listener = questionnaireAnswerFragmentListener
+                viewModel = this@QuestionnaireSimpleAnswerFragment.viewModel
+                listener = this@QuestionnaireSimpleAnswerFragment.listener
             }
         return binding.root
     }
 
     companion object {
-
         private const val KEY_PAGE = "page"
         private const val KEY_PATIENT_DETAIL = "patient"
 
         fun newInstance(page: Int, patientDetail: PatientDetail): Fragment {
-            return QuestionnaireSimpleAnswerFragment()
-                .apply {
-                    arguments = Bundle().apply {
-                        putInt(KEY_PAGE, page)
-                        putParcelable(KEY_PATIENT_DETAIL, patientDetail)
-                    }
+            return QuestionnaireSimpleAnswerFragment().apply {
+                arguments = Bundle().apply {
+                    putInt(KEY_PAGE, page)
+                    putParcelable(KEY_PATIENT_DETAIL, patientDetail)
                 }
+            }
         }
     }
 }
