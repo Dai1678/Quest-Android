@@ -48,7 +48,7 @@ class QuestionnairePagerFragment : Fragment() {
         }
     }
 
-    private val questionnairePagerFragmentListener = object : QuestionnairePagerFragmentListener {
+    private val listener = object : QuestionnairePagerFragmentListener {
         override fun onClickBack(view: View) {
             binding.pager.setCurrentItem(binding.pager.currentItem - 1, true)
         }
@@ -64,7 +64,7 @@ class QuestionnairePagerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentQuestionnairePagerBinding.inflate(inflater, container, false).apply {
-            listener = questionnairePagerFragmentListener
+            listener = this@QuestionnairePagerFragment.listener
         }
         return binding.root
     }

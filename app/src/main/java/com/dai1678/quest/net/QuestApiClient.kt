@@ -10,7 +10,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 object QuestApiClient {
     // FIXME 環境によってサーバーの接続先を変更する
-    private const val API_URL = "http://192.168.0.4:3000/api/v1/"
+    private const val API_URL = "http://192.168.0.12:3000/api/v1/"
 
     val userApi: UserApi = create(UserApi::class.java)
     val questionnaireApi: QuestionnaireApi = create(QuestionnaireApi::class.java)
