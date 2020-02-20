@@ -15,7 +15,7 @@
     <string name="questionnaire_collapsed_text">閉じる</string>
     <string name="questionnaire_post_success_text">回答結果を送信しました</string>
     <string name="questionnaire_post_failure_text">回答結果の送信に失敗しました</string>
-    <string name="dummy"> </string>
+    <string name="blank"> </string>
 
     <!-- common questionnaire main number label -->
     <string name="questionnaire_1_number">問1</string>
@@ -457,7 +457,7 @@
     </string-array>
 
     <string-array name="questionnaire_message_array">
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
         <item>@string/questionnaire_1_message</item>
         <item>@string/questionnaire_2_message</item>
         <item>@string/questionnaire_3_message</item>
@@ -471,11 +471,11 @@
         <item>@string/questionnaire_9_message</item>
         <item>@string/questionnaire_10_message</item>
         <item>@string/questionnaire_11_message</item>
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
     </string-array>
 
     <string-array name="questionnaire_answer_1_array">
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
         <item>@string/questionnaire_1_answer_1</item>
         <item>@string/questionnaire_2_answer_1</item>
         <item>@string/questionnaire_3_answer_1</item>
@@ -489,11 +489,11 @@
         <item>@string/questionnaire_9_answer_1</item>
         <item>@string/questionnaire_10_answer_1</item>
         <item>@string/questionnaire_11_answer_1</item>
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
     </string-array>
 
     <string-array name="questionnaire_answer_2_array">
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
         <item>@string/questionnaire_1_answer_2</item>
         <item>@string/questionnaire_2_answer_2</item>
         <item>@string/questionnaire_3_answer_2</item>
@@ -507,11 +507,11 @@
         <item>@string/questionnaire_9_answer_2</item>
         <item>@string/questionnaire_10_answer_2</item>
         <item>@string/questionnaire_11_answer_2</item>
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
     </string-array>
 
     <string-array name="questionnaire_answer_3_array">
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
         <item>@string/questionnaire_1_answer_3</item>
         <item>@string/questionnaire_2_answer_3</item>
         <item>@string/questionnaire_3_answer_3</item>
@@ -525,15 +525,15 @@
         <item>@string/questionnaire_9_answer_3</item>
         <item>@string/questionnaire_10_answer_3</item>
         <item>@string/questionnaire_11_answer_3</item>
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
     </string-array>
 
     <string-array name="questionnaire_answer_4_array">
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
         <item>@string/questionnaire_1_answer_4</item>
         <item>@string/questionnaire_2_answer_4</item>
-        <item>@string/dummy</item>
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
+        <item>@string/blank</item>
         <item>@string/questionnaire_4_answer_4</item>
         <item>@string/questionnaire_5_answer_4</item>
         <item>@string/questionnaire_6_answer_4</item>
@@ -543,15 +543,15 @@
         <item>@string/questionnaire_9_answer_4</item>
         <item>@string/questionnaire_10_answer_4</item>
         <item>@string/questionnaire_11_answer_4</item>
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
     </string-array>
 
     <string-array name="questionnaire_answer_5_array">
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
         <item>@string/questionnaire_1_answer_5</item>
         <item>@string/questionnaire_2_answer_5</item>
-        <item>@string/dummy</item>
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
+        <item>@string/blank</item>
         <item>@string/questionnaire_4_answer_5</item>
         <item>@string/questionnaire_5_answer_5</item>
         <item>@string/questionnaire_6_answer_5</item>
@@ -561,7 +561,7 @@
         <item>@string/questionnaire_9_answer_5</item>
         <item>@string/questionnaire_10_answer_5</item>
         <item>@string/questionnaire_11_answer_5</item>
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
     </string-array>
 
     <!-- QuestionnaireEnd -->

@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.dai1678.quest.R
+import com.dai1678.quest.enums.Question
 import com.dai1678.quest.model.Questionnaire
 import com.dai1678.quest.model.QuestionnaireResult
 import com.dai1678.quest.net.NetworkResult
@@ -24,6 +25,12 @@ class QuestionnaireAnswerViewModel(application: Application) : AndroidViewModel(
 
     private val mutableSnackBarText = MutableLiveData<Event<Int>>()
     val snackBarText: LiveData<Event<Int>> = mutableSnackBarText
+
+    private val mutableQuestionMessage = MutableLiveData<String>()
+    val questionMessage: LiveData<String> = mutableQuestionMessage
+
+    private val mutableAnswerChoiceMessages = MutableLiveData<Array<String>>()
+    val answerChoiceMessages: LiveData<Array<String>> = mutableAnswerChoiceMessages
 
     val questionMessages: Array<String> =
         resource.getStringArray(R.array.questionnaire_message_array)
@@ -66,6 +73,11 @@ class QuestionnaireAnswerViewModel(application: Application) : AndroidViewModel(
             11 -> questionnaireResult.page11Answer[index] = answer
             13 -> questionnaireResult.page13Answer[index] = answer
         }
+    }
+
+    fun update(message: String, answers: Array<String>) {
+        mutableQuestionMessage.value = message
+        mutableAnswerChoiceMessages.value = answers
     }
 
     @SuppressLint("SimpleDateFormat")
