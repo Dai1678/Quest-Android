@@ -1,10 +1,18 @@
 package com.dai1678.quest.entity
 
+import android.annotation.SuppressLint
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.UUID
+
+private const val DATE_FORMAT = "yyyy-MM-dd HH:mm:ss"
+
+@SuppressLint("SimpleDateFormat")
 data class Questionnaire(
-    val id: String,
+    val id: String = UUID.randomUUID().toString(),
     val result: QuestionnaireResult,
-    val createdAt: String,
-    val updatedAt: String,
+    val createdAt: String = SimpleDateFormat(DATE_FORMAT).format(Date()),
+    val updatedAt: String = SimpleDateFormat(DATE_FORMAT).format(Date()),
     val patientId: String
 )
 

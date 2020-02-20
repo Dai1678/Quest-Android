@@ -92,13 +92,8 @@ class QuestionnaireAnswerViewModel(application: Application) : AndroidViewModel(
 
     private suspend fun postResult(patientId: String): NetworkResult<Questionnaire> =
         withContext(Dispatchers.IO) {
-            val id = UUID.randomUUID().toString()
-            val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
             val questionnaire = Questionnaire(
-                id = id,
                 result = questionnaireResult,
-                createdAt = dateFormat.format(Date()),
-                updatedAt = dateFormat.format(Date()),
                 patientId = patientId
             )
             questionnaireRepository.createResult(questionnaire)
