@@ -1,7 +1,9 @@
 package com.dai1678.quest.ui.questionnaire
 
 import android.annotation.SuppressLint
+import android.app.Application
 import android.util.Log
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dai1678.quest.App
@@ -16,9 +18,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class QuestionnaireAnswerViewModel : ViewModel() {
+class QuestionnaireAnswerViewModel(application: Application) : AndroidViewModel(application) {
     private val questionnaireRepository = QuestionnaireRepository.getInstance()
-    private val resource = App.instance.resources
+    private val resource = application.resources
     var callback: Callback? = null
 
     val questionNumberLabels: Array<String> =
