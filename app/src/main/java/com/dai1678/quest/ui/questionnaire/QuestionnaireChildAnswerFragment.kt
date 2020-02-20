@@ -6,14 +6,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentQuestionnaireBinding
+import com.dai1678.quest.enums.Answer
+import com.dai1678.quest.enums.Question
 import com.dai1678.quest.model.PatientDetail
 
+/**
+ * 小問を含む回答画面のFragment
+ */
 class QuestionnaireChildAnswerFragment : Fragment() {
 
-    private val questionnaireAnswerViewModel: QuestionnaireAnswerViewModel by viewModels({
+    private val answerViewModel: QuestionnaireAnswerViewModel by viewModels({
+        requireParentFragment()
+    })
+
+    private val pagerViewModel: QuestionnairePagerViewModel by viewModels({
         requireParentFragment()
     })
 
@@ -45,7 +55,7 @@ class QuestionnaireChildAnswerFragment : Fragment() {
         binding = FragmentQuestionnaireBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = this@QuestionnaireChildAnswerFragment
             page = currentPage
-            viewModel = questionnaireAnswerViewModel
+            viewModel = answerViewModel
         }
         return binding.root
     }
@@ -58,7 +68,7 @@ class QuestionnaireChildAnswerFragment : Fragment() {
                 requireContext(),
                 currentPage,
                 questionnaireCacheAnswerArray,
-                questionnaireAnswerViewModel,
+                answerViewModel,
                 this
             ) { position, checkedButtonId ->
                 questionnaireCacheAnswerArray[position] = checkedButtonId
@@ -67,6 +77,13 @@ class QuestionnaireChildAnswerFragment : Fragment() {
         binding.questionnaireRecyclerView.apply {
             adapter = questionnaireRecyclerAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        }
+
+        pagerViewModel.currentPage.observe(viewLifecycleOwner) { page ->
+            val context = context ?: return@observe
+            val question = Question.valueOf(page)
+            val answer = Answer.valueOf(page)
+            answerViewModel.update(question.getMessage(context), answer.getAnswers(context))
         }
     }
 

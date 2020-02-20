@@ -32,9 +32,6 @@ class QuestionnaireAnswerViewModel(application: Application) : AndroidViewModel(
     private val mutableAnswerChoiceMessages = MutableLiveData<Array<String>>()
     val answerChoiceMessages: LiveData<Array<String>> = mutableAnswerChoiceMessages
 
-    val questionMessages: Array<String> =
-        resource.getStringArray(R.array.questionnaire_message_array)
-
     val answerChoice1Messages: Array<String> =
         resource.getStringArray(R.array.questionnaire_answer_1_array)
 
