@@ -24,9 +24,11 @@ class QuestionnairePagerViewModel : ViewModel() {
     private val mutableCurrentPage = MutableLiveData(0)
     val currentPage: LiveData<Int> = mutableCurrentPage
 
+    // trueの場合、「前に戻る」ボタンを表示する
     private val mutableIsVisibleBackButton = MutableLiveData<Boolean>(true)
     val isVisibleBackButton: LiveData<Boolean> = mutableIsVisibleBackButton
 
+    // trueの場合、「次へ進む」ボタンを表示する
     private val mutableIsVisibleNextButton = MutableLiveData<Boolean>(true)
     val isVisibleNextButton: LiveData<Boolean> = mutableIsVisibleNextButton
 

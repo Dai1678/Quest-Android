@@ -17,7 +17,7 @@ enum class Question(
     PAGE5(4, R.string.questionnaire_4_number),
     PAGE6(3, R.string.questionnaire_5_number),
     PAGE7(1, R.string.questionnaire_6_number),
-    PAGE8(1, R.string.questionnaire_7_message),
+    PAGE8(1, R.string.questionnaire_7_number),
     PAGE9(1, R.string.questionnaire_8_number),
     PAGE10(5, R.string.questionnaire_9_number),
     PAGE11(4, R.string.questionnaire_9_number),
