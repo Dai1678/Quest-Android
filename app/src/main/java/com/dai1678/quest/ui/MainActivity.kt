@@ -1,6 +1,7 @@
 package com.dai1678.quest.ui
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -11,8 +12,11 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.ActivityMainBinding
+import com.dai1678.quest.listener.MainActivityListener
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainActivityListener {
+
+    private lateinit var binding: ActivityMainBinding
 
     private val navController: NavController by lazy {
         findNavController(R.id.nav_host_main_fragment)
@@ -20,8 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding =
-            DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         setSupportActionBar(binding.toolbar)
 
         val appBarConfiguration =
@@ -37,4 +40,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean = navController.navigateUp()
+
+    override fun updateToolbarTitle(title: String) {
+        binding.toolbar.title = title
+    }
 }

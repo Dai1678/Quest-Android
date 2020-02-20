@@ -12,6 +12,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentQuestionnairePagerBinding
+import com.dai1678.quest.listener.MainActivityListener
 import com.dai1678.quest.listener.QuestionnairePagerFragmentListener
 
 class QuestionnairePagerFragment : Fragment() {
@@ -32,6 +33,7 @@ class QuestionnairePagerFragment : Fragment() {
 
         override fun onPageSelected(position: Int) {
             super.onPageSelected(position)
+            setToolbarTitle(position)
             questionnairePagerViewModel.sendScreenLog(position, args.patientDetail)
             when (position) {
                 0 -> {
@@ -85,5 +87,10 @@ class QuestionnairePagerFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.questionnaire_menu, menu)
+    }
+
+    private fun setToolbarTitle(page: Int) {
+        val title = "テスト"
+        (activity as MainActivityListener).updateToolbarTitle(title)
     }
 }
