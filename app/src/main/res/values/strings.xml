@@ -30,24 +30,6 @@
     <string name="questionnaire_10_number">問10</string>
     <string name="questionnaire_11_number">問11</string>
 
-    <string-array name="questionnaire_main_number_label_page_array">
-        <item>@string/dummy</item>
-        <item>@string/questionnaire_1_number</item>
-        <item>@string/questionnaire_2_number</item>
-        <item>@string/questionnaire_3_number</item>
-        <item>@string/questionnaire_3_number</item>
-        <item>@string/questionnaire_4_number</item>
-        <item>@string/questionnaire_5_number</item>
-        <item>@string/questionnaire_6_number</item>
-        <item>@string/questionnaire_7_number</item>
-        <item>@string/questionnaire_8_number</item>
-        <item>@string/questionnaire_9_number</item>
-        <item>@string/questionnaire_9_number</item>
-        <item>@string/questionnaire_10_number</item>
-        <item>@string/questionnaire_11_number</item>
-        <item>@string/dummy</item>
-    </string-array>
-
     <!-- common questionnaire sub number label -->
     <string name="questionnaire_sub_number_a">ア)</string>
     <string name="questionnaire_sub_number_b">イ)</string>

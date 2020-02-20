@@ -25,9 +25,6 @@ class QuestionnaireAnswerViewModel(application: Application) : AndroidViewModel(
     private val mutableSnackBarText = MutableLiveData<Event<Int>>()
     val snackBarText: LiveData<Event<Int>> = mutableSnackBarText
 
-    val questionNumberLabels: Array<String> =
-        resource.getStringArray(R.array.questionnaire_main_number_label_page_array)
-
     val questionMessages: Array<String> =
         resource.getStringArray(R.array.questionnaire_message_array)
 
