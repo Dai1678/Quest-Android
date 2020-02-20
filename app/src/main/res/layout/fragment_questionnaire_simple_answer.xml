@@ -8,10 +8,6 @@
         <import type="android.view.View" />
 
         <variable
-                name="page"
-                type="Integer" />
-
-        <variable
                 name="viewModel"
                 type="com.dai1678.quest.ui.questionnaire.QuestionnaireAnswerViewModel" />
 
@@ -133,7 +129,7 @@
                                 android:tag="6"
                                 android:text="@{viewModel.answerChoiceMessages[5]}"
                                 android:textSize="@dimen/text_size_medium"
-                                android:visibility="@{page == 8 ? View.VISIBLE : View.GONE}"
+                                android:visibility="@{viewModel.answerChoiceMessages[5] != null ? View.VISIBLE : View.GONE}"
                                 tools:visibility="gone" />
 
                     </RadioGroup>

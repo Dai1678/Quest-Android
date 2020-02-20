@@ -1,7 +1,6 @@
 package com.dai1678.quest.ui.questionnaire
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,6 @@ import androidx.lifecycle.observe
 import com.dai1678.quest.databinding.FragmentQuestionnaireSimpleAnswerBinding
 import com.dai1678.quest.enums.Answer
 import com.dai1678.quest.enums.Question
-import com.dai1678.quest.model.PatientDetail
 import com.dai1678.quest.listener.QuestionnaireAnswerFragmentListener
 
 class QuestionnaireSimpleAnswerFragment : Fragment() {
@@ -26,19 +24,12 @@ class QuestionnaireSimpleAnswerFragment : Fragment() {
     })
     private lateinit var binding: FragmentQuestionnaireSimpleAnswerBinding
 
-    private var currentPage = 0
-
     private val listener = object : QuestionnaireAnswerFragmentListener {
         override fun onChangeAnswer(radioGroup: RadioGroup, id: Int) {
             val checkedButton = binding.root.findViewById<RadioButton>(id)
             val answerNumber = checkedButton.tag.toString().toInt()
-            viewModel.setQuestionnaireResult(currentPage, answerNumber)
+            viewModel.setQuestionnaireResult(pagerViewModel.currentPage.value ?: 0, answerNumber)
         }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        currentPage = arguments?.getInt(KEY_PAGE) ?: 1
     }
 
     override fun onCreateView(
@@ -49,7 +40,6 @@ class QuestionnaireSimpleAnswerFragment : Fragment() {
         binding =
             FragmentQuestionnaireSimpleAnswerBinding.inflate(inflater, container, false).apply {
                 lifecycleOwner = this@QuestionnaireSimpleAnswerFragment
-                page = currentPage
                 viewModel = this@QuestionnaireSimpleAnswerFragment.viewModel
                 listener = this@QuestionnaireSimpleAnswerFragment.listener
             }
@@ -68,16 +58,6 @@ class QuestionnaireSimpleAnswerFragment : Fragment() {
     }
 
     companion object {
-        private const val KEY_PAGE = "page"
-        private const val KEY_PATIENT_DETAIL = "patient"
-
-        fun newInstance(page: Int, patientDetail: PatientDetail): Fragment {
-            return QuestionnaireSimpleAnswerFragment().apply {
-                arguments = Bundle().apply {
-                    putInt(KEY_PAGE, page)
-                    putParcelable(KEY_PATIENT_DETAIL, patientDetail)
-                }
-            }
-        }
+        fun newInstance(): Fragment = QuestionnaireSimpleAnswerFragment()
     }
 }
