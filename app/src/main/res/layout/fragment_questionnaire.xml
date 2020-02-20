@@ -19,26 +19,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:scrollbars="vertical"
-            android:scrollbarThumbVertical="@android:color/darker_gray"
-            android:scrollbarSize="@dimen/scrollbar_size"
+            android:clipToPadding="false"
             android:fillViewport="true"
-            android:overScrollMode="never">
+            android:overScrollMode="never"
+            android:scrollbarSize="@dimen/scrollbar_size"
+            android:scrollbarThumbVertical="@android:color/darker_gray"
+            android:scrollbars="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/component_interval_size_medium">
-
-            <TextView
-                    android:id="@+id/questionnaire_number_text"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@{viewModel.questionNumberLabels[page]}"
-                    android:textSize="@dimen/text_size_medium"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="問3" />
 
             <TextView
                     android:id="@+id/questionnaire_main_message_text"
@@ -48,7 +39,7 @@
                     android:text="@{viewModel.questionMessages[page]}"
                     android:textSize="@dimen/text_size_medium"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/questionnaire_number_text"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="@string/questionnaire_3_message" />
 
@@ -57,8 +48,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/component_interval_size_large"
-                    app:layout_constraintEnd_toEndOf="@id/questionnaire_main_message_text"
-                    app:layout_constraintStart_toStartOf="@id/questionnaire_number_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/questionnaire_main_message_text"
                     tools:itemCount="1"
                     tools:listitem="@layout/list_item_questionnaire_child_choice" />

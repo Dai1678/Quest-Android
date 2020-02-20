@@ -68,7 +68,7 @@
                     android:textSize="@dimen/text_size_medium"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/questionnaire_sub_number_text"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBaseline_toBaselineOf="@id/questionnaire_sub_number_text"
                     tools:text="問題文です" />
 
             <RadioGroup
