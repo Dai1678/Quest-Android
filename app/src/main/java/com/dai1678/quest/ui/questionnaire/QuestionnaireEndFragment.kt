@@ -1,12 +1,10 @@
 package com.dai1678.quest.ui.questionnaire
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.core.content.ContextCompat
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -14,7 +12,7 @@ import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentQuestionnaireEndBinding
 import com.dai1678.quest.entity.PatientDetail
 import com.dai1678.quest.listener.QuestionnaireEndFragmentListener
-import com.google.android.material.snackbar.Snackbar
+import com.dai1678.quest.util.setupSnackBar
 
 class QuestionnaireEndFragment : Fragment() {
 
@@ -26,7 +24,6 @@ class QuestionnaireEndFragment : Fragment() {
 
     private val questionnaireEndFragmentListener = object : QuestionnaireEndFragmentListener {
         override fun onClickSendAnswer(view: View) {
-
             val patientId =
                 arguments?.getParcelable<PatientDetail>(KEY_PATIENT_DETAIL)?.id ?: "empty"
             questionnaireAnswerViewModel.sendQuestionnaireResult(patientId)
@@ -38,17 +35,11 @@ class QuestionnaireEndFragment : Fragment() {
         override fun finishQuestionnaire() {
             findNavController().navigate(R.id.action_global_user_list_fragment)
         }
+    }
 
-        override fun showErrorSnackBar(message: String) {
-            Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG).apply {
-                view.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary))
-                view.findViewById<TextView>(
-                    com.google.android.material.R.id.snackbar_text
-                ).apply {
-                    setTextColor(Color.WHITE)
-                }
-            }.show()
-        }
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        view?.setupSnackBar(this, questionnaireAnswerViewModel.snackBarText, Toast.LENGTH_SHORT)
     }
 
     override fun onCreateView(
@@ -64,10 +55,6 @@ class QuestionnaireEndFragment : Fragment() {
             listener = questionnaireEndFragmentListener
         }
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
     }
 
     companion object {

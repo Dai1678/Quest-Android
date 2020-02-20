@@ -13,6 +13,8 @@
     <string name="suspension_diagnosis">回答を中断</string>
     <string name="questionnaire_expand_text">答える</string>
     <string name="questionnaire_collapsed_text">閉じる</string>
+    <string name="questionnaire_post_success_text">回答結果を送信しました</string>
+    <string name="questionnaire_post_failure_text">回答結果の送信に失敗しました</string>
     <string name="dummy"> </string>
 
     <!-- common questionnaire main number label -->

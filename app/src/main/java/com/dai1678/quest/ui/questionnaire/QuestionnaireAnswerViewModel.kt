@@ -4,24 +4,29 @@ import android.annotation.SuppressLint
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.dai1678.quest.App
 import com.dai1678.quest.R
 import com.dai1678.quest.entity.Questionnaire
 import com.dai1678.quest.entity.QuestionnaireResult
+import com.dai1678.quest.net.NetworkResult
 import com.dai1678.quest.repository.QuestionnaireRepository
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.UUID
+import com.dai1678.quest.util.Event
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.UUID
 
 class QuestionnaireAnswerViewModel(application: Application) : AndroidViewModel(application) {
     private val questionnaireRepository = QuestionnaireRepository.getInstance()
     private val resource = application.resources
     var callback: Callback? = null
+
+    private val mutableSnackBarText = MutableLiveData<Event<Int>>()
+    val snackBarText: LiveData<Event<Int>> = mutableSnackBarText
 
     val questionNumberLabels: Array<String> =
         resource.getStringArray(R.array.questionnaire_main_number_label_page_array)
@@ -71,46 +76,41 @@ class QuestionnaireAnswerViewModel(application: Application) : AndroidViewModel(
 
     @SuppressLint("SimpleDateFormat")
     fun sendQuestionnaireResult(patientId: String) {
-        Log.d("answer", questionnaireResult.toString())
-
-        viewModelScope.launch(Dispatchers.Main) {
-            val id = UUID.randomUUID().toString()
-            val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-            runCatching {
-                withContext(Dispatchers.IO) {
-                    questionnaireRepository.createResult(
-                        Questionnaire(
-                            id = id,
-                            result = questionnaireResult,
-                            createdAt = dateFormat.format(Date()),
-                            updatedAt = dateFormat.format(Date()),
-                            patientId = patientId
-                        )
-                    )
-                }
-            }.onSuccess {
-                if (it.isSuccessful) {
+        viewModelScope.launch {
+            when (val result = postResult(patientId)) {
+                is NetworkResult.Success -> {
+                    showPostedResultMessage(R.string.questionnaire_post_success_text)
                     callback?.finishQuestionnaire()
-                } else {
-                    callback?.showErrorSnackBar(it.message())
                 }
-            }.onFailure {
-                val errorThrowsMessage = "データの送信に失敗しました"
-                Log.e("sendQuestionnaireResult", it.message ?: errorThrowsMessage)
-                callback?.showErrorSnackBar(errorThrowsMessage)
+                is NetworkResult.Error -> {
+                    Log.e("QuestionnaireAnswerVM", result.exception.toString())
+                    showPostedResultMessage(R.string.questionnaire_post_failure_text)
+                }
             }
         }
     }
 
-    interface Callback {
-        /**
-         * 送信完了
-         */
-        fun finishQuestionnaire()
+    private suspend fun postResult(patientId: String): NetworkResult<Questionnaire> =
+        withContext(Dispatchers.IO) {
+            val id = UUID.randomUUID().toString()
+            val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+            val questionnaire = Questionnaire(
+                id = id,
+                result = questionnaireResult,
+                createdAt = dateFormat.format(Date()),
+                updatedAt = dateFormat.format(Date()),
+                patientId = patientId
+            )
+            questionnaireRepository.createResult(questionnaire)
+        }
 
-        /**
-         * スナックバー表示
-         */
-        fun showErrorSnackBar(message: String)
+    // 結果送信処理後のメッセージ設定
+    private fun showPostedResultMessage(messageResId: Int) {
+        mutableSnackBarText.postValue(Event((messageResId)))
+    }
+
+    interface Callback {
+        // 結果送信完了後の処理
+        fun finishQuestionnaire()
     }
 }

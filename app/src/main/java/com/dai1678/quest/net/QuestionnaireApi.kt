@@ -17,9 +17,9 @@ interface QuestionnaireApi {
     ): Response<QuestionnaireListResponse>
 
     @POST("questionnaires")
-    suspend fun createResultAsync(
+    suspend fun createResult(
         @Body questionnaire: Questionnaire
-    ): Response<Questionnaire>
+    ): Questionnaire
 
     @GET("questionnaires/{id}")
     suspend fun getResultAsync(

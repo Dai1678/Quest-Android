@@ -6,11 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.dai1678.quest.databinding.FragmentQuestionnaireSimpleAnswerBinding
 import com.dai1678.quest.entity.PatientDetail
 import com.dai1678.quest.listener.QuestionnaireAnswerFragmentListener
+import com.dai1678.quest.util.setupSnackBar
 
 class QuestionnaireSimpleAnswerFragment : Fragment() {
 
