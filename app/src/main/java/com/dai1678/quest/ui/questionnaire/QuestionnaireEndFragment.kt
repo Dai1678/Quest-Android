@@ -10,7 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentQuestionnaireEndBinding
-import com.dai1678.quest.entity.PatientDetail
+import com.dai1678.quest.model.PatientDetail
 import com.dai1678.quest.listener.QuestionnaireEndFragmentListener
 import com.dai1678.quest.util.setupSnackBar
 

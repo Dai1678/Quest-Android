@@ -1,4 +1,4 @@
-package com.dai1678.quest.entity
+package com.dai1678.quest.model
 
 import android.annotation.SuppressLint
 import java.text.SimpleDateFormat
@@ -64,21 +64,3 @@ data class QuestionnaireListResponse(
     val total: Int,
     val list: List<Questionnaire> = listOf()
 )
-
-enum class QuestionSize(val size: Int) {
-    PAGE0(0),
-    PAGE1(1),
-    PAGE2(1),
-    PAGE3(5),
-    PAGE4(5),
-    PAGE5(4),
-    PAGE6(3),
-    PAGE7(1),
-    PAGE8(1),
-    PAGE9(1),
-    PAGE10(5),
-    PAGE11(4),
-    PAGE12(1),
-    PAGE13(4),
-    PAGE14(0)
-}

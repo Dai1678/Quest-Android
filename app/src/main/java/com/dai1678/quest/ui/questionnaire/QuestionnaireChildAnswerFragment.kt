@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentQuestionnaireBinding
-import com.dai1678.quest.entity.PatientDetail
+import com.dai1678.quest.model.PatientDetail
 
 class QuestionnaireChildAnswerFragment : Fragment() {
 

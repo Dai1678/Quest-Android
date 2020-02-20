@@ -2,7 +2,7 @@ package com.dai1678.quest.ui.questionnaire
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.dai1678.quest.entity.PatientDetail
+import com.dai1678.quest.model.PatientDetail
 
 class QuestionnairePagerAdapter(
     fragment: Fragment,

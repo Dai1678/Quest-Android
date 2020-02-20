@@ -1,8 +1,8 @@
 package com.dai1678.quest.repository
 
-import com.dai1678.quest.entity.DefaultResponse
-import com.dai1678.quest.entity.Patient
-import com.dai1678.quest.entity.PatientListResponse
+import com.dai1678.quest.model.DefaultResponse
+import com.dai1678.quest.model.Patient
+import com.dai1678.quest.model.PatientListResponse
 import com.dai1678.quest.net.NetworkResult
 import com.dai1678.quest.net.QuestApiClient
 

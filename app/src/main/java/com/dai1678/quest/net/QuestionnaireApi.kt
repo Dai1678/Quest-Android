@@ -1,7 +1,7 @@
 package com.dai1678.quest.net
 
-import com.dai1678.quest.entity.Questionnaire
-import com.dai1678.quest.entity.QuestionnaireListResponse
+import com.dai1678.quest.model.Questionnaire
+import com.dai1678.quest.model.QuestionnaireListResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET

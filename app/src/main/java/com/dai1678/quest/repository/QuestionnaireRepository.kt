@@ -1,6 +1,6 @@
 package com.dai1678.quest.repository
 
-import com.dai1678.quest.entity.Questionnaire
+import com.dai1678.quest.model.Questionnaire
 import com.dai1678.quest.net.NetworkResult
 import com.dai1678.quest.net.QuestApiClient
 

@@ -1,8 +1,8 @@
 package com.dai1678.quest.ui.questionnaire
 
 import androidx.lifecycle.ViewModel
-import com.dai1678.quest.entity.PatientDetail
-import com.dai1678.quest.entity.ScreenLog
+import com.dai1678.quest.model.PatientDetail
+import com.dai1678.quest.model.ScreenLog
 import com.google.firebase.database.FirebaseDatabase
 import java.util.Date
 

@@ -8,17 +8,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.dai1678.quest.R
-import com.dai1678.quest.entity.Questionnaire
-import com.dai1678.quest.entity.QuestionnaireResult
+import com.dai1678.quest.model.Questionnaire
+import com.dai1678.quest.model.QuestionnaireResult
 import com.dai1678.quest.net.NetworkResult
 import com.dai1678.quest.repository.QuestionnaireRepository
 import com.dai1678.quest.util.Event
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.UUID
 
 class QuestionnaireAnswerViewModel(application: Application) : AndroidViewModel(application) {
     private val questionnaireRepository = QuestionnaireRepository.getInstance()

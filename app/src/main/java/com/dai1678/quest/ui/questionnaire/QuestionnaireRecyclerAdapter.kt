@@ -9,7 +9,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.ListItemQuestionnaireChildChoiceBinding
-import com.dai1678.quest.entity.QuestionSize
+import com.dai1678.quest.model.QuestionSize
 import com.dai1678.quest.listener.QuestionnaireAnswerFragmentListener
 import com.dai1678.quest.ui.questionnaire.QuestionnaireRecyclerAdapter.QuestionnaireViewHolder
 
