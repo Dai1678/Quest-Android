@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
 import com.dai1678.quest.R
@@ -34,6 +35,7 @@ class QuestionnairePagerFragment : Fragment() {
 
         override fun onPageSelected(position: Int) {
             super.onPageSelected(position)
+            questionnairePagerViewModel.setCurrentPage(position)
             setToolbarTitle(position)
             questionnairePagerViewModel.sendScreenLog(position, args.patientDetail)
             when (position) {
@@ -82,6 +84,10 @@ class QuestionnairePagerFragment : Fragment() {
             adapter = questionnairePagerAdapter
             registerOnPageChangeCallback(onPageChangeCallback)
             isUserInputEnabled = false // 誤スクロール防止のため、横スクロール操作を受け付けない
+        }
+
+        questionnairePagerViewModel.currentPage.observe(viewLifecycleOwner) {
+            questionnairePagerViewModel.update()
         }
     }
 
