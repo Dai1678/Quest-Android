@@ -9,7 +9,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.ListItemQuestionnaireChildChoiceBinding
-import com.dai1678.quest.model.QuestionSize
+import com.dai1678.quest.enums.Question
 import com.dai1678.quest.listener.QuestionnaireAnswerFragmentListener
 import com.dai1678.quest.ui.questionnaire.QuestionnaireRecyclerAdapter.QuestionnaireViewHolder
 
@@ -30,16 +30,7 @@ class QuestionnaireRecyclerAdapter(
         return QuestionnaireViewHolder(binding)
     }
 
-    override fun getItemCount(): Int = when (currentPage) {
-        3 -> QuestionSize.PAGE3.size
-        4 -> QuestionSize.PAGE4.size
-        5 -> QuestionSize.PAGE5.size
-        6 -> QuestionSize.PAGE6.size
-        10 -> QuestionSize.PAGE10.size
-        11 -> QuestionSize.PAGE11.size
-        13 -> QuestionSize.PAGE13.size
-        else -> 0
-    }
+    override fun getItemCount(): Int = Question.valueOf(currentPage).size
 
     override fun onBindViewHolder(holder: QuestionnaireViewHolder, position: Int) {
         holder.binding.viewModel = viewModel

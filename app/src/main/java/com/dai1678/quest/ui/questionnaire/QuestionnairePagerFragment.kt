@@ -12,6 +12,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentQuestionnairePagerBinding
+import com.dai1678.quest.enums.Question
 import com.dai1678.quest.listener.MainActivityListener
 import com.dai1678.quest.listener.QuestionnairePagerFragmentListener
 
@@ -90,7 +91,8 @@ class QuestionnairePagerFragment : Fragment() {
     }
 
     private fun setToolbarTitle(page: Int) {
-        val title = "テスト"
+        val context = context ?: return
+        val title = Question.valueOf(page).getTitle(context)
         (activity as MainActivityListener).updateToolbarTitle(title)
     }
 }

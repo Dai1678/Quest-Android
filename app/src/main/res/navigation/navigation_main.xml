@@ -57,7 +57,7 @@
 
         <argument
                 android:name="patientDetail"
-                app:argType="com.dai1678.quest.entity.PatientDetail"/>
+                app:argType="com.dai1678.quest.model.PatientDetail"/>
 
         <action
                 android:id="@+id/action_to_questionnairePagerFragment"
@@ -75,7 +75,7 @@
 
         <argument
                 android:name="patientDetail"
-                app:argType="com.dai1678.quest.entity.PatientDetail" />
+                app:argType="com.dai1678.quest.model.PatientDetail" />
 
     </fragment>
 
