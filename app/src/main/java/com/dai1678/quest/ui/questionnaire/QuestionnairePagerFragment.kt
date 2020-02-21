@@ -69,7 +69,7 @@ class QuestionnairePagerFragment : Fragment(), QuestionnairePagerViewModel.CallB
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
 
-        val questionnairePagerAdapter = QuestionnairePagerAdapter(this, args.patientDetail)
+        val questionnairePagerAdapter = QuestionnairePagerAdapter(this, args.patientDetail.id)
 
         binding.pager.apply {
             adapter = questionnairePagerAdapter
