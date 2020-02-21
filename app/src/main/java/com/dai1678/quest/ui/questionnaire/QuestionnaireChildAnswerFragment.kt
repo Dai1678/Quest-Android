@@ -13,6 +13,8 @@ import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentQuestionnaireBinding
 import com.dai1678.quest.enums.Answer
 import com.dai1678.quest.enums.Question
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.databinding.GroupieViewHolder
 
 /**
  * 小問を含む回答画面のFragment
@@ -30,7 +32,7 @@ class QuestionnaireChildAnswerFragment : Fragment() {
     private lateinit var binding: FragmentQuestionnaireBinding
 
     // タップされたRadioButtonのidをキャッシュしておく
-    private var questionnaireCacheAnswerArray: IntArray = intArrayOf(
+    private var cacheAnswerId: IntArray = intArrayOf(
         R.id.answer_child_choice_1,
         R.id.answer_child_choice_1,
         R.id.answer_child_choice_1,
@@ -41,8 +43,7 @@ class QuestionnaireChildAnswerFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        questionnaireCacheAnswerArray =
-            savedInstanceState?.getIntArray(KEY_CHILD_ANSWER) ?: return
+        cacheAnswerId = savedInstanceState?.getIntArray(KEY_CHILD_ANSWER) ?: return
     }
 
     override fun onCreateView(
@@ -75,24 +76,30 @@ class QuestionnaireChildAnswerFragment : Fragment() {
     // 画面回転時にRadioButtonのタップ位置をキャッシュ
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putIntArray(KEY_CHILD_ANSWER, questionnaireCacheAnswerArray)
+        outState.putIntArray(KEY_CHILD_ANSWER, cacheAnswerId)
     }
 
     // ページをsubscribeしてからRecyclerAdapterを設定する
     private fun initAdapter(context: Context, page: Int, question: Question, answer: Answer) {
-        val questionnaireRecyclerAdapter =
-            QuestionnaireRecyclerAdapter(
-                context,
-                question,
-                answer,
-                questionnaireCacheAnswerArray
-            ) { position, checkedButtonId, answerNumber ->
-                answerViewModel.setQuestionnaireResult(page, position, answerNumber)
-                questionnaireCacheAnswerArray[position] = checkedButtonId
-            }
+        val groupAdapter = GroupAdapter<GroupieViewHolder<*>>()
+
+        groupAdapter.clear()
+        repeat(question.size) {
+            groupAdapter.add(
+                QuestionnaireChildItem(
+                    context,
+                    question,
+                    answer,
+                    cacheAnswerId
+                ) { position, checkedButtonId, answerNumber ->
+                    answerViewModel.setQuestionnaireResult(page, position, answerNumber)
+                    cacheAnswerId[position] = checkedButtonId
+                }
+            )
+        }
 
         binding.questionnaireRecyclerView.apply {
-            adapter = questionnaireRecyclerAdapter
+            adapter = groupAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         }
     }
