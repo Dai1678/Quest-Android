@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dai1678.quest.R
+import com.dai1678.quest.enums.Question
 import com.dai1678.quest.model.Questionnaire
 import com.dai1678.quest.model.QuestionnaireResult
 import com.dai1678.quest.net.NetworkResult
@@ -25,34 +26,34 @@ class QuestionnaireAnswerViewModel : ViewModel() {
     private val mutableSnackBarText = MutableLiveData<Event<Int>>()
     val snackBarText: LiveData<Event<Int>> = mutableSnackBarText
 
+    // 設問文章
     private val mutableQuestionMessage = MutableLiveData<String>()
     val questionMessage: LiveData<String> = mutableQuestionMessage
 
+    // 回答項目文言
     private val mutableAnswerChoiceMessages = MutableLiveData<Array<String>>()
     val answerChoiceMessages: LiveData<Array<String>> = mutableAnswerChoiceMessages
 
+    // 回答結果
     private var questionnaireResult = QuestionnaireResult()
 
-    fun setQuestionnaireResult(page: Int, answer: Int) {
-        when (page) {
-            1 -> questionnaireResult.page1Answer = answer
-            2 -> questionnaireResult.page2Answer = answer
-            7 -> questionnaireResult.page7Answer = answer
-            8 -> questionnaireResult.page8Answer = answer
-            9 -> questionnaireResult.page9Answer = answer
-            12 -> questionnaireResult.page12Answer = answer
-        }
-    }
-
-    fun setQuestionnaireResult(page: Int, index: Int, answer: Int) {
-        when (page) {
-            3 -> questionnaireResult.page3Answer[index] = answer
-            4 -> questionnaireResult.page4Answer[index] = answer
-            5 -> questionnaireResult.page5Answer[index] = answer
-            6 -> questionnaireResult.page6Answer[index] = answer
-            10 -> questionnaireResult.page10Answer[index] = answer
-            11 -> questionnaireResult.page11Answer[index] = answer
-            13 -> questionnaireResult.page13Answer[index] = answer
+    // 回答結果の一時保存
+    fun setQuestionnaireResult(page: Int, answer: Int, index: Int = 0) {
+        when (Question.valueOf(page)) {
+            Question.PAGE1 -> questionnaireResult.page1Answer = answer
+            Question.PAGE2 -> questionnaireResult.page2Answer = answer
+            Question.PAGE3 -> questionnaireResult.page3Answer[index] = answer
+            Question.PAGE4 -> questionnaireResult.page4Answer[index] = answer
+            Question.PAGE5 -> questionnaireResult.page5Answer[index] = answer
+            Question.PAGE6 -> questionnaireResult.page6Answer[index] = answer
+            Question.PAGE7 -> questionnaireResult.page7Answer = answer
+            Question.PAGE8 -> questionnaireResult.page8Answer = answer
+            Question.PAGE9 -> questionnaireResult.page9Answer = answer
+            Question.PAGE10 -> questionnaireResult.page10Answer[index] = answer
+            Question.PAGE11 -> questionnaireResult.page11Answer[index] = answer
+            Question.PAGE12 -> questionnaireResult.page12Answer = answer
+            Question.PAGE13 -> questionnaireResult.page13Answer[index] = answer
+            else -> return
         }
     }
 

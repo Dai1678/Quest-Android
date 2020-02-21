@@ -11,6 +11,9 @@ import com.dai1678.quest.enums.Question
 import com.dai1678.quest.listener.QuestionnaireAnswerFragmentListener
 import com.xwray.groupie.databinding.BindableItem
 
+/**
+ * 小問のレイアウト生成用 groupie Item
+ */
 class QuestionnaireChildItem(
     private val context: Context,
     private val question: Question,

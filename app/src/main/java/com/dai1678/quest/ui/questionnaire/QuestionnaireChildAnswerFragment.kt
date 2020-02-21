@@ -92,7 +92,7 @@ class QuestionnaireChildAnswerFragment : Fragment() {
                     answer,
                     cacheAnswerId
                 ) { position, checkedButtonId, answerNumber ->
-                    answerViewModel.setQuestionnaireResult(page, position, answerNumber)
+                    answerViewModel.setQuestionnaireResult(page, answerNumber, position)
                     cacheAnswerId[position] = checkedButtonId
                 }
             )
