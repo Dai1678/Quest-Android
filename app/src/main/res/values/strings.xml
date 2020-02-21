@@ -15,6 +15,7 @@
     <string name="questionnaire_collapsed_text">閉じる</string>
     <string name="questionnaire_post_success_text">回答結果を送信しました</string>
     <string name="questionnaire_post_failure_text">回答結果の送信に失敗しました</string>
+    <string name="ok">はい</string>
     <string name="blank"> </string>
 
     <!-- common questionnaire main number label -->
