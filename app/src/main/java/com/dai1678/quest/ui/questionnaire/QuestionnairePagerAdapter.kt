@@ -18,7 +18,6 @@ import com.dai1678.quest.enums.Question.PAGE6
 import com.dai1678.quest.enums.Question.PAGE7
 import com.dai1678.quest.enums.Question.PAGE8
 import com.dai1678.quest.enums.Question.PAGE9
-import com.dai1678.quest.model.PatientDetail
 
 class QuestionnairePagerAdapter(
     fragment: Fragment,

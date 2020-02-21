@@ -1,7 +1,6 @@
 package com.dai1678.quest.ui
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
