@@ -1,5 +1,6 @@
 package com.dai1678.quest.ui.questionnaire
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -29,8 +30,6 @@ class QuestionnaireChildAnswerFragment : Fragment() {
 
     private lateinit var binding: FragmentQuestionnaireBinding
 
-    private var currentPage = 0
-
     private var questionnaireCacheAnswerArray: IntArray = intArrayOf(
         R.id.answer_child_choice_1,
         R.id.answer_child_choice_1,
@@ -42,7 +41,6 @@ class QuestionnaireChildAnswerFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        currentPage = arguments?.getInt(KEY_PAGE) ?: 0
         questionnaireCacheAnswerArray =
             savedInstanceState?.getIntArray(KEY_CHILD_ANSWER) ?: return
     }
@@ -54,7 +52,6 @@ class QuestionnaireChildAnswerFragment : Fragment() {
     ): View? {
         binding = FragmentQuestionnaireBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = this@QuestionnaireChildAnswerFragment
-            page = currentPage
             viewModel = answerViewModel
         }
         return binding.root
@@ -63,27 +60,15 @@ class QuestionnaireChildAnswerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val questionnaireRecyclerAdapter =
-            QuestionnaireRecyclerAdapter(
-                requireContext(),
-                currentPage,
-                questionnaireCacheAnswerArray,
-                answerViewModel,
-                this
-            ) { position, checkedButtonId ->
-                questionnaireCacheAnswerArray[position] = checkedButtonId
-            }
-
-        binding.questionnaireRecyclerView.apply {
-            adapter = questionnaireRecyclerAdapter
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        }
-
         pagerViewModel.currentPage.observe(viewLifecycleOwner) { page ->
             val context = context ?: return@observe
             val question = Question.valueOf(page)
             val answer = Answer.valueOf(page)
-            answerViewModel.update(question.getMessage(context), answer.getAnswers(context))
+            initAdapter(context, page, question, answer)
+            answerViewModel.update(
+                question.getMessage(context),
+                answer.getAnswers(context)
+            )
         }
     }
 
@@ -92,17 +77,35 @@ class QuestionnaireChildAnswerFragment : Fragment() {
         outState.putIntArray(KEY_CHILD_ANSWER, questionnaireCacheAnswerArray)
     }
 
+    // ページをsubscribeしてからRecyclerAdapterを設定する
+    private fun initAdapter(context: Context, page: Int, question: Question, answer: Answer) {
+        val questionnaireRecyclerAdapter =
+            QuestionnaireRecyclerAdapter(
+                context,
+                question,
+                answer,
+                page,
+                questionnaireCacheAnswerArray,
+                answerViewModel
+            ) { position, checkedButtonId ->
+                questionnaireCacheAnswerArray[position] = checkedButtonId
+            }
+
+        binding.questionnaireRecyclerView.apply {
+            adapter = questionnaireRecyclerAdapter
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        }
+    }
+
     companion object {
 
-        private const val KEY_PAGE = "page"
         private const val KEY_CHILD_ANSWER = "answer"
         private const val KEY_PATIENT_DETAIL = "patient"
 
-        fun newInstance(page: Int, patientDetail: PatientDetail): Fragment {
+        fun newInstance(patientDetail: PatientDetail): Fragment {
             return QuestionnaireChildAnswerFragment()
                 .apply {
                     arguments = Bundle().apply {
-                        putInt(KEY_PAGE, page)
                         putParcelable(KEY_PATIENT_DETAIL, patientDetail)
                     }
                 }

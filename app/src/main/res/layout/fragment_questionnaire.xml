@@ -6,10 +6,6 @@
     <data>
 
         <variable
-                name="page"
-                type="Integer" />
-
-        <variable
                 name="viewModel"
                 type="com.dai1678.quest.ui.questionnaire.QuestionnaireAnswerViewModel" />
     </data>

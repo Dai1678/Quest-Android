@@ -17,7 +17,7 @@ class QuestionnairePagerAdapter(
             1, 2, 7, 8, 9, 12 ->
                 QuestionnaireSimpleAnswerFragment.newInstance()
             3, 4, 5, 6, 10, 11, 13 -> QuestionnaireChildAnswerFragment.newInstance(
-                position, patientDetail
+                patientDetail
             )
             else -> QuestionnaireEndFragment.newInstance(
                 patientDetail

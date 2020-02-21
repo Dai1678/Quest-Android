@@ -238,6 +238,8 @@
         <item>@string/questionnaire_3_answer_1</item>
         <item>@string/questionnaire_3_answer_2</item>
         <item>@string/questionnaire_3_answer_3</item>
+        <item>@string/blank</item>
+        <item>@string/blank</item>
     </string-array>
 
     <!-- Questionnaire4 -->

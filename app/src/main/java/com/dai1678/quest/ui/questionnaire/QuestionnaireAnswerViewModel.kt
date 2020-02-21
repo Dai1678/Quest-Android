@@ -1,14 +1,11 @@
 package com.dai1678.quest.ui.questionnaire
 
-import android.annotation.SuppressLint
-import android.app.Application
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dai1678.quest.R
-import com.dai1678.quest.enums.Question
 import com.dai1678.quest.model.Questionnaire
 import com.dai1678.quest.model.QuestionnaireResult
 import com.dai1678.quest.net.NetworkResult
@@ -18,9 +15,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class QuestionnaireAnswerViewModel(application: Application) : AndroidViewModel(application) {
+/**
+ * 回答画面のViewModel
+ */
+class QuestionnaireAnswerViewModel : ViewModel() {
     private val questionnaireRepository = QuestionnaireRepository.getInstance()
-    private val resource = application.resources
     var callback: Callback? = null
 
     private val mutableSnackBarText = MutableLiveData<Event<Int>>()
@@ -31,21 +30,6 @@ class QuestionnaireAnswerViewModel(application: Application) : AndroidViewModel(
 
     private val mutableAnswerChoiceMessages = MutableLiveData<Array<String>>()
     val answerChoiceMessages: LiveData<Array<String>> = mutableAnswerChoiceMessages
-
-    val answerChoice1Messages: Array<String> =
-        resource.getStringArray(R.array.questionnaire_answer_1_array)
-
-    val answerChoice2Messages: Array<String> =
-        resource.getStringArray(R.array.questionnaire_answer_2_array)
-
-    val answerChoice3Messages: Array<String> =
-        resource.getStringArray(R.array.questionnaire_answer_3_array)
-
-    val answerChoice4Messages: Array<String> =
-        resource.getStringArray(R.array.questionnaire_answer_4_array)
-
-    val answerChoice5Messages: Array<String> =
-        resource.getStringArray(R.array.questionnaire_answer_5_array)
 
     private var questionnaireResult = QuestionnaireResult()
 
@@ -72,12 +56,13 @@ class QuestionnaireAnswerViewModel(application: Application) : AndroidViewModel(
         }
     }
 
+    // 設問文章と回答項目文言を更新
     fun update(message: String, answers: Array<String>) {
         mutableQuestionMessage.value = message
         mutableAnswerChoiceMessages.value = answers
     }
 
-    @SuppressLint("SimpleDateFormat")
+    // 結果送信ボタンを押したときの処理
     fun sendQuestionnaireResult(patientId: String) {
         viewModelScope.launch {
             when (val result = postResult(patientId)) {
@@ -93,6 +78,7 @@ class QuestionnaireAnswerViewModel(application: Application) : AndroidViewModel(
         }
     }
 
+    // 回答結果送信処理
     private suspend fun postResult(patientId: String): NetworkResult<Questionnaire> =
         withContext(Dispatchers.IO) {
             val questionnaire = Questionnaire(
