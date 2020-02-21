@@ -34,7 +34,7 @@ class QuestionnairePagerAdapter(
                 QuestionnaireSimpleAnswerFragment.newInstance()
             PAGE3, PAGE4, PAGE5, PAGE6, PAGE10, PAGE11, PAGE13 ->
                 QuestionnaireChildAnswerFragment.newInstance()
-            PAGE14 -> QuestionnaireEndFragment.newInstance(patientDetail)
+            PAGE14 -> QuestionnaireEndFragment.newInstance(patientDetail.id)
         }
     }
 }

@@ -10,7 +10,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentQuestionnaireEndBinding
-import com.dai1678.quest.model.PatientDetail
 import com.dai1678.quest.listener.QuestionnaireEndFragmentListener
 import com.dai1678.quest.util.setupSnackBar
 
@@ -24,14 +23,12 @@ class QuestionnaireEndFragment : Fragment() {
 
     private val questionnaireEndFragmentListener = object : QuestionnaireEndFragmentListener {
         override fun onClickSendAnswer(view: View) {
-            val patientId =
-                arguments?.getParcelable<PatientDetail>(KEY_PATIENT_DETAIL)?.id ?: "empty"
-            questionnaireAnswerViewModel.sendQuestionnaireResult(patientId)
+            val userId = arguments?.getString(KEY_USER_ID) ?: "empty"
+            questionnaireAnswerViewModel.sendQuestionnaireResult(userId)
         }
     }
 
-    private val callbackListener = object :
-        QuestionnaireAnswerViewModel.Callback {
+    private val callbackListener = object : QuestionnaireAnswerViewModel.Callback {
         override fun finishQuestionnaire() {
             findNavController().navigate(R.id.action_global_user_list_fragment)
         }
@@ -59,12 +56,12 @@ class QuestionnaireEndFragment : Fragment() {
 
     companion object {
 
-        private const val KEY_PATIENT_DETAIL = "patient"
+        private const val KEY_USER_ID = "userId"
 
-        fun newInstance(patientDetail: PatientDetail): Fragment {
+        fun newInstance(userId: String): Fragment {
             return QuestionnaireEndFragment().apply {
                 arguments = Bundle().apply {
-                    putParcelable(KEY_PATIENT_DETAIL, patientDetail)
+                    putString(KEY_USER_ID, userId)
                 }
             }
         }
