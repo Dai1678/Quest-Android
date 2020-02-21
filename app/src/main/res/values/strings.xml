@@ -565,8 +565,7 @@
     </string-array>
 
     <!-- QuestionnaireEnd -->
-    <string name="questionnaire_end_message1">これでこのアンケートはおわりです。\nご協力ありがとうございました。</string>
-    <string name="questionnaire_end_message2">担当の看護師に端末を渡して下さい。</string>
+    <string name="questionnaire_end_message">これでこのアンケートはおわりです。\nご協力ありがとうございました。</string>
     <string name="questionnaire_end_submit_text">結果を送信する</string>
 
 </resources>
