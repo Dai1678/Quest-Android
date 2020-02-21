@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.RadioGroup
-import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.dai1678.quest.databinding.ListItemQuestionnaireChildChoiceBinding
 import com.dai1678.quest.enums.Answer
@@ -14,14 +13,15 @@ import com.dai1678.quest.enums.Question
 import com.dai1678.quest.listener.QuestionnaireAnswerFragmentListener
 import com.dai1678.quest.ui.questionnaire.QuestionnaireRecyclerAdapter.QuestionnaireViewHolder
 
+/**
+ * 小問の表示に利用しているRecyclerViewのAdapter
+ */
 class QuestionnaireRecyclerAdapter(
     private val context: Context,
     private val question: Question,
     private val answer: Answer,
-    private val currentPage: Int,
     private val cacheAnswerArray: IntArray,
-    private val viewModel: QuestionnaireAnswerViewModel,
-    private val checkCallbackListener: (Int, Int) -> Unit
+    private val checkCallbackListener: (Int, Int, Int) -> Unit
 ) :
     RecyclerView.Adapter<QuestionnaireViewHolder>() {
     private val inflater = LayoutInflater.from(context)
@@ -35,7 +35,8 @@ class QuestionnaireRecyclerAdapter(
     override fun getItemCount(): Int = question.size
 
     override fun onBindViewHolder(holder: QuestionnaireViewHolder, position: Int) {
-        holder.binding.questionnaireSubNumberText.text = question.getSubTitleNumbers(context)[position]
+        holder.binding.questionnaireSubNumberText.text =
+            question.getSubTitleNumbers(context)[position]
         holder.binding.questionnaireSubMessageText.text = question.getSubMessages(context)[position]
 
         val answerMessages = answer.getAnswers(context)
@@ -51,14 +52,15 @@ class QuestionnaireRecyclerAdapter(
             text = answerMessages[4]
         }
 
+        // 前回タップされた位置を復元
         holder.binding.answerChildChoiceRadioGroup.check(cacheAnswerArray[position])
 
+        // RadioButtonタップ時の処理
         holder.binding.listener = object : QuestionnaireAnswerFragmentListener {
             override fun onChangeAnswer(radioGroup: RadioGroup, id: Int) {
                 val checkedButton = holder.binding.root.findViewById<RadioButton>(id)
                 val answerNumber = checkedButton.tag.toString().toInt()
-                viewModel.setQuestionnaireResult(currentPage, position, answerNumber)
-                checkCallbackListener(position, id)
+                checkCallbackListener(position, id, answerNumber)
             }
         }
     }

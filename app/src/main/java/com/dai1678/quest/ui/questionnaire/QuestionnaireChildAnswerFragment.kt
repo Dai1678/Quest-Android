@@ -13,7 +13,6 @@ import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentQuestionnaireBinding
 import com.dai1678.quest.enums.Answer
 import com.dai1678.quest.enums.Question
-import com.dai1678.quest.model.PatientDetail
 
 /**
  * 小問を含む回答画面のFragment
@@ -30,6 +29,7 @@ class QuestionnaireChildAnswerFragment : Fragment() {
 
     private lateinit var binding: FragmentQuestionnaireBinding
 
+    // タップされたRadioButtonのidをキャッシュしておく
     private var questionnaireCacheAnswerArray: IntArray = intArrayOf(
         R.id.answer_child_choice_1,
         R.id.answer_child_choice_1,
@@ -72,6 +72,7 @@ class QuestionnaireChildAnswerFragment : Fragment() {
         }
     }
 
+    // 画面回転時にRadioButtonのタップ位置をキャッシュ
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putIntArray(KEY_CHILD_ANSWER, questionnaireCacheAnswerArray)
@@ -84,10 +85,9 @@ class QuestionnaireChildAnswerFragment : Fragment() {
                 context,
                 question,
                 answer,
-                page,
-                questionnaireCacheAnswerArray,
-                answerViewModel
-            ) { position, checkedButtonId ->
+                questionnaireCacheAnswerArray
+            ) { position, checkedButtonId, answerNumber ->
+                answerViewModel.setQuestionnaireResult(page, position, answerNumber)
                 questionnaireCacheAnswerArray[position] = checkedButtonId
             }
 
@@ -100,15 +100,7 @@ class QuestionnaireChildAnswerFragment : Fragment() {
     companion object {
 
         private const val KEY_CHILD_ANSWER = "answer"
-        private const val KEY_PATIENT_DETAIL = "patient"
 
-        fun newInstance(patientDetail: PatientDetail): Fragment {
-            return QuestionnaireChildAnswerFragment()
-                .apply {
-                    arguments = Bundle().apply {
-                        putParcelable(KEY_PATIENT_DETAIL, patientDetail)
-                    }
-                }
-        }
+        fun newInstance() = QuestionnaireChildAnswerFragment()
     }
 }
