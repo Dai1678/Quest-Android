@@ -64,9 +64,9 @@ class QuestionnaireAnswerViewModel : ViewModel() {
     }
 
     // 結果送信ボタンを押したときの処理
-    fun sendQuestionnaireResult(patientId: String) {
+    fun sendQuestionnaireResult(userId: String) {
         viewModelScope.launch {
-            when (val result = postResult(patientId)) {
+            when (val result = postResult(userId)) {
                 is NetworkResult.Success -> {
                     showPostedResultMessage(R.string.questionnaire_post_success_text)
                     callback?.finishQuestionnaire()
@@ -80,11 +80,11 @@ class QuestionnaireAnswerViewModel : ViewModel() {
     }
 
     // 回答結果送信処理
-    private suspend fun postResult(patientId: String): NetworkResult<Questionnaire> =
+    private suspend fun postResult(userId: String): NetworkResult<Questionnaire> =
         withContext(Dispatchers.IO) {
             val questionnaire = Questionnaire(
                 result = questionnaireResult,
-                patientId = patientId
+                patientId = userId
             )
             questionnaireRepository.createResult(questionnaire)
         }
