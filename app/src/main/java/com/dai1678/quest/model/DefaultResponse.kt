@@ -1,4 +1,4 @@
-package com.dai1678.quest.entity
+package com.dai1678.quest.model
 
 /**
  * APIから特定のデータを含まない場合に返されるデフォルトレスポンス

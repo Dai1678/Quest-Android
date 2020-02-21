@@ -13,7 +13,9 @@
     <string name="suspension_diagnosis">回答を中断</string>
     <string name="questionnaire_expand_text">答える</string>
     <string name="questionnaire_collapsed_text">閉じる</string>
-    <string name="dummy"> </string>
+    <string name="questionnaire_post_success_text">回答結果を送信しました</string>
+    <string name="questionnaire_post_failure_text">回答結果の送信に失敗しました</string>
+    <string name="blank"> </string>
 
     <!-- common questionnaire main number label -->
     <string name="questionnaire_1_number">問1</string>
@@ -27,24 +29,6 @@
     <string name="questionnaire_9_number">問9</string>
     <string name="questionnaire_10_number">問10</string>
     <string name="questionnaire_11_number">問11</string>
-
-    <string-array name="questionnaire_main_number_label_page_array">
-        <item>@string/dummy</item>
-        <item>@string/questionnaire_1_number</item>
-        <item>@string/questionnaire_2_number</item>
-        <item>@string/questionnaire_3_number</item>
-        <item>@string/questionnaire_3_number</item>
-        <item>@string/questionnaire_4_number</item>
-        <item>@string/questionnaire_5_number</item>
-        <item>@string/questionnaire_6_number</item>
-        <item>@string/questionnaire_7_number</item>
-        <item>@string/questionnaire_8_number</item>
-        <item>@string/questionnaire_9_number</item>
-        <item>@string/questionnaire_9_number</item>
-        <item>@string/questionnaire_10_number</item>
-        <item>@string/questionnaire_11_number</item>
-        <item>@string/dummy</item>
-    </string-array>
 
     <!-- common questionnaire sub number label -->
     <string name="questionnaire_sub_number_a">ア)</string>
@@ -254,6 +238,8 @@
         <item>@string/questionnaire_3_answer_1</item>
         <item>@string/questionnaire_3_answer_2</item>
         <item>@string/questionnaire_3_answer_3</item>
+        <item>@string/blank</item>
+        <item>@string/blank</item>
     </string-array>
 
     <!-- Questionnaire4 -->
@@ -473,7 +459,7 @@
     </string-array>
 
     <string-array name="questionnaire_message_array">
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
         <item>@string/questionnaire_1_message</item>
         <item>@string/questionnaire_2_message</item>
         <item>@string/questionnaire_3_message</item>
@@ -487,11 +473,11 @@
         <item>@string/questionnaire_9_message</item>
         <item>@string/questionnaire_10_message</item>
         <item>@string/questionnaire_11_message</item>
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
     </string-array>
 
     <string-array name="questionnaire_answer_1_array">
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
         <item>@string/questionnaire_1_answer_1</item>
         <item>@string/questionnaire_2_answer_1</item>
         <item>@string/questionnaire_3_answer_1</item>
@@ -505,11 +491,11 @@
         <item>@string/questionnaire_9_answer_1</item>
         <item>@string/questionnaire_10_answer_1</item>
         <item>@string/questionnaire_11_answer_1</item>
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
     </string-array>
 
     <string-array name="questionnaire_answer_2_array">
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
         <item>@string/questionnaire_1_answer_2</item>
         <item>@string/questionnaire_2_answer_2</item>
         <item>@string/questionnaire_3_answer_2</item>
@@ -523,11 +509,11 @@
         <item>@string/questionnaire_9_answer_2</item>
         <item>@string/questionnaire_10_answer_2</item>
         <item>@string/questionnaire_11_answer_2</item>
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
     </string-array>
 
     <string-array name="questionnaire_answer_3_array">
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
         <item>@string/questionnaire_1_answer_3</item>
         <item>@string/questionnaire_2_answer_3</item>
         <item>@string/questionnaire_3_answer_3</item>
@@ -541,15 +527,15 @@
         <item>@string/questionnaire_9_answer_3</item>
         <item>@string/questionnaire_10_answer_3</item>
         <item>@string/questionnaire_11_answer_3</item>
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
     </string-array>
 
     <string-array name="questionnaire_answer_4_array">
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
         <item>@string/questionnaire_1_answer_4</item>
         <item>@string/questionnaire_2_answer_4</item>
-        <item>@string/dummy</item>
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
+        <item>@string/blank</item>
         <item>@string/questionnaire_4_answer_4</item>
         <item>@string/questionnaire_5_answer_4</item>
         <item>@string/questionnaire_6_answer_4</item>
@@ -559,15 +545,15 @@
         <item>@string/questionnaire_9_answer_4</item>
         <item>@string/questionnaire_10_answer_4</item>
         <item>@string/questionnaire_11_answer_4</item>
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
     </string-array>
 
     <string-array name="questionnaire_answer_5_array">
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
         <item>@string/questionnaire_1_answer_5</item>
         <item>@string/questionnaire_2_answer_5</item>
-        <item>@string/dummy</item>
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
+        <item>@string/blank</item>
         <item>@string/questionnaire_4_answer_5</item>
         <item>@string/questionnaire_5_answer_5</item>
         <item>@string/questionnaire_6_answer_5</item>
@@ -577,12 +563,11 @@
         <item>@string/questionnaire_9_answer_5</item>
         <item>@string/questionnaire_10_answer_5</item>
         <item>@string/questionnaire_11_answer_5</item>
-        <item>@string/dummy</item>
+        <item>@string/blank</item>
     </string-array>
 
     <!-- QuestionnaireEnd -->
-    <string name="questionnaire_end_message1">これでこのアンケートはおわりです。\nご協力ありがとうございました。</string>
-    <string name="questionnaire_end_message2">担当の看護師に端末を渡して下さい。</string>
+    <string name="questionnaire_end_message">これでこのアンケートはおわりです。\nご協力ありがとうございました。</string>
     <string name="questionnaire_end_submit_text">結果を送信する</string>
 
 </resources>

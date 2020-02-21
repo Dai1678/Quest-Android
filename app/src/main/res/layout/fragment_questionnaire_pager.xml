@@ -7,6 +7,10 @@
         <variable
                 name="listener"
                 type="com.dai1678.quest.listener.QuestionnairePagerFragmentListener" />
+
+        <variable
+                name="viewModel"
+                type="com.dai1678.quest.ui.questionnaire.QuestionnairePagerViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -48,7 +52,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/vertical_half_guideline"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/horizontal_guideline" />
+                app:layout_constraintTop_toTopOf="@id/horizontal_guideline"
+                app:visibilityInvisible="@{viewModel.isVisibleBackButton}" />
 
         <com.google.android.material.button.MaterialButton
                 android:id="@+id/questionnaire_next_button"
@@ -60,7 +65,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/vertical_half_guideline"
-                app:layout_constraintTop_toTopOf="@id/horizontal_guideline" />
+                app:layout_constraintTop_toTopOf="@id/horizontal_guideline"
+                app:visibilityInvisible="@{viewModel.isVisibleNextButton}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

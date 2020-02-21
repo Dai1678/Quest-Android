@@ -7,8 +7,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dai1678.quest.R
-import com.dai1678.quest.entity.DefaultResponse
-import com.dai1678.quest.entity.Patient
+import com.dai1678.quest.model.DefaultResponse
+import com.dai1678.quest.model.Patient
 import com.dai1678.quest.net.NetworkResult
 import com.dai1678.quest.repository.UserRepository
 import com.dai1678.quest.util.Event

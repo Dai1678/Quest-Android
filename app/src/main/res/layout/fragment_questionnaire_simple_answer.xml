@@ -8,10 +8,6 @@
         <import type="android.view.View" />
 
         <variable
-                name="page"
-                type="Integer" />
-
-        <variable
                 name="viewModel"
                 type="com.dai1678.quest.ui.questionnaire.QuestionnaireAnswerViewModel" />
 
@@ -23,43 +19,34 @@
     <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical"
-            android:scrollbarThumbVertical="@android:color/darker_gray"
+            android:fillViewport="true"
             android:scrollbarSize="@dimen/scrollbar_size"
-            android:fillViewport="true">
+            android:scrollbarThumbVertical="@android:color/darker_gray"
+            android:scrollbars="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/component_interval_size_medium">
-
-            <TextView
-                    android:id="@+id/questionnaire_main_number_text"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@{viewModel.questionNumberLabels[page]}"
-                    android:textSize="@dimen/text_size_medium"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="問1" />
+                android:layout_margin="@dimen/component_interval_size_medium">
 
             <TextView
                     android:id="@+id/questionnaire_main_message_text"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/component_interval_size_small"
-                    android:paddingBottom="@dimen/component_interval_size_medium"
-                    android:text="@{viewModel.questionMessages[page]}"
+                    android:text="@{viewModel.questionMessage}"
                     android:textSize="@dimen/text_size_medium"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/questionnaire_main_number_text"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="@string/questionnaire_1_message" />
 
             <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/component_interval_size_large"
+                    android:layout_marginTop="@dimen/component_interval_size_medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/questionnaire_main_message_text">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -85,7 +72,7 @@
                                 android:buttonTint="@color/colorPrimary"
                                 android:padding="@dimen/component_interval_size_medium"
                                 android:tag="1"
-                                android:text="@{viewModel.answerChoice1Messages[page]}"
+                                android:text="@{viewModel.answerChoiceMessages[0]}"
                                 android:textSize="@dimen/text_size_medium"
                                 tools:text="@string/questionnaire_1_answer_1" />
 
@@ -96,7 +83,7 @@
                                 android:buttonTint="@color/colorPrimary"
                                 android:padding="@dimen/component_interval_size_medium"
                                 android:tag="2"
-                                android:text="@{viewModel.answerChoice2Messages[page]}"
+                                android:text="@{viewModel.answerChoiceMessages[1]}"
                                 android:textSize="@dimen/text_size_medium"
                                 tools:text="@string/questionnaire_1_answer_2" />
 
@@ -107,7 +94,7 @@
                                 android:buttonTint="@color/colorPrimary"
                                 android:padding="@dimen/component_interval_size_medium"
                                 android:tag="3"
-                                android:text="@{viewModel.answerChoice3Messages[page]}"
+                                android:text="@{viewModel.answerChoiceMessages[2]}"
                                 android:textSize="@dimen/text_size_medium"
                                 tools:text="@string/questionnaire_1_answer_3" />
 
@@ -118,7 +105,7 @@
                                 android:buttonTint="@color/colorPrimary"
                                 android:padding="@dimen/component_interval_size_medium"
                                 android:tag="4"
-                                android:text="@{viewModel.answerChoice4Messages[page]}"
+                                android:text="@{viewModel.answerChoiceMessages[3]}"
                                 android:textSize="@dimen/text_size_medium"
                                 tools:text="@string/questionnaire_1_answer_4" />
 
@@ -129,7 +116,7 @@
                                 android:buttonTint="@color/colorPrimary"
                                 android:padding="@dimen/component_interval_size_medium"
                                 android:tag="5"
-                                android:text="@{viewModel.answerChoice5Messages[page]}"
+                                android:text="@{viewModel.answerChoiceMessages[4]}"
                                 android:textSize="@dimen/text_size_medium"
                                 tools:text="@string/questionnaire_1_answer_5" />
 
@@ -140,9 +127,9 @@
                                 android:buttonTint="@color/colorPrimary"
                                 android:padding="@dimen/component_interval_size_medium"
                                 android:tag="6"
-                                android:text="@string/questionnaire_7_answer_6"
+                                android:text="@{viewModel.answerChoiceMessages[5]}"
                                 android:textSize="@dimen/text_size_medium"
-                                android:visibility="@{page == 8 ? View.VISIBLE : View.GONE}"
+                                android:visibility="@{viewModel.answerChoiceMessages[5] != null ? View.VISIBLE : View.GONE}"
                                 tools:visibility="gone" />
 
                     </RadioGroup>

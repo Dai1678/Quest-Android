@@ -8,30 +8,28 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.observe
 import com.dai1678.quest.databinding.FragmentQuestionnaireSimpleAnswerBinding
-import com.dai1678.quest.entity.PatientDetail
+import com.dai1678.quest.enums.Answer
+import com.dai1678.quest.enums.Question
 import com.dai1678.quest.listener.QuestionnaireAnswerFragmentListener
 
 class QuestionnaireSimpleAnswerFragment : Fragment() {
 
-    private val questionnaireAnswerViewModel: QuestionnaireAnswerViewModel by viewModels({
+    private val viewModel: QuestionnaireAnswerViewModel by viewModels({
+        requireParentFragment()
+    })
+    private val pagerViewModel: QuestionnairePagerViewModel by viewModels({
         requireParentFragment()
     })
     private lateinit var binding: FragmentQuestionnaireSimpleAnswerBinding
 
-    private var currentPage = 0
-
-    private val questionnaireAnswerFragmentListener = object : QuestionnaireAnswerFragmentListener {
+    private val listener = object : QuestionnaireAnswerFragmentListener {
         override fun onChangeAnswer(radioGroup: RadioGroup, id: Int) {
             val checkedButton = binding.root.findViewById<RadioButton>(id)
             val answerNumber = checkedButton.tag.toString().toInt()
-            questionnaireAnswerViewModel.setQuestionnaireResult(currentPage, answerNumber)
+            viewModel.setQuestionnaireResult(pagerViewModel.currentPage.value ?: 0, answerNumber)
         }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        currentPage = arguments?.getInt(KEY_PAGE) ?: 1
     }
 
     override fun onCreateView(
@@ -42,26 +40,24 @@ class QuestionnaireSimpleAnswerFragment : Fragment() {
         binding =
             FragmentQuestionnaireSimpleAnswerBinding.inflate(inflater, container, false).apply {
                 lifecycleOwner = this@QuestionnaireSimpleAnswerFragment
-                page = currentPage
-                viewModel = questionnaireAnswerViewModel
-                listener = questionnaireAnswerFragmentListener
+                viewModel = this@QuestionnaireSimpleAnswerFragment.viewModel
+                listener = this@QuestionnaireSimpleAnswerFragment.listener
             }
         return binding.root
     }
 
-    companion object {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        private const val KEY_PAGE = "page"
-        private const val KEY_PATIENT_DETAIL = "patient"
-
-        fun newInstance(page: Int, patientDetail: PatientDetail): Fragment {
-            return QuestionnaireSimpleAnswerFragment()
-                .apply {
-                    arguments = Bundle().apply {
-                        putInt(KEY_PAGE, page)
-                        putParcelable(KEY_PATIENT_DETAIL, patientDetail)
-                    }
-                }
+        pagerViewModel.currentPage.observe(viewLifecycleOwner) { page ->
+            val context = context ?: return@observe
+            val question = Question.valueOf(page)
+            val answer = Answer.valueOf(page)
+            viewModel.update(question.getMessage(context), answer.getAnswers(context))
         }
+    }
+
+    companion object {
+        fun newInstance(): Fragment = QuestionnaireSimpleAnswerFragment()
     }
 }

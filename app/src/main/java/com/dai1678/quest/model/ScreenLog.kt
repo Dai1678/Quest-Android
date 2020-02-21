@@ -1,4 +1,4 @@
-package com.dai1678.quest.entity
+package com.dai1678.quest.model
 
 data class ScreenLog(
     val patientId: String,

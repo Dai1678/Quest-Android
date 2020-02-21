@@ -8,18 +8,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentQuestionnairePagerBinding
+import com.dai1678.quest.enums.Question
+import com.dai1678.quest.listener.MainActivityListener
 import com.dai1678.quest.listener.QuestionnairePagerFragmentListener
 
-class QuestionnairePagerFragment : Fragment() {
+class QuestionnairePagerFragment : Fragment(), QuestionnairePagerViewModel.CallBack {
 
     private lateinit var binding: FragmentQuestionnairePagerBinding
 
     private val args: QuestionnairePagerFragmentArgs by navArgs()
-    private val questionnairePagerViewModel: QuestionnairePagerViewModel by viewModels()
+    private val viewModel: QuestionnairePagerViewModel by viewModels()
 
     private val onPageChangeCallback = object : ViewPager2.OnPageChangeCallback() {
         override fun onPageScrollStateChanged(state: Int) = Unit
@@ -32,23 +35,12 @@ class QuestionnairePagerFragment : Fragment() {
 
         override fun onPageSelected(position: Int) {
             super.onPageSelected(position)
-            questionnairePagerViewModel.sendScreenLog(position, args.patientDetail)
-            when (position) {
-                0 -> {
-                    binding.questionnaireBackButton.visibility = View.INVISIBLE
-                }
-                14 -> {
-                    binding.questionnaireNextButton.visibility = View.INVISIBLE
-                }
-                else -> {
-                    binding.questionnaireBackButton.visibility = View.VISIBLE
-                    binding.questionnaireNextButton.visibility = View.VISIBLE
-                }
-            }
+            viewModel.setCurrentPage(position)
+            viewModel.sendScreenLog(position, args.patientDetail)
         }
     }
 
-    private val questionnairePagerFragmentListener = object : QuestionnairePagerFragmentListener {
+    private val listener = object : QuestionnairePagerFragmentListener {
         override fun onClickBack(view: View) {
             binding.pager.setCurrentItem(binding.pager.currentItem - 1, true)
         }
@@ -64,7 +56,11 @@ class QuestionnairePagerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentQuestionnairePagerBinding.inflate(inflater, container, false).apply {
-            listener = questionnairePagerFragmentListener
+            listener = this@QuestionnairePagerFragment.listener
+            viewModel = this@QuestionnairePagerFragment.viewModel.apply {
+                callBack = this@QuestionnairePagerFragment
+            }
+            lifecycleOwner = this@QuestionnairePagerFragment
         }
         return binding.root
     }
@@ -73,17 +69,27 @@ class QuestionnairePagerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
 
-        val questionnairePagerAdapter = QuestionnairePagerAdapter(this, args.patientDetail)
+        val questionnairePagerAdapter = QuestionnairePagerAdapter(this, args.patientDetail.id)
 
         binding.pager.apply {
             adapter = questionnairePagerAdapter
             registerOnPageChangeCallback(onPageChangeCallback)
             isUserInputEnabled = false // 誤スクロール防止のため、横スクロール操作を受け付けない
         }
+
+        viewModel.currentPage.observe(viewLifecycleOwner) {
+            viewModel.update()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.questionnaire_menu, menu)
+    }
+
+    override fun updateToolbarTitle(question: Question) {
+        val context = context ?: return
+        val title = question.getTitle(context)
+        (activity as MainActivityListener).updateToolbarTitle(title)
     }
 }
