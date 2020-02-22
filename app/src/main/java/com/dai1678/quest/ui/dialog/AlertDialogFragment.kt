@@ -39,7 +39,8 @@ class AlertDialogFragment : DialogFragment() {
         super.onAttach(context)
         alertDialogFragmentListener = when {
             context is AlertDialogFragmentListener -> context
-            targetFragment is AlertDialogFragmentListener -> targetFragment as AlertDialogFragmentListener
+            targetFragment is AlertDialogFragmentListener ->
+                targetFragment as AlertDialogFragmentListener
             else -> null
         }
     }
