@@ -11,23 +11,6 @@
             app:popUpTo="@id/navigation_main"
             app:popUpToInclusive="true" />
 
-    <action
-            android:id="@+id/action_global_suspend_check_dialog"
-            app:destination="@+id/suspendCheckDialogFragment" />
-
-    <dialog
-            android:id="@+id/suspendCheckDialogFragment"
-            android:name="com.dai1678.quest.ui.dialog.SuspendCheckDialogFragment"
-            android:label="SuspendCheckDialogFragment">
-
-        <action
-                android:id="@+id/action_to_patientListFragment"
-                app:destination="@+id/userListFragment"
-                app:popUpTo="@id/navigation_main"
-                app:popUpToInclusive="true" />
-
-    </dialog>
-
     <fragment
             android:id="@+id/userListFragment"
             android:name="com.dai1678.quest.ui.userList.UserListFragment"
@@ -59,7 +42,8 @@
     <fragment
             android:id="@+id/questionnairePagerFragment"
             android:name="com.dai1678.quest.ui.questionnaire.QuestionnairePagerFragment"
-            android:label="@string/questionnaire_toolbar_title">
+            android:label="@string/questionnaire_toolbar_title"
+            tools:layout="@layout/fragment_questionnaire_pager">
 
         <argument
                 android:name="userId"
