@@ -2,7 +2,7 @@ package com.dai1678.quest.model
 
 import java.util.UUID
 
-data class Patient(
+data class User(
     val id: String = UUID.randomUUID().toString(),
     val firstName: String,
     val lastName: String,
@@ -15,5 +15,5 @@ data class Patient(
 
 data class PatientListResponse(
     val total: Int,
-    val list: List<Patient> = listOf()
+    val list: List<User> = listOf()
 )

@@ -20,12 +20,12 @@
             tools:context=".ui.userList.UserListFragment">
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-                android:id="@+id/patient_list_swipe_refresh_layout"
+                android:id="@+id/user_list_swipe_refresh_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
             <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/patient_list_recycler_view"
+                    android:id="@+id/user_list_recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scrollbars="vertical"
@@ -46,7 +46,7 @@
                 android:onClick="@{listener::onClickCreateUserFab}"
                 app:icon="@drawable/ic_add_white_24dp"
                 app:iconTint="@android:color/white"
-                app:layout_anchor="@id/patient_list_swipe_refresh_layout"
+                app:layout_anchor="@id/user_list_swipe_refresh_layout"
                 app:layout_anchorGravity="bottom|right|end"/>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

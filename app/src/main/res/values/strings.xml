@@ -1,17 +1,10 @@
 <resources>
     <!-- common strings -->
     <string name="app_name" translatable="false">Quest</string>
-    <string name="password">パスワード</string>
-    <string name="add">作成</string>
     <string name="go_next">次へ進む</string>
     <string name="go_back">前に戻る</string>
     <string name="back">もどる</string>
-    <string name="reload">更新する</string>
-    <string name="search">検索する</string>
-    <string name="question_label">問</string>
     <string name="suspension_diagnosis">回答を中断</string>
-    <string name="questionnaire_expand_text">答える</string>
-    <string name="questionnaire_collapsed_text">閉じる</string>
     <string name="questionnaire_post_success_text">回答結果を送信しました</string>
     <string name="questionnaire_post_failure_text">回答結果の送信に失敗しました</string>
     <string name="ok">はい</string>
@@ -206,19 +199,6 @@
     <string name="questionnaire_3_answer_2">少しむずかしい</string>
     <string name="questionnaire_3_answer_3">ぜんぜんむずかしくない</string>
 
-    <string-array name="questionnaire_3_sub_messages">
-        <item>@string/questionnaire_3_a_message</item>
-        <item>@string/questionnaire_3_b_message</item>
-        <item>@string/questionnaire_3_c_message</item>
-        <item>@string/questionnaire_3_d_message</item>
-        <item>@string/questionnaire_3_e_message</item>
-        <item>@string/questionnaire_3_f_message</item>
-        <item>@string/questionnaire_3_g_message</item>
-        <item>@string/questionnaire_3_h_message</item>
-        <item>@string/questionnaire_3_i_message</item>
-        <item>@string/questionnaire_3_j_message</item>
-    </string-array>
-
     <string-array name="questionnaire_3_1_sub_messages">
         <item>@string/questionnaire_3_a_message</item>
         <item>@string/questionnaire_3_b_message</item>
@@ -379,18 +359,6 @@
     <string name="questionnaire_9_answer_4">まれに</string>
     <string name="questionnaire_9_answer_5">ぜんぜんない</string>
 
-    <string-array name="questionnaire_9_sub_messages">
-        <item>@string/questionnaire_9_a_message</item>
-        <item>@string/questionnaire_9_b_message</item>
-        <item>@string/questionnaire_9_c_message</item>
-        <item>@string/questionnaire_9_d_message</item>
-        <item>@string/questionnaire_9_e_message</item>
-        <item>@string/questionnaire_9_f_message</item>
-        <item>@string/questionnaire_9_g_message</item>
-        <item>@string/questionnaire_9_h_message</item>
-        <item>@string/questionnaire_9_i_message</item>
-    </string-array>
-
     <string-array name="questionnaire_9_1_sub_messages">
         <item>@string/questionnaire_9_a_message</item>
         <item>@string/questionnaire_9_b_message</item>
@@ -457,114 +425,6 @@
         <item>@string/questionnaire_11_answer_3</item>
         <item>@string/questionnaire_11_answer_4</item>
         <item>@string/questionnaire_11_answer_5</item>
-    </string-array>
-
-    <string-array name="questionnaire_message_array">
-        <item>@string/blank</item>
-        <item>@string/questionnaire_1_message</item>
-        <item>@string/questionnaire_2_message</item>
-        <item>@string/questionnaire_3_message</item>
-        <item>@string/questionnaire_3_message</item>
-        <item>@string/questionnaire_4_message</item>
-        <item>@string/questionnaire_5_message</item>
-        <item>@string/questionnaire_6_message</item>
-        <item>@string/questionnaire_7_message</item>
-        <item>@string/questionnaire_8_message</item>
-        <item>@string/questionnaire_9_message</item>
-        <item>@string/questionnaire_9_message</item>
-        <item>@string/questionnaire_10_message</item>
-        <item>@string/questionnaire_11_message</item>
-        <item>@string/blank</item>
-    </string-array>
-
-    <string-array name="questionnaire_answer_1_array">
-        <item>@string/blank</item>
-        <item>@string/questionnaire_1_answer_1</item>
-        <item>@string/questionnaire_2_answer_1</item>
-        <item>@string/questionnaire_3_answer_1</item>
-        <item>@string/questionnaire_3_answer_1</item>
-        <item>@string/questionnaire_4_answer_1</item>
-        <item>@string/questionnaire_5_answer_1</item>
-        <item>@string/questionnaire_6_answer_1</item>
-        <item>@string/questionnaire_7_answer_1</item>
-        <item>@string/questionnaire_8_answer_1</item>
-        <item>@string/questionnaire_9_answer_1</item>
-        <item>@string/questionnaire_9_answer_1</item>
-        <item>@string/questionnaire_10_answer_1</item>
-        <item>@string/questionnaire_11_answer_1</item>
-        <item>@string/blank</item>
-    </string-array>
-
-    <string-array name="questionnaire_answer_2_array">
-        <item>@string/blank</item>
-        <item>@string/questionnaire_1_answer_2</item>
-        <item>@string/questionnaire_2_answer_2</item>
-        <item>@string/questionnaire_3_answer_2</item>
-        <item>@string/questionnaire_3_answer_2</item>
-        <item>@string/questionnaire_4_answer_2</item>
-        <item>@string/questionnaire_5_answer_2</item>
-        <item>@string/questionnaire_6_answer_2</item>
-        <item>@string/questionnaire_7_answer_2</item>
-        <item>@string/questionnaire_8_answer_2</item>
-        <item>@string/questionnaire_9_answer_2</item>
-        <item>@string/questionnaire_9_answer_2</item>
-        <item>@string/questionnaire_10_answer_2</item>
-        <item>@string/questionnaire_11_answer_2</item>
-        <item>@string/blank</item>
-    </string-array>
-
-    <string-array name="questionnaire_answer_3_array">
-        <item>@string/blank</item>
-        <item>@string/questionnaire_1_answer_3</item>
-        <item>@string/questionnaire_2_answer_3</item>
-        <item>@string/questionnaire_3_answer_3</item>
-        <item>@string/questionnaire_3_answer_3</item>
-        <item>@string/questionnaire_4_answer_3</item>
-        <item>@string/questionnaire_5_answer_3</item>
-        <item>@string/questionnaire_6_answer_3</item>
-        <item>@string/questionnaire_7_answer_3</item>
-        <item>@string/questionnaire_8_answer_3</item>
-        <item>@string/questionnaire_9_answer_3</item>
-        <item>@string/questionnaire_9_answer_3</item>
-        <item>@string/questionnaire_10_answer_3</item>
-        <item>@string/questionnaire_11_answer_3</item>
-        <item>@string/blank</item>
-    </string-array>
-
-    <string-array name="questionnaire_answer_4_array">
-        <item>@string/blank</item>
-        <item>@string/questionnaire_1_answer_4</item>
-        <item>@string/questionnaire_2_answer_4</item>
-        <item>@string/blank</item>
-        <item>@string/blank</item>
-        <item>@string/questionnaire_4_answer_4</item>
-        <item>@string/questionnaire_5_answer_4</item>
-        <item>@string/questionnaire_6_answer_4</item>
-        <item>@string/questionnaire_7_answer_4</item>
-        <item>@string/questionnaire_8_answer_4</item>
-        <item>@string/questionnaire_9_answer_4</item>
-        <item>@string/questionnaire_9_answer_4</item>
-        <item>@string/questionnaire_10_answer_4</item>
-        <item>@string/questionnaire_11_answer_4</item>
-        <item>@string/blank</item>
-    </string-array>
-
-    <string-array name="questionnaire_answer_5_array">
-        <item>@string/blank</item>
-        <item>@string/questionnaire_1_answer_5</item>
-        <item>@string/questionnaire_2_answer_5</item>
-        <item>@string/blank</item>
-        <item>@string/blank</item>
-        <item>@string/questionnaire_4_answer_5</item>
-        <item>@string/questionnaire_5_answer_5</item>
-        <item>@string/questionnaire_6_answer_5</item>
-        <item>@string/questionnaire_7_answer_5</item>
-        <item>@string/questionnaire_8_answer_5</item>
-        <item>@string/questionnaire_9_answer_5</item>
-        <item>@string/questionnaire_9_answer_5</item>
-        <item>@string/questionnaire_10_answer_5</item>
-        <item>@string/questionnaire_11_answer_5</item>
-        <item>@string/blank</item>
     </string-array>
 
     <!-- QuestionnaireEnd -->

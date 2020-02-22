@@ -6,8 +6,8 @@ import com.dai1678.quest.net.QuestApiClient
 
 class QuestionnaireRepository {
 
-    suspend fun getResultList(patientId: String) =
-        QuestApiClient.questionnaireApi.getResultListAsync(patientId)
+    suspend fun getResultList(userId: String) =
+        QuestApiClient.questionnaireApi.getResultListAsync(userId)
 
     suspend fun createResult(questionnaire: Questionnaire): NetworkResult<Questionnaire> {
         return try {

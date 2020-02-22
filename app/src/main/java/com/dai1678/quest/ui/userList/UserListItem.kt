@@ -4,7 +4,7 @@ import com.dai1678.quest.R
 import com.dai1678.quest.databinding.ListHeaderUserBinding
 import com.dai1678.quest.databinding.ListItemUserBinding
 import com.dai1678.quest.enums.DateFormat
-import com.dai1678.quest.model.Patient
+import com.dai1678.quest.model.User
 import com.xwray.groupie.databinding.BindableItem
 import java.util.Date
 
@@ -28,15 +28,15 @@ class UserListHeaderItem(private val sortCategoryName: String) :
 /**
  * 受検者リスト画面 受検者情報
  */
-class UserListBodyItem(val user: Patient, val callback: () -> Unit) :
+class UserListBodyItem(val user: User, val callback: () -> Unit) :
     BindableItem<ListItemUserBinding>() {
 
     override fun getLayout() = R.layout.list_item_user
 
     override fun bind(viewBinding: ListItemUserBinding, position: Int) {
         val resources = viewBinding.root.resources
-        viewBinding.patientName = "${user.lastName} ${user.firstName}"
-        viewBinding.patientNameReading = "${user.lastNameReading} ${user.firstNameReading}"
+        viewBinding.userName = "${user.lastName} ${user.firstName}"
+        viewBinding.userNameReading = "${user.lastNameReading} ${user.firstNameReading}"
 
         val lastQuestionnaireDate = if (user.questionnaires.isEmpty()) {
             resources.getString(R.string.user_list_none_last_questionnaire_label)
@@ -50,7 +50,7 @@ class UserListBodyItem(val user: Patient, val callback: () -> Unit) :
             resources.getString(R.string.user_list_last_questionnaire_label, lastQuestionnaireDate)
 
         // 受検者確認ダイアログの表示
-        viewBinding.listItemPatientView.setOnClickListener {
+        viewBinding.listItemUserView.setOnClickListener {
             callback.invoke()
         }
     }
