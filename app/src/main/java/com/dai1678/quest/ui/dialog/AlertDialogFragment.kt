@@ -1,13 +1,12 @@
 package com.dai1678.quest.ui.dialog
 
-import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.navArgs
-import com.dai1678.quest.R
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 /**
  * メッセージとボタンを含むダイアログ
@@ -46,7 +45,7 @@ class AlertDialogFragment : DialogFragment() {
         val activity = activity ?: return super.onCreateDialog(savedInstanceState)
 
         isCancelable = cancelable
-        return AlertDialog.Builder(activity, R.style.DialogStyle).apply {
+        return MaterialAlertDialogBuilder(activity).apply {
             setTitle(title)
             setMessage(message)
             setPositiveButton(positiveButtonTitle) { dialog, which ->

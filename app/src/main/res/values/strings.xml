@@ -135,8 +135,8 @@
     <string name="user_list_last_questionnaire_descending_order_label">最終受検日(降順)</string>
 
     <!-- DiagnosticCheckDialog -->
-    <string name="diagnostic_check_dialog_title">%1$sさんの診断です</string>
-    <string name="diagnostic_check_dialog_message"><b>受検開始</b>を押すとアンケートの回答画面に進みます。\n\n受検者に端末を渡してください。</string>
+    <string name="diagnostic_check_dialog_title">%1$sさんの受検を開始します</string>
+    <string name="diagnostic_check_dialog_message">必ず受検者が端末を操作してください。</string>
     <string name="start_diagnosis">受検開始</string>
     <string name="cancel_diagnosis">もどる</string>
 

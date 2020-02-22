@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/colorPrimaryText</item>
         <item name="android:textColorSecondary">@color/colorSecondaryText</item>
-        <item name="android:alertDialogTheme">@style/DialogStyle</item>
+        <item name="materialAlertDialogTheme">@style/MaterialDialogStyle</item>
         <item name="android:radioButtonStyle">@style/RadioButton.Style</item>
     </style>
 
@@ -27,18 +27,31 @@
         <item name="android:progressTint">@color/colorPrimary</item>
     </style>
 
-    <style name="DialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
-        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+    <style name="MaterialDialogStyle" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="materialAlertDialogTitleTextStyle">@style/MaterialDialogStyle.Title</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/MaterialDialogStyle.Body</item>
+        <item name="buttonBarPositiveButtonStyle">@style/MaterialDialogStyle.PositiveButton</item>
+        <item name="buttonBarNegativeButtonStyle">@style/MaterialDialogStyle.NegativeButton</item>
     </style>
 
-    <style name="NegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
-        <item name="android:textColor">@color/colorPrimaryText</item>
+    <style name="MaterialDialogStyle.Title" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:colorBackground">@color/colorPrimary</item>
     </style>
 
-    <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:backgroundTint">@color/colorPrimary</item>
+    <style name="MaterialDialogStyle.Body" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="MaterialDialogStyle.NegativeButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/colorPrimaryPaleText</item>
+        <item name="android:backgroundTint">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="MaterialDialogStyle.PositiveButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
     </style>
 
     <style name="RadioButton.Style" parent="Widget.AppCompat.CompoundButton.RadioButton">
