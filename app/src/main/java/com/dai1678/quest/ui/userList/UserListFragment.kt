@@ -1,5 +1,6 @@
 package com.dai1678.quest.ui.userList
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,8 +11,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentUserListBinding
 import com.dai1678.quest.listener.PatientListFragmentListener
+import com.dai1678.quest.model.Patient
+import com.dai1678.quest.ui.dialog.AlertDialogFragment
+import com.dai1678.quest.ui.dialog.alertDialogFragment
 import com.dai1678.quest.util.setUpRefreshLayout
 import com.dai1678.quest.util.setupSnackBar
 import com.xwray.groupie.GroupAdapter
@@ -21,11 +26,14 @@ import java.util.Locale
 /**
  * 受検者リスト画面 Fragment
  */
-class UserListFragment : Fragment() {
+class UserListFragment : Fragment(), AlertDialogFragment.AlertDialogFragmentListener {
 
     private val viewModel: UserListViewModel by viewModels()
 
     private lateinit var binding: FragmentUserListBinding
+
+    // 受検開始するユーザーデータ
+    private lateinit var questionnaireTargetUser: Patient
 
     private val listener = object : PatientListFragmentListener {
         override fun onClickCreateUserFab(view: View) {
@@ -66,9 +74,12 @@ class UserListFragment : Fragment() {
 //            groupAdapter.add(UserListHeaderItem("名前(昇順)")) // TODO 並び替え機能の実装後に有効化
             groupAdapter.addAll(
                 userList.map {
-                    UserListBodyItem(it)
+                    UserListBodyItem(it) {
+                        questionnaireTargetUser = it
+                        intentToConfirmationDialog(it.lastName)
+                    }
                 }.sortedBy {
-                    it.patient.lastName.toUpperCase(Locale.getDefault()) // TODO 並び替え機能に合わせる
+                    it.user.lastName.toUpperCase(Locale.getDefault()) // TODO 並び替え機能に合わせる
                 }
             )
         }
@@ -80,6 +91,30 @@ class UserListFragment : Fragment() {
 
         binding.patientListSwipeRefreshLayout.setOnRefreshListener {
             viewModel.getUsers()
+        }
+    }
+
+    // リストクリック時の処理
+    private fun intentToConfirmationDialog(userLastName: String) {
+        alertDialogFragment {
+            titleResId = R.string.diagnostic_check_dialog_title
+            titleFormatArgs = arrayOf(userLastName)
+            messageResId = R.string.diagnostic_check_dialog_message
+            positiveTitleResId = R.string.start_diagnosis
+            negativeTitleResId = R.string.back
+        }.show(parentFragmentManager, this)
+    }
+
+    // 受検開始を押した時の処理
+    override fun onPositiveClick(dialog: DialogInterface, which: Int) {
+        super.onPositiveClick(dialog, which)
+        questionnaireTargetUser.let { user ->
+            val action = UserListFragmentDirections.actionToQuestionnairePagerFragment().apply {
+                userId = user.id
+                userGender = user.gender
+                userAgeRange = user.ageRange
+            }
+            findNavController().navigate(action)
         }
     }
 }

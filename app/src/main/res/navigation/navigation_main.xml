@@ -11,23 +11,6 @@
             app:popUpTo="@id/navigation_main"
             app:popUpToInclusive="true" />
 
-    <action
-            android:id="@+id/action_global_suspend_check_dialog"
-            app:destination="@+id/suspendCheckDialogFragment" />
-
-    <dialog
-            android:id="@+id/suspendCheckDialogFragment"
-            android:name="com.dai1678.quest.ui.dialog.SuspendCheckDialogFragment"
-            android:label="SuspendCheckDialogFragment">
-
-        <action
-                android:id="@+id/action_to_patientListFragment"
-                app:destination="@+id/userListFragment"
-                app:popUpTo="@id/navigation_main"
-                app:popUpToInclusive="true" />
-
-    </dialog>
-
     <fragment
             android:id="@+id/userListFragment"
             android:name="com.dai1678.quest.ui.userList.UserListFragment"
@@ -35,29 +18,10 @@
             tools:layout="@layout/fragment_user_list">
 
         <action
-                android:id="@+id/action_to_diagnosticCheckDialogFragment"
-                app:destination="@id/diagnosticCheckDialogFragment" />
-        <action
                 android:id="@+id/action_to_createUserFragment"
                 app:destination="@id/createUserFragment"
                 app:enterAnim="@anim/slide_from_right"
                 app:exitAnim="@anim/slide_to_left" />
-
-    </fragment>
-
-    <fragment
-            android:id="@+id/createUserFragment"
-            android:name="com.dai1678.quest.ui.registerUser.RegisterUserFragment"
-            android:label="@string/create_user_toolbar_title"
-            tools:layout="@layout/fragment_register_user"/>
-
-    <dialog
-            android:id="@+id/diagnosticCheckDialogFragment"
-            android:name="com.dai1678.quest.ui.dialog.DiagnosticCheckDialogFragment">
-
-        <argument
-                android:name="patientDetail"
-                app:argType="com.dai1678.quest.model.PatientDetail"/>
 
         <action
                 android:id="@+id/action_to_questionnairePagerFragment"
@@ -66,16 +30,35 @@
                 app:exitAnim="@anim/nav_default_exit_anim"
                 app:popEnterAnim="@anim/nav_default_pop_enter_anim"
                 app:popExitAnim="@anim/nav_default_pop_exit_anim" />
-    </dialog>
+
+    </fragment>
+
+    <fragment
+            android:id="@+id/createUserFragment"
+            android:name="com.dai1678.quest.ui.registerUser.RegisterUserFragment"
+            android:label="@string/create_user_toolbar_title"
+            tools:layout="@layout/fragment_register_user" />
 
     <fragment
             android:id="@+id/questionnairePagerFragment"
             android:name="com.dai1678.quest.ui.questionnaire.QuestionnairePagerFragment"
-            android:label="@string/questionnaire_toolbar_title">
+            android:label="@string/questionnaire_toolbar_title"
+            tools:layout="@layout/fragment_questionnaire_pager">
 
         <argument
-                android:name="patientDetail"
-                app:argType="com.dai1678.quest.model.PatientDetail" />
+                android:name="userId"
+                app:argType="string"
+                android:defaultValue="empty"/>
+
+        <argument
+                android:name="userGender"
+                app:argType="string"
+                android:defaultValue="その他" />
+
+        <argument
+                android:name="userAgeRange"
+                app:argType="string"
+                android:defaultValue="その他" />
 
     </fragment>
 

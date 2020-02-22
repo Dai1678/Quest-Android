@@ -3,18 +3,18 @@
     <string name="app_name" translatable="false">Quest</string>
     <string name="password">パスワード</string>
     <string name="add">作成</string>
-    <string name="next">次へ進む</string>
-    <string name="back">前に戻る</string>
+    <string name="go_next">次へ進む</string>
+    <string name="go_back">前に戻る</string>
+    <string name="back">もどる</string>
     <string name="reload">更新する</string>
     <string name="search">検索する</string>
     <string name="question_label">問</string>
-    <string name="start_diagnosis">診断を開始</string>
-    <string name="cancel_diagnosis">もどる</string>
     <string name="suspension_diagnosis">回答を中断</string>
     <string name="questionnaire_expand_text">答える</string>
     <string name="questionnaire_collapsed_text">閉じる</string>
     <string name="questionnaire_post_success_text">回答結果を送信しました</string>
     <string name="questionnaire_post_failure_text">回答結果の送信に失敗しました</string>
+    <string name="ok">はい</string>
     <string name="blank"> </string>
 
     <!-- common questionnaire main number label -->
@@ -125,7 +125,7 @@
 
     <!-- UserList -->
     <string name="user_list_toolbar_title">受検者一覧</string>
-    <string name="user_list_last_questionnaire_label">最終受検日 : </string>
+    <string name="user_list_last_questionnaire_label">最終受検日 : %1$s</string>
     <string name="user_list_none_last_questionnaire_label">なし</string>
     <string name="user_list_error_loading_message">読み込みに失敗しました</string>
 
@@ -136,8 +136,9 @@
     <string name="user_list_last_questionnaire_descending_order_label">最終受検日(降順)</string>
 
     <!-- DiagnosticCheckDialog -->
-    <string name="diagnostic_check_dialog_title">さんの診断です</string>
-    <string name="diagnostic_check_dialog_message"><b>診断を開始</b>を押すとアンケートの回答画面に進みます。\n\n受検する患者に端末を渡してください。</string>
+    <string name="diagnostic_check_dialog_title">%1$sさんの受検を開始します</string>
+    <string name="diagnostic_check_dialog_message">必ず受検者が端末を操作してください。</string>
+    <string name="start_diagnosis">受検開始</string>
 
     <!-- SuspendCheckDialog -->
     <string name="suspend_check_message">回答を中断を押すと、それまでに回答した内容が削除されます。\nよろしいですか？</string>

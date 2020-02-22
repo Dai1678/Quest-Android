@@ -3,7 +3,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-            android:id="@+id/action_global_suspend_check_dialog"
+            android:id="@+id/menu_questionnaire_suspend"
             android:menuCategory="secondary"
             android:title="@string/suspension_diagnosis"
             app:showAsAction="never" />
