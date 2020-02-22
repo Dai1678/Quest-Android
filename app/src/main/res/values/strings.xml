@@ -3,8 +3,9 @@
     <string name="app_name" translatable="false">Quest</string>
     <string name="password">パスワード</string>
     <string name="add">作成</string>
-    <string name="next">次へ進む</string>
-    <string name="back">前に戻る</string>
+    <string name="go_next">次へ進む</string>
+    <string name="go_back">前に戻る</string>
+    <string name="back">もどる</string>
     <string name="reload">更新する</string>
     <string name="search">検索する</string>
     <string name="question_label">問</string>
@@ -138,7 +139,6 @@
     <string name="diagnostic_check_dialog_title">%1$sさんの受検を開始します</string>
     <string name="diagnostic_check_dialog_message">必ず受検者が端末を操作してください。</string>
     <string name="start_diagnosis">受検開始</string>
-    <string name="cancel_diagnosis">もどる</string>
 
     <!-- SuspendCheckDialog -->
     <string name="suspend_check_message">回答を中断を押すと、それまでに回答した内容が削除されます。\nよろしいですか？</string>

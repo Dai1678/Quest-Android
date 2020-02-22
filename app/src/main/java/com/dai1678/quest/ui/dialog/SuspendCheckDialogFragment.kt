@@ -19,7 +19,7 @@ class SuspendCheckDialogFragment : DialogFragment() {
                         SuspendCheckDialogFragmentDirections.actionToPatientListFragment()
                     findNavController().navigate(action)
                 }
-                setNegativeButton(R.string.cancel_diagnosis) { dialog, _ ->
+                setNegativeButton(R.string.back) { dialog, _ ->
                     dialog.cancel()
                 }
             }.create()

@@ -101,7 +101,7 @@ class UserListFragment : Fragment(), AlertDialogFragment.AlertDialogFragmentList
             titleFormatArgs = arrayOf(userLastName)
             messageResId = R.string.diagnostic_check_dialog_message
             positiveTitleResId = R.string.start_diagnosis
-            negativeTitleResId = R.string.cancel_diagnosis
+            negativeTitleResId = R.string.back
         }.show(parentFragmentManager, this)
     }
 

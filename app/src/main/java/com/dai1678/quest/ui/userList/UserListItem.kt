@@ -1,11 +1,9 @@
 package com.dai1678.quest.ui.userList
 
-import androidx.navigation.findNavController
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.ListHeaderUserBinding
 import com.dai1678.quest.databinding.ListItemUserBinding
 import com.dai1678.quest.model.Patient
-import com.dai1678.quest.model.PatientDetail
 import com.dai1678.quest.util.StringUtils
 import com.xwray.groupie.databinding.BindableItem
 
