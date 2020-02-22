@@ -33,17 +33,16 @@ class QuestionnairePagerViewModel : ViewModel() {
     val isVisibleNextButton: LiveData<Boolean> = mutableIsVisibleNextButton
 
     // スクリーンログをFireBase Realtime Databaseに保存
-    fun sendScreenLog(page: Int, patientDetail: PatientDetail) {
-
+    fun sendScreenLog(page: Int, userId: String, userGender: String, userAgeRange: String) {
         scrollCount++
 
         val screenLog = ScreenLog(
-            patientId = patientDetail.id,
+            patientId = userId,
             currentPage = page,
             currentTime = Date().time,
             scrollCount = scrollCount,
-            gender = patientDetail.gender,
-            ageRange = patientDetail.ageRange
+            gender = userGender,
+            ageRange = userAgeRange
         )
 
         fireBaseDatabase.reference.child(SCREEN_LOG_CHILD).push().setValue(screenLog)

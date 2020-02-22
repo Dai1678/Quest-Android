@@ -1,5 +1,6 @@
 package com.dai1678.quest.ui.userList
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,14 +9,13 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentUserListBinding
 import com.dai1678.quest.listener.PatientListFragmentListener
+import com.dai1678.quest.model.Patient
 import com.dai1678.quest.ui.dialog.AlertDialogFragment
-import com.dai1678.quest.ui.dialog.AlertDialogFragmentDirections
 import com.dai1678.quest.util.setUpRefreshLayout
 import com.dai1678.quest.util.setupSnackBar
 import com.xwray.groupie.GroupAdapter
@@ -30,6 +30,9 @@ class UserListFragment : Fragment(), AlertDialogFragment.AlertDialogFragmentList
     private val viewModel: UserListViewModel by viewModels()
 
     private lateinit var binding: FragmentUserListBinding
+
+    // 受検開始するユーザーデータ
+    private lateinit var questionnaireTargetUser: Patient
 
     private val listener = object : PatientListFragmentListener {
         override fun onClickCreateUserFab(view: View) {
@@ -71,6 +74,7 @@ class UserListFragment : Fragment(), AlertDialogFragment.AlertDialogFragmentList
             groupAdapter.addAll(
                 userList.map {
                     UserListBodyItem(it) {
+                        questionnaireTargetUser = it
                         intentToConfirmationDialog(it.lastName)
                     }
                 }.sortedBy {
@@ -99,5 +103,18 @@ class UserListFragment : Fragment(), AlertDialogFragment.AlertDialogFragmentList
             negativeTitleResId = R.string.cancel_diagnosis
         }
         findNavController().navigate(action)
+    }
+
+    // 受検開始を押した時の処理
+    override fun onPositiveClick(dialog: DialogInterface, which: Int) {
+        super.onPositiveClick(dialog, which)
+        questionnaireTargetUser.let { user ->
+            val action = UserListFragmentDirections.actionToQuestionnairePagerFragment().apply {
+                userId = user.id
+                userGender = user.gender
+                userAgeRange = user.ageRange
+            }
+            findNavController().navigate(action)
+        }
     }
 }

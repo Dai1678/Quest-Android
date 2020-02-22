@@ -36,7 +36,7 @@ class QuestionnairePagerFragment : Fragment(), QuestionnairePagerViewModel.CallB
         override fun onPageSelected(position: Int) {
             super.onPageSelected(position)
             viewModel.setCurrentPage(position)
-            viewModel.sendScreenLog(position, args.patientDetail)
+            viewModel.sendScreenLog(position, args.userId, args.userGender, args.userAgeRange)
         }
     }
 
@@ -69,7 +69,7 @@ class QuestionnairePagerFragment : Fragment(), QuestionnairePagerViewModel.CallB
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
 
-        val questionnairePagerAdapter = QuestionnairePagerAdapter(this, args.patientDetail.id)
+        val questionnairePagerAdapter = QuestionnairePagerAdapter(this, args.userId)
 
         binding.pager.apply {
             adapter = questionnairePagerAdapter
