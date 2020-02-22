@@ -29,7 +29,7 @@ class UserListHeaderItem(private val sortCategoryName: String) :
 /**
  * 受検者リスト画面 受検者情報
  */
-class UserListBodyItem(val patient: Patient) :
+class UserListBodyItem(val patient: Patient, val callback: () -> Unit) :
     BindableItem<ListItemUserBinding>(), StringUtils {
 
     override fun getLayout() = R.layout.list_item_user
@@ -50,19 +50,7 @@ class UserListBodyItem(val patient: Patient) :
 
         // 受検者確認ダイアログの表示
         viewBinding.listItemPatientView.setOnClickListener {
-            val action =
-                UserListFragmentDirections.actionToDiagnosticCheckDialogFragment(
-                    PatientDetail(
-                        id = patient.id,
-                        firstName = patient.firstName,
-                        lastName = patient.lastName,
-                        firstNameReading = patient.firstNameReading,
-                        lastNameReading = patient.lastNameReading,
-                        gender = patient.gender,
-                        ageRange = patient.ageRange
-                    )
-                )
-            it.findNavController().navigate(action)
+            callback.invoke()
         }
     }
 }

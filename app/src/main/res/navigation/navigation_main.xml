@@ -29,6 +29,12 @@
                 app:argType="reference" />
 
         <argument
+                android:name="titleFormatArgs"
+                android:defaultValue="@null"
+                app:argType="string[]"
+                app:nullable="true" />
+
+        <argument
                 android:name="messageResId"
                 android:defaultValue="@string/blank"
                 app:argType="reference" />

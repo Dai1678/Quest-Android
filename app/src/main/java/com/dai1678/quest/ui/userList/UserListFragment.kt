@@ -8,10 +8,14 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentUserListBinding
 import com.dai1678.quest.listener.PatientListFragmentListener
+import com.dai1678.quest.ui.dialog.AlertDialogFragment
+import com.dai1678.quest.ui.dialog.AlertDialogFragmentDirections
 import com.dai1678.quest.util.setUpRefreshLayout
 import com.dai1678.quest.util.setupSnackBar
 import com.xwray.groupie.GroupAdapter
@@ -21,7 +25,7 @@ import java.util.Locale
 /**
  * 受検者リスト画面 Fragment
  */
-class UserListFragment : Fragment() {
+class UserListFragment : Fragment(), AlertDialogFragment.AlertDialogFragmentListener {
 
     private val viewModel: UserListViewModel by viewModels()
 
@@ -66,7 +70,9 @@ class UserListFragment : Fragment() {
 //            groupAdapter.add(UserListHeaderItem("名前(昇順)")) // TODO 並び替え機能の実装後に有効化
             groupAdapter.addAll(
                 userList.map {
-                    UserListBodyItem(it)
+                    UserListBodyItem(it) {
+                        intentToConfirmationDialog(it.lastName)
+                    }
                 }.sortedBy {
                     it.patient.lastName.toUpperCase(Locale.getDefault()) // TODO 並び替え機能に合わせる
                 }
@@ -81,5 +87,17 @@ class UserListFragment : Fragment() {
         binding.patientListSwipeRefreshLayout.setOnRefreshListener {
             viewModel.getUsers()
         }
+    }
+
+    // リストクリック時の処理
+    private fun intentToConfirmationDialog(userLastName: String) {
+        val action = UserListFragmentDirections.actionGlobalAlertDialogFragment().apply {
+            titleResId = R.string.diagnostic_check_dialog_title
+            titleFormatArgs = arrayOf(userLastName)
+            messageResId = R.string.diagnostic_check_dialog_message
+            positiveTitleResId = R.string.start_diagnosis
+            negativeTitleResId = R.string.cancel_diagnosis
+        }
+        findNavController().navigate(action)
     }
 }

@@ -7,6 +7,7 @@ import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.navArgs
+import com.dai1678.quest.R
 
 /**
  * メッセージとボタンを含むダイアログ
@@ -25,7 +26,13 @@ class AlertDialogFragment : DialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val title = getString(navArgs.titleResId)
+        val titleResId = navArgs.titleResId
+        val titleFormatArgs = navArgs.titleFormatArgs
+        val title = if (titleFormatArgs.isNullOrEmpty()) {
+            getString(titleResId)
+        } else {
+            getString(titleResId, *titleFormatArgs)
+        }
         val messageResId = navArgs.messageResId
         val messageFormatArgs = navArgs.messageFormatArgs
         val message = if (messageFormatArgs.isNullOrEmpty()) {
@@ -39,7 +46,7 @@ class AlertDialogFragment : DialogFragment() {
         val activity = activity ?: return super.onCreateDialog(savedInstanceState)
 
         isCancelable = cancelable
-        return AlertDialog.Builder(activity).apply {
+        return AlertDialog.Builder(activity, R.style.DialogStyle).apply {
             setTitle(title)
             setMessage(message)
             setPositiveButton(positiveButtonTitle) { dialog, which ->
