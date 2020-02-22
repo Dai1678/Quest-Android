@@ -15,6 +15,47 @@
             android:id="@+id/action_global_suspend_check_dialog"
             app:destination="@+id/suspendCheckDialogFragment" />
 
+    <action
+            android:id="@+id/action_global_alert_dialog_fragment"
+            app:destination="@+id/alertDialogFragment" />
+
+    <dialog
+            android:id="@+id/alertDialogFragment"
+            android:name="com.dai1678.quest.ui.dialog.AlertDialogFragment">
+
+        <argument
+                android:name="titleResId"
+                android:defaultValue="@string/blank"
+                app:argType="reference" />
+
+        <argument
+                android:name="messageResId"
+                android:defaultValue="@string/blank"
+                app:argType="reference" />
+
+        <argument
+                android:name="messageFormatArgs"
+                android:defaultValue="@null"
+                app:argType="string[]"
+                app:nullable="true" />
+
+        <argument
+                android:name="positiveTitleResId"
+                android:defaultValue="@string/ok"
+                app:argType="reference" />
+
+        <argument
+                android:name="negativeTitleResId"
+                android:defaultValue="@string/blank"
+                app:argType="reference" />
+
+        <argument
+                android:name="cancelable"
+                android:defaultValue="true"
+                app:argType="boolean" />
+
+    </dialog>
+
     <dialog
             android:id="@+id/suspendCheckDialogFragment"
             android:name="com.dai1678.quest.ui.dialog.SuspendCheckDialogFragment"
@@ -49,7 +90,7 @@
             android:id="@+id/createUserFragment"
             android:name="com.dai1678.quest.ui.registerUser.RegisterUserFragment"
             android:label="@string/create_user_toolbar_title"
-            tools:layout="@layout/fragment_register_user"/>
+            tools:layout="@layout/fragment_register_user" />
 
     <dialog
             android:id="@+id/diagnosticCheckDialogFragment"
@@ -57,7 +98,7 @@
 
         <argument
                 android:name="patientDetail"
-                app:argType="com.dai1678.quest.model.PatientDetail"/>
+                app:argType="com.dai1678.quest.model.PatientDetail" />
 
         <action
                 android:id="@+id/action_to_questionnairePagerFragment"
