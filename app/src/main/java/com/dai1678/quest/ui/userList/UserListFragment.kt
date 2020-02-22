@@ -16,6 +16,7 @@ import com.dai1678.quest.databinding.FragmentUserListBinding
 import com.dai1678.quest.listener.PatientListFragmentListener
 import com.dai1678.quest.model.Patient
 import com.dai1678.quest.ui.dialog.AlertDialogFragment
+import com.dai1678.quest.ui.dialog.alertDialogFragment
 import com.dai1678.quest.util.setUpRefreshLayout
 import com.dai1678.quest.util.setupSnackBar
 import com.xwray.groupie.GroupAdapter
@@ -95,14 +96,13 @@ class UserListFragment : Fragment(), AlertDialogFragment.AlertDialogFragmentList
 
     // リストクリック時の処理
     private fun intentToConfirmationDialog(userLastName: String) {
-        val action = UserListFragmentDirections.actionGlobalAlertDialogFragment().apply {
+        alertDialogFragment {
             titleResId = R.string.diagnostic_check_dialog_title
             titleFormatArgs = arrayOf(userLastName)
             messageResId = R.string.diagnostic_check_dialog_message
             positiveTitleResId = R.string.start_diagnosis
             negativeTitleResId = R.string.cancel_diagnosis
-        }
-        findNavController().navigate(action)
+        }.show(parentFragmentManager, this)
     }
 
     // 受検開始を押した時の処理
