@@ -1,7 +1,7 @@
 package com.dai1678.quest.repository
 
 import com.dai1678.quest.model.DefaultResponse
-import com.dai1678.quest.model.Patient
+import com.dai1678.quest.model.User
 import com.dai1678.quest.model.PatientListResponse
 import com.dai1678.quest.net.NetworkResult
 import com.dai1678.quest.net.QuestApiClient
@@ -22,9 +22,9 @@ class UserRepository {
     }
 
     // ユーザー作成
-    suspend fun createUser(patient: Patient): NetworkResult<DefaultResponse> {
+    suspend fun createUser(user: User): NetworkResult<DefaultResponse> {
         return try {
-            val response = QuestApiClient.userApi.createUser(patient)
+            val response = QuestApiClient.userApi.createUser(user)
             NetworkResult.Success(response)
         } catch (e: Exception) {
             NetworkResult.Error(e)
@@ -32,7 +32,7 @@ class UserRepository {
     }
 
     // Id指定によるユーザー情報の取得
-    suspend fun getUser(userId: String): NetworkResult<Patient> {
+    suspend fun getUser(userId: String): NetworkResult<User> {
         return try {
             val user = QuestApiClient.userApi.getUser(userId)
             NetworkResult.Success(user)

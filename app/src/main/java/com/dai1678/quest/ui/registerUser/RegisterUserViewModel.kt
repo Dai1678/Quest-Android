@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dai1678.quest.R
 import com.dai1678.quest.model.DefaultResponse
-import com.dai1678.quest.model.Patient
+import com.dai1678.quest.model.User
 import com.dai1678.quest.net.NetworkResult
 import com.dai1678.quest.repository.UserRepository
 import com.dai1678.quest.util.Event
@@ -74,7 +74,7 @@ class RegisterUserViewModel : ViewModel() {
     // 受検者登録処理
     private suspend fun postUserData(): NetworkResult<DefaultResponse> =
         withContext(Dispatchers.IO) {
-            val newPatient = Patient(
+            val newPatient = User(
                 firstName = firstName.value.orEmpty(),
                 lastName = lastName.value.orEmpty(),
                 firstNameReading = firstReadName.value.orEmpty(),

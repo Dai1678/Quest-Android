@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dai1678.quest.R
-import com.dai1678.quest.model.Patient
+import com.dai1678.quest.model.User
 import com.dai1678.quest.model.PatientListResponse
 import com.dai1678.quest.net.NetworkResult
 import com.dai1678.quest.repository.UserRepository
@@ -27,8 +27,8 @@ class UserListViewModel : ViewModel() {
     val isLoading: LiveData<Boolean> = mutableIsLoading
 
     // 受検者リストデータ
-    private val mutableUsers = MutableLiveData<List<Patient>>()
-    val users: LiveData<List<Patient>> = mutableUsers
+    private val mutableUsers = MutableLiveData<List<User>>()
+    val users: LiveData<List<User>> = mutableUsers
 
     private val mutableSnackBarText = MutableLiveData<Event<Int>>()
     val snackBarText: LiveData<Event<Int>> = mutableSnackBarText

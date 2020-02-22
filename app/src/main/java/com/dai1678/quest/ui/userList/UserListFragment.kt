@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentUserListBinding
 import com.dai1678.quest.listener.PatientListFragmentListener
-import com.dai1678.quest.model.Patient
+import com.dai1678.quest.model.User
 import com.dai1678.quest.ui.dialog.AlertDialogFragment
 import com.dai1678.quest.ui.dialog.alertDialogFragment
 import com.dai1678.quest.util.setUpRefreshLayout
@@ -33,7 +33,7 @@ class UserListFragment : Fragment(), AlertDialogFragment.AlertDialogFragmentList
     private lateinit var binding: FragmentUserListBinding
 
     // 受検開始するユーザーデータ
-    private lateinit var questionnaireTargetUser: Patient
+    private lateinit var questionnaireTargetUser: User
 
     private val listener = object : PatientListFragmentListener {
         override fun onClickCreateUserFab(view: View) {
@@ -45,7 +45,7 @@ class UserListFragment : Fragment(), AlertDialogFragment.AlertDialogFragmentList
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         view?.setupSnackBar(this, viewModel.snackBarText, Toast.LENGTH_SHORT)
-        this.setUpRefreshLayout(binding.patientListSwipeRefreshLayout)
+        this.setUpRefreshLayout(binding.userListSwipeRefreshLayout)
     }
 
     override fun onCreateView(
@@ -66,7 +66,7 @@ class UserListFragment : Fragment(), AlertDialogFragment.AlertDialogFragmentList
         val groupAdapter = GroupAdapter<GroupieViewHolder<*>>()
 
         viewModel.isLoading.observe(viewLifecycleOwner) {
-            binding.patientListSwipeRefreshLayout.isRefreshing = it
+            binding.userListSwipeRefreshLayout.isRefreshing = it
         }
 
         viewModel.users.observe(viewLifecycleOwner) { userList ->
@@ -84,12 +84,12 @@ class UserListFragment : Fragment(), AlertDialogFragment.AlertDialogFragmentList
             )
         }
 
-        binding.patientListRecyclerView.apply {
+        binding.userListRecyclerView.apply {
             layoutManager = LinearLayoutManager(activity)
             adapter = groupAdapter
         }
 
-        binding.patientListSwipeRefreshLayout.setOnRefreshListener {
+        binding.userListSwipeRefreshLayout.setOnRefreshListener {
             viewModel.getUsers()
         }
     }

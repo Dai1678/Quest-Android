@@ -1,7 +1,7 @@
 package com.dai1678.quest.net
 
 import com.dai1678.quest.model.DefaultResponse
-import com.dai1678.quest.model.Patient
+import com.dai1678.quest.model.User
 import com.dai1678.quest.model.PatientListResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -15,11 +15,11 @@ interface UserApi {
 
     @POST("patients")
     suspend fun createUser(
-        @Body patient: Patient
+        @Body user: User
     ): DefaultResponse
 
     @GET("patient/{id}")
     suspend fun getUser(
         @Path("id") userId: String
-    ): Patient
+    ): User
 }
