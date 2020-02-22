@@ -3,9 +3,10 @@ package com.dai1678.quest.ui.userList
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.ListHeaderUserBinding
 import com.dai1678.quest.databinding.ListItemUserBinding
+import com.dai1678.quest.enums.DateFormat
 import com.dai1678.quest.model.Patient
-import com.dai1678.quest.util.StringUtils
 import com.xwray.groupie.databinding.BindableItem
+import java.util.Date
 
 /**
  * 受検者リスト画面 並び替えヘッダー
@@ -27,24 +28,26 @@ class UserListHeaderItem(private val sortCategoryName: String) :
 /**
  * 受検者リスト画面 受検者情報
  */
-class UserListBodyItem(val patient: Patient, val callback: () -> Unit) :
-    BindableItem<ListItemUserBinding>(), StringUtils {
+class UserListBodyItem(val user: Patient, val callback: () -> Unit) :
+    BindableItem<ListItemUserBinding>() {
 
     override fun getLayout() = R.layout.list_item_user
 
     override fun bind(viewBinding: ListItemUserBinding, position: Int) {
-        viewBinding.patientName = "${patient.lastName} ${patient.firstName}"
-        viewBinding.patientNameReading = "${patient.lastNameReading} ${patient.firstNameReading}"
+        val resources = viewBinding.root.resources
+        viewBinding.patientName = "${user.lastName} ${user.firstName}"
+        viewBinding.patientNameReading = "${user.lastNameReading} ${user.firstNameReading}"
+
+        val lastQuestionnaireDate = if (user.questionnaires.isEmpty()) {
+            resources.getString(R.string.user_list_none_last_questionnaire_label)
+        } else {
+            val date =
+                DateFormat.YYYYMMDD_TIMEZONE_HHMMSS.parse(user.questionnaires[0].updatedAt)
+            DateFormat.YYYYMD_JP.format(date ?: Date())
+        }
 
         viewBinding.lastQuestionnaireTime =
-            viewBinding.root.resources.getString(R.string.user_list_last_questionnaire_label) +
-                    if (patient.questionnaires.isEmpty()) {
-                        viewBinding.root.resources.getString(
-                            R.string.user_list_none_last_questionnaire_label
-                        )
-                    } else {
-                        patient.questionnaires[0].updatedAt.formatDateStr
-                    }
+            resources.getString(R.string.user_list_last_questionnaire_label, lastQuestionnaireDate)
 
         // 受検者確認ダイアログの表示
         viewBinding.listItemPatientView.setOnClickListener {

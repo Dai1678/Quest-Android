@@ -79,7 +79,7 @@ class UserListFragment : Fragment(), AlertDialogFragment.AlertDialogFragmentList
                         intentToConfirmationDialog(it.lastName)
                     }
                 }.sortedBy {
-                    it.patient.lastName.toUpperCase(Locale.getDefault()) // TODO 並び替え機能に合わせる
+                    it.user.lastName.toUpperCase(Locale.getDefault()) // TODO 並び替え機能に合わせる
                 }
             )
         }
