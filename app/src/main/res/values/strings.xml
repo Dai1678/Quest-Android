@@ -8,7 +8,7 @@
     <string name="reload">更新する</string>
     <string name="search">検索する</string>
     <string name="question_label">問</string>
-    <string name="start_diagnosis">診断を開始</string>
+    <string name="start_diagnosis">受検開始</string>
     <string name="cancel_diagnosis">もどる</string>
     <string name="suspension_diagnosis">回答を中断</string>
     <string name="questionnaire_expand_text">答える</string>
@@ -137,8 +137,8 @@
     <string name="user_list_last_questionnaire_descending_order_label">最終受検日(降順)</string>
 
     <!-- DiagnosticCheckDialog -->
-    <string name="diagnostic_check_dialog_title">さんの診断です</string>
-    <string name="diagnostic_check_dialog_message"><b>診断を開始</b>を押すとアンケートの回答画面に進みます。\n\n受検する患者に端末を渡してください。</string>
+    <string name="diagnostic_check_dialog_title">%1$sさんの診断です</string>
+    <string name="diagnostic_check_dialog_message"><b>受検開始</b>を押すとアンケートの回答画面に進みます。\n\n受検者に端末を渡してください。</string>
 
     <!-- SuspendCheckDialog -->
     <string name="suspend_check_message">回答を中断を押すと、それまでに回答した内容が削除されます。\nよろしいですか？</string>
