@@ -19,6 +19,7 @@ enum class DateFormat(val format: String) {
     MMDD("MM/dd"),
     MMDDHHMM("MM/dd HH:mm"),
     YYYYMMDD_HYPHEN("yyyy-MM-dd"),
+    YYYYMMDD_HHMMSS("yyyy-MM-dd HH:mm:ss"),
     PROFILE_DATE_FORMAT("yyyy-MM-dd_HH"),
     YYYYMMDD_TIMEZONE_HHMMSS("yyyy-MM-dd'T'HH:mm:ss.sss'Z'");
 

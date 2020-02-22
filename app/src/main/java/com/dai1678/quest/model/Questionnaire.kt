@@ -1,18 +1,14 @@
 package com.dai1678.quest.model
 
-import android.annotation.SuppressLint
-import java.text.SimpleDateFormat
+import com.dai1678.quest.enums.DateFormat
 import java.util.Date
 import java.util.UUID
 
-private const val DATE_FORMAT = "yyyy-MM-dd HH:mm:ss"
-
-@SuppressLint("SimpleDateFormat")
 data class Questionnaire(
     val id: String = UUID.randomUUID().toString(),
     val result: QuestionnaireResult,
-    val createdAt: String = SimpleDateFormat(DATE_FORMAT).format(Date()),
-    val updatedAt: String = SimpleDateFormat(DATE_FORMAT).format(Date()),
+    val createdAt: String = DateFormat.YYYYMMDD_HHMMSS.format(Date()),
+    val updatedAt: String = DateFormat.YYYYMMDD_HHMMSS.format(Date()),
     val patientId: String
 )
 
