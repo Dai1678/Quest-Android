@@ -7,11 +7,14 @@ import com.dai1678.quest.net.NetworkResult
 import com.dai1678.quest.net.QuestApiClient
 
 /**
- * ユーザー情報 リポジトリ層
+ * ユーザー情報に関するリポジトリモジュール
  */
 class UserRepository {
-
-    // ユーザーリストの取得
+    /**
+     * ユーザー情報の取得
+     * @return PatientListResponse
+     * @throws Exception
+     */
     suspend fun getUsers(): NetworkResult<PatientListResponse> {
         return try {
             val users = QuestApiClient.userApi.getUsers()
@@ -21,7 +24,12 @@ class UserRepository {
         }
     }
 
-    // ユーザー作成
+    /**
+     * ユーザー情報の保存
+     * @param user ユーザー情報
+     * @return DefaultResponse
+     * @throws Exception
+     */
     suspend fun createUser(user: User): NetworkResult<DefaultResponse> {
         return try {
             val response = QuestApiClient.userApi.createUser(user)
@@ -31,7 +39,12 @@ class UserRepository {
         }
     }
 
-    // Id指定によるユーザー情報の取得
+    /**
+     * ユーザー情報の取得
+     * @param userId ユーザーのid
+     * @return ユーザー情報
+     * @throws Exception
+     */
     suspend fun getUser(userId: String): NetworkResult<User> {
         return try {
             val user = QuestApiClient.userApi.getUser(userId)
