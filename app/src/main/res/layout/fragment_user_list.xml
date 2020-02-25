@@ -11,7 +11,7 @@
 
         <variable
                 name="listener"
-                type="com.dai1678.quest.listener.PatientListFragmentListener" />
+                type="com.dai1678.quest.listener.UserListFragmentListener" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

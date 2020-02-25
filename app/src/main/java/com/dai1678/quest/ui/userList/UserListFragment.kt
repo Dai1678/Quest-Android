@@ -13,7 +13,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentUserListBinding
-import com.dai1678.quest.listener.PatientListFragmentListener
+import com.dai1678.quest.listener.UserListFragmentListener
 import com.dai1678.quest.model.User
 import com.dai1678.quest.ui.dialog.AlertDialogFragment
 import com.dai1678.quest.ui.dialog.alertDialogFragment
@@ -35,7 +35,7 @@ class UserListFragment : Fragment(), AlertDialogFragment.AlertDialogFragmentList
     // 受検開始するユーザーデータ
     private lateinit var questionnaireTargetUser: User
 
-    private val listener = object : PatientListFragmentListener {
+    private val listener = object : UserListFragmentListener {
         override fun onClickCreateUserFab(view: View) {
             val action = UserListFragmentDirections.actionToCreateUserFragment()
             findNavController().navigate(action)
