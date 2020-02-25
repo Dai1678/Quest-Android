@@ -19,13 +19,24 @@ import com.dai1678.quest.enums.Question.PAGE7
 import com.dai1678.quest.enums.Question.PAGE8
 import com.dai1678.quest.enums.Question.PAGE9
 
+/**
+ * 回答画面のViewPager2のAdapterクラス
+ * @param fragment Fragment
+ * @param userId 受検者のid
+ */
 class QuestionnairePagerAdapter(
     fragment: Fragment,
     private val userId: String
 ) : FragmentStateAdapter(fragment) {
 
+    // 全部で15ページ存在する
     override fun getItemCount(): Int = 15
 
+    /**
+     * ページに応じた表示するFragmentを返す
+     * @param position ページ位置
+     * @return Fragment Fragment
+     */
     override fun createFragment(position: Int): Fragment {
         return when (Question.valueOf(position)) {
             PAGE0 -> QuestionnaireStartFragment()
