@@ -33,8 +33,7 @@ enum class Answer(
     PAGE14(NONE);
 
     /**
-     *
-     *
+     * Answer enumを元に回答文言の文字配列を返す
      * @param context Context
      * @return 回答文言の文字配列
      */
