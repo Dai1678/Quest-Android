@@ -17,7 +17,7 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.databinding.GroupieViewHolder
 
 /**
- * 小問を含む回答画面のUIコントローラ
+ * 回答画面 小問を含む画面のUIコントローラ
  */
 class QuestionnaireChildAnswerFragment : Fragment() {
 
