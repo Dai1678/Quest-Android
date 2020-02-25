@@ -18,7 +18,7 @@ import com.dai1678.quest.util.addHyperLink
 import com.dai1678.quest.util.setupSnackBar
 
 /**
- * 受検者登録画面 Fragment
+ * 受検者登録画面のUIコントローラ
  */
 class RegisterUserFragment : Fragment() {
 
@@ -36,11 +36,14 @@ class RegisterUserFragment : Fragment() {
             val context = context ?: return
             val inputMethodManager =
                 context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+
+            // ソフトウェアキーボードが表示されている場合は閉じる
             inputMethodManager.hideSoftInputFromWindow(
                 view?.windowToken,
                 InputMethodManager.HIDE_NOT_ALWAYS
             )
 
+            // 受検者一覧画面へ遷移
             findNavController().navigate(R.id.action_global_user_list_fragment)
         }
     }
@@ -76,6 +79,9 @@ class RegisterUserFragment : Fragment() {
         }
     }
 
+    /**
+     * 受検者年齢選択メニューの生成
+     */
     private fun setupAgeExposedDropdown() {
         val context = context ?: return
         val ages = resources.getStringArray(R.array.age_range_array)
@@ -90,6 +96,9 @@ class RegisterUserFragment : Fragment() {
         }
     }
 
+    /**
+     * 受検者性別選択メニューの生成
+     */
     private fun setupGenderExposedDropdown() {
         val context = context ?: return
         val genders = resources.getStringArray(R.array.gender_array)
