@@ -4,6 +4,14 @@ import com.dai1678.quest.enums.DateFormat
 import java.util.Date
 import java.util.UUID
 
+/**
+ * 結果送信に使用するデータクラス
+ * @param id UUIDで定義されるランダムな文字列
+ * @param result 回答結果
+ * @param createdAt 作成日時
+ * @param updatedAt 更新日時
+ * @param patientId ユーザーのid
+ */
 data class Questionnaire(
     val id: String = UUID.randomUUID().toString(),
     val result: QuestionnaireResult,
@@ -12,6 +20,16 @@ data class Questionnaire(
     val patientId: String
 )
 
+/**
+ * 回答画面で選択した回答結果のデータクラス
+ * RadioButtonの上から順に1...と定義し、その数値を持つ
+ *
+ * @param page1Answer: 1ページ目(問1)で選択した回答項目の番号
+ * @param page2Answer: 2ページ目(問2)で選択した回答項目の番号
+ * @param page3Answer: 3ページ目(問3の前半5問)で選択した回答項目の番号
+ * @param page4Answer: 4ページ目(問3の後半5問)で選択した回答項目の番号
+ * ...
+ */
 data class QuestionnaireResult(
     var page1Answer: Int = 1,
     var page2Answer: Int = 1,
@@ -56,6 +74,11 @@ data class QuestionnaireResult(
     }
 }
 
+/**
+ * APIで回答結果を受け取った際のデータクラス
+ * @param total 受け取った回答結果の数
+ * @param list 回答結果
+ */
 data class QuestionnaireListResponse(
     val total: Int,
     val list: List<Questionnaire> = listOf()
