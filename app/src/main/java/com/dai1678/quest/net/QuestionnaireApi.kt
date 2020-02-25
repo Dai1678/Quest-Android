@@ -22,7 +22,7 @@ interface QuestionnaireApi {
     @GET("questionnaires")
     suspend fun getResultList(
         @Query("patientId") userId: String
-    ): Response<QuestionnaireListResponse>
+    ): QuestionnaireListResponse
 
     /**
      * 回答結果の保存
@@ -42,5 +42,5 @@ interface QuestionnaireApi {
     @GET("questionnaires/{id}")
     suspend fun getResult(
         @Path("id") questionnaireId: String
-    ): Response<Questionnaire>
+    ): Questionnaire
 }
