@@ -30,13 +30,14 @@ fun alertDialogFragment(
 }
 
 /**
- * メッセージとボタンを含むダイアログ
+ * メッセージとボタンを含むダイアログの汎用クラス
  */
 class AlertDialogFragment : DialogFragment() {
     private var alertDialogFragmentListener: AlertDialogFragmentListener? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        // AlertDialogFragmentListenerがimplementされているかチェック
         alertDialogFragmentListener = when {
             context is AlertDialogFragmentListener -> context
             targetFragment is AlertDialogFragmentListener ->
@@ -114,15 +115,22 @@ class AlertDialogFragment : DialogFragment() {
     }
 
     /**
-     * JavaではKotlinDslが使えないので、Builderを用意しておく
+     * BuilderをDSLで定義
+     * @property titleResId ダイアログのタイトル文字列リソース
+     * @property titleFormatArgs ダイアログのタイトルの書式文字列
+     * @property messageResId ダイアログのメッセージ文字列リソース
+     * @property messageFormatArgs ダイアログのメッセージの書式文字列
+     * @property positiveTitleResId ダイアログのPositiveButtonテキスト文字列リソース
+     * @property negativeTitleResId ダイアログのNegativeButtonのテキスト文字列リソース
+     * @property cancelable ダイアログ外をタップした際にダイアログを閉じるかどうか
      */
     @AlertDialogFragmentBuilderDsl
     class Builder {
         private val args = Bundle()
         var titleResId: Int = R.string.blank
-        var titleFormatArgs: Array<String>? = null // タイトルの書式文字列設定
+        var titleFormatArgs: Array<String>? = null
         var messageResId: Int = R.string.blank
-        var messageFormatArgs: Array<String>? = null // メッセージの書式文字列設定
+        var messageFormatArgs: Array<String>? = null
         var positiveTitleResId: Int = R.string.ok
         var negativeTitleResId: Int = R.string.blank
         var cancelable = true
@@ -141,6 +149,7 @@ class AlertDialogFragment : DialogFragment() {
     }
 
     /**
+     * ダイアログ内のボタンのクリックListener
      * コールバックを実行する側で複数の処理パターンがある場合は、tagで判別する
      */
     interface AlertDialogFragmentListener {
