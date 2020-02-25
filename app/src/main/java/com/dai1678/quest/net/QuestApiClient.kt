@@ -8,6 +8,13 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
+/**
+ * APIと通信するためのClient作成クラス
+ *
+ * @property API_URL サーバーのエンドポイント
+ * @property userApi ユーザー情報のAPIエンドポイントを定義したインターフェース
+ * @property questionnaireApi 回答結果のAPIエンドポイントを定義したインターフェース
+ */
 object QuestApiClient {
     // FIXME 環境によってサーバーの接続先を変更する
     private const val API_URL = "http://192.168.0.4:3000/api/v1/"
