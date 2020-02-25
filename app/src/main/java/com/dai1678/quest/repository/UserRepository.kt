@@ -7,11 +7,11 @@ import com.dai1678.quest.net.NetworkResult
 import com.dai1678.quest.net.QuestApiClient
 
 /**
- * ユーザー情報に関するリポジトリモジュール
+ * 受検者情報に関するリポジトリモジュール
  */
 class UserRepository {
     /**
-     * ユーザー情報の取得
+     * 受検者情報の取得
      * @return PatientListResponse
      * @throws Exception
      */
@@ -25,8 +25,8 @@ class UserRepository {
     }
 
     /**
-     * ユーザー情報の保存
-     * @param user ユーザー情報
+     * 受検者情報の保存
+     * @param user 受検者情報
      * @return DefaultResponse
      * @throws Exception
      */
@@ -40,9 +40,9 @@ class UserRepository {
     }
 
     /**
-     * ユーザー情報の取得
-     * @param userId ユーザーのid
-     * @return ユーザー情報
+     * 受検者情報の取得
+     * @param userId 受検者のid
+     * @return 受検者情報
      * @throws Exception
      */
     suspend fun getUser(userId: String): NetworkResult<User> {

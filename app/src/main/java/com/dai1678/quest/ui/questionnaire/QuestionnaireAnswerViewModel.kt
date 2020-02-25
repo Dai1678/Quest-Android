@@ -75,7 +75,7 @@ class QuestionnaireAnswerViewModel : ViewModel() {
 
     /**
      * 結果送信ボタンを押したときの処理
-     * @param userId ユーザーのid
+     * @param userId 受検者のid
      */
     fun sendQuestionnaireResult(userId: String) {
         viewModelScope.launch {
@@ -94,7 +94,7 @@ class QuestionnaireAnswerViewModel : ViewModel() {
 
     /**
      * 回答結果送信処理
-     * @param userId ユーザーのid
+     * @param userId 受検者のid
      * @return NetworkResult<Questionnaire>
      */
     private suspend fun postResult(userId: String): NetworkResult<Questionnaire> =

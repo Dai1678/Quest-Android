@@ -10,7 +10,7 @@ import java.util.UUID
  * @param result 回答結果
  * @param createdAt 作成日時
  * @param updatedAt 更新日時
- * @param patientId ユーザーのid
+ * @param patientId 受検者のid
  */
 data class Questionnaire(
     val id: String = UUID.randomUUID().toString(),

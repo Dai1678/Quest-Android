@@ -4,7 +4,7 @@ import android.view.View
 
 interface UserListFragmentListener {
     /**
-     * ユーザー登録FABをクリックした時
+     * 受検者登録FABをクリックした時
      * @param view View
      */
     fun onClickCreateUserFab(view: View)

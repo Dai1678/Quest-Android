@@ -9,19 +9,19 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 /**
- * ユーザー情報のAPIエンドポイントを定義したインターフェース
+ * 受検者情報のAPIエンドポイントを定義したインターフェース
  */
 interface UserApi {
     /**
-     * ユーザー情報の取得
+     * 受検者情報の取得
      * @return PatientListResponse
      */
     @GET("patients")
     suspend fun getUsers(): PatientListResponse
 
     /**
-     * ユーザー情報の保存
-     * @param user ユーザー情報
+     * 受検者情報の保存
+     * @param user 受検者情報
      * @return DefaultResponse
      */
     @POST("patients")
@@ -30,9 +30,9 @@ interface UserApi {
     ): DefaultResponse
 
     /**
-     * ユーザー情報の取得
-     * @param userId ユーザーのid
-     * @return ユーザー情報
+     * 受検者情報の取得
+     * @param userId 受検者のid
+     * @return 受検者情報
      */
     @GET("patient/{id}")
     suspend fun getUser(

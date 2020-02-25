@@ -16,7 +16,7 @@ interface QuestionnaireApi {
 
     /**
      * 回答結果の取得
-     * @param userId ユーザーのID
+     * @param userId 受検者のID
      * @return QuestionnaireListResponse
      */
     @GET("questionnaires")

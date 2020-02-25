@@ -12,7 +12,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
  * APIと通信するためのClient作成クラス
  *
  * @property API_URL サーバーのエンドポイント
- * @property userApi ユーザー情報のAPIエンドポイントを定義したインターフェース
+ * @property userApi 受検者情報のAPIエンドポイントを定義したインターフェース
  * @property questionnaireApi 回答結果のAPIエンドポイントを定義したインターフェース
  */
 object QuestApiClient {

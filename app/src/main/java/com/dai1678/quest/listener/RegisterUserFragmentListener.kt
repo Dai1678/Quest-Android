@@ -4,7 +4,7 @@ import android.view.View
 
 interface RegisterUserFragmentListener {
     /**
-     * 登録ボタンを押したとき
+     * 受検者登録ボタンを押したとき
      * @param view View
      */
     fun onClickRegisterUserData(view: View)
