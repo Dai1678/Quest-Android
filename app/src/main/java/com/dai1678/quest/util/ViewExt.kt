@@ -21,6 +21,10 @@ import java.util.regex.Pattern
 
 /**
  * SnackBar表示のEventの発火をObserveして表示する
+ *
+ * @param lifecycleOwner LifecycleOwner
+ * @param snackBarEvent SnackBarのEvent
+ * @param timeLength Toast.LENGTH_SHORTじゃないと動かなかった
  */
 fun View.setupSnackBar(
     lifecycleOwner: LifecycleOwner,
@@ -44,6 +48,9 @@ fun View.setupSnackBar(
 
 /**
  * SwipeRefreshLayoutの初期化
+ * アニメーションの色の定義
+ *
+ * @param refreshLayout SwipeRefreshLayout
  */
 fun Fragment.setUpRefreshLayout(
     refreshLayout: SwipeRefreshLayout
@@ -58,6 +65,9 @@ fun Fragment.setUpRefreshLayout(
 /**
  * TextView内の特定の文字列に対してタップイベントを追加する
  * https://qiita.com/KazaKago/items/ada8dca4bd1b536429a3
+ *
+ * @param linkText タップイベントを追加する部分の文字列
+ * @param callback タップイベントのコールバック
  */
 fun TextView.addHyperLink(linkText: String, callback: ((view: View) -> Unit)) {
     val spannableMessage = SpannableString(text)
