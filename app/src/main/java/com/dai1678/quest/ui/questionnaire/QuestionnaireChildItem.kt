@@ -13,6 +13,11 @@ import com.xwray.groupie.databinding.BindableItem
 
 /**
  * 小問のレイアウト生成用 groupie Item
+ * @param context Context
+ * @param question Question Enum
+ * @param answer Answer Enum
+ * @param cacheAnswerArray タップされたRadioButtonのidのキャッシュ用配列
+ * @param checkCallbackListener ラジオボタンをタップしたときのコールバック
  */
 class QuestionnaireChildItem(
     private val context: Context,

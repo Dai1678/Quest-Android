@@ -17,7 +17,7 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.databinding.GroupieViewHolder
 
 /**
- * 小問を含む回答画面のFragment
+ * 回答画面 小問を含む画面のUIコントローラ
  */
 class QuestionnaireChildAnswerFragment : Fragment() {
 
@@ -42,7 +42,6 @@ class QuestionnaireChildAnswerFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         cacheAnswerId = savedInstanceState?.getIntArray(KEY_CHILD_ANSWER) ?: return
     }
 
@@ -73,13 +72,22 @@ class QuestionnaireChildAnswerFragment : Fragment() {
         }
     }
 
-    // 画面回転時にRadioButtonのタップ位置をキャッシュ
+    /**
+     * 画面回転時にRadioButtonのタップ位置をキャッシュ
+     * @param outState Bundle
+     */
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putIntArray(KEY_CHILD_ANSWER, cacheAnswerId)
     }
 
-    // ページをsubscribeしてからRecyclerAdapterを設定する
+    /**
+     * ページをsubscribeしてからRecyclerAdapterを設定する
+     * @param context Context
+     * @param page 表示している回答画面のページ番号
+     * @param question Question Enum
+     * @param answer Answer Enum
+     */
     private fun initAdapter(context: Context, page: Int, question: Question, answer: Answer) {
         val groupAdapter = GroupAdapter<GroupieViewHolder<*>>()
 
@@ -105,7 +113,6 @@ class QuestionnaireChildAnswerFragment : Fragment() {
     }
 
     companion object {
-
         private const val KEY_CHILD_ANSWER = "answer"
 
         fun newInstance() = QuestionnaireChildAnswerFragment()

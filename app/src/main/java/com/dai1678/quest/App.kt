@@ -2,6 +2,9 @@ package com.dai1678.quest
 
 import android.app.Application
 
+/**
+ * Applicationのインスタンスを保持するクラス
+ */
 class App : Application() {
 
     companion object {

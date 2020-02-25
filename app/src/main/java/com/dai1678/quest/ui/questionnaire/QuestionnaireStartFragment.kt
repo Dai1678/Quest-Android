@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.dai1678.quest.databinding.FragmentQuestionnaireStartBinding
 
+/**
+ * 回答画面 諸注意画面のUIコントローラ
+ */
 class QuestionnaireStartFragment : Fragment() {
 
     override fun onCreateView(

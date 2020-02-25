@@ -14,6 +14,9 @@ import com.dai1678.quest.enums.Answer
 import com.dai1678.quest.enums.Question
 import com.dai1678.quest.listener.QuestionnaireAnswerFragmentListener
 
+/**
+ * 回答画面 小問を含まない画面のUIコントローラ
+ */
 class QuestionnaireSimpleAnswerFragment : Fragment() {
 
     private val viewModel: QuestionnaireAnswerViewModel by viewModels({

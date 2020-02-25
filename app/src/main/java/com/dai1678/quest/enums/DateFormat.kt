@@ -5,6 +5,11 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
+/**
+ * 日付変換フォーマットをまとめたenum
+ *
+ * @param format 日付フォーマット
+ */
 enum class DateFormat(val format: String) {
     M_JP("M月"),
     MD_JP("M月d日"),
@@ -23,16 +28,34 @@ enum class DateFormat(val format: String) {
     PROFILE_DATE_FORMAT("yyyy-MM-dd_HH"),
     YYYYMMDD_TIMEZONE_HHMMSS("yyyy-MM-dd'T'HH:mm:ss.sss'Z'");
 
+    /**
+     * Date型からフォーマット
+     * @param date フォーマット前の日付
+     * @param locale タイムゾーン
+     * @return フォーマット後の日付
+     */
     @JvmOverloads
     fun format(date: Date, locale: Locale = Locale.JAPAN): String {
         return SimpleDateFormat(format, locale).format(date)
     }
 
+    /**
+     * Long型からフォーマット
+     * @param millis フォーマット前のミリ秒
+     * @param locale タイムゾーン
+     * @return フォーマット後の日付
+     */
     @JvmOverloads
     fun format(millis: Long, locale: Locale = Locale.JAPAN): String {
         return SimpleDateFormat(format, locale).format(millis)
     }
 
+    /**
+     * String型からパース
+     * @param date パース前の日付フォーマットに合った文字列
+     * @param locale タイムゾーン
+     * @return パース後の日付 パース失敗時はnullを返す
+     */
     @JvmOverloads
     fun parse(date: String, locale: Locale = Locale.JAPAN): Date? {
         return try {

@@ -10,20 +10,21 @@ private const val NONE = 0
 
 /**
  * 設問ごとに固定のリソースをまとめたenum
+ *
+ * @param size ページあたりの質問の数
+ * @param titleResId 設問番号の文字列リソース
+ * @param messageResId 設問文章の文字列リソース
+ * @param subTitleNumberResId 小問番号の文字列リソース
+ * @param subMessageResId 小問文章の文字列リソース
  */
 enum class Question(
-    // ページあたりの質問の数
     val size: Int,
-    // 設問番号のリソースID
     @StringRes
     val titleResId: Int,
-    // 設問文章のリソースID
     @StringRes
     val messageResId: Int,
-    // 小問番号のリソースID
     @ArrayRes
     val subTitleNumberResId: Int,
-    // 小問文章のリソースID
     @ArrayRes
     val subMessageResId: Int
 ) {
@@ -85,10 +86,25 @@ enum class Question(
     ),
     PAGE14(0, R.string.questionnaire_toolbar_title, R.string.blank, NONE, NONE);
 
+    /**
+     * Question enumを元に設問番号の文字列を返す
+     * @param context Context
+     * @return 設問番号 例: 問1
+     */
     fun getTitle(context: Context): String = context.getString(titleResId)
 
+    /**
+     * Question enumを元に設問文章の文字列を返す
+     * @param context Context
+     * @return 設問文章
+     */
     fun getMessage(context: Context): String = context.getString(messageResId)
 
+    /**
+     * Question enumを元に小問番号の文字配列を返す
+     * @param context Context
+     * @return 小問番号の配列 例: {"ア)", "イ)"...}
+     */
     fun getSubTitleNumbers(context: Context): Array<String> {
         return if (subTitleNumberResId == NONE) {
             arrayOf(context.getString(R.string.blank))
@@ -97,6 +113,11 @@ enum class Question(
         }
     }
 
+    /**
+     * Question enumを元に小問文章の文字配列を返す
+     * @param context Context
+     * @return 小問文章の配列
+     */
     fun getSubMessages(context: Context): Array<String> {
         return if (subMessageResId == NONE) {
             arrayOf(context.getString(R.string.blank))

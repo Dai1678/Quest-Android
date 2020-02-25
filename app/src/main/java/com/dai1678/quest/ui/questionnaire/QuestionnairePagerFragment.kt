@@ -22,6 +22,9 @@ import com.dai1678.quest.listener.QuestionnairePagerFragmentListener
 import com.dai1678.quest.ui.dialog.AlertDialogFragment
 import com.dai1678.quest.ui.dialog.alertDialogFragment
 
+/**
+ * 回答画面ViewPager2管理用のUIコントローラ
+ */
 class QuestionnairePagerFragment : Fragment(),
     QuestionnairePagerViewModel.CallBack,
     AlertDialogFragment.AlertDialogFragmentListener {
@@ -40,6 +43,10 @@ class QuestionnairePagerFragment : Fragment(),
             positionOffsetPixels: Int
         ) = Unit
 
+        /**
+         * ページが切り替わった時の処理
+         * @param position ページ位置
+         */
         override fun onPageSelected(position: Int) {
             super.onPageSelected(position)
             viewModel.setCurrentPage(position)
@@ -96,6 +103,7 @@ class QuestionnairePagerFragment : Fragment(),
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            // 回答中断ダイアログの表示
             R.id.menu_questionnaire_suspend -> {
                 alertDialogFragment {
                     messageResId = R.string.suspend_check_message
@@ -115,6 +123,7 @@ class QuestionnairePagerFragment : Fragment(),
 
     override fun onPositiveClick(dialog: DialogInterface, which: Int) {
         super.onPositiveClick(dialog, which)
+        // 受検者一覧画面へ遷移
         val action = QuestionnairePagerFragmentDirections.actionGlobalUserListFragment()
         findNavController().navigate(action)
     }

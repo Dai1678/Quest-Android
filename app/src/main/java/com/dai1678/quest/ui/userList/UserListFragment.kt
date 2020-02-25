@@ -13,7 +13,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dai1678.quest.R
 import com.dai1678.quest.databinding.FragmentUserListBinding
-import com.dai1678.quest.listener.PatientListFragmentListener
+import com.dai1678.quest.listener.UserListFragmentListener
 import com.dai1678.quest.model.User
 import com.dai1678.quest.ui.dialog.AlertDialogFragment
 import com.dai1678.quest.ui.dialog.alertDialogFragment
@@ -24,7 +24,8 @@ import com.xwray.groupie.databinding.GroupieViewHolder
 import java.util.Locale
 
 /**
- * 受検者リスト画面 Fragment
+ * 受検者一覧画面のUIコントローラ
+ * @property questionnaireTargetUser 受検開始するユーザーデータ
  */
 class UserListFragment : Fragment(), AlertDialogFragment.AlertDialogFragmentListener {
 
@@ -32,11 +33,11 @@ class UserListFragment : Fragment(), AlertDialogFragment.AlertDialogFragmentList
 
     private lateinit var binding: FragmentUserListBinding
 
-    // 受検開始するユーザーデータ
     private lateinit var questionnaireTargetUser: User
 
-    private val listener = object : PatientListFragmentListener {
+    private val listener = object : UserListFragmentListener {
         override fun onClickCreateUserFab(view: View) {
+            // 受検者登録画面へ遷移
             val action = UserListFragmentDirections.actionToCreateUserFragment()
             findNavController().navigate(action)
         }
@@ -94,8 +95,12 @@ class UserListFragment : Fragment(), AlertDialogFragment.AlertDialogFragmentList
         }
     }
 
-    // リストクリック時の処理
+    /**
+     * 受検者リストクリック時の処理
+     * @param userLastName 受検者の姓
+     */
     private fun intentToConfirmationDialog(userLastName: String) {
+        // 受検確認ダイアログの表示
         alertDialogFragment {
             titleResId = R.string.diagnostic_check_dialog_title
             titleFormatArgs = arrayOf(userLastName)
@@ -105,9 +110,12 @@ class UserListFragment : Fragment(), AlertDialogFragment.AlertDialogFragmentList
         }.show(parentFragmentManager, this)
     }
 
-    // 受検開始を押した時の処理
+    /**
+     * 受検開始を押した時の処理
+     */
     override fun onPositiveClick(dialog: DialogInterface, which: Int) {
         super.onPositiveClick(dialog, which)
+        // 回答画面へ遷移
         questionnaireTargetUser.let { user ->
             val action = UserListFragmentDirections.actionToQuestionnairePagerFragment().apply {
                 userId = user.id

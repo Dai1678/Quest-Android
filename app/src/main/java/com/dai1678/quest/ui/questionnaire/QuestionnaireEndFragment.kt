@@ -13,6 +13,9 @@ import com.dai1678.quest.databinding.FragmentQuestionnaireEndBinding
 import com.dai1678.quest.listener.QuestionnaireEndFragmentListener
 import com.dai1678.quest.util.setupSnackBar
 
+/**
+ * 回答送信画面のUIコントローラ
+ */
 class QuestionnaireEndFragment : Fragment() {
 
     private val questionnaireAnswerViewModel: QuestionnaireAnswerViewModel by viewModels({
@@ -30,6 +33,7 @@ class QuestionnaireEndFragment : Fragment() {
 
     private val callbackListener = object : QuestionnaireAnswerViewModel.Callback {
         override fun finishQuestionnaire() {
+            // 受検者一覧画面に遷移
             findNavController().navigate(R.id.action_global_user_list_fragment)
         }
     }

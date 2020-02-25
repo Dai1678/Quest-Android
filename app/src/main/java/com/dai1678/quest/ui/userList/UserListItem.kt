@@ -9,7 +9,9 @@ import com.xwray.groupie.databinding.BindableItem
 import java.util.Date
 
 /**
- * 受検者リスト画面 並び替えヘッダー
+ * 受検者リスト画面 並び替えヘッダー groupie Item // TODO 未開発
+ *
+ * @param sortCategoryName 現在のソート種類名
  */
 class UserListHeaderItem(private val sortCategoryName: String) :
     BindableItem<ListHeaderUserBinding>() {
@@ -26,7 +28,10 @@ class UserListHeaderItem(private val sortCategoryName: String) :
 }
 
 /**
- * 受検者リスト画面 受検者情報
+ * 受検者リスト画面 受検者情報 groupie Item
+ *
+ * @param user 受検者情報
+ * @param callback 受検者リストクリック時のコールバック
  */
 class UserListBodyItem(val user: User, val callback: () -> Unit) :
     BindableItem<ListItemUserBinding>() {
@@ -49,7 +54,6 @@ class UserListBodyItem(val user: User, val callback: () -> Unit) :
         viewBinding.lastQuestionnaireTime =
             resources.getString(R.string.user_list_last_questionnaire_label, lastQuestionnaireDate)
 
-        // 受検者確認ダイアログの表示
         viewBinding.listItemUserView.setOnClickListener {
             callback.invoke()
         }

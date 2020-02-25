@@ -11,7 +11,12 @@ import java.util.Date
 private const val SCREEN_LOG_CHILD = "screenLog"
 
 /**
- * 回答画面 ViewPager2を管理できるViewModel
+ * 回答画面 ViewPager2の管理ViewModelオブジェクト
+ * @property fireBaseDatabase Firebase Realtime Databaseのインスタンス
+ * @property scrollCount ページを切り替えた回数
+ * @property currentPage 現在のページ番号
+ * @property isVisibleBackButton trueの場合、「前に戻る」ボタンを表示する
+ * @property isVisibleNextButton trueの場合、「次へ進む」ボタンを表示する
  */
 class QuestionnairePagerViewModel : ViewModel() {
     var callBack: CallBack? = null
@@ -23,15 +28,20 @@ class QuestionnairePagerViewModel : ViewModel() {
     private val mutableCurrentPage = MutableLiveData(0)
     val currentPage: LiveData<Int> = mutableCurrentPage
 
-    // trueの場合、「前に戻る」ボタンを表示する
     private val mutableIsVisibleBackButton = MutableLiveData<Boolean>(true)
     val isVisibleBackButton: LiveData<Boolean> = mutableIsVisibleBackButton
 
-    // trueの場合、「次へ進む」ボタンを表示する
     private val mutableIsVisibleNextButton = MutableLiveData<Boolean>(true)
     val isVisibleNextButton: LiveData<Boolean> = mutableIsVisibleNextButton
 
-    // スクリーンログをFireBase Realtime Databaseに保存
+    /**
+     * スクリーンログをFireBase Realtime Databaseに保存
+     * ページが切り替わるごとに行われる
+     * @param page 現在のページ番号
+     * @param userId 受検者のid
+     * @param userGender 受検者の性別
+     * @param userAgeRange 受検者の年齢範囲
+     */
     fun sendScreenLog(page: Int, userId: String, userGender: String, userAgeRange: String) {
         scrollCount++
 
@@ -47,7 +57,10 @@ class QuestionnairePagerViewModel : ViewModel() {
         fireBaseDatabase.reference.child(SCREEN_LOG_CHILD).push().setValue(screenLog)
     }
 
-    // 現在のページ番号を保存
+    /**
+     * 現在のページ番号を保存
+     * @param page 現在のページ番号
+     */
     fun setCurrentPage(page: Int) {
         mutableCurrentPage.value = page
     }
@@ -80,6 +93,7 @@ class QuestionnairePagerViewModel : ViewModel() {
     interface CallBack {
         /**
          * ページ移動時にToolBarのtitleを変更
+         * @param question Question Enum
          */
         fun updateToolbarTitle(question: Question)
     }

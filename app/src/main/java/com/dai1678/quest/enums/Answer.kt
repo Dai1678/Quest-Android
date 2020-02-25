@@ -4,11 +4,17 @@ import android.content.Context
 import androidx.annotation.ArrayRes
 import com.dai1678.quest.R
 
+// 何も指定したくないとき
 private const val NONE = 0
 
+/**
+ * 回答ページごとの回答項目のデータをまとめたenum
+ *
+ * @param answerMessagesResId 回答項目文言の文字配列リソース
+ */
 enum class Answer(
     @ArrayRes
-    val messages: Int
+    val answerMessagesResId: Int
 ) {
     PAGE0(NONE),
     PAGE1(R.array.questionnaire_1_answers),
@@ -26,11 +32,16 @@ enum class Answer(
     PAGE13(R.array.questionnaire_11_answers),
     PAGE14(NONE);
 
+    /**
+     * Answer enumを元に回答文言の文字配列を返す
+     * @param context Context
+     * @return 回答文言の文字配列
+     */
     fun getAnswers(context: Context): Array<String> {
-        return if (messages == NONE) {
+        return if (answerMessagesResId == NONE) {
             arrayOf(context.getString(R.string.blank))
         } else {
-            context.resources.getStringArray(messages)
+            context.resources.getStringArray(answerMessagesResId)
         }
     }
 
