@@ -13,6 +13,9 @@ import com.dai1678.quest.R
 import com.dai1678.quest.databinding.ActivityMainBinding
 import com.dai1678.quest.listener.MainActivityListener
 
+/**
+ * MainActivity 本アプリはSingleActivity構成
+ */
 class MainActivity : AppCompatActivity(), MainActivityListener {
 
     private lateinit var binding: ActivityMainBinding
@@ -26,6 +29,7 @@ class MainActivity : AppCompatActivity(), MainActivityListener {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         setSupportActionBar(binding.toolbar)
 
+        // 受検者一覧画面と回答画面ではToolbarのバックボタンは表示しない
         val appBarConfiguration =
             AppBarConfiguration(setOf(R.id.userListFragment, R.id.questionnairePagerFragment))
         setupActionBarWithNavController(navController, appBarConfiguration)
