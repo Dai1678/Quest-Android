@@ -17,7 +17,16 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 /**
- * 受検者登録画面 ViewModel層
+ * 受検者登録画面 ViewModelオブジェクト
+ *
+ * @property snackBarText SnackBarに表示する文言の文字列リソース
+ * @property firstName 入力された受検者の名
+ * @property lastName 入力された受検者の姓
+ * @property firstReadName 入力された受検者の名(読み仮名)
+ * @property lastReadName 入力された受検者の姓(読み仮名)
+ * @property ageRange 入力された受検者の年齢範囲
+ * @property gender 入力された受検者の性別
+ * @property canSubmit 入力フォームが全て埋まっていれば、trueを返す
  */
 class RegisterUserViewModel : ViewModel() {
     private val repository = UserRepository.getInstance()
@@ -34,7 +43,18 @@ class RegisterUserViewModel : ViewModel() {
     var ageRange = MutableLiveData<String>()
     var gender = MutableLiveData<String>()
 
-    // 入力フォームの確認
+    val canSubmit = MediatorLiveData<Boolean>().also { result ->
+        result.addSource(firstName) { result.value = isValidInput() }
+        result.addSource(lastName) { result.value = isValidInput() }
+        result.addSource(firstReadName) { result.value = isValidInput() }
+        result.addSource(lastReadName) { result.value = isValidInput() }
+        result.addSource(ageRange) { result.value = isValidInput() }
+        result.addSource(gender) { result.value = isValidInput() }
+    }
+
+    /**
+     * 入力フォームの確認
+     */
     private fun isValidInput() =
         firstName.value.isNullOrBlank().not() &&
                 lastName.value.isNullOrBlank().not() &&
@@ -45,17 +65,9 @@ class RegisterUserViewModel : ViewModel() {
 
     // TODO ひらがな入力制限処理を入れる
 
-    // 入力フォームが全て埋まっていれば、trueを返す
-    val canSubmit = MediatorLiveData<Boolean>().also { result ->
-        result.addSource(firstName) { result.value = isValidInput() }
-        result.addSource(lastName) { result.value = isValidInput() }
-        result.addSource(firstReadName) { result.value = isValidInput() }
-        result.addSource(lastReadName) { result.value = isValidInput() }
-        result.addSource(ageRange) { result.value = isValidInput() }
-        result.addSource(gender) { result.value = isValidInput() }
-    }
-
-    // 登録ボタンを押したときの処理
+    /**
+     * 登録ボタンを押したときの処理
+     */
     fun registerUserData() {
         viewModelScope.launch {
             when (val result = postUserData()) {
@@ -71,7 +83,10 @@ class RegisterUserViewModel : ViewModel() {
         }
     }
 
-    // 受検者登録処理
+    /**
+     * 受検者登録処理
+     * @return NetworkResult<DefaultResponse>
+     */
     private suspend fun postUserData(): NetworkResult<DefaultResponse> =
         withContext(Dispatchers.IO) {
             val newPatient = User(
@@ -85,14 +100,18 @@ class RegisterUserViewModel : ViewModel() {
             repository.createUser(newPatient)
         }
 
-    // ユーザー登録処理後のメッセージ設定
+    /**
+     * 受検者登録処理後に表示するメッセージ設定
+     * @param messageResId 表示する文言の文字列リソース
+     */
     private fun showRegisteredMessage(messageResId: Int) {
         mutableSnackBarText.postValue(Event((messageResId)))
     }
 
     interface Callback {
-
-        // 送信完了時の処理
+        /**
+         * 送信完了時の処理
+         */
         fun finishQuestionnaire()
     }
 }

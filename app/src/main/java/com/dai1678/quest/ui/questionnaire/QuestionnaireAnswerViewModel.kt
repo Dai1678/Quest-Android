@@ -108,7 +108,7 @@ class QuestionnaireAnswerViewModel : ViewModel() {
 
     /**
      * 結果送信処理後のメッセージ設定
-     * @param messageResId Toastに表示する文言の文字列リソース
+     * @param messageResId SnackBarに表示する文言の文字列リソース
      */
     private fun showPostedResultMessage(messageResId: Int) {
         mutableSnackBarText.postValue(Event((messageResId)))
