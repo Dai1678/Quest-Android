@@ -75,7 +75,7 @@ data class QuestionnaireResult(
 }
 
 /**
- * APIで回答結果を受け取った際のデータクラス
+ * APIで回答結果を受け取った際のレスポンスのデータクラス
  * @param total 受け取った回答結果の数
  * @param list 回答結果
  */
